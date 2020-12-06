@@ -8,4 +8,5 @@ target 'IDEHospital' do
   # Pods for IDEHospital
 	pod 'Alamofire', '~> 5.2'
 	pod 'IQKeyboardManagerSwift'
+	pod 'SwiftGen', '~> 6.0'
 end
