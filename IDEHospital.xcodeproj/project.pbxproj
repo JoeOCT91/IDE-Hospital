@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,18 @@
 		863232D4257D733C00514F5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 863232D2257D733C00514F5A /* Main.storyboard */; };
 		863232D6257D733D00514F5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 863232D5257D733D00514F5A /* Assets.xcassets */; };
 		863232D9257D733D00514F5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 863232D7257D733D00514F5A /* LaunchScreen.storyboard */; };
+		863232F6257D7BB700514F5A /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863232F5257D7BB700514F5A /* APIManager.swift */; };
+		863232F9257D7BE300514F5A /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863232F8257D7BE300514F5A /* APIRouter.swift */; };
+		863232FC257D82DB00514F5A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863232FB257D82DB00514F5A /* Constants.swift */; };
+		863232FF257D835F00514F5A /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863232FE257D835F00514F5A /* UserDefaultsManager.swift */; };
+		86323302257D83A400514F5A /* ValidatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86323301257D83A400514F5A /* ValidatorManager.swift */; };
+		86323305257D83DA00514F5A /* HttpBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86323304257D83DA00514F5A /* HttpBody.swift */; };
+		86323308257D855200514F5A /* UIViewController+DismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86323307257D855200514F5A /* UIViewController+DismissKeyboard.swift */; };
+		8632330B257D85BC00514F5A /* Notification.Name+MoreNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8632330A257D85BC00514F5A /* Notification.Name+MoreNames.swift */; };
+		8632330F257D86A000514F5A /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8632330E257D86A000514F5A /* UIViewController+Alert.swift */; };
+		86323312257D86BE00514F5A /* UIView+Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86323311257D86BE00514F5A /* UIView+Loader.swift */; };
+		86323315257D86EA00514F5A /* String+trimming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86323314257D86EA00514F5A /* String+trimming.swift */; };
+		86323318257D878A00514F5A /* UIViewController+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86323317257D878A00514F5A /* UIViewController+Storyboard.swift */; };
 		B7E6D5DC1F585871719B5F3D /* Pods_IDEHospital.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0BDB737E5E4140C2CAB0880 /* Pods_IDEHospital.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +36,18 @@
 		863232D5257D733D00514F5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		863232D8257D733D00514F5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		863232DA257D733D00514F5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		863232F5257D7BB700514F5A /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		863232F8257D7BE300514F5A /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
+		863232FB257D82DB00514F5A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		863232FE257D835F00514F5A /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		86323301257D83A400514F5A /* ValidatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorManager.swift; sourceTree = "<group>"; };
+		86323304257D83DA00514F5A /* HttpBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpBody.swift; sourceTree = "<group>"; };
+		86323307257D855200514F5A /* UIViewController+DismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+DismissKeyboard.swift"; sourceTree = "<group>"; };
+		8632330A257D85BC00514F5A /* Notification.Name+MoreNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+MoreNames.swift"; sourceTree = "<group>"; };
+		8632330E257D86A000514F5A /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		86323311257D86BE00514F5A /* UIView+Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Loader.swift"; sourceTree = "<group>"; };
+		86323314257D86EA00514F5A /* String+trimming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+trimming.swift"; sourceTree = "<group>"; };
+		86323317257D878A00514F5A /* UIViewController+Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Storyboard.swift"; sourceTree = "<group>"; };
 		D0BDB737E5E4140C2CAB0880 /* Pods_IDEHospital.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IDEHospital.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB534F8EC6442A45ACC19CEC /* Pods-IDEHospital.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IDEHospital.debug.xcconfig"; path = "Target Support Files/Pods-IDEHospital/Pods-IDEHospital.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -46,7 +70,6 @@
 				EB534F8EC6442A45ACC19CEC /* Pods-IDEHospital.debug.xcconfig */,
 				7A1613DADFF92904C35C9FE2 /* Pods-IDEHospital.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -105,6 +128,9 @@
 		863232E2257D738900514F5A /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				863232F5257D7BB700514F5A /* APIManager.swift */,
+				863232F8257D7BE300514F5A /* APIRouter.swift */,
+				86323304257D83DA00514F5A /* HttpBody.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -112,6 +138,8 @@
 		863232E3257D739500514F5A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				863232FB257D82DB00514F5A /* Constants.swift */,
+				86323301257D83A400514F5A /* ValidatorManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -119,6 +147,12 @@
 		863232E4257D73B300514F5A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				86323307257D855200514F5A /* UIViewController+DismissKeyboard.swift */,
+				8632330A257D85BC00514F5A /* Notification.Name+MoreNames.swift */,
+				8632330E257D86A000514F5A /* UIViewController+Alert.swift */,
+				86323311257D86BE00514F5A /* UIView+Loader.swift */,
+				86323314257D86EA00514F5A /* String+trimming.swift */,
+				86323317257D878A00514F5A /* UIViewController+Storyboard.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -141,6 +175,7 @@
 		863232E7257D73F700514F5A /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				863232FE257D835F00514F5A /* UserDefaultsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -299,8 +334,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				863232FC257D82DB00514F5A /* Constants.swift in Sources */,
+				863232F6257D7BB700514F5A /* APIManager.swift in Sources */,
+				863232FF257D835F00514F5A /* UserDefaultsManager.swift in Sources */,
+				863232F9257D7BE300514F5A /* APIRouter.swift in Sources */,
+				8632330F257D86A000514F5A /* UIViewController+Alert.swift in Sources */,
+				86323312257D86BE00514F5A /* UIView+Loader.swift in Sources */,
 				863232D1257D733C00514F5A /* ViewController.swift in Sources */,
+				86323308257D855200514F5A /* UIViewController+DismissKeyboard.swift in Sources */,
+				86323315257D86EA00514F5A /* String+trimming.swift in Sources */,
+				86323302257D83A400514F5A /* ValidatorManager.swift in Sources */,
 				863232CD257D733C00514F5A /* AppDelegate.swift in Sources */,
+				8632330B257D85BC00514F5A /* Notification.Name+MoreNames.swift in Sources */,
+				86323305257D83DA00514F5A /* HttpBody.swift in Sources */,
+				86323318257D878A00514F5A /* UIViewController+Storyboard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
