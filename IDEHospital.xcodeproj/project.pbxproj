@@ -8,22 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		863232CD257D733C00514F5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863232CC257D733C00514F5A /* AppDelegate.swift */; };
-		863232CF257D733C00514F5A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863232CE257D733C00514F5A /* SceneDelegate.swift */; };
 		863232D1257D733C00514F5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863232D0257D733C00514F5A /* ViewController.swift */; };
 		863232D4257D733C00514F5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 863232D2257D733C00514F5A /* Main.storyboard */; };
 		863232D6257D733D00514F5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 863232D5257D733D00514F5A /* Assets.xcassets */; };
 		863232D9257D733D00514F5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 863232D7257D733D00514F5A /* LaunchScreen.storyboard */; };
+		B7E6D5DC1F585871719B5F3D /* Pods_IDEHospital.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0BDB737E5E4140C2CAB0880 /* Pods_IDEHospital.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A1613DADFF92904C35C9FE2 /* Pods-IDEHospital.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IDEHospital.release.xcconfig"; path = "Target Support Files/Pods-IDEHospital/Pods-IDEHospital.release.xcconfig"; sourceTree = "<group>"; };
 		863232C9257D733C00514F5A /* IDEHospital.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IDEHospital.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		863232CC257D733C00514F5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		863232CE257D733C00514F5A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		863232D0257D733C00514F5A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		863232D3257D733C00514F5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		863232D5257D733D00514F5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		863232D8257D733D00514F5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		863232DA257D733D00514F5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0BDB737E5E4140C2CAB0880 /* Pods_IDEHospital.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IDEHospital.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB534F8EC6442A45ACC19CEC /* Pods-IDEHospital.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IDEHospital.debug.xcconfig"; path = "Target Support Files/Pods-IDEHospital/Pods-IDEHospital.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +33,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7E6D5DC1F585871719B5F3D /* Pods_IDEHospital.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		196F16B6F1B65AB1579EB1A0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EB534F8EC6442A45ACC19CEC /* Pods-IDEHospital.debug.xcconfig */,
+				7A1613DADFF92904C35C9FE2 /* Pods-IDEHospital.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		47103EAC9B238CBF1AB0CD04 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D0BDB737E5E4140C2CAB0880 /* Pods_IDEHospital.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		863232C0257D733C00514F5A = {
 			isa = PBXGroup;
 			children = (
 				863232CB257D733C00514F5A /* IDEHospital */,
 				863232CA257D733C00514F5A /* Products */,
+				196F16B6F1B65AB1579EB1A0 /* Pods */,
+				47103EAC9B238CBF1AB0CD04 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +79,110 @@
 		863232CB257D733C00514F5A /* IDEHospital */ = {
 			isa = PBXGroup;
 			children = (
-				863232CC257D733C00514F5A /* AppDelegate.swift */,
-				863232CE257D733C00514F5A /* SceneDelegate.swift */,
-				863232D0257D733C00514F5A /* ViewController.swift */,
-				863232D2257D733C00514F5A /* Main.storyboard */,
-				863232D5257D733D00514F5A /* Assets.xcassets */,
-				863232D7257D733D00514F5A /* LaunchScreen.storyboard */,
+				863232E1257D734E00514F5A /* Shared */,
+				863232E2257D738900514F5A /* Networking */,
+				863232E7257D73F700514F5A /* Managers */,
+				863232E3257D739500514F5A /* Utilities */,
+				863232E4257D73B300514F5A /* Extensions */,
+				863232E6257D73DF00514F5A /* Model */,
+				863232E9257D74ED00514F5A /* View */,
+				863232E8257D742200514F5A /* ViewModel */,
+				863232E5257D73CE00514F5A /* Controller */,
+				863232EA257D758200514F5A /* Resources */,
 				863232DA257D733D00514F5A /* Info.plist */,
 			);
 			path = IDEHospital;
+			sourceTree = "<group>";
+		};
+		863232E1257D734E00514F5A /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				863232CC257D733C00514F5A /* AppDelegate.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		863232E2257D738900514F5A /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		863232E3257D739500514F5A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		863232E4257D73B300514F5A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		863232E5257D73CE00514F5A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				863232D0257D733C00514F5A /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		863232E6257D73DF00514F5A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		863232E7257D73F700514F5A /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		863232E8257D742200514F5A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		863232E9257D74ED00514F5A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		863232EA257D758200514F5A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				863232EC257D75E100514F5A /* Storyboard */,
+				863232EB257D75BC00514F5A /* Assets */,
+				863232D7257D733D00514F5A /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		863232EB257D75BC00514F5A /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				863232D5257D733D00514F5A /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		863232EC257D75E100514F5A /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				863232D2257D733C00514F5A /* Main.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +192,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 863232DD257D733D00514F5A /* Build configuration list for PBXNativeTarget "IDEHospital" */;
 			buildPhases = (
+				1C7F9AD7A9E5FD31BCA7751E /* [CP] Check Pods Manifest.lock */,
 				863232C5257D733C00514F5A /* Sources */,
 				863232C6257D733C00514F5A /* Frameworks */,
 				863232C7257D733C00514F5A /* Resources */,
+				BC61826CFD7D3EDC1D70F1C7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +252,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1C7F9AD7A9E5FD31BCA7751E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IDEHospital-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BC61826CFD7D3EDC1D70F1C7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IDEHospital/Pods-IDEHospital-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IDEHospital/Pods-IDEHospital-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IDEHospital/Pods-IDEHospital-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		863232C5257D733C00514F5A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -139,7 +301,6 @@
 			files = (
 				863232D1257D733C00514F5A /* ViewController.swift in Sources */,
 				863232CD257D733C00514F5A /* AppDelegate.swift in Sources */,
-				863232CF257D733C00514F5A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +444,7 @@
 		};
 		863232DE257D733D00514F5A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB534F8EC6442A45ACC19CEC /* Pods-IDEHospital.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +464,7 @@
 		};
 		863232DF257D733D00514F5A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A1613DADFF92904C35C9FE2 /* Pods-IDEHospital.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
