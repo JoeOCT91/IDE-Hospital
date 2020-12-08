@@ -27,6 +27,7 @@ struct Storyboards {
 // View Controllers
 struct ViewControllers {
     static let viewController = "viewController"
+    static let homeVC   = "HomeVC"
 }
 
 // Urls
