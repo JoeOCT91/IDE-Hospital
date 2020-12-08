@@ -16,8 +16,6 @@ class ValidatorManager {
         return ValidatorManager.sharedInstance
     }
     
-    // Initialization
-    private init() {}
     
     //MARK Methods
     func isValidEmail(_ email: String) -> Bool {

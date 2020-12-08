@@ -18,8 +18,6 @@
 		863232FF257D835F00514F5A /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863232FE257D835F00514F5A /* UserDefaultsManager.swift */; };
 		86323302257D83A400514F5A /* ValidatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86323301257D83A400514F5A /* ValidatorManager.swift */; };
 		86323305257D83DA00514F5A /* HttpBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86323304257D83DA00514F5A /* HttpBody.swift */; };
-		86323308257D855200514F5A /* UIViewController+DismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86323307257D855200514F5A /* UIViewController+DismissKeyboard.swift */; };
-		8632330B257D85BC00514F5A /* Notification.Name+MoreNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8632330A257D85BC00514F5A /* Notification.Name+MoreNames.swift */; };
 		8632330F257D86A000514F5A /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8632330E257D86A000514F5A /* UIViewController+Alert.swift */; };
 		86323312257D86BE00514F5A /* UIView+Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86323311257D86BE00514F5A /* UIView+Loader.swift */; };
 		86323315257D86EA00514F5A /* String+trimming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86323314257D86EA00514F5A /* String+trimming.swift */; };
@@ -42,8 +40,6 @@
 		863232FE257D835F00514F5A /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		86323301257D83A400514F5A /* ValidatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorManager.swift; sourceTree = "<group>"; };
 		86323304257D83DA00514F5A /* HttpBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpBody.swift; sourceTree = "<group>"; };
-		86323307257D855200514F5A /* UIViewController+DismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+DismissKeyboard.swift"; sourceTree = "<group>"; };
-		8632330A257D85BC00514F5A /* Notification.Name+MoreNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+MoreNames.swift"; sourceTree = "<group>"; };
 		8632330E257D86A000514F5A /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		86323311257D86BE00514F5A /* UIView+Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Loader.swift"; sourceTree = "<group>"; };
 		86323314257D86EA00514F5A /* String+trimming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+trimming.swift"; sourceTree = "<group>"; };
@@ -81,6 +77,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		86285186257FBC470059122F /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		863232C0257D733C00514F5A = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +105,7 @@
 		863232CB257D733C00514F5A /* IDEHospital */ = {
 			isa = PBXGroup;
 			children = (
+				86285186257FBC470059122F /* New Group */,
 				863232E1257D734E00514F5A /* Shared */,
 				863232E2257D738900514F5A /* Networking */,
 				863232E7257D73F700514F5A /* Managers */,
@@ -110,7 +114,6 @@
 				863232E6257D73DF00514F5A /* Model */,
 				863232E9257D74ED00514F5A /* View */,
 				863232E8257D742200514F5A /* ViewModel */,
-				863232E5257D73CE00514F5A /* Controller */,
 				863232EA257D758200514F5A /* Resources */,
 				863232DA257D733D00514F5A /* Info.plist */,
 			);
@@ -147,22 +150,12 @@
 		863232E4257D73B300514F5A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				86323307257D855200514F5A /* UIViewController+DismissKeyboard.swift */,
-				8632330A257D85BC00514F5A /* Notification.Name+MoreNames.swift */,
 				8632330E257D86A000514F5A /* UIViewController+Alert.swift */,
 				86323311257D86BE00514F5A /* UIView+Loader.swift */,
 				86323314257D86EA00514F5A /* String+trimming.swift */,
 				86323317257D878A00514F5A /* UIViewController+Storyboard.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		863232E5257D73CE00514F5A /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				863232D0257D733C00514F5A /* ViewController.swift */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		863232E6257D73DF00514F5A /* Model */ = {
@@ -190,6 +183,7 @@
 		863232E9257D74ED00514F5A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				863232D0257D733C00514F5A /* ViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -341,11 +335,9 @@
 				8632330F257D86A000514F5A /* UIViewController+Alert.swift in Sources */,
 				86323312257D86BE00514F5A /* UIView+Loader.swift in Sources */,
 				863232D1257D733C00514F5A /* ViewController.swift in Sources */,
-				86323308257D855200514F5A /* UIViewController+DismissKeyboard.swift in Sources */,
 				86323315257D86EA00514F5A /* String+trimming.swift in Sources */,
 				86323302257D83A400514F5A /* ValidatorManager.swift in Sources */,
 				863232CD257D733C00514F5A /* AppDelegate.swift in Sources */,
-				8632330B257D85BC00514F5A /* Notification.Name+MoreNames.swift in Sources */,
 				86323305257D83DA00514F5A /* HttpBody.swift in Sources */,
 				86323318257D878A00514F5A /* UIViewController+Storyboard.swift in Sources */,
 			);
