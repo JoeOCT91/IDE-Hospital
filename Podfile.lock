@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (5.4.0)
+  - IQKeyboardManagerSwift (6.5.6)
+  - SwiftGen (6.4.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.2)
+  - IQKeyboardManagerSwift
+  - SwiftGen (~> 6.0)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - IQKeyboardManagerSwift
+    - SwiftGen
+
+SPEC CHECKSUMS:
+  Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+  SwiftGen: 67860cc7c3cfc2ed25b9b74cfd55495fc89f9108
+
+PODFILE CHECKSUM: e0d28f7caa5bfd908e92f5db9b4fdd659912608c
+
+COCOAPODS: 1.10.0

@@ -13,6 +13,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    // MARK:- Public Methods
+    class func create() -> ViewController {
+        let viewController: ViewController = UIViewController.create(storyboardName: Storyboards.authentication, identifier: ViewControllers.viewController)
+        return viewController
+    }
 
 
 }
