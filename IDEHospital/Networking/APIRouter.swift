@@ -83,6 +83,34 @@ enum APIRouter: URLRequestConvertible{
         return try encoding.encode(urlRequest, with: parameters)
     }
     
+
     
+    private func encodeToJSON<T: Codable>(_ body: T) -> Data? {
+        do {
+            let anyEncodable = AnyEncodable(body)
+            let jsonData = try JSONEncoder().encode(anyEncodable)
+            //let jsonString = String(data: jsonData, encoding: .utf8)!
+            //print(jsonString)
+            return jsonData
+        } catch {
+            print(error)
+            return nil
+        }
+    }
+}
+
     
+
+
+// type-erasing wrapper
+struct AnyEncodable: Encodable {
+    private let _encode: (Encoder) throws -> Void
+    
+    public init<T: Encodable>(_ wrapped: T) {
+        _encode = wrapped.encode
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        try _encode(encoder)
+    }
 }
