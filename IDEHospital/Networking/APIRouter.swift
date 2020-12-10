@@ -11,12 +11,13 @@ import Alamofire
 enum APIRouter: URLRequestConvertible{
     
     //End Points names
+    case getCategories
     case login
     
     //Mark:- HTTP Methods
     private var method: HTTPMethod {
         switch self {
-        case .login:
+        case .login, .getCategories:
             return .get
         default:
             return .post
@@ -37,6 +38,8 @@ enum APIRouter: URLRequestConvertible{
         switch self {
         case .login:
             return "Path"
+        case .getCategories:
+            return URLs.mainCategories
         }
     }
     
@@ -55,7 +58,7 @@ enum APIRouter: URLRequestConvertible{
         default:
             break
         }
-        //urlRequest.setValue("application/json", forHTTPHeaderField: HeaderKeys.contentType)
+        urlRequest.setValue("application/json", forHTTPHeaderField: HeaderKeys.contentType)
         
         // HTTP Body
         let httpBody: Data? = {

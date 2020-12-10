@@ -22,6 +22,7 @@ import Foundation
 struct Storyboards {
     static let authentication = "Authentication"
     static let main = "Main"
+    static let home = "Home"
 }
 
 // View Controllers
@@ -32,12 +33,13 @@ struct ViewControllers {
 
 // Urls
 struct URLs {
-    static let base     = ""
+    static let base     = "http://ide-hospital.ideaeg.co/api/"
+    static let mainCategories  = "main_categories"
 }
 
 // Header Keys
 struct HeaderKeys {
-
+    static let contentType = "Content-Type"
 }
 // Authorization Key
 struct Authorization {
