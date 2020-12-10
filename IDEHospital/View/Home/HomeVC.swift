@@ -12,24 +12,24 @@ protocol HomeVCProtocol {
 }
 
 class HomeVC: UIViewController {
+
+    //Outlets
+    @IBOutlet var homeView: HomeView!
     
     //ViewModel
     private var viewModel: HomeVCProtocol!
     
-    //Outlets
-    @IBOutlet var homeView: HomeView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Choose Services"
         self.homeView.setup()
         self.viewModel.getCategories()
-        	
+        configureNavigationBar()
+    }
+    
+    private func configureNavigationBar() {
+        self.title = "Choose Services"
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.barTintColor = UIColor(hexString: "#cccccc")
-        //navigationController?.navigationBar.isTranslucent = false
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-//        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     // MARK:- Public Methods
@@ -43,30 +43,31 @@ class HomeVC: UIViewController {
     @IBAction func humanMedicineButtonPressed(_ sender: UIButton) {
         print("category is is \(sender.tag)"  )
     }
+    
     @IBAction func MRIButtonPressed(_ sender: UIButton) {
         print("category is is \(sender.tag)"  )
     }
+    
     @IBAction func homeNursePressed(_ sender: UIButton) {
         print("category is is \(sender.tag)"  )
     }
+    
     @IBAction func veterinaryPressed(_ sender: UIButton) {
         print("category is is \(sender.tag)"  )
     }
-    
+
 }
 
 extension HomeVC: HomeViewModelProtocol {
-    func setCategory(category: Category) {
-        homeView.configureButton(category: category)
+    internal func setCategory(categories: [Category]) {
+        homeView.setCategories(categories: categories)
     }
     
-    func showLoader() {
+    internal func showLoader() {
         view.showLoader()
     }
     
-    func HideLoader() {
+    internal func HideLoader() {
         view.hideLoader()
     }
-
-    
 }

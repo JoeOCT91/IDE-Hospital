@@ -15,6 +15,7 @@ class APIManager {
             complation(response)
         }
     }
+    
     class func downloadImageAsData(urlString: String, complation: @escaping (Result<Data, Error>) -> ()) {
         guard let url = URL(string: urlString) else { return }
         AF.request(url, method: .get).responseData { (response) in
