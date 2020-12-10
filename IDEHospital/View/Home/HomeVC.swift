@@ -12,20 +12,25 @@ protocol HomeVCProtocol {
 }
 
 class HomeVC: UIViewController {
-
+    
     //Outlets
     @IBOutlet var homeView: HomeView!
     
     //ViewModel
     private var viewModel: HomeVCProtocol!
     
+    //Proprities
+    var categories = [Category]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.homeView.setup()
         self.viewModel.getCategories()
         configureNavigationBar()
+        homeView.setupCollectionView(delgate: self, dataSource: self)
     }
     
+    //MARK:- Private Methods
     private func configureNavigationBar() {
         self.title = "Choose Services"
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
@@ -39,28 +44,13 @@ class HomeVC: UIViewController {
         homeVC.viewModel = viewModel
         return homeVC
     }
-    
-    @IBAction func humanMedicineButtonPressed(_ sender: UIButton) {
-        print("category is is \(sender.tag)"  )
-    }
-    
-    @IBAction func MRIButtonPressed(_ sender: UIButton) {
-        print("category is is \(sender.tag)"  )
-    }
-    
-    @IBAction func homeNursePressed(_ sender: UIButton) {
-        print("category is is \(sender.tag)"  )
-    }
-    
-    @IBAction func veterinaryPressed(_ sender: UIButton) {
-        print("category is is \(sender.tag)"  )
-    }
 
 }
 
 extension HomeVC: HomeViewModelProtocol {
     internal func setCategory(categories: [Category]) {
-        homeView.setCategories(categories: categories)
+        self.categories = categories
+        homeView.collectionView.reloadData()
     }
     
     internal func showLoader() {
@@ -70,4 +60,24 @@ extension HomeVC: HomeViewModelProtocol {
     internal func HideLoader() {
         view.hideLoader()
     }
+}
+
+extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        categories.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.reuseID, for: indexPath) as! CategoryCell
+        cell.tag = categories[indexPath.row].id
+        cell.setupCell(color: categories[indexPath.row].color,categoryTitle: categories[indexPath.row].name)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! CategoryCell
+        print(cell.tag)
+        collectionView.deselectItem(at: indexPath, animated: true)
+    }
+  
 }

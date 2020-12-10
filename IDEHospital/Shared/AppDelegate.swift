@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol AppDelegateProtocol {
-    func getMainWindow() -> UIWindow?
-}
-
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -25,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
-extension AppDelegate: AppDelegateProtocol {
+extension AppDelegate {
     func getMainWindow() -> UIWindow? {
         return window
     }

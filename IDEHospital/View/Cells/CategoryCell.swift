@@ -52,6 +52,7 @@ class CategoryCell: UICollectionViewCell {
             
         ])
     }
+    
     func setupCell(color: String, categoryTitle: String){
         
         self.container.backgroundColor = UIColor(hexString: color)

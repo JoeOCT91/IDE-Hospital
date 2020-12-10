@@ -12,12 +12,10 @@ class HomeView: UIView {
     //MARK:- Outlets
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet var categoriesButtons: [UIButton]!
     @IBOutlet weak var logoImage: UIImageView!
     var collectionView: UICollectionView!
     
     //MARK:- Proprties
-    var Categories = [Category]()
     
     //Setup Function to call from VC
     func setup() {
@@ -25,8 +23,11 @@ class HomeView: UIView {
         configureDescriptionLabel()
         configureLogo()
         configureCollectionView()
-        collectionView.delegate = self
-        collectionView.dataSource = self
+    }
+    
+    func setupCollectionView(delgate: UICollectionViewDelegate, dataSource: UICollectionViewDataSource){
+        collectionView.delegate = delgate
+        collectionView.dataSource = dataSource
     }
     
     //MARK:- Private Functions
@@ -80,33 +81,6 @@ class HomeView: UIView {
     }
     
     //MARK:- Public Functions
-    
-    func setCategories(categories: [Category]){
-        self.Categories = categories
-        collectionView.reloadData()
-    }
-    
-}
-
-extension HomeView: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Categories.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.reuseID, for: indexPath) as! CategoryCell
-        cell.tag = Categories[indexPath.row].id
-        cell.setupCell(color: Categories[indexPath.row].color,categoryTitle: Categories[indexPath.row].name)
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let cell = collectionView.cellForItem(at: indexPath) as! CategoryCell
-        print(cell.tag)
-        collectionView.deselectItem(at: indexPath, animated: true)
-    }
-    
 }
 
 

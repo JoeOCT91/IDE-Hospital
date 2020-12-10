@@ -15,7 +15,6 @@
 		862851DD257FE6570059122F /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862851DC257FE6570059122F /* Categories.swift */; };
 		862851E1257FE68C0059122F /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862851E0257FE68C0059122F /* Category.swift */; };
 		862851ED258061740059122F /* UIColor+FromHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862851EC258061740059122F /* UIColor+FromHex.swift */; };
-		8628520D258076510059122F /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 8628520C258076510059122F /* swiftgen.yml */; };
 		8628521525807B2A0059122F /* AssetsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8628521425807B2A0059122F /* AssetsManager.swift */; };
 		86285231258084C30059122F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 86285230258084C30059122F /* Localizable.strings */; };
 		86285234258085010059122F /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86285233258085010059122F /* Strings.swift */; };
@@ -46,7 +45,6 @@
 		862851DC257FE6570059122F /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		862851E0257FE68C0059122F /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		862851EC258061740059122F /* UIColor+FromHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+FromHex.swift"; sourceTree = "<group>"; };
-		8628520C258076510059122F /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		8628521425807B2A0059122F /* AssetsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetsManager.swift; sourceTree = "<group>"; };
 		86285230258084C30059122F /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		86285233258085010059122F /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -119,7 +117,6 @@
 			children = (
 				862851D7257FD29F0059122F /* HomeVC.swift */,
 				862851D4257FD26E0059122F /* HomeView.swift */,
-				86398BA625826AC000C284B3 /* CategoryCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -145,7 +142,6 @@
 		863232C0257D733C00514F5A = {
 			isa = PBXGroup;
 			children = (
-				8628520C258076510059122F /* swiftgen.yml */,
 				863232CB257D733C00514F5A /* IDEHospital */,
 				863232CA257D733C00514F5A /* Products */,
 				196F16B6F1B65AB1579EB1A0 /* Pods */,
@@ -199,7 +195,6 @@
 			isa = PBXGroup;
 			children = (
 				863232FB257D82DB00514F5A /* Constants.swift */,
-				86323301257D83A400514F5A /* ValidatorManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -207,11 +202,10 @@
 		863232E4257D73B300514F5A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				8632330E257D86A000514F5A /* UIViewController+Alert.swift */,
-				86323311257D86BE00514F5A /* UIView+Loader.swift */,
-				86323314257D86EA00514F5A /* String+trimming.swift */,
-				86323317257D878A00514F5A /* UIViewController+Storyboard.swift */,
-				862851EC258061740059122F /* UIColor+FromHex.swift */,
+				86398BB22582889800C284B3 /* UIViewController */,
+				86398BB12582888D00C284B3 /* String */,
+				86398BB02582887D00C284B3 /* UIColor */,
+				86398BAF2582885F00C284B3 /* UIView */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -228,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				863232FE257D835F00514F5A /* UserDefaultsManager.swift */,
+				86323301257D83A400514F5A /* ValidatorManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -243,6 +238,7 @@
 		863232E9257D74ED00514F5A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				86398BAD258287EB00C284B3 /* Cells */,
 				862851D3257FD23C0059122F /* Home */,
 			);
 			path = View;
@@ -277,6 +273,47 @@
 				863232D7257D733D00514F5A /* LaunchScreen.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		86398BAD258287EB00C284B3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				86398BA625826AC000C284B3 /* CategoryCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		86398BAF2582885F00C284B3 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				8632330E257D86A000514F5A /* UIViewController+Alert.swift */,
+				86323311257D86BE00514F5A /* UIView+Loader.swift */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		86398BB02582887D00C284B3 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				862851EC258061740059122F /* UIColor+FromHex.swift */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
+		86398BB12582888D00C284B3 /* String */ = {
+			isa = PBXGroup;
+			children = (
+				86323314257D86EA00514F5A /* String+trimming.swift */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
+		86398BB22582889800C284B3 /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				86323317257D878A00514F5A /* UIViewController+Storyboard.swift */,
+			);
+			path = UIViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,7 +378,6 @@
 			files = (
 				863232D9257D733D00514F5A /* LaunchScreen.storyboard in Resources */,
 				86285231258084C30059122F /* Localizable.strings in Resources */,
-				8628520D258076510059122F /* swiftgen.yml in Resources */,
 				863232D6257D733D00514F5A /* Assets.xcassets in Resources */,
 				863232D4257D733C00514F5A /* Main.storyboard in Resources */,
 				862851D0257FCE120059122F /* Home.storyboard in Resources */,
@@ -511,7 +547,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -566,7 +602,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

@@ -82,7 +82,7 @@ enum APIRouter: URLRequestConvertible{
             }
         }()
         
-        print(try encoding.encode(urlRequest, with: parameters))
+        //print(try encoding.encode(urlRequest, with: parameters))
         return try encoding.encode(urlRequest, with: parameters)
     }
     
