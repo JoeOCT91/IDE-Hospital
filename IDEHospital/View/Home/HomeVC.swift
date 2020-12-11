@@ -7,8 +7,9 @@
 
 import UIKit
 
-protocol HomeVCProtocol {
+protocol HomeVMProtocol: class {
     func getCategories()
+    func getImage(urlString: String, indexpath: IndexPath)
 }
 
 class HomeVC: UIViewController {
@@ -17,10 +18,10 @@ class HomeVC: UIViewController {
     @IBOutlet var homeView: HomeView!
     
     //ViewModel
-    private var viewModel: HomeVCProtocol!
+    private var viewModel: HomeVMProtocol!
     
     //Proprities
-    var categories = [Category]()
+    var categories = [MainCategory]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +34,8 @@ class HomeVC: UIViewController {
     //MARK:- Private Methods
     private func configureNavigationBar() {
         self.title = "Choose Services"
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
-        navigationController?.navigationBar.barTintColor = UIColor(hexString: "#cccccc")
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor(named: .white)]
+        navigationController?.navigationBar.barTintColor = UIColor(named: .veryLightPink)
     }
     
     // MARK:- Public Methods
@@ -47,8 +48,8 @@ class HomeVC: UIViewController {
 
 }
 
-extension HomeVC: HomeViewModelProtocol {
-    internal func setCategory(categories: [Category]) {
+extension HomeVC: HomeVCProtocol {
+    internal func setCategory(categories: [MainCategory]) {
         self.categories = categories
         homeView.collectionView.reloadData()
     }
@@ -71,6 +72,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.reuseID, for: indexPath) as! CategoryCell
         cell.tag = categories[indexPath.row].id
         cell.setupCell(color: categories[indexPath.row].color,categoryTitle: categories[indexPath.row].name)
+        viewModel.getImage(urlString: categories[indexPath.row].image, indexpath: indexPath)
         return cell
     }
     
@@ -78,6 +80,11 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
         let cell = collectionView.cellForItem(at: indexPath) as! CategoryCell
         print(cell.tag)
         collectionView.deselectItem(at: indexPath, animated: true)
+    }
+    
+    func setCellImage(image: UIImage, indexPath: IndexPath) {
+        let cell = homeView.collectionView.cellForItem(at: indexPath) as! CategoryCell
+        cell.setimage(image: image)
     }
   
 }

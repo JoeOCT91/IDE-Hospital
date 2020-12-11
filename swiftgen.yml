@@ -15,3 +15,9 @@ fonts:
   outputs:
     templateName: swift5
     output: IDEHospital/Resources/Fonts/FontsManager.swift
+
+colors:
+  inputs: IDEHospital/Resources/Colors/Colors.txt
+  outputs:
+    templateName: swift5
+    output: IDEHospital/Resources/Colors/ColorsManager.swift

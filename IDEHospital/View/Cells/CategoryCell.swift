@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CategoryCell: UICollectionViewCell {
     
     static let reuseID  = "CategoryCell"
     private let container = UIView()
-    private let categoryLogoImage = UIImageView(frame: .zero)
+    private var categoryLogoImage = UIImageView()
     private let categoryTitle = UILabel()
     
     override init(frame: CGRect) {
@@ -32,7 +33,9 @@ class CategoryCell: UICollectionViewCell {
         categoryTitle.textAlignment = .center
         categoryTitle.font = UIFont(font: FontFamily.PTSans.bold, size: 15)
         categoryTitle.font = categoryTitle.font.withSize(15)
-
+        
+        contentView.bringSubviewToFront(categoryLogoImage)
+        contentView.sendSubviewToBack(container)
         
         container.translatesAutoresizingMaskIntoConstraints = false
         categoryLogoImage.translatesAutoresizingMaskIntoConstraints = false
@@ -50,12 +53,20 @@ class CategoryCell: UICollectionViewCell {
             categoryTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             categoryTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
+            categoryLogoImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 18),
+            categoryLogoImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 42),
+            categoryLogoImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -42),
+            categoryLogoImage.heightAnchor.constraint(equalTo: categoryLogoImage.widthAnchor)
         ])
+        categoryLogoImage.contentMode = .scaleAspectFill
     }
     
     func setupCell(color: String, categoryTitle: String){
-        
         self.container.backgroundColor = UIColor(hexString: color)
         self.categoryTitle.text = categoryTitle
+    }
+    
+    func setimage(image: UIImage) {
+        categoryLogoImage.image = image
     }
 }

@@ -20,14 +20,12 @@ import Foundation
 
 // Storyboards
 struct Storyboards {
-    static let authentication = "Authentication"
     static let main = "Main"
     static let home = "Home"
 }
 
 // View Controllers
 struct ViewControllers {
-    static let viewController = "viewController"
     static let homeVC   = "HomeVC"
 }
 

@@ -7,10 +7,10 @@
 
 import Foundation
 
-class Categories: Codable {
+class MainCategoriesReponse: Codable {
     let success: Bool
     let code: Int
-    let categories: [Category]
+    let categories: [MainCategory]
     
     enum CodingKeys: String, CodingKey {
         case success, code

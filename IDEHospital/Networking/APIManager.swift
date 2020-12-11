@@ -10,24 +10,11 @@ import Alamofire
 
 class APIManager {
     
-    class func getCategories(complation: @escaping (Result<Categories, Error>) -> () ) {
+    class func getCategories(complation: @escaping (Result<MainCategoriesReponse, Error>) -> () ) {
         request(APIRouter.getCategories) { (response) in
             complation(response)
         }
-    }
-    
-    class func downloadImageAsData(urlString: String, complation: @escaping (Result<Data, Error>) -> ()) {
-        guard let url = URL(string: urlString) else { return }
-        AF.request(url, method: .get).responseData { (response) in
-            switch(response.result){
-            case .success(let data):
-                complation(.success(data))
-            case .failure(let error):
-                complation(.failure(error))
-            }
-        } 
-    }
-    
+    }    
 }
 extension APIManager{
     // MARK:- The request function to get results in a closure

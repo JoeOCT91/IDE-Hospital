@@ -12,8 +12,8 @@
 		862851D0257FCE120059122F /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 862851CF257FCE120059122F /* Home.storyboard */; };
 		862851D5257FD26E0059122F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862851D4257FD26E0059122F /* HomeView.swift */; };
 		862851D8257FD29F0059122F /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862851D7257FD29F0059122F /* HomeVC.swift */; };
-		862851DD257FE6570059122F /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862851DC257FE6570059122F /* Categories.swift */; };
-		862851E1257FE68C0059122F /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862851E0257FE68C0059122F /* Category.swift */; };
+		862851DD257FE6570059122F /* MainCategoriesReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862851DC257FE6570059122F /* MainCategoriesReponse.swift */; };
+		862851E1257FE68C0059122F /* MainCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862851E0257FE68C0059122F /* MainCategory.swift */; };
 		862851ED258061740059122F /* UIColor+FromHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862851EC258061740059122F /* UIColor+FromHex.swift */; };
 		8628521525807B2A0059122F /* AssetsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8628521425807B2A0059122F /* AssetsManager.swift */; };
 		86285231258084C30059122F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 86285230258084C30059122F /* Localizable.strings */; };
@@ -32,6 +32,8 @@
 		86323315257D86EA00514F5A /* String+trimming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86323314257D86EA00514F5A /* String+trimming.swift */; };
 		86323318257D878A00514F5A /* UIViewController+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86323317257D878A00514F5A /* UIViewController+Storyboard.swift */; };
 		86398BA725826AC000C284B3 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86398BA625826AC000C284B3 /* CategoryCell.swift */; };
+		86398BBB2582B0A500C284B3 /* Colors.txt in Resources */ = {isa = PBXBuildFile; fileRef = 86398BBA2582B0A500C284B3 /* Colors.txt */; };
+		86398BC22582B4BE00C284B3 /* ColorsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86398BC12582B4BE00C284B3 /* ColorsManager.swift */; };
 		B7E6D5DC1F585871719B5F3D /* Pods_IDEHospital.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0BDB737E5E4140C2CAB0880 /* Pods_IDEHospital.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,8 +44,8 @@
 		862851CF257FCE120059122F /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		862851D4257FD26E0059122F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		862851D7257FD29F0059122F /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
-		862851DC257FE6570059122F /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
-		862851E0257FE68C0059122F /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		862851DC257FE6570059122F /* MainCategoriesReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoriesReponse.swift; sourceTree = "<group>"; };
+		862851E0257FE68C0059122F /* MainCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategory.swift; sourceTree = "<group>"; };
 		862851EC258061740059122F /* UIColor+FromHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+FromHex.swift"; sourceTree = "<group>"; };
 		8628521425807B2A0059122F /* AssetsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetsManager.swift; sourceTree = "<group>"; };
 		86285230258084C30059122F /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -64,6 +66,8 @@
 		86323314257D86EA00514F5A /* String+trimming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+trimming.swift"; sourceTree = "<group>"; };
 		86323317257D878A00514F5A /* UIViewController+Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Storyboard.swift"; sourceTree = "<group>"; };
 		86398BA625826AC000C284B3 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		86398BBA2582B0A500C284B3 /* Colors.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Colors.txt; sourceTree = "<group>"; };
+		86398BC12582B4BE00C284B3 /* ColorsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsManager.swift; sourceTree = "<group>"; };
 		D0BDB737E5E4140C2CAB0880 /* Pods_IDEHospital.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IDEHospital.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB534F8EC6442A45ACC19CEC /* Pods-IDEHospital.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IDEHospital.debug.xcconfig"; path = "Target Support Files/Pods-IDEHospital/Pods-IDEHospital.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,6 +104,8 @@
 		862127CF2581277800C1A5DF /* Colors */ = {
 			isa = PBXGroup;
 			children = (
+				86398BC12582B4BE00C284B3 /* ColorsManager.swift */,
+				86398BBA2582B0A500C284B3 /* Colors.txt */,
 			);
 			path = Colors;
 			sourceTree = "<group>";
@@ -124,8 +130,8 @@
 		862851DB257FE6410059122F /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				862851DC257FE6570059122F /* Categories.swift */,
-				862851E0257FE68C0059122F /* Category.swift */,
+				862851DC257FE6570059122F /* MainCategoriesReponse.swift */,
+				862851E0257FE68C0059122F /* MainCategory.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -323,8 +329,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 863232DD257D733D00514F5A /* Build configuration list for PBXNativeTarget "IDEHospital" */;
 			buildPhases = (
-				862851EF25806C4D0059122F /* SwiftGen */,
 				1C7F9AD7A9E5FD31BCA7751E /* [CP] Check Pods Manifest.lock */,
+				862851EF25806C4D0059122F /* SwiftGen */,
 				863232C5257D733C00514F5A /* Sources */,
 				863232C6257D733C00514F5A /* Frameworks */,
 				863232C7257D733C00514F5A /* Resources */,
@@ -378,6 +384,7 @@
 			files = (
 				863232D9257D733D00514F5A /* LaunchScreen.storyboard in Resources */,
 				86285231258084C30059122F /* Localizable.strings in Resources */,
+				86398BBB2582B0A500C284B3 /* Colors.txt in Resources */,
 				863232D6257D733D00514F5A /* Assets.xcassets in Resources */,
 				863232D4257D733C00514F5A /* Main.storyboard in Resources */,
 				862851D0257FCE120059122F /* Home.storyboard in Resources */,
@@ -458,13 +465,14 @@
 				863232F6257D7BB700514F5A /* APIManager.swift in Sources */,
 				863232FF257D835F00514F5A /* UserDefaultsManager.swift in Sources */,
 				863232F9257D7BE300514F5A /* APIRouter.swift in Sources */,
-				862851DD257FE6570059122F /* Categories.swift in Sources */,
+				862851DD257FE6570059122F /* MainCategoriesReponse.swift in Sources */,
 				8632330F257D86A000514F5A /* UIViewController+Alert.swift in Sources */,
+				86398BC22582B4BE00C284B3 /* ColorsManager.swift in Sources */,
 				862851D8257FD29F0059122F /* HomeVC.swift in Sources */,
 				86323312257D86BE00514F5A /* UIView+Loader.swift in Sources */,
 				862851C1257FC28D0059122F /* HomeViewModel.swift in Sources */,
 				862127D72581302A00C1A5DF /* FontsManager.swift in Sources */,
-				862851E1257FE68C0059122F /* Category.swift in Sources */,
+				862851E1257FE68C0059122F /* MainCategory.swift in Sources */,
 				86323315257D86EA00514F5A /* String+trimming.swift in Sources */,
 				86323302257D83A400514F5A /* ValidatorManager.swift in Sources */,
 				86398BA725826AC000C284B3 /* CategoryCell.swift in Sources */,
@@ -547,7 +555,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -602,7 +610,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

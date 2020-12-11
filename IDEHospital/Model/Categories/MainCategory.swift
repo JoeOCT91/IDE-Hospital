@@ -7,10 +7,9 @@
 
 import Foundation
 
-class Category: Codable {
+class MainCategory: Codable {
     let id: Int
     let name: String
     let image: String
     let color: String
-    var imageAsData: Data?
 }
