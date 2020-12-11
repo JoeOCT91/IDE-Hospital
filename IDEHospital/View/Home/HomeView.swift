@@ -78,6 +78,7 @@ class HomeView: UIView {
         descriptionLabel.textAlignment = .center
         descriptionLabel.font = UIFont(font: FontFamily.PTSans.bold, size: 20)
         descriptionLabel.font = descriptionLabel.font.withSize(20)
+        descriptionLabel.adjustsFontSizeToFitWidth = true
     }
     
     //MARK:- Public Functions

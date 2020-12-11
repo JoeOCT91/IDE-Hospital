@@ -10,8 +10,8 @@ import UIKit
 protocol HomeVCProtocol: class {
     func showLoader()
     func HideLoader()
-    func setCategory(categories: [MainCategory])
-    func setCellImage(image: UIImage, indexPath: IndexPath)
+    func reloadData()
+    func setCellData(title: String, color: String, image: Data, indexPath: IndexPath)
 }
 
 class HomeVC: UIViewController {
@@ -23,7 +23,6 @@ class HomeVC: UIViewController {
     private var viewModel: HomeVMProtocol!
     
     //Proprities
-    var categories = [MainCategory]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,11 +52,10 @@ class HomeVC: UIViewController {
 }
 
 extension HomeVC: HomeVCProtocol {
-    internal func setCategory(categories: [MainCategory]) {
-        self.categories = categories
+    internal func reloadData() {
         homeView.collectionView.reloadData()
     }
-    
+
     internal func showLoader() {
         view.showLoader()
     }
@@ -75,9 +73,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.category, for: indexPath) as! CategoryCell
-        cell.tag = categories[indexPath.row].id
-        cell.setupCell(color: categories[indexPath.row].color,categoryTitle: categories[indexPath.row].name)
-        viewModel.getImage(urlString: categories[indexPath.row].image, indexpath: indexPath)
+        viewModel.getCellData(indexPath: indexPath)
         return cell
     }
     
@@ -87,9 +83,11 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
         collectionView.deselectItem(at: indexPath, animated: true)
     }
     
-    func setCellImage(image: UIImage, indexPath: IndexPath) {
+    
+    func setCellData(title: String, color: String, image: Data, indexPath: IndexPath) {
         let cell = homeView.collectionView.cellForItem(at: indexPath) as! CategoryCell
-        cell.setimage(image: image)
+        cell.tag = indexPath.row + 1
+        cell.setupCell(title: title, color: color , image: image)
     }
   
 }
