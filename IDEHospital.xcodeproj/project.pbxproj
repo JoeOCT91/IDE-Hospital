@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		86201AC62583DF3B001D1C06 /* IDEHospitalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86201AC52583DF3B001D1C06 /* IDEHospitalViewController.swift */; };
+		86201AD02583EF26001D1C06 /* SetupFunction+UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86201ACF2583EF26001D1C06 /* SetupFunction+UINavigationController.swift */; };
 		862127D72581302A00C1A5DF /* FontsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862127D62581302A00C1A5DF /* FontsManager.swift */; };
 		862851C1257FC28D0059122F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862851C0257FC28D0059122F /* HomeViewModel.swift */; };
 		862851D0257FCE120059122F /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 862851CF257FCE120059122F /* Home.storyboard */; };
@@ -40,7 +40,9 @@
 
 /* Begin PBXFileReference section */
 		7A1613DADFF92904C35C9FE2 /* Pods-IDEHospital.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IDEHospital.release.xcconfig"; path = "Target Support Files/Pods-IDEHospital/Pods-IDEHospital.release.xcconfig"; sourceTree = "<group>"; };
-		86201AC52583DF3B001D1C06 /* IDEHospitalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDEHospitalViewController.swift; sourceTree = "<group>"; };
+		86201ACF2583EF26001D1C06 /* SetupFunction+UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetupFunction+UINavigationController.swift"; sourceTree = "<group>"; };
+		86201AD22583F029001D1C06 /* PT_Sans_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = PT_Sans_Bold.ttf; path = PT_Sans/PT_Sans_Bold.ttf; sourceTree = "<group>"; };
+		86201AD32583F029001D1C06 /* PT_Sans_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = PT_Sans_Regular.ttf; path = PT_Sans/PT_Sans_Regular.ttf; sourceTree = "<group>"; };
 		862127D62581302A00C1A5DF /* FontsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontsManager.swift; sourceTree = "<group>"; };
 		862851C0257FC28D0059122F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		862851CF257FCE120059122F /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -106,7 +108,6 @@
 		86201AC82583E759001D1C06 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				86201AC52583DF3B001D1C06 /* IDEHospitalViewController.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -123,6 +124,8 @@
 		862127D425812E4300C1A5DF /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				86201AD22583F029001D1C06 /* PT_Sans_Bold.ttf */,
+				86201AD32583F029001D1C06 /* PT_Sans_Regular.ttf */,
 				862127D62581302A00C1A5DF /* FontsManager.swift */,
 			);
 			path = Fonts;
@@ -329,6 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				86323317257D878A00514F5A /* UIViewController+Storyboard.swift */,
+				86201ACF2583EF26001D1C06 /* SetupFunction+UINavigationController.swift */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -474,7 +478,6 @@
 				86285234258085010059122F /* Strings.swift in Sources */,
 				8628521525807B2A0059122F /* AssetsManager.swift in Sources */,
 				863232F6257D7BB700514F5A /* APIManager.swift in Sources */,
-				86201AC62583DF3B001D1C06 /* IDEHospitalViewController.swift in Sources */,
 				863232FF257D835F00514F5A /* UserDefaultsManager.swift in Sources */,
 				863232F9257D7BE300514F5A /* APIRouter.swift in Sources */,
 				862851DD257FE6570059122F /* MainCategoriesReponse.swift in Sources */,
@@ -483,6 +486,7 @@
 				862851D8257FD29F0059122F /* HomeVC.swift in Sources */,
 				86323312257D86BE00514F5A /* UIView+Loader.swift in Sources */,
 				862851C1257FC28D0059122F /* HomeViewModel.swift in Sources */,
+				86201AD02583EF26001D1C06 /* SetupFunction+UINavigationController.swift in Sources */,
 				862127D72581302A00C1A5DF /* FontsManager.swift in Sources */,
 				862851E1257FE68C0059122F /* MainCategory.swift in Sources */,
 				86323315257D86EA00514F5A /* String+trimming.swift in Sources */,

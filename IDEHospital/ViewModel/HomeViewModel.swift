@@ -10,6 +10,7 @@ import SDWebImage
 
 protocol HomeVMProtocol: class {
     func getCategories()
+    func getCategoriesCount() -> Int
     func getImage(urlString: String, indexpath: IndexPath)
 }
 
@@ -37,6 +38,10 @@ class HomeViewModel: HomeVMProtocol {
                 self.view?.HideLoader()
             }
         }
+    }
+    
+    func getCategoriesCount() -> Int {
+        return categories.count
     }
     
     func getImage(urlString: String, indexpath: IndexPath) {

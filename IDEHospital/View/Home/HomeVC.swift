@@ -12,10 +12,9 @@ protocol HomeVCProtocol: class {
     func HideLoader()
     func setCategory(categories: [MainCategory])
     func setCellImage(image: UIImage, indexPath: IndexPath)
-    
 }
 
-class HomeVC: IDEHospitalNavigation {
+class HomeVC: UIViewController {
     
     //Outlets
     @IBOutlet var homeView: HomeView!
@@ -30,7 +29,7 @@ class HomeVC: IDEHospitalNavigation {
         super.viewDidLoad()
         self.homeView.setup()
         self.viewModel.getCategories()
-        setViewControllerTitle(to: "Choose Services")
+        navigationController?.setViewControllerTitle(to: "Choose Services", fontColor: .white)
         homeView.setupCollectionView(delgate: self, dataSource: self)
     }
     
@@ -70,7 +69,8 @@ extension HomeVC: HomeVCProtocol {
 
 extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        categories.count
+        viewModel.getCategoriesCount()
+        //categories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
