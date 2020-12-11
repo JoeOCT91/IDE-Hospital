@@ -28,17 +28,13 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         self.homeView.setup()
         self.viewModel.getCategories()
-        navigationController?.setViewControllerTitle(to: "Choose Services", fontColor: .white)
+        configureNavigationBar()
         homeView.setupCollectionView(delgate: self, dataSource: self)
     }
     
     //MARK:- Private Methods
     private func configureNavigationBar() {
-        self.title = "Choose Services"
-        var navFont = UIFont(font: FontFamily.PTSans.bold, size: 20)
-        navFont = navFont?.withSize(20)
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor(named: .white)]
-        navigationController?.navigationBar.barTintColor = UIColor(named: .veryLightPink)
+        navigationController?.setViewControllerTitle(to: "Choose Services", fontColor: .white)
     }
     
     // MARK:- Public Methods
@@ -66,6 +62,7 @@ extension HomeVC: HomeVCProtocol {
 }
 
 extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         viewModel.getCategoriesCount()
         //categories.count
@@ -84,7 +81,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     
-    func setCellData(title: String, color: String, image: Data, indexPath: IndexPath) {
+    internal func setCellData(title: String, color: String, image: Data, indexPath: IndexPath) {
         let cell = homeView.collectionView.cellForItem(at: indexPath) as! CategoryCell
         cell.tag = indexPath.row + 1
         cell.setupCell(title: title, color: color , image: image)

@@ -107,13 +107,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		86201AC82583E759001D1C06 /* Navigation */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Navigation;
-			sourceTree = "<group>";
-		};
 		862127CF2581277800C1A5DF /* Colors */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,7 +254,6 @@
 			children = (
 				86398BAD258287EB00C284B3 /* Cells */,
 				862851D3257FD23C0059122F /* Home */,
-				86201AC82583E759001D1C06 /* Navigation */,
 			);
 			path = View;
 			sourceTree = "<group>";

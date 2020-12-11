@@ -83,5 +83,3 @@ class HomeView: UIView {
     
     //MARK:- Public Functions
 }
-
-

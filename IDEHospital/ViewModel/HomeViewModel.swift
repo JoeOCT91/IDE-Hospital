@@ -16,7 +16,7 @@ protocol HomeVMProtocol: class {
 
 class HomeViewModel: HomeVMProtocol {
     
-    weak var view: HomeVCProtocol?
+    private weak var view: HomeVCProtocol?
     
     private var categories = [MainCategory]()
     

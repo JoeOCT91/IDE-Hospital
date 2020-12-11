@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SDWebImage
 
 class CategoryCell: UICollectionViewCell {
     
@@ -60,22 +59,11 @@ class CategoryCell: UICollectionViewCell {
         categoryLogoImage.contentMode = .scaleAspectFill
     }
     
-    func setupCell(color: String, categoryTitle: String){
-        self.container.backgroundColor = UIColor(hexString: color)
-        self.categoryTitle.text = categoryTitle
-    }
-    func setupCell(color: String, categoryTitle: String, image: Data){
-        self.container.backgroundColor = UIColor(hexString: color)
-        self.categoryTitle.text = categoryTitle
-        self.categoryLogoImage.image = UIImage(data: image)
-    }
+
     func setupCell(title: String, color: String, image: Data){
         self.container.backgroundColor = UIColor(hexString: color)
         self.categoryTitle.text = title
         self.categoryLogoImage.image = UIImage(data: image)
     }
     
-    func setimage(image: UIImage) {
-        categoryLogoImage.image = image
-    }
 }
