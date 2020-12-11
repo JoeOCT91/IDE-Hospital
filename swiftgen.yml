@@ -11,7 +11,8 @@ strings:
     output: IDEHospital/Resources/Strings/Strings.swift
     
 fonts:
-  inputs: IDEHospital/Resources/Fonts/PT_Sans
+  inputs:
+    - IDEHospital/Resources/Fonts/PT_Sans
   outputs:
     templateName: swift5
     output: IDEHospital/Resources/Fonts/FontsManager.swift

@@ -19,9 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = navigationController
         return true
     }
-}
 
-extension AppDelegate {
     func getMainWindow() -> UIWindow? {
         return window
     }

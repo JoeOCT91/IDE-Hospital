@@ -19,11 +19,9 @@ internal typealias Font = FontConvertible.Font
 // swiftlint:disable identifier_name line_length type_body_length
 internal enum FontFamily {
   internal enum PTSans {
-    internal static let bold = FontConvertible(name: "PTSans-Bold", family: "PT Sans", path: "PTSans-Bold.ttf")
-    internal static let boldItalic = FontConvertible(name: "PTSans-BoldItalic", family: "PT Sans", path: "PTSans-BoldItalic.ttf")
-    internal static let italic = FontConvertible(name: "PTSans-Italic", family: "PT Sans", path: "PTSans-Italic.ttf")
-    internal static let regular = FontConvertible(name: "PTSans-Regular", family: "PT Sans", path: "PTSans-Regular.ttf")
-    internal static let all: [FontConvertible] = [bold, boldItalic, italic, regular]
+    internal static let bold = FontConvertible(name: "PTSans-Bold", family: "PT Sans", path: "PT_Sans_Bold.ttf")
+    internal static let regular = FontConvertible(name: "PTSans-Regular", family: "PT Sans", path: "PT_Sans_Regular.ttf")
+    internal static let all: [FontConvertible] = [bold, regular]
   }
   internal static let allCustomFonts: [FontConvertible] = [PTSans.all].flatMap { $0 }
   internal static func registerAllCustomFonts() {

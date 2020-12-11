@@ -47,7 +47,7 @@ class HomeView: UIView {
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: creatTwoColumnFlowLayout())
         self.addSubview(collectionView)
         collectionView.backgroundColor = .clear
-        collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: CategoryCell.reuseID)
+        collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: Cells.category)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor),

@@ -10,7 +10,6 @@ import SDWebImage
 
 class CategoryCell: UICollectionViewCell {
     
-    static let reuseID  = "CategoryCell"
     private let container = UIView()
     private var categoryLogoImage = UIImageView()
     private let categoryTitle = UILabel()

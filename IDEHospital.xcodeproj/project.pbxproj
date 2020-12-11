@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86201AC62583DF3B001D1C06 /* IDEHospitalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86201AC52583DF3B001D1C06 /* IDEHospitalViewController.swift */; };
 		862127D72581302A00C1A5DF /* FontsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862127D62581302A00C1A5DF /* FontsManager.swift */; };
 		862851C1257FC28D0059122F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862851C0257FC28D0059122F /* HomeViewModel.swift */; };
 		862851D0257FCE120059122F /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 862851CF257FCE120059122F /* Home.storyboard */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		7A1613DADFF92904C35C9FE2 /* Pods-IDEHospital.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IDEHospital.release.xcconfig"; path = "Target Support Files/Pods-IDEHospital/Pods-IDEHospital.release.xcconfig"; sourceTree = "<group>"; };
+		86201AC52583DF3B001D1C06 /* IDEHospitalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDEHospitalViewController.swift; sourceTree = "<group>"; };
 		862127D62581302A00C1A5DF /* FontsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontsManager.swift; sourceTree = "<group>"; };
 		862851C0257FC28D0059122F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		862851CF257FCE120059122F /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -99,6 +101,14 @@
 				D0BDB737E5E4140C2CAB0880 /* Pods_IDEHospital.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		86201AC82583E759001D1C06 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				86201AC52583DF3B001D1C06 /* IDEHospitalViewController.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		862127CF2581277800C1A5DF /* Colors */ = {
@@ -246,6 +256,7 @@
 			children = (
 				86398BAD258287EB00C284B3 /* Cells */,
 				862851D3257FD23C0059122F /* Home */,
+				86201AC82583E759001D1C06 /* Navigation */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -432,7 +443,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ -f \"$PODS_ROOT/SwiftGen/bin/swiftgen\" ]]; then\n  \"$PODS_ROOT/SwiftGen/bin/swiftgen\"\nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi\n";
+			shellScript = "if [[ -f \"$PODS_ROOT/SwiftGen/bin/swiftgen\" ]]; then\n    \"$PODS_ROOT/SwiftGen/bin/swiftgen\"\nelse\n    echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi\n";
 		};
 		BC61826CFD7D3EDC1D70F1C7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -463,6 +474,7 @@
 				86285234258085010059122F /* Strings.swift in Sources */,
 				8628521525807B2A0059122F /* AssetsManager.swift in Sources */,
 				863232F6257D7BB700514F5A /* APIManager.swift in Sources */,
+				86201AC62583DF3B001D1C06 /* IDEHospitalViewController.swift in Sources */,
 				863232FF257D835F00514F5A /* UserDefaultsManager.swift in Sources */,
 				863232F9257D7BE300514F5A /* APIRouter.swift in Sources */,
 				862851DD257FE6570059122F /* MainCategoriesReponse.swift in Sources */,

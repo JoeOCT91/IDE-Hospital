@@ -8,12 +8,10 @@
 import Foundation
 import SDWebImage
 
-
-protocol HomeVCProtocol: class {
-    func showLoader()
-    func HideLoader()
-    func setCategory(categories: [MainCategory])
-    func setCellImage(image: UIImage, indexPath: IndexPath)}
+protocol HomeVMProtocol: class {
+    func getCategories()
+    func getImage(urlString: String, indexpath: IndexPath)
+}
 
 class HomeViewModel: HomeVMProtocol {
     

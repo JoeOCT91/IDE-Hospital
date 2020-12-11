@@ -7,12 +7,15 @@
 
 import UIKit
 
-protocol HomeVMProtocol: class {
-    func getCategories()
-    func getImage(urlString: String, indexpath: IndexPath)
+protocol HomeVCProtocol: class {
+    func showLoader()
+    func HideLoader()
+    func setCategory(categories: [MainCategory])
+    func setCellImage(image: UIImage, indexPath: IndexPath)
+    
 }
 
-class HomeVC: UIViewController {
+class HomeVC: IDEHospitalNavigation {
     
     //Outlets
     @IBOutlet var homeView: HomeView!
@@ -27,13 +30,15 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         self.homeView.setup()
         self.viewModel.getCategories()
-        configureNavigationBar()
+        setViewControllerTitle(to: "Choose Services")
         homeView.setupCollectionView(delgate: self, dataSource: self)
     }
     
     //MARK:- Private Methods
     private func configureNavigationBar() {
         self.title = "Choose Services"
+        var navFont = UIFont(font: FontFamily.PTSans.bold, size: 20)
+        navFont = navFont?.withSize(20)
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor(named: .white)]
         navigationController?.navigationBar.barTintColor = UIColor(named: .veryLightPink)
     }
@@ -69,7 +74,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.reuseID, for: indexPath) as! CategoryCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.category, for: indexPath) as! CategoryCell
         cell.tag = categories[indexPath.row].id
         cell.setupCell(color: categories[indexPath.row].color,categoryTitle: categories[indexPath.row].name)
         viewModel.getImage(urlString: categories[indexPath.row].image, indexpath: indexPath)
