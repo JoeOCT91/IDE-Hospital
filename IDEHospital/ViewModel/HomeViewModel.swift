@@ -48,7 +48,6 @@ class HomeViewModel: HomeVMProtocol {
         let category = categories[indexPath.row]
         let urlString = category.image
         guard let url = URL(string: urlString) else { return }
-        
         SDWebImageDownloader().downloadImage(with: url) { [weak self] (image, data, error, bool) in
             guard let self = self else { return }
             guard let data = data else { return }
