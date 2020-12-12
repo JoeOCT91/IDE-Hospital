@@ -52,7 +52,7 @@ class HomeViewModel: HomeVMProtocol {
         SDWebImageDownloader().downloadImage(with: url) { [weak self] (image, data, error, bool) in
             guard let self = self else { return }
             guard let data = data else { return }
-            self.view?.setCellData(title: category.name, color: category.color, image: data, indexPath: indexPath)
+            self.view?.setCellData(title: category.name, color: category.color, image: data,ID: category.id, indexPath: indexPath)
             }
     }
     

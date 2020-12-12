@@ -11,7 +11,7 @@ protocol HomeVCProtocol: class {
     func showLoader()
     func HideLoader()
     func reloadData()
-    func setCellData(title: String, color: String, image: Data, indexPath: IndexPath)
+    func setCellData(title: String, color: String, image: Data, ID:Int,indexPath: IndexPath)
 }
 
 class HomeVC: UIViewController {
@@ -75,16 +75,14 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! CategoryCell
-        //Cell tag to be passed to search controller
         print(cell.tag)
         collectionView.deselectItem(at: indexPath, animated: true)
     }
     
     
-    internal func setCellData(title: String, color: String, image: Data, indexPath: IndexPath) {
+    internal func setCellData(title: String, color: String, image: Data,ID: Int, indexPath: IndexPath) {
         let cell = homeView.collectionView.cellForItem(at: indexPath) as! CategoryCell
-        //Cell tag hold the category id for use when navigate to search
-        cell.tag = indexPath.row + 1
+        cell.tag = ID
         cell.setupCell(title: title, color: color , image: image)
     }
   
