@@ -34,7 +34,7 @@ class HomeVC: UIViewController {
     
     //MARK:- Private Methods
     private func configureNavigationBar() {
-        navigationController?.setViewControllerTitle(to: "Choose Services", fontColor: .white)
+        navigationController?.setViewControllerTitle(to: L10n.chooseServices, fontColor: UIColor(named: ColorName.white))
     }
     
     // MARK:- Public Methods
@@ -65,7 +65,6 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         viewModel.getCategoriesCount()
-        //categories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -76,6 +75,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! CategoryCell
+        //Cell tag to be passed to search controller
         print(cell.tag)
         collectionView.deselectItem(at: indexPath, animated: true)
     }
@@ -83,6 +83,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     internal func setCellData(title: String, color: String, image: Data, indexPath: IndexPath) {
         let cell = homeView.collectionView.cellForItem(at: indexPath) as! CategoryCell
+        //Cell tag hold the category id for use when navigate to search
         cell.tag = indexPath.row + 1
         cell.setupCell(title: title, color: color , image: image)
     }
