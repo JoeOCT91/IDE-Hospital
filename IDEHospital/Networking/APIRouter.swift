@@ -8,49 +8,48 @@
 import Foundation
 import Alamofire
 
-enum APIRouter: URLRequestConvertible{
-    
+enum APIRouter:URLRequestConvertible {
     //End Points names
-    case login
-    
-    //Mark:- HTTP Methods
-    private var method: HTTPMethod {
-        switch self {
-        case .login:
-            return .get
-        default:
-            return .post
-        }
+       case getCategory(_ categoryID:Int)
+       
+       //Mark:- HTTP Methods
+       private var method: HTTPMethod {
+           switch self {
+           case .getCategory:
+               return .get
+           default:
+               return .post
+           }
+       }
+       
+       //MARK:- Parameters
+       private var parameters: Parameters? {
+           switch self {
+           case .getCategory:
+               return nil
+           default:
+               return nil
+           }
+       }
+       //MARK:- End points path
+       private var path: String {
+           switch self {
+           case .getCategory(let categoryID):
+               return URLs.getCategories+"\(categoryID)"+"/doctors_query_parameters"
+       }
     }
-    
-    //MARK:- Parameters
-    private var parameters: Parameters? {
-        switch self {
-        case .login:
-            return nil
-        default:
-            return nil
-        }
-    }
-    //MARK:- End points path
-    private var path: String {
-        switch self {
-        case .login:
-            return "Path"
-        }
-    }
-    
-    // MARK: - URLRequestConvertible
+      
     func asURLRequest() throws -> URLRequest {
-        let url = try URLs.base.asURL()
-        var urlRequest = URLRequest(url: url.appendingPathComponent(path))
+          let url = try path.asURL()
+             var urlRequest = URLRequest(url: url)
         
         //httpMethod
         urlRequest.httpMethod = method.rawValue
         
         //Http Headers
         switch self {
-        case  .login:
+        case  .getCategory:
+            urlRequest.setValue("Accept-Language", forHTTPHeaderField: "en")
             break
         default:
             break
@@ -60,8 +59,6 @@ enum APIRouter: URLRequestConvertible{
         // HTTP Body
         let httpBody: Data? = {
             switch self {
-            case .login:
-                return nil
             default:
                 return nil
             }
@@ -70,27 +67,19 @@ enum APIRouter: URLRequestConvertible{
         urlRequest.httpBody = httpBody
         
         // Encoding
-        let encoding: ParameterEncoding = {
-            switch method {
-            case .get, .delete:
-                return URLEncoding.default
-            default:
-                return JSONEncoding.default
-            }
-        }()
+        let encoding: ParameterEncoding = JSONEncoding.default
         
         print(try encoding.encode(urlRequest, with: parameters))
         return try encoding.encode(urlRequest, with: parameters)
     }
-    
-
-    
-    private func encodeToJSON<T: Codable>(_ body: T) -> Data? {
+}
+extension APIRouter {
+    private func encodeToJSON<T: Encodable>(_ body: T) -> Data? {
         do {
             let anyEncodable = AnyEncodable(body)
             let jsonData = try JSONEncoder().encode(anyEncodable)
-            //let jsonString = String(data: jsonData, encoding: .utf8)!
-            //print(jsonString)
+            let jsonString = String(data: jsonData, encoding: .utf8)!
+            print(jsonString)
             return jsonData
         } catch {
             print(error)
@@ -98,9 +87,6 @@ enum APIRouter: URLRequestConvertible{
         }
     }
 }
-
-    
-
 
 // type-erasing wrapper
 struct AnyEncodable: Encodable {
@@ -114,3 +100,5 @@ struct AnyEncodable: Encodable {
         try _encode(encoder)
     }
 }
+
+

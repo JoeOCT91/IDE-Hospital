@@ -20,18 +20,27 @@ import Foundation
 
 // Storyboards
 struct Storyboards {
-    static let authentication = "Authentication"
+    static let search = "Search"
     static let main = "Main"
 }
 
 // View Controllers
 struct ViewControllers {
-    static let viewController = "viewController"
+    static let searchVC = "SearchVC"
+    static let favoritesVC = "FavoritesVC"
+    static let scheduleVC = "ScheduleVC"
+}
+
+// TabBar Controllers
+struct TabBarControllers {
+    static let tabBarController = "TabBarControllerTC"
 }
 
 // Urls
 struct URLs {
-    static let base     = ""
+     static let base = "http://ide-hospital.ideaeg.co/api/"
+     static let getCategories = "http://ide-hospital.ideaeg.co/api/main_categories/"
+   
 }
 
 // Header Keys
