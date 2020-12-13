@@ -7,37 +7,31 @@
 
 import Foundation
 
-//
-//  Constants.swift
-//  TODOApp-MVC-Demo
-//
-//  Created by IDEAcademy on 10/27/20.
-//  Copyright © 2020 IDEAEG. All rights reserved.
-//
-
-import Foundation
-
-
 // Storyboards
 struct Storyboards {
-    static let authentication = "Authentication"
     static let main = "Main"
+    static let home = "Home"
+}
+
+// Cells
+struct Cells {
+    static let category = "Category"
 }
 
 // View Controllers
 struct ViewControllers {
-    static let viewController = "viewController"
     static let homeVC   = "HomeVC"
 }
 
 // Urls
 struct URLs {
-    static let base     = ""
+    static let base = "http://ide-hospital.ideaeg.co/api/"
+    static let mainCategories = "main_categories"
 }
 
 // Header Keys
 struct HeaderKeys {
-
+    static let contentType = "Content-Type"
 }
 // Authorization Key
 struct Authorization {

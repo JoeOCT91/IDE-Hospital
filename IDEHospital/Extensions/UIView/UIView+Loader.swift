@@ -25,7 +25,7 @@ extension UIView {
         let activityIndicator = UIActivityIndicatorView()
         activityIndicator.frame = self.bounds
         activityIndicator.center = self.center
-        activityIndicator.style = .large
+        activityIndicator.style = .gray
         activityIndicator.tag = 333
         return activityIndicator
     }
