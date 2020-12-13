@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="PT_Sans_Regular.ttf">
+            <string>PTSans-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashBackGround" translatesAutoresizingMaskIntoConstraints="NO" id="2It-DH-cmF">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="rS1-Yn-fbe">
+                                <rect key="frame" x="102" y="187" width="210" height="210"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="rS1-Yn-fbe" secondAttribute="height" multiplier="1:1" id="qFQ-sk-uSR"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3w-EU-Ktm">
+                                <rect key="frame" x="47.666666666666657" y="433" width="319" height="36"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="IDEA EG HOSPITAL">
+                                        <attributes>
+                                            <color key="NSColor" systemColor="secondarySystemBackgroundColor"/>
+                                            <font key="NSFont" size="40" name="PTSans-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <color key="highlightedColor" systemColor="systemBackgroundColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IDEA EG HOSPITAL THE BEST CHOICE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="cwn-Il-zmv">
+                                <rect key="frame" x="15" y="474" width="384" height="22.666666666666686"/>
+                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="25"/>
+                                <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
+                                <color key="highlightedColor" systemColor="systemBackgroundColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2It-DH-cmF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1W0-Ta-ZCA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cwn-Il-zmv" secondAttribute="trailing" constant="15" id="KYE-JQ-gcS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rS1-Yn-fbe" secondAttribute="trailing" constant="102" id="Lfx-wO-MP1"/>
+                            <constraint firstItem="cwn-Il-zmv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="MOD-K6-led"/>
+                            <constraint firstItem="2It-DH-cmF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="PZe-FO-jFD"/>
+                            <constraint firstItem="h3w-EU-Ktm" firstAttribute="top" secondItem="rS1-Yn-fbe" secondAttribute="bottom" constant="36" id="Rc1-6G-cP9"/>
+                            <constraint firstItem="cwn-Il-zmv" firstAttribute="top" secondItem="h3w-EU-Ktm" secondAttribute="bottom" constant="5" id="iFQ-cY-dRg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2It-DH-cmF" secondAttribute="trailing" id="kN3-7a-8qC"/>
+                            <constraint firstItem="rS1-Yn-fbe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="187" id="kbC-JB-psC"/>
+                            <constraint firstItem="h3w-EU-Ktm" firstAttribute="centerX" secondItem="2It-DH-cmF" secondAttribute="centerX" id="mFi-aa-7DH"/>
+                            <constraint firstItem="rS1-Yn-fbe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="102" id="szL-eZ-nvg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2It-DH-cmF" secondAttribute="bottom" id="wVq-RH-un5"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52.173913043478265" y="374.18478260869568"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="logo" width="85.666664123535156" height="94.333335876464844"/>
+        <image name="splashBackGround" width="375" height="667"/>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
