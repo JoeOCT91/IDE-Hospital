@@ -8,12 +8,7 @@
 import UIKit
 class SearchView: UIView {
 
-    // In Navigation View
     @IBOutlet weak var mainBackgroundImageView: UIImageView!
-    @IBOutlet weak var navigationView: UIView!
-    @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var navigationHeaderLabel: UILabel!
-    @IBOutlet weak var settingsButton: UIButton!
     
     // In ViewController
     @IBOutlet weak var mainHeaderLabel: UILabel!
@@ -30,23 +25,18 @@ class SearchView: UIView {
     @IBOutlet weak var halfCircle2: UIImageView!
     @IBOutlet weak var locationIcon1: UIImageView!
     @IBOutlet weak var textField2: UITextField!
-   
-  
     @IBOutlet weak var arrow2: UIImageView!
     
     // In Third TextView
     @IBOutlet weak var HalfCircle3: UIImageView!
     @IBOutlet weak var locationIcon2: UIImageView!
     @IBOutlet weak var textField3: UITextField!
-
-
     @IBOutlet weak var arrow3: UIImageView!
     
     // In Fourth TextView
     @IBOutlet weak var halfCircle4: UIImageView!
     @IBOutlet weak var shildIcon: UIImageView!
     @IBOutlet weak var textField4: UITextField!
-   
     @IBOutlet weak var arrow4: UIImageView!
     
     // In Fifth TextView
@@ -60,13 +50,7 @@ class SearchView: UIView {
     // Main Function To SetUp the Rest of Functions
     public func setUp(){
         
-     // In Navigation View
         setUpImageView(imageView: mainBackgroundImageView, imageName: "Background_Image")
-        setUpView(view: navigationView, viewColor:.lightGray)
-       setUpButton(button: backButton, buttonTitle: "", backgroundImageName: "back-2")
-        setUpLabel(label: navigationHeaderLabel, labelText: "Services Search", FontName: "PTSans-Bold", fontSize: 20, fontColor: .white, latterSpacing: 0, changeLatterSpacing: false)
-        setUpButton(button: settingsButton, buttonTitle: "", backgroundImageName: "settings")
-        
      // Main Two Labels in the Header
         setUpLabel(label: mainHeaderLabel, labelText: "IDEA EG HOSPITAL", FontName: "PTSans-Bold", fontSize: 40, fontColor: .white, latterSpacing: 0, changeLatterSpacing: false)
         setUpLabel(label: titleLabel, labelText: "IDEA EG HOSPITAL THE BEST CHOICE", FontName: "PTSans-Regular", fontSize: 20, fontColor: .white, latterSpacing: 0.60, changeLatterSpacing: true)
@@ -101,8 +85,9 @@ class SearchView: UIView {
         setUpButton(button: findDoctorButton, buttonTitle: "Find a doctor", backgroundImageName: "Button Bar", FontName: "PTSans-Bold", fontSize: 20)
     }
     
+    
     private func setUpImageView(imageView:UIImageView, imageName:String) {
-          imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFill
           imageView.image = UIImage(named: imageName)
       }
     
@@ -111,9 +96,12 @@ class SearchView: UIView {
     }
       
     private func setUpLabel(label:UILabel, labelText:String, FontName:String, fontSize:Int, fontColor:UIColor, latterSpacing:CGFloat, changeLatterSpacing:Bool) {
-          label.text = labelText
-          label.font = UIFont(name: FontName, size: CGFloat(fontSize))
-          label.textColor = fontColor
+        label.font = UIFont(name: FontName, size: CGFloat(fontSize))
+       
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
+        label.text = labelText
+        label.textColor = fontColor
         if changeLatterSpacing{
           label.addCharacterSpacing(kernValue: Double(latterSpacing))
         }
