@@ -27,7 +27,7 @@
 		B21BDE0D2582BEA600430408 /* FavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21BDE0C2582BEA600430408 /* FavoritesVC.swift */; };
 		B21BDE0F2582BEBF00430408 /* ScheduleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21BDE0E2582BEBF00430408 /* ScheduleVC.swift */; };
 		B21BDE112582C1A400430408 /* UITabBarController+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21BDE102582C1A400430408 /* UITabBarController+Storyboard.swift */; };
-		B21BDE142582C2DF00430408 /* TabBarControllerTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21BDE132582C2DF00430408 /* TabBarControllerTC.swift */; };
+		B21BDE142582C2DF00430408 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21BDE132582C2DF00430408 /* TabBarVC.swift */; };
 		B21BDE162582C42A00430408 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21BDE152582C42A00430408 /* SearchView.swift */; };
 		B21BDE182582C44000430408 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21BDE172582C44000430408 /* FavoritesView.swift */; };
 		B21BDE1A2582C45700430408 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21BDE192582C45700430408 /* ScheduleView.swift */; };
@@ -67,7 +67,7 @@
 		B21BDE0C2582BEA600430408 /* FavoritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVC.swift; sourceTree = "<group>"; };
 		B21BDE0E2582BEBF00430408 /* ScheduleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleVC.swift; sourceTree = "<group>"; };
 		B21BDE102582C1A400430408 /* UITabBarController+Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Storyboard.swift"; sourceTree = "<group>"; };
-		B21BDE132582C2DF00430408 /* TabBarControllerTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerTC.swift; sourceTree = "<group>"; };
+		B21BDE132582C2DF00430408 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		B21BDE152582C42A00430408 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		B21BDE172582C44000430408 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		B21BDE192582C45700430408 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
@@ -282,7 +282,7 @@
 		B21BDE122582C2A000430408 /* TabBarController */ = {
 			isa = PBXGroup;
 			children = (
-				B21BDE132582C2DF00430408 /* TabBarControllerTC.swift */,
+				B21BDE132582C2DF00430408 /* TabBarVC.swift */,
 			);
 			path = TabBarController;
 			sourceTree = "<group>";
@@ -446,7 +446,7 @@
 				B21BDE0F2582BEBF00430408 /* ScheduleVC.swift in Sources */,
 				8632330F257D86A000514F5A /* UIViewController+Alert.swift in Sources */,
 				B21BDE372584F2E000430408 /* Regions.swift in Sources */,
-				B21BDE142582C2DF00430408 /* TabBarControllerTC.swift in Sources */,
+				B21BDE142582C2DF00430408 /* TabBarVC.swift in Sources */,
 				86323312257D86BE00514F5A /* UIView+Loader.swift in Sources */,
 				B21BDE392584F2F700430408 /* Companies.swift in Sources */,
 				B21BDE162582C42A00430408 /* SearchView.swift in Sources */,

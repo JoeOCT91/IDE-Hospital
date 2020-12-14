@@ -61,3 +61,8 @@ struct ParameterKeys {
 struct UserDefaultsKeys {
     static let token = "UDKToken"
 }
+
+// AlertMeassages
+struct AlertMessages {
+    static let selectCityBeforeRegionFirst = "You have to select a city first then select it's Region"
+}

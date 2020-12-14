@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="met-u4-0rj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CUq-N0-oP5">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -54,6 +54,9 @@
                                                         <rect key="frame" x="47.666666666666657" y="0.0" width="300.33333333333337" height="45"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="CUq-N0-oP5" id="vLb-mP-bNr"/>
+                                                        </connections>
                                                     </textField>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZF5-RZ-f6Y" userLabel="arrow1">
                                                         <rect key="frame" x="311.66666666666669" y="17" width="20" height="11.333333333333336"/>
@@ -96,6 +99,9 @@
                                                         <rect key="frame" x="47.666666666666657" y="0.0" width="300.33333333333337" height="45"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="CUq-N0-oP5" id="HJn-JB-M30"/>
+                                                        </connections>
                                                     </textField>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yOV-lI-cW8" userLabel="arrow2">
                                                         <rect key="frame" x="311.66666666666669" y="17.333333333333371" width="20" height="10.666666666666664"/>
@@ -125,6 +131,9 @@
                                                         <rect key="frame" x="47.666666666666657" y="0.0" width="300.33333333333337" height="45"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="CUq-N0-oP5" id="ltg-Og-30Y"/>
+                                                        </connections>
                                                     </textField>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bzf-SF-nmh" userLabel="arrow3">
                                                         <rect key="frame" x="311.66666666666669" y="17" width="20" height="11.333333333333336"/>
@@ -157,6 +166,9 @@
                                                         <rect key="frame" x="47.666666666666657" y="0.0" width="300.33333333333337" height="45"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="CUq-N0-oP5" id="pX7-AV-TNq"/>
+                                                        </connections>
                                                     </textField>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Shm-YU-wJ1" userLabel="arrow4">
                                                         <rect key="frame" x="311.66666666666669" y="17.333333333333371" width="20" height="10.666666666666664"/>
@@ -322,7 +334,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Auw-8N-fok" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-42" y="256"/>
+            <point key="canvasLocation" x="-374" y="876"/>
         </scene>
         <!--FavoritesVC-->
         <scene sceneID="uJR-Al-0my">
@@ -362,10 +374,10 @@
             </objects>
             <point key="canvasLocation" x="1594" y="315"/>
         </scene>
-        <!--Tab Bar ControllerTC-->
+        <!--Tab BarVC-->
         <scene sceneID="zfW-GI-FMd">
             <objects>
-                <tabBarController storyboardIdentifier="TabBarControllerTC" id="met-u4-0rj" customClass="TabBarControllerTC" customModule="IDEHospital" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarVC" id="met-u4-0rj" customClass="TabBarVC" customModule="IDEHospital" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gIb-E6-sxL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
