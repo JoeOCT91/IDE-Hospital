@@ -38,6 +38,7 @@ extension SearchViewModel:SearchViewModelProtocol{
     
     func callGetCategoriesAPI(categoryID:Int) {
          APIManager.getCategoriesAPIRouter(categoryID: 1){(response) in
+            self.searchVC.showLoader()
              switch response {
                case .failure(let error):
                        print(error.localizedDescription)
@@ -47,6 +48,7 @@ extension SearchViewModel:SearchViewModelProtocol{
                        self.citiesArr = data.data.cities
                        self.companiesArr = data.data.companies
                    }
+             self.searchVC.hideLoader()
         }
     }
 }
