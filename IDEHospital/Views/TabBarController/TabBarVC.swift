@@ -17,7 +17,7 @@ class TabBarVC: UITabBarController {
     
  // MARK:- Public Methods
  class func createTabBarController() -> UITabBarController {
-    let tabBarController: UITabBarController = UITabBarController.createTabBarController(storyboardName: Storyboards.search, identifier: TabBarControllers.tabBarController)
+    let tabBarController: UITabBarController = UITabBarController.createTabBarController(storyboardName: Storyboards.search, identifier: ViewControllers.tabBarVC)
      return tabBarController
  }
 

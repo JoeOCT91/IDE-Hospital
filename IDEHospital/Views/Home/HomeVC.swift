@@ -77,6 +77,9 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
         let cell = collectionView.cellForItem(at: indexPath) as! CategoryCell
         //Cell tag hold category ID to use when navigate to others controllers 
         print(cell.tag)
+        let tabBarController = UITabBarController.createTabBarController(storyboardName: Storyboards.search, identifier: ViewControllers.tabBarVC)
+        navigationController?.pushViewController(tabBarController, animated: true)
+        
     }
     
     

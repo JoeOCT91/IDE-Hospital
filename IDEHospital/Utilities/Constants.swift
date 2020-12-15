@@ -27,12 +27,9 @@ struct ViewControllers {
     static let searchVC = "SearchVC"
     static let favoritesVC = "FavoritesVC"
     static let scheduleVC = "ScheduleVC"
+    static let tabBarVC = "TabBarVC"
 }
 
-// TabBar Controllers
-struct TabBarControllers {
-    static let tabBarController = "TabBarVC"
-}
 
 // Urls
 struct URLs {
