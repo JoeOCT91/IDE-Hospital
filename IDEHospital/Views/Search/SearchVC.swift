@@ -17,19 +17,21 @@ class SearchVC: UIViewController {
     var searchViewModel:SearchViewModelProtocol!
     var currentTextField = UITextField()
     var pickerView = UIPickerView()
+    var categoryId = 0
    
     var currentSelectedCity = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpNavigationBar()
+        self.setUpNavigationBar()
         self.searchViewModel = SearchViewModel(search: self)
-        self.searchViewModel.callGetCategoriesAPI(categoryID: 1)
+        self.searchViewModel.callGetCategoriesAPI(categoryID: self.categoryId)
         self.searchView.setUp()
     }
     
     // MARK:- Public Methods
-    class func create() -> SearchVC {
+    class func create(id:Int) -> SearchVC {
         let viewController: SearchVC = UIViewController.create(storyboardName: Storyboards.search, identifier: ViewControllers.searchVC)
+        viewController.categoryId = id
         return viewController
     }
 }
@@ -46,16 +48,7 @@ extension SearchVC:SearchVCProtocol{
 }
 extension SearchVC {
     private func setUpNavigationBar() {
-           self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-           self.navigationController?.navigationBar.shadowImage = UIImage()
-           self.navigationController?.navigationBar.backgroundColor = .lightGray
-           let navigationTitle:UILabel = UILabel()
-           navigationTitle.text = "Service Search"
-           navigationTitle.font = UIFont(name: "PTSans-Bold", size: 20)
-           navigationTitle.textColor = .white
-           navigationItem.titleView = navigationTitle
-           self.navigationItem.hidesBackButton = true
-           self.navigationController?.navigationBar.isTranslucent = true
+        navigationController?.setViewControllerTitle(to: L10n.serviceSearch, fontColor: .white)
            createRightButtonInNavigationBar()
            createLeftButtonInNavigationBar()
         }

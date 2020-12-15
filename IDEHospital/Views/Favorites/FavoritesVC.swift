@@ -17,7 +17,7 @@ class FavoritesVC: UIViewController {
     }
     // MARK:- Public Methods
       class func create() -> FavoritesVC {
-          let viewController: FavoritesVC = UIViewController.create(storyboardName: Storyboards.search, identifier: ViewControllers.searchVC)
+        let viewController: FavoritesVC = UIViewController.create(storyboardName: Storyboards.search, identifier: ViewControllers.favoritesVC)
           return viewController
       }
 

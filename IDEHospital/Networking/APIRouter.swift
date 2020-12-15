@@ -29,13 +29,12 @@ enum APIRouter:URLRequestConvertible {
     private var path: String {
         switch self {
         case .getCategory(let categoryID):
-            return URLs.getCategories+"\(categoryID)"+"/doctors_query_parameters"
+            return URLs.getCategories + "\(categoryID)" + "/doctors_query_parameters"
         case .getCategories:
             return URLs.getCategories
         default:
             return ""
         }
-        
     }
     
     

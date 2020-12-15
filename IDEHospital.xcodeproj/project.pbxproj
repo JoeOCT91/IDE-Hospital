@@ -40,11 +40,11 @@
 		8632AA23258904D100E4DB8D /* UIView+Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8632AA22258904D100E4DB8D /* UIView+Loader.swift */; };
 		86398BBB2582B0A500C284B3 /* Colors.txt in Resources */ = {isa = PBXBuildFile; fileRef = 86398BBA2582B0A500C284B3 /* Colors.txt */; };
 		86398BC22582B4BE00C284B3 /* ColorsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86398BC12582B4BE00C284B3 /* ColorsManager.swift */; };
+		B207B4C725894D0A002603EA /* SupplierTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B207B4C625894D0A002603EA /* SupplierTabBarVC.swift */; };
 		B21BDE042582B89A00430408 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B21BDE032582B89A00430408 /* Search.storyboard */; };
 		B21BDE0D2582BEA600430408 /* FavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21BDE0C2582BEA600430408 /* FavoritesVC.swift */; };
 		B21BDE0F2582BEBF00430408 /* ScheduleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21BDE0E2582BEBF00430408 /* ScheduleVC.swift */; };
 		B21BDE112582C1A400430408 /* UITabBarController+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21BDE102582C1A400430408 /* UITabBarController+Storyboard.swift */; };
-		B21BDE142582C2DF00430408 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21BDE132582C2DF00430408 /* TabBarVC.swift */; };
 		B21BDE162582C42A00430408 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21BDE152582C42A00430408 /* SearchView.swift */; };
 		B21BDE182582C44000430408 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21BDE172582C44000430408 /* FavoritesView.swift */; };
 		B21BDE1A2582C45700430408 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21BDE192582C45700430408 /* ScheduleView.swift */; };
@@ -96,11 +96,11 @@
 		8632AA22258904D100E4DB8D /* UIView+Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Loader.swift"; sourceTree = "<group>"; };
 		86398BBA2582B0A500C284B3 /* Colors.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Colors.txt; sourceTree = "<group>"; };
 		86398BC12582B4BE00C284B3 /* ColorsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsManager.swift; sourceTree = "<group>"; };
+		B207B4C625894D0A002603EA /* SupplierTabBarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupplierTabBarVC.swift; sourceTree = "<group>"; };
 		B21BDE032582B89A00430408 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		B21BDE0C2582BEA600430408 /* FavoritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVC.swift; sourceTree = "<group>"; };
 		B21BDE0E2582BEBF00430408 /* ScheduleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleVC.swift; sourceTree = "<group>"; };
 		B21BDE102582C1A400430408 /* UITabBarController+Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Storyboard.swift"; sourceTree = "<group>"; };
-		B21BDE132582C2DF00430408 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		B21BDE152582C42A00430408 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		B21BDE172582C44000430408 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		B21BDE192582C45700430408 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
@@ -287,9 +287,9 @@
 		863232E9257D74ED00514F5A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B207B4C525894CA2002603EA /* Custom Views */,
 				8632A9FF258901AC00E4DB8D /* Home */,
 				8632A9FB2589019E00E4DB8D /* Cells */,
-				B21BDE122582C2A000430408 /* TabBarController */,
 				B21BDE052582BE1700430408 /* Search */,
 				B21BDE062582BE2800430408 /* Favorites */,
 				B21BDE072582BE3C00430408 /* Schedule */,
@@ -382,6 +382,14 @@
 			path = UIViewController;
 			sourceTree = "<group>";
 		};
+		B207B4C525894CA2002603EA /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				B21BDE122582C2A000430408 /* TabBarController */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
 		B21BDE052582BE1700430408 /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -412,7 +420,7 @@
 		B21BDE122582C2A000430408 /* TabBarController */ = {
 			isa = PBXGroup;
 			children = (
-				B21BDE132582C2DF00430408 /* TabBarVC.swift */,
+				B207B4C625894D0A002603EA /* SupplierTabBarVC.swift */,
 			);
 			path = TabBarController;
 			sourceTree = "<group>";
@@ -613,13 +621,13 @@
 				B21BDE0D2582BEA600430408 /* FavoritesVC.swift in Sources */,
 				B21BDE0F2582BEBF00430408 /* ScheduleVC.swift in Sources */,
 				B21BDE372584F2E000430408 /* Regions.swift in Sources */,
-				B21BDE142582C2DF00430408 /* TabBarVC.swift in Sources */,
 				B21BDE392584F2F700430408 /* Companies.swift in Sources */,
 				B21BDE162582C42A00430408 /* SearchView.swift in Sources */,
 				8632A9FD2589019E00E4DB8D /* CategoryCell.swift in Sources */,
 				B21BDE312584F29300430408 /* CategoriesData.swift in Sources */,
 				862851C1257FC28D0059122F /* SearchViewModel.swift in Sources */,
 				863232D1257D733C00514F5A /* SearchVC.swift in Sources */,
+				B207B4C725894D0A002603EA /* SupplierTabBarVC.swift in Sources */,
 				B21BDE2F2584F26400430408 /* CategoriesResponse.swift in Sources */,
 				B21BDE332584F2AD00430408 /* Specialties.swift in Sources */,
 				86323302257D83A400514F5A /* ValidatorManager.swift in Sources */,
