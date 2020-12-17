@@ -19,7 +19,6 @@ extension UINavigationController {
         titleLabel.textAlignment = .center
         titleLabel.text = title
         titleLabel.textColor = fontColor
-        
         //lable setting it frame
         titleLabel.frame = navigationBar.frame
         
@@ -28,5 +27,8 @@ extension UINavigationController {
         self.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationBar.isTranslucent = true
       }
-
+    
+      func setUpNavigationBar() {
+        self.setViewControllerTitle(to: L10n.serviceSearch, fontColor: .white)
+        }
 }
