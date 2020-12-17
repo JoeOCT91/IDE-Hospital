@@ -13,11 +13,13 @@ struct Storyboards {
     static let search = "Search"
     static let main = "Main"
     static let home = "Home"
+    static let favorites = "Favorites"
 }
 
 // Cells
 struct Cells {
     static let category = "Category"
+    static let favorites = "Favorites"
 }
 
 // View Controllers
@@ -36,11 +38,15 @@ struct URLs {
     static let base = "http://ide-hospital.ideaeg.co/api/"
     static let mainCategories = "main_categories"
     static let getCategories = "main_categories/"
+    static let favorites = "favorites/doctors"
+
 }
 
 // Header Keys
 struct HeaderKeys {
     static let contentType = "Content-Type"
+    static let authorization = "Authorization"
+
 }
 // Authorization Key
 struct Authorization {

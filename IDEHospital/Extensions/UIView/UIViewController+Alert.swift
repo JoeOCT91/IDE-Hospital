@@ -13,4 +13,13 @@ extension UIViewController {
         alert.addAction(UIAlertAction(title: okTitle, style: .cancel, handler: okHandler))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func presentAlertOnMainThread(){
+        DispatchQueue.main.async { [self] in
+            let alertVc = AlertVC()
+            alertVc.modalPresentationStyle = .overFullScreen
+            alertVc.modalTransitionStyle = .crossDissolve
+            present(alertVc, animated: true)
+        }
+    }
 }

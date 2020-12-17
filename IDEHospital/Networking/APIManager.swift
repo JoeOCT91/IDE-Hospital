@@ -23,6 +23,12 @@ class APIManager {
         }
     }
     
+    class func getFavorites(complation: @escaping (Result<FavoritesResponse, Error>) -> () ) {
+        request(APIRouter.getFavories) { (response) in
+            complation(response)
+        }
+    }
+    
 }
 extension APIManager{
     // MARK:- The request function to get results in a closure
