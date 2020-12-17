@@ -72,14 +72,11 @@ extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
         let height = scrollView.frame.size.height
-        
-        print("offsetY: \(offsetY)")
-        print("contentHeight: \(contentHeight)")
-        print("height: \(height)")
-
+        if offsetY > contentHeight - height { viewModel.getFavoritesList() }
     }
     
 }
+
 extension FavoritesVC: FavoritesCellDelgate{
     
     @objc func deleteFavorite(doctorID : Int) {

@@ -129,7 +129,7 @@ enum APIRouter:URLRequestConvertible {
     //End Points names
     
     case getCategories
-    case getFavories
+    case getFavories(_ page: Int)
     case getCategory(_ ID: Int)
     case login
     
@@ -150,12 +150,21 @@ enum APIRouter:URLRequestConvertible {
             return URLs.getCategories + "\(categoryID)" + "/doctors_query_parameters"
         case .getCategories:
             return URLs.getCategories
-        case .getFavories:
-            return URLs.favorites
+        case .getFavories(let page):
+            return URLs.favorites + "?" + "page=\(page)"
         default:
             return ""
         }
     }
+    private var query: URLQueryItem? {
+        switch self {
+        case .getFavories(let page):
+            return URLQueryItem(name: "page", value: String(page))
+        default:
+            return nil
+        }
+    }
+    
     
     //MARK:- Parameters
     private var parameters: Parameters? {
@@ -166,11 +175,26 @@ enum APIRouter:URLRequestConvertible {
             return nil
         }
     }
-
+    
     func asURLRequest() throws -> URLRequest {
-
-        let url = try URLs.base.asURL()
-        var urlRequest = URLRequest(url: url.appendingPathComponent(path))
+        
+        
+        
+        // var url = try  //URLs.base.asURL()
+        var urlComponents = URLComponents(string: URLs.base + path)!
+        if let query = query {
+            urlComponents.queryItems = [query]
+        }
+        let url =  try urlComponents.asURL()
+        
+        // urlComponents.queryItems = [query!]
+        // var url = URLComponents(string: <#T##String#>)
+        // url.appendPathComponent(path)
+        // url.url
+        //var urlRequest = URLRequest(url: url.appendingPathComponent(path))
+        var urlRequest = URLRequest(url: url)
+        
+        print(urlRequest)
         
         //httpMethod
         urlRequest.httpMethod = method.rawValue

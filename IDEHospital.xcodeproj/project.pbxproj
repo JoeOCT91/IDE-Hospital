@@ -24,7 +24,6 @@
 		8628D5B3258C07EE00CAB803 /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8628D5B2258C07EE00CAB803 /* FavoritesCell.swift */; };
 		8628D5B8258C07FE00CAB803 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8628D5B6258C07FE00CAB803 /* FavoritesView.swift */; };
 		8628D5B9258C07FE00CAB803 /* FavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8628D5B7258C07FE00CAB803 /* FavoritesVC.swift */; };
-		8628D5BC258C093000CAB803 /* FavoritesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8628D5BB258C093000CAB803 /* FavoritesVM.swift */; };
 		8628D5BF258C0ABD00CAB803 /* FavoritesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8628D5BE258C0ABD00CAB803 /* FavoritesVM.swift */; };
 		8628D5C4258C0B0700CAB803 /* FavoritesReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8628D5C2258C0B0700CAB803 /* FavoritesReponse.swift */; };
 		8628D5C5258C0B0700CAB803 /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8628D5C3258C0B0700CAB803 /* Doctor.swift */; };
@@ -91,7 +90,6 @@
 		8628D5B2258C07EE00CAB803 /* FavoritesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
 		8628D5B6258C07FE00CAB803 /* FavoritesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		8628D5B7258C07FE00CAB803 /* FavoritesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesVC.swift; sourceTree = "<group>"; };
-		8628D5BB258C093000CAB803 /* FavoritesVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesVM.swift; sourceTree = "<group>"; };
 		8628D5BE258C0ABD00CAB803 /* FavoritesVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesVM.swift; sourceTree = "<group>"; };
 		8628D5C2258C0B0700CAB803 /* FavoritesReponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesReponse.swift; sourceTree = "<group>"; };
 		8628D5C3258C0B0700CAB803 /* Doctor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
@@ -241,8 +239,8 @@
 				863232E3257D739500514F5A /* Utilities */,
 				863232E4257D73B300514F5A /* Extensions */,
 				863232E6257D73DF00514F5A /* Models */,
-				863232E9257D74ED00514F5A /* Views */,
 				863232E8257D742200514F5A /* ViewModel */,
+				863232E9257D74ED00514F5A /* Views */,
 				863232EA257D758200514F5A /* Resources */,
 				863232DA257D733D00514F5A /* Info.plist */,
 			);
@@ -310,7 +308,6 @@
 		863232E8257D742200514F5A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				8628D5BB258C093000CAB803 /* FavoritesVM.swift */,
 				8628D5BE258C0ABD00CAB803 /* FavoritesVM.swift */,
 				8632AA05258901DF00E4DB8D /* HomeViewModel.swift */,
 				862851C0257FC28D0059122F /* SearchViewModel.swift */,
@@ -326,10 +323,10 @@
 				8628D5A6258C075B00CAB803 /* HospitalButton.swift */,
 				8628D5A4258C075A00CAB803 /* HospitalCellLabel.swift */,
 				B207B4C525894CA2002603EA /* Custom Views */,
-				8632A9FF258901AC00E4DB8D /* Home */,
 				8632A9FB2589019E00E4DB8D /* Cells */,
-				B21BDE052582BE1700430408 /* Search */,
+				8632A9FF258901AC00E4DB8D /* Home */,
 				B21BDE062582BE2800430408 /* Favorites */,
+				B21BDE052582BE1700430408 /* Search */,
 				B21BDE072582BE3C00430408 /* Schedule */,
 			);
 			path = Views;
@@ -657,7 +654,6 @@
 				8628D5A8258C075B00CAB803 /* HospitalCellLabel.swift in Sources */,
 				862851C1257FC28D0059122F /* SearchViewModel.swift in Sources */,
 				8632AA23258904D100E4DB8D /* UIView+Loader.swift in Sources */,
-				8628D5BC258C093000CAB803 /* FavoritesVM.swift in Sources */,
 				8632AA02258901AD00E4DB8D /* HomeView.swift in Sources */,
 				86201AD02583EF26001D1C06 /* SetupFunction+UINavigationController.swift in Sources */,
 				8628D5BF258C0ABD00CAB803 /* FavoritesVM.swift in Sources */,

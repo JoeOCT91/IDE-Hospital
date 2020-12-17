@@ -23,8 +23,8 @@ class APIManager {
         }
     }
     
-    class func getFavorites(complation: @escaping (Result<FavoritesResponse, Error>) -> () ) {
-        request(APIRouter.getFavories) { (response) in
+    class func getFavorites(page: Int, complation: @escaping (Result<FavoritesResponse, Error>) -> () ) {
+        request(APIRouter.getFavories(page)) { (response) in
             complation(response)
         }
     }

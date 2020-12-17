@@ -21,6 +21,9 @@ class FavoritesVM: FavoritesVMProtocol {
     var cache = NSCache<NSString, AnyObject>()
     private weak var view: FavoritesVCProtocol?
     
+    private var page = 1
+    private var hasMorePages = true
+    
     private var favoritesList = [Doctor]()
     //typealias CellData = (name: String, address : String, specialty : String, fees : String )
     
@@ -29,15 +32,18 @@ class FavoritesVM: FavoritesVMProtocol {
     }
     
     internal func getFavoritesList(){
-        APIManager.getFavorites { [weak self](result) in
-            guard let self = self else { return }
-            switch result {
-            case .success(let data):
-                self.favoritesList = data.data.items
-                print(self.favoritesList)
-                self.view?.reloadTableview()
-            case .failure(let error):
-                print(error)
+        if hasMorePages {
+            APIManager.getFavorites(page: page) { [weak self](result) in
+                guard let self = self else { return }
+                switch result {
+                case .success(let Favoritesdata):
+                    self.favoritesList.append(contentsOf: Favoritesdata.data.items)
+                    if self.page < Favoritesdata.data.totalPages { self.hasMorePages = true } else { self.hasMorePages = false }
+                    self.page += 1
+                    self.view?.reloadTableview()
+                case .failure(let error):
+                    print(error)
+                }
             }
         }
     }
