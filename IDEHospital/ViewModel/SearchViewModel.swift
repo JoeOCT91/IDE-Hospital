@@ -8,10 +8,6 @@
 import Foundation
 protocol SearchViewModelProtocol {
     func callGetCategoriesAPI()
-    func getSpecialtiesArr() -> [Specialties]
-    func getCitiesArr() -> [Cities]
-    func getRegion() -> [Regions]
-    func getCompaniesArr() -> [Companies]
     func bringPickerValues(tag:Int, row:Int) -> String
     func bringCountPickerValues(tag:Int) -> Int
     func itemSelected(tag:Int, row:Int)
@@ -20,14 +16,14 @@ protocol SearchViewModelProtocol {
   
 }
 class SearchViewModel{
-   weak var searchVC:SearchVCProtocol!
+   weak private var view:SearchVCProtocol!
    private var specialtiesArr:[Specialties] = []
    private var citiesArr:[Cities] = []
    private var regionArr:[Regions] = []
    private var companiesArr:[Companies] = []
    private var categoryID = 0
     init(search:SearchVCProtocol, categoryID:Int) {
-        self.searchVC = search
+        self.view = search
         self.categoryID = categoryID
     }
 }
@@ -35,7 +31,7 @@ extension SearchViewModel:SearchViewModelProtocol{
     
     func callGetCategoriesAPI() {
         APIManager.getCategoriesAPIRouter(categoryID: self.categoryID){(response) in
-              self.searchVC.showLoader()
+              self.view.showLoader()
                switch response {
                  case .failure(let error):
                          print(error.localizedDescription)
@@ -45,23 +41,9 @@ extension SearchViewModel:SearchViewModelProtocol{
                          self.citiesArr = data.data.cities
                          self.companiesArr = data.data.companies
                      }
-               self.searchVC.hideLoader()
+               self.view.hideLoader()
           }
       }
-    
-    func getRegion() -> [Regions] {
-
-         return self.regionArr
-     }
-     func getSpecialtiesArr() -> [Specialties] {
-           return self.specialtiesArr
-     }
-     func getCitiesArr() -> [Cities] {
-         return self.citiesArr
-     }
-     func getCompaniesArr() -> [Companies] {
-         return self.companiesArr
-     }
     
     func bringCountPickerValues(tag: Int) -> Int {
          switch tag {
@@ -89,20 +71,20 @@ extension SearchViewModel:SearchViewModelProtocol{
         case 4:
             return self.companiesArr[row].name
         default:
-            return "Data Not Found"
+            return L10n.dataNotFound
         }
     }
        func itemSelected(tag: Int, row: Int) {
            switch tag {
            case 1:
-               searchVC.addSelectedItem(tag: tag, item: self.specialtiesArr[row].name)
+               view.addSelectedItem(tag: tag, item: self.specialtiesArr[row].name)
            case 2:
-               searchVC.addSelectedItem(tag: tag, item: self.citiesArr[row].name)
+               view.addSelectedItem(tag: tag, item: self.citiesArr[row].name)
                self.regionArr = citiesArr[row].regions
            case 3:
-                  searchVC.addSelectedItem(tag: tag, item:self.regionArr[row].name)
+                  view.addSelectedItem(tag: tag, item:self.regionArr[row].name)
            case 4:
-               searchVC.addSelectedItem(tag: tag, item: self.companiesArr[row].name)
+               view.addSelectedItem(tag: tag, item: self.companiesArr[row].name)
            default:
                break
            }
@@ -110,15 +92,15 @@ extension SearchViewModel:SearchViewModelProtocol{
     
     func checkResistingRegionValueOrNot(tag: Int) {
         if tag == 2 {
-            self.searchVC.resetRegionTextFieldValue()
+            self.view.resetRegionTextFieldValue()
         }
     }
     func checkIfCityFieldSelectedFirstOrNot(tag:Int) {
         if (tag == 3) && (regionArr.count == 0) {
             DispatchQueue.main.async {
-                self.searchVC.presentError(title: "Sorry", message: "you have to choose City First!")
+                self.view.presentError(title: L10n.sorry, message: AlertMessages.selectCityBeforeRegionFirst)
             }
-             self.searchVC.switchToCityTextField()
+             self.view.switchToCityTextField()
          }
     }
 }

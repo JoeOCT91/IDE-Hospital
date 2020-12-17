@@ -2,3 +2,13 @@
 "chooseServices" = "Choose Services";
 "serviceSearch" = "Service Search";
 "done" = "done";
+"sorry" = "Sorry";
+"dataNotFound" = "Data Not Found";
+"ideaHospital" = "IDEA EG HOSPITAL";
+"ideaEgHospitalTheBestChoice" = "IDEA EG HOSPITAL THE BEST CHOICE";
+"chooseSpecialists" = "Choose Specialists";
+"chooseCity" = "Choose City";
+"chooseRegion" = "Choose Region";
+"chooseCompanies" = "Choose Companies";
+"DoctorName" = "DoctorName";
+"findDoctor" = "Find a doctor";
