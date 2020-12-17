@@ -7,8 +7,6 @@
 
 import UIKit
 class SearchView: UIView {
-
-    @IBOutlet weak var mainBackgroundImageView: UIImageView!
     // In ViewController
     @IBOutlet weak var mainHeaderLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
@@ -42,8 +40,8 @@ class SearchView: UIView {
     var pickerView = UIPickerView()
     // Main Function To SetUp the Rest of Functions
     public func setUp(){
-        
-        setUpImageView(imageView: mainBackgroundImageView, imageName: Asset.backgroundImage.image)
+        // setBackGroundImage
+        self.setupBackground()
      // Main Two Labels in the Header
         setUpLabel(label: mainHeaderLabel, labelText: "IDEA EG HOSPITAL", fontName: FontFamily.PTSans.bold, fontSize: 40, fontColor: .white, latterSpacing: 0, changeLatterSpacing: false)
         setUpLabel(label: titleLabel, labelText: "IDEA EG HOSPITAL THE BEST CHOICE", fontName: FontFamily.PTSans.regular, fontSize: 20, fontColor: .white, latterSpacing: 0.60, changeLatterSpacing: true)
@@ -92,6 +90,7 @@ class SearchView: UIView {
         label.numberOfLines = 1
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.8
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = labelText
         label.textColor = fontColor

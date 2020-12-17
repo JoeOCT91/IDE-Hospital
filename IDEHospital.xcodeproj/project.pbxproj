@@ -56,6 +56,7 @@
 		B21BDE352584F2C800430408 /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21BDE342584F2C800430408 /* Cities.swift */; };
 		B21BDE372584F2E000430408 /* Regions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21BDE362584F2E000430408 /* Regions.swift */; };
 		B21BDE392584F2F700430408 /* Companies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21BDE382584F2F700430408 /* Companies.swift */; };
+		B26DB985258BCBE800DDE8B8 /* HideStatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26DB984258BCBE800DDE8B8 /* HideStatusBar.swift */; };
 		B7E6D5DC1F585871719B5F3D /* Pods_IDEHospital.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0BDB737E5E4140C2CAB0880 /* Pods_IDEHospital.framework */; };
 /* End PBXBuildFile section */
 
@@ -113,6 +114,7 @@
 		B21BDE342584F2C800430408 /* Cities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
 		B21BDE362584F2E000430408 /* Regions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regions.swift; sourceTree = "<group>"; };
 		B21BDE382584F2F700430408 /* Companies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Companies.swift; sourceTree = "<group>"; };
+		B26DB984258BCBE800DDE8B8 /* HideStatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideStatusBar.swift; sourceTree = "<group>"; };
 		D0BDB737E5E4140C2CAB0880 /* Pods_IDEHospital.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IDEHospital.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB534F8EC6442A45ACC19CEC /* Pods-IDEHospital.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IDEHospital.debug.xcconfig"; path = "Target Support Files/Pods-IDEHospital/Pods-IDEHospital.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -253,6 +255,7 @@
 				86398BAF2582885F00C284B3 /* UIView */,
 				B21BDE102582C1A400430408 /* UITabBarController+Storyboard.swift */,
 				B21BDE2C2584060900430408 /* UILable+LatterSpacing.swift */,
+				B26DB984258BCBE800DDE8B8 /* HideStatusBar.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -623,6 +626,7 @@
 				B21BDE372584F2E000430408 /* Regions.swift in Sources */,
 				B21BDE392584F2F700430408 /* Companies.swift in Sources */,
 				B21BDE162582C42A00430408 /* SearchView.swift in Sources */,
+				B26DB985258BCBE800DDE8B8 /* HideStatusBar.swift in Sources */,
 				8632A9FD2589019E00E4DB8D /* CategoryCell.swift in Sources */,
 				B21BDE312584F29300430408 /* CategoriesData.swift in Sources */,
 				862851C1257FC28D0059122F /* SearchViewModel.swift in Sources */,

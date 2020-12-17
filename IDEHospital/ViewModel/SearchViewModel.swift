@@ -7,7 +7,7 @@
 
 import Foundation
 protocol SearchViewModelProtocol {
-    func callGetCategoriesAPI(categoryID:Int)
+    func callGetCategoriesAPI()
     func getSpecialtiesArr() -> [Specialties]
     func getCitiesArr() -> [Cities]
     func getRegion() -> [Regions]
@@ -20,20 +20,21 @@ protocol SearchViewModelProtocol {
   
 }
 class SearchViewModel{
-    weak var searchVC:SearchVCProtocol!
-    var specialtiesArr:[Specialties] = []
-    var citiesArr:[Cities] = []
-    var regionArr:[Regions] = []
-    var companiesArr:[Companies] = []
-    
-    init(search:SearchVCProtocol) {
+   weak var searchVC:SearchVCProtocol!
+   private var specialtiesArr:[Specialties] = []
+   private var citiesArr:[Cities] = []
+   private var regionArr:[Regions] = []
+   private var companiesArr:[Companies] = []
+   private var categoryID = 0
+    init(search:SearchVCProtocol, categoryID:Int) {
         self.searchVC = search
+        self.categoryID = categoryID
     }
 }
 extension SearchViewModel:SearchViewModelProtocol{
     
-    func callGetCategoriesAPI(categoryID:Int) {
-           APIManager.getCategoriesAPIRouter(categoryID: categoryID){(response) in
+    func callGetCategoriesAPI() {
+        APIManager.getCategoriesAPIRouter(categoryID: self.categoryID){(response) in
               self.searchVC.showLoader()
                switch response {
                  case .failure(let error):
@@ -65,13 +66,13 @@ extension SearchViewModel:SearchViewModelProtocol{
     func bringCountPickerValues(tag: Int) -> Int {
          switch tag {
             case 1:
-                return getSpecialtiesArr().count
+                return self.specialtiesArr.count
             case 2:
-                return getCitiesArr().count
+                return self.citiesArr.count
             case 3:
-                return getRegion().count
+                return self.regionArr.count
             case 4:
-                return getCompaniesArr().count
+                return self.companiesArr.count
             default:
                 return 1
             }
@@ -80,13 +81,13 @@ extension SearchViewModel:SearchViewModelProtocol{
     func bringPickerValues(tag: Int, row: Int) -> String {
         switch tag {
         case 1:
-            return getSpecialtiesArr()[row].name
+            return self.specialtiesArr[row].name
         case 2:
-            return getCitiesArr()[row].name
+            return self.citiesArr[row].name
         case 3:
-            return getRegion()[row].name
+            return self.regionArr[row].name
         case 4:
-            return getCompaniesArr()[row].name
+            return self.companiesArr[row].name
         default:
             return "Data Not Found"
         }

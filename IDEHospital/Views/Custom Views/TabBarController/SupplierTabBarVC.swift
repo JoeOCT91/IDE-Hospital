@@ -23,11 +23,8 @@ class SupplierTabBarVC: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setViewControllers()
-        
-        //ProfileShare.shared().getProfileData(theToken: "")
         setupTabBarView()
     }
-    
     // MARK:- Private Methods
     private func setupTabBarView(){
         tabBar.backgroundColor = .white
@@ -37,14 +34,12 @@ class SupplierTabBarVC: UITabBarController {
         tabBar.layer.shadowOpacity = 0.3
     }
     // MARK:- Public Methods
-    
     private func setSearchTab() {
         let searchVC = SearchVC.create(id: self.categoryID)
        
         searchVC.tabBarItem.image = Asset.component411.image.withRenderingMode(.alwaysOriginal)
         searchNavigation.viewControllers = [searchVC]
     }
-    
     private func setFavoriteTab() {
         let favoriteVC = FavoritesVC.create()
         favoriteVC.tabBarItem.image = Asset.joheart.image.withRenderingMode(.alwaysOriginal)
@@ -56,8 +51,6 @@ class SupplierTabBarVC: UITabBarController {
         scheduleVC.tabBarItem.image = Asset.calendar3.image.withRenderingMode(.alwaysOriginal)
         scheduleNavigation.viewControllers = [scheduleVC]
     }
-    
-    
     private func setViewControllers() {
         setSearchTab()
         setFavoriteTab()

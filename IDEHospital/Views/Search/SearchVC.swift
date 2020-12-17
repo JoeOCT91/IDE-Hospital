@@ -23,23 +23,24 @@ class SearchVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.searchView.setUp()
-        self.setUpNavigationBar()
-        self.searchViewModel = SearchViewModel(search: self)
-        self.searchViewModel.callGetCategoriesAPI(categoryID: self.categoryId)
+        self.navigationController?.setUpNavigationBar()
+        self.setUpButtonsInNavigationBar()
+        self.searchViewModel.callGetCategoriesAPI()
     }
     
     // MARK:- Public Methods
     class func create(id:Int) -> SearchVC {
-        let viewController: SearchVC = UIViewController.create(storyboardName: Storyboards.search, identifier: ViewControllers.searchVC)
-        viewController.categoryId = id
-        return viewController
+        let searchVC: SearchVC = UIViewController.create(storyboardName: Storyboards.search, identifier: ViewControllers.searchVC)
+        searchVC.searchViewModel = SearchViewModel(search: searchVC, categoryID: id)
+        return searchVC
     }
 }
 extension SearchVC:SearchVCProtocol{
+    // For Reset Reaion Value after Picking new City Value
     func resetRegionTextFieldValue() {
         searchView.textField3.text = searchView.textField3.placeholder
     }
-    
+    // for auto open city Picker if he pressed reagion peicker first
     func switchToCityTextField() {
         self.searchView.textField2.becomeFirstResponder()
     }
@@ -61,27 +62,7 @@ extension SearchVC:SearchVCProtocol{
     }
 }
 extension SearchVC {
-    private func setUpNavigationBar() {
-        navigationController?.setViewControllerTitle(to: L10n.serviceSearch, fontColor: .white)
-           createRightButtonInNavigationBar()
-           createLeftButtonInNavigationBar()
-        }
-       private func createRightButtonInNavigationBar() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(settingsButton))
-        navigationItem.rightBarButtonItem?.setBackgroundImage(UIImage(named: "settings"), for: .normal, barMetrics: .default)
-        }
-       @objc func settingsButton(_ sender:UIBarButtonItem){
-            // Settings Button
-        }
-
-       private func createLeftButtonInNavigationBar() {
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(goBackButton))
-               navigationItem.leftBarButtonItem?.setBackgroundImage(UIImage(named: "back-2"), for: .normal, barMetrics: .default)
-       }
-    @objc func goBackButton(_ sender:UIBarButtonItem){
-        self.dismiss(animated: true)
-    }
+    
     
     @objc private func donePressed(_ sender:UIBarButtonItem){
         searchViewModel.itemSelected(tag: sender.tag, row: searchView.pickerView.selectedRow(inComponent: 0))
