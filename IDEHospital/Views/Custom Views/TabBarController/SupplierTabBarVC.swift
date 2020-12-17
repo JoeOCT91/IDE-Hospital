@@ -15,7 +15,7 @@ class SupplierTabBarVC: UITabBarController {
     let favoriteNavigation = UINavigationController()
     let scheduleNavigation = UINavigationController()
     var categoryID:Int = 0{
-          willSet(newState){
+          didSet(newValue){
             self.setViewControllers()
           }
       }
@@ -39,23 +39,21 @@ class SupplierTabBarVC: UITabBarController {
     // MARK:- Public Methods
     
     private func setSearchTab() {
-        let searchVC = SearchVC.create(id: categoryID)
+        let searchVC = SearchVC.create(id: self.categoryID)
+       
         searchVC.tabBarItem.image = Asset.component411.image.withRenderingMode(.alwaysOriginal)
-        //earchVC.tabBarItem.selectedImage = Asset.component411.image.withRenderingMode(.alwaysOriginal)
         searchNavigation.viewControllers = [searchVC]
     }
     
     private func setFavoriteTab() {
         let favoriteVC = FavoritesVC.create()
         favoriteVC.tabBarItem.image = Asset.joheart.image.withRenderingMode(.alwaysOriginal)
-        //favoriteVC.tabBarItem.selectedImage = Asset.heart.image.withRenderingMode(.alwaysOriginal)
         favoriteNavigation.viewControllers = [favoriteVC]
     }
     
     private func setScheduleTab() {
         let scheduleVC = ScheduleVC.create()
         scheduleVC.tabBarItem.image = Asset.calendar3.image.withRenderingMode(.alwaysOriginal)
-        //scheduleVC.tabBarItem.selectedImage = Asset.calendar3.image.withRenderingMode(.alwaysOriginal)
         scheduleNavigation.viewControllers = [scheduleVC]
     }
     

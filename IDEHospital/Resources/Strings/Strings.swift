@@ -12,6 +12,8 @@ import Foundation
 internal enum L10n {
   /// Choose Services
   internal static let chooseServices = L10n.tr("Localizable", "chooseServices")
+  /// done
+  internal static let done = L10n.tr("Localizable", "done")
   /// IDEA EG HOSPITAL THE BEST CHOICE
   internal static let homeDescription = L10n.tr("Localizable", "homeDescription")
   /// Service Search

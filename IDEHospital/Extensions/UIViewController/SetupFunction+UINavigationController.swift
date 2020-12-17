@@ -28,5 +28,6 @@ extension UINavigationController {
         self.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationBar.isTranslucent = true
       }
+    
 
 }
