@@ -6,24 +6,20 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
-protocol AppDelegateProtocol {
-    func getMainWindow() -> UIWindow?
-}
-
-@main
+@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        return true
-    }
-}
 
-extension AppDelegate: AppDelegateProtocol {
-    func getMainWindow() -> UIWindow? {
-        return window
+        IQKeyboardManager.shared.enable = true
+        let homeVC = HomeVC.create()
+        let navigationController = UINavigationController(rootViewController: homeVC)
+        window?.rootViewController = navigationController
+        return true
     }
 }
 
