@@ -22,8 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        window?.rootViewController = navigationController
         
         
-        let appointmentVC = AppointmentsVC.create()
-        let navigationController = UINavigationController(rootViewController: appointmentVC)
+//        let appointmentVC = AppointmentsVC.create()
+//        let navigationController = UINavigationController(rootViewController: appointmentVC)
+//        window?.rootViewController = navigationController
+        
+        let favoritesVC = FavoritesVC.create()
+        let navigationController = UINavigationController(rootViewController: favoritesVC)
         window?.rootViewController = navigationController
         
         return true
