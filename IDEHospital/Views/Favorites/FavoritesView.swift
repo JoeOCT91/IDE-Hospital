@@ -16,6 +16,7 @@ class FavoritesView: UIView {
         setupBackgroundImage()
         configureTableView()
     }
+    
     func setupTableView(delgate: UITableViewDelegate, dataSource: UITableViewDataSource){
         favoritesTableView.separatorStyle = .none
         favoritesTableView.register(FavoritesCell.self, forCellReuseIdentifier: Cells.favorites)
@@ -28,6 +29,7 @@ class FavoritesView: UIView {
         backgroundImage.contentMode = .scaleAspectFill
         backgroundImage.image = UIImage(asset: Asset.splashBackGround)
     }
+    
     private func configureTableView() {
         favoritesTableView.backgroundColor = .clear
     }

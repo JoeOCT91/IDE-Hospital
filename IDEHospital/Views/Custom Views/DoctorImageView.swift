@@ -26,7 +26,6 @@ class DoctorImageView: UIImageView {
         self.layer.cornerRadius =  self.bounds.width / 2
         self.clipsToBounds = true
         self.contentMode = .scaleAspectFit
-        
     }
     
 

@@ -186,16 +186,15 @@ enum APIRouter:URLRequestConvertible {
             urlComponents.queryItems = [query]
         }
         let url =  try urlComponents.asURL()
+        var urlRequest = URLRequest(url: url)
+
         
         // urlComponents.queryItems = [query!]
         // var url = URLComponents(string: <#T##String#>)
         // url.appendPathComponent(path)
         // url.url
         //var urlRequest = URLRequest(url: url.appendingPathComponent(path))
-        var urlRequest = URLRequest(url: url)
-        
-        print(urlRequest)
-        
+                
         //httpMethod
         urlRequest.httpMethod = method.rawValue
         
