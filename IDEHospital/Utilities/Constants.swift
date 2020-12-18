@@ -21,6 +21,7 @@ struct Storyboards {
 struct Cells {
     static let category = "Category"
     static let favorites = "Favorites"
+    static let appointment = "Appointment"
 }
 
 // View Controllers
@@ -40,6 +41,7 @@ struct URLs {
     static let mainCategories = "main_categories"
     static let getCategories = "main_categories/"
     static let favorites = "favorites/doctors"
+    static let appoitments = "user_appointments"
 
 }
 

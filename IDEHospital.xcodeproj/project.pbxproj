@@ -53,6 +53,10 @@
 		8632AA182589045800E4DB8D /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8632AA172589045800E4DB8D /* UIViewController+Alert.swift */; };
 		8632AA20258904A100E4DB8D /* String+trimming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8632AA1F258904A000E4DB8D /* String+trimming.swift */; };
 		8632AA23258904D100E4DB8D /* UIView+Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8632AA22258904D100E4DB8D /* UIView+Loader.swift */; };
+		86385A55258CA74F0060C564 /* AppoinmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385A54258CA74F0060C564 /* AppoinmentCell.swift */; };
+		86385A59258CB25E0060C564 /* AppointmentsMainResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385A58258CB25E0060C564 /* AppointmentsMainResponse.swift */; };
+		86385A5C258CB2870060C564 /* AppointmentsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385A5B258CB2870060C564 /* AppointmentsResponse.swift */; };
+		86385A5F258CB2D00060C564 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86385A5E258CB2D00060C564 /* Appointment.swift */; };
 		86398BBB2582B0A500C284B3 /* Colors.txt in Resources */ = {isa = PBXBuildFile; fileRef = 86398BBA2582B0A500C284B3 /* Colors.txt */; };
 		86398BC22582B4BE00C284B3 /* ColorsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86398BC12582B4BE00C284B3 /* ColorsManager.swift */; };
 		B207B4C725894D0A002603EA /* SupplierTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B207B4C625894D0A002603EA /* SupplierTabBarVC.swift */; };
@@ -123,6 +127,10 @@
 		8632AA172589045800E4DB8D /* UIViewController+Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		8632AA1F258904A000E4DB8D /* String+trimming.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+trimming.swift"; sourceTree = "<group>"; };
 		8632AA22258904D100E4DB8D /* UIView+Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Loader.swift"; sourceTree = "<group>"; };
+		86385A54258CA74F0060C564 /* AppoinmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppoinmentCell.swift; sourceTree = "<group>"; };
+		86385A58258CB25E0060C564 /* AppointmentsMainResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsMainResponse.swift; sourceTree = "<group>"; };
+		86385A5B258CB2870060C564 /* AppointmentsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsResponse.swift; sourceTree = "<group>"; };
+		86385A5E258CB2D00060C564 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		86398BBA2582B0A500C284B3 /* Colors.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Colors.txt; sourceTree = "<group>"; };
 		86398BC12582B4BE00C284B3 /* ColorsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsManager.swift; sourceTree = "<group>"; };
 		B207B4C625894D0A002603EA /* SupplierTabBarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupplierTabBarVC.swift; sourceTree = "<group>"; };
@@ -305,6 +313,7 @@
 		863232E6257D73DF00514F5A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				86385A57258CB2180060C564 /* Appointments */,
 				8628D5C3258C0B0700CAB803 /* Doctor.swift */,
 				8628D5C1258C0B0700CAB803 /* Favorites */,
 				862851DB257FE6410059122F /* Categories */,
@@ -391,6 +400,7 @@
 			children = (
 				8632A9FC2589019E00E4DB8D /* CategoryCell.swift */,
 				8628D5B2258C07EE00CAB803 /* FavoritesCell.swift */,
+				86385A54258CA74F0060C564 /* AppoinmentCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -402,6 +412,16 @@
 				8632AA01258901AC00E4DB8D /* HomeVC.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		86385A57258CB2180060C564 /* Appointments */ = {
+			isa = PBXGroup;
+			children = (
+				86385A58258CB25E0060C564 /* AppointmentsMainResponse.swift */,
+				86385A5B258CB2870060C564 /* AppointmentsResponse.swift */,
+				86385A5E258CB2D00060C564 /* Appointment.swift */,
+			);
+			path = Appointments;
 			sourceTree = "<group>";
 		};
 		86398BAF2582885F00C284B3 /* UIView */ = {
@@ -682,6 +702,8 @@
 				8628D5BF258C0ABD00CAB803 /* FavoritesVM.swift in Sources */,
 				862127D72581302A00C1A5DF /* FontsManager.swift in Sources */,
 				862851E1257FE68C0059122F /* MainCategory.swift in Sources */,
+				86385A5F258CB2D00060C564 /* Appointment.swift in Sources */,
+				86385A5C258CB2870060C564 /* AppointmentsResponse.swift in Sources */,
 				8632AA03258901AD00E4DB8D /* HomeVC.swift in Sources */,
 				B21BDE352584F2C800430408 /* Cities.swift in Sources */,
 				8632AA182589045800E4DB8D /* UIViewController+Alert.swift in Sources */,
@@ -693,6 +715,7 @@
 				B21BDE392584F2F700430408 /* Companies.swift in Sources */,
 				B21BDE162582C42A00430408 /* SearchView.swift in Sources */,
 				8628D5A9258C075B00CAB803 /* AlertVC.swift in Sources */,
+				86385A59258CB25E0060C564 /* AppointmentsMainResponse.swift in Sources */,
 				B26DB985258BCBE800DDE8B8 /*  UIView+BackgroundExtension.swift in Sources */,
 				8632A9FD2589019E00E4DB8D /* CategoryCell.swift in Sources */,
 				B21BDE312584F29300430408 /* CategoriesData.swift in Sources */,
@@ -704,6 +727,7 @@
 				B21BDE332584F2AD00430408 /* Specialties.swift in Sources */,
 				8628D5A7258C075B00CAB803 /* DoctorImageView.swift in Sources */,
 				86323302257D83A400514F5A /* ValidatorManager.swift in Sources */,
+				86385A55258CA74F0060C564 /* AppoinmentCell.swift in Sources */,
 				8632AA20258904A100E4DB8D /* String+trimming.swift in Sources */,
 				8632AA06258901DF00E4DB8D /* HomeViewModel.swift in Sources */,
 				863232CD257D733C00514F5A /* AppDelegate.swift in Sources */,

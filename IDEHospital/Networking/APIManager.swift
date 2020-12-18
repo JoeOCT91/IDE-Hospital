@@ -28,6 +28,11 @@ class APIManager {
             complation(response)
         }
     }
+    class func getAppointments(page: Int, complation: @escaping (Result<AppointmentsMainResponse, Error>) -> () ) {
+        request(APIRouter.getAppointments(page)) { (response) in
+            complation(response)
+        }
+    }
     
 }
 extension APIManager{

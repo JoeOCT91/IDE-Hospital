@@ -130,13 +130,15 @@ enum APIRouter:URLRequestConvertible {
     
     case getCategories
     case getFavories(_ page: Int)
+    case getAppointments(_ page: Int)
+
     case getCategory(_ ID: Int)
     case login
     
     //Mark:- HTTP Methods
     private var method: HTTPMethod {
         switch self {
-        case .login, .getCategories, .getFavories, .getCategory:
+        case .login, .getCategories, .getFavories, .getCategory, .getAppointments:
             return .get
         default:
             return .post
@@ -152,6 +154,8 @@ enum APIRouter:URLRequestConvertible {
             return URLs.getCategories
         case .getFavories(let page):
             return URLs.favorites + "?" + "page=\(page)"
+        case .getAppointments:
+            return URLs.appoitments
         default:
             return ""
         }
@@ -160,6 +164,9 @@ enum APIRouter:URLRequestConvertible {
         switch self {
         case .getFavories(let page):
             return URLQueryItem(name: "page", value: String(page))
+        case .getAppointments(let page):
+            return URLQueryItem(name: "page", value: String(page))
+
         default:
             return nil
         }
@@ -169,7 +176,7 @@ enum APIRouter:URLRequestConvertible {
     //MARK:- Parameters
     private var parameters: Parameters? {
         switch self {
-        case .getCategory, .getCategories, .getFavories:
+        case .getCategory, .getCategories, .getFavories, .getAppointments:
             return nil
         default:
             return nil
@@ -197,13 +204,13 @@ enum APIRouter:URLRequestConvertible {
                 
         //httpMethod
         urlRequest.httpMethod = method.rawValue
-        
+        print(urlRequest)
         //Http Headers
         switch self {
         case  .getCategory, .getCategories:
             urlRequest.setValue("Accept-Language", forHTTPHeaderField: "en")
             break
-        case .getFavories:
+        case .getFavories, .getAppointments:
             urlRequest.setValue(UserDefaultsManager.shared().token, forHTTPHeaderField: HeaderKeys.authorization)
         default:
             break
