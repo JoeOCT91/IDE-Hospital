@@ -7,9 +7,14 @@
 
 import UIKit
 
-protocol FavoritesVCProtocol: class {
-    func setCellImage(image: Data, indexPath: IndexPath)
+protocol PaginationVCProtocol: class {
     func reloadTableview()
+    
+}
+
+protocol FavoritesVCProtocol: PaginationVCProtocol {
+    func setCellImage(image: Data, indexPath: IndexPath)
+    //func reloadTableview()
 }
 
 class FavoritesVC: UIViewController {
@@ -45,7 +50,7 @@ extension FavoritesVC: FavoritesVCProtocol {
 
 extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.getFavoritesCount()
+        viewModel.getDataListCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

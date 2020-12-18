@@ -52,17 +52,21 @@ class AppoinmentCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupData(cellData: CellData){
+    func setupCellData(cellData: Appointment){
         setupCell()
-        self.tag = cellData.doctorID
-        setupRating(rating: cellData.rating)
+        //self.tag = cellData.doctorID
+        doctorName.text = cellData.doctor.name
+        //setupRating(rating: cellData.doctor.rating)
     }
     
     private func setupCell(){
         configureSpretorView()
         self.backgroundColor = .clear
         configureConatinerView()
-        
+        configureDoctorImage()
+        configureDoctorName()
+        configureDeleteButton()
+
     }
     
     func setdoctorImage(image: Data){
@@ -72,7 +76,9 @@ class AppoinmentCell: UITableViewCell {
     private func configureConatinerView() {
         //sub views
         contentView.addSubview(containerView)
-        
+        containerView.addSubview(doctorName)
+        containerView.addSubview(doctorImage)
+        containerView.addSubview(deleteButton)
         
         containerView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

@@ -8,26 +8,26 @@
 import Foundation
 import SDWebImage
 
-protocol FavoritesVMProtocol: class {
+protocol FavoritesVMProtocol: ViewModelWithPaginatioProtocol {
     func getFavoritesList()
     func getDoctorImage(indexPath: IndexPath)
     func getCellData(indexPath: IndexPath) -> CellData
     func getFavoritesCount() -> Int
 }
 
-class FavoritesVM: FavoritesVMProtocol {
+class FavoritesVM<T: FavoritesVCProtocol>: ViewModelWithPagination<T>, FavoritesVMProtocol {
     
     
     var cache = NSCache<NSString, AnyObject>()
-    private weak var view: FavoritesVCProtocol?
+    //internal var view: FavoritesVCProtocol?
     
-    private var page = 1
-    private var hasMorePages = true
+
     
     private var favoritesList = [Doctor]()
-    //typealias CellData = (name: String, address : String, specialty : String, fees : String )
+    //override weak var view: T?
     
-    init(view: FavoritesVCProtocol){
+    init(view: T){
+        super.init()
         self.view = view
     }
     

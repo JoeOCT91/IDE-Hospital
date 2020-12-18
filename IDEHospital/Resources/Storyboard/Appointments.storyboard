@@ -22,7 +22,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8P5-rT-Qj9">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -31,7 +31,7 @@
                         <constraints>
                             <constraint firstItem="8P5-rT-Qj9" firstAttribute="bottom" secondItem="hJx-Sj-Ljb" secondAttribute="bottom" id="SOA-58-lKB"/>
                             <constraint firstItem="8P5-rT-Qj9" firstAttribute="leading" secondItem="KI9-5z-syz" secondAttribute="leading" id="WoF-DV-6Ch"/>
-                            <constraint firstItem="8P5-rT-Qj9" firstAttribute="top" secondItem="hJx-Sj-Ljb" secondAttribute="top" id="XRu-QX-qGZ"/>
+                            <constraint firstItem="8P5-rT-Qj9" firstAttribute="top" secondItem="KI9-5z-syz" secondAttribute="top" id="XRu-QX-qGZ"/>
                             <constraint firstItem="KI9-5z-syz" firstAttribute="trailing" secondItem="8P5-rT-Qj9" secondAttribute="trailing" id="fXw-7c-4Xl"/>
                         </constraints>
                         <connections>

@@ -13,6 +13,7 @@
 		861D577C258C2A9F00EFED1D /* Appointments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 861D577B258C2A9F00EFED1D /* Appointments.storyboard */; };
 		86201AD02583EF26001D1C06 /* SetupFunction+UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86201ACF2583EF26001D1C06 /* SetupFunction+UINavigationController.swift */; };
 		862127D72581302A00C1A5DF /* FontsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862127D62581302A00C1A5DF /* FontsManager.swift */; };
+		86215D08258D596C00022D86 /* ViewModelWithPagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86215D07258D596C00022D86 /* ViewModelWithPagination.swift */; };
 		862851C1257FC28D0059122F /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862851C0257FC28D0059122F /* SearchViewModel.swift */; };
 		862851D0257FCE120059122F /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 862851CF257FCE120059122F /* Home.storyboard */; };
 		862851DD257FE6570059122F /* MainCategoriesReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862851DC257FE6570059122F /* MainCategoriesReponse.swift */; };
@@ -87,6 +88,7 @@
 		86201AD22583F029001D1C06 /* PT_Sans_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = PT_Sans_Bold.ttf; path = PT_Sans/PT_Sans_Bold.ttf; sourceTree = "<group>"; };
 		86201AD32583F029001D1C06 /* PT_Sans_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = PT_Sans_Regular.ttf; path = PT_Sans/PT_Sans_Regular.ttf; sourceTree = "<group>"; };
 		862127D62581302A00C1A5DF /* FontsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontsManager.swift; sourceTree = "<group>"; };
+		86215D07258D596C00022D86 /* ViewModelWithPagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelWithPagination.swift; sourceTree = "<group>"; };
 		862851C0257FC28D0059122F /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		862851CF257FCE120059122F /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		862851DC257FE6570059122F /* MainCategoriesReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoriesReponse.swift; sourceTree = "<group>"; };
@@ -335,9 +337,10 @@
 			isa = PBXGroup;
 			children = (
 				8628D5BE258C0ABD00CAB803 /* FavoritesVM.swift */,
+				861D5778258C294E00EFED1D /* AppointmentsVM.swift */,
 				8632AA05258901DF00E4DB8D /* HomeViewModel.swift */,
 				862851C0257FC28D0059122F /* SearchViewModel.swift */,
-				861D5778258C294E00EFED1D /* AppointmentsVM.swift */,
+				86215D07258D596C00022D86 /* ViewModelWithPagination.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -708,6 +711,7 @@
 				B21BDE352584F2C800430408 /* Cities.swift in Sources */,
 				8632AA182589045800E4DB8D /* UIViewController+Alert.swift in Sources */,
 				B21BDE1A2582C45700430408 /* ScheduleView.swift in Sources */,
+				86215D08258D596C00022D86 /* ViewModelWithPagination.swift in Sources */,
 				8628D5C5258C0B0700CAB803 /* Doctor.swift in Sources */,
 				8628D5B3258C07EE00CAB803 /* FavoritesCell.swift in Sources */,
 				B21BDE0F2582BEBF00430408 /* ScheduleVC.swift in Sources */,
