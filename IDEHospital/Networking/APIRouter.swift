@@ -152,8 +152,8 @@ enum APIRouter:URLRequestConvertible {
             return URLs.getCategories + "\(categoryID)" + "/doctors_query_parameters"
         case .getCategories:
             return URLs.getCategories
-        case .getFavories(let page):
-            return URLs.favorites + "?" + "page=\(page)"
+        case .getFavories:
+            return URLs.favorites
         case .getAppointments:
             return URLs.appoitments
         default:

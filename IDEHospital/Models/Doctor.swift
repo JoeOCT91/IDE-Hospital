@@ -7,11 +7,10 @@
 
 import Foundation
 
-// MARK: - Item
 struct Doctor: Codable {
     let id, rating, reviewsCount: Int
-    let specialty, name, bio, secondBio: String
-    let address: String
+    let specialty: String?
+    let name, bio, secondBio, address: String
     let lng, lat: Double
     let fees, waitingTime: Int
     let image: String
@@ -30,4 +29,10 @@ struct Doctor: Codable {
         case image, city, region, companies
         case isFavorited = "is_favorited"
     }
+}
+
+enum City: String, Codable {
+    case alexandria = "Alexandria"
+    case behira = "Behira"
+    case cairo = "Cairo"
 }

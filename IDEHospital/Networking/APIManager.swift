@@ -23,11 +23,12 @@ class APIManager {
         }
     }
     
-    class func getFavorites(page: Int, complation: @escaping (Result<FavoritesResponse, Error>) -> () ) {
+    class func getFavorites<Element>(page: Int, complation: @escaping (Result<BaseResponse<Element>, Error>) -> () ) {
         request(APIRouter.getFavories(page)) { (response) in
             complation(response)
         }
     }
+
     class func getAppointments(page: Int, complation: @escaping (Result<AppointmentsMainResponse, Error>) -> () ) {
         request(APIRouter.getAppointments(page)) { (response) in
             complation(response)
@@ -45,7 +46,7 @@ extension APIManager{
                 completion(.success(value))
             case .failure(let error):
                 completion(.failure(error))
-            //let ster = String(data: response.data!, encoding: .utf8)
+                //let str = String(data: response.data!, encoding: .utf8)
             }
         }.responseJSON { response in
             print(response)

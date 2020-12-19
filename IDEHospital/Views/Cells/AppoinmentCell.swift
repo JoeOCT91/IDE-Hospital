@@ -33,7 +33,7 @@ class AppoinmentCell: UITableViewCell {
     private lazy var doctorImage = DoctorImageView(frame: CGRect(x: 0, y: 0, width: imageWidth, height: imageWidth))
     //Labels Views
     private let doctorName = HospitalCellLabel(textAlignment: .left, fontSize: 15, font: UIFont(font: FontFamily.PTSans.bold, size: 15))
-    private let doctorBio = HospitalCellLabel(textAlignment: .left, fontSize: 15, font: UIFont(font: FontFamily.PTSans.bold, size: 15))
+    private let doctorBio = HospitalCellLabel(textAlignment: .left, fontSize: 10, font: UIFont(font: FontFamily.PTSans.regular, size: 10))
     
     private let appoinmentTime = HospitalCellLabel(textAlignment: .left, fontSize: 12)
     private let appoinmentDate = HospitalCellLabel(textAlignment: .left, fontSize: 12)
@@ -56,7 +56,10 @@ class AppoinmentCell: UITableViewCell {
         setupCell()
         //self.tag = cellData.doctorID
         doctorName.text = cellData.doctor.name
-        //setupRating(rating: cellData.doctor.rating)
+        reviewsCount.text = "\(cellData.doctor.reviewsCount) Reviws"
+        doctorBio.text = cellData.doctor.bio
+        setupRating(rating: cellData.doctor.rating)
+        appoinmentTime.text = "10 : 20 PM"
     }
     
     private func setupCell(){
@@ -66,7 +69,10 @@ class AppoinmentCell: UITableViewCell {
         configureDoctorImage()
         configureDoctorName()
         configureDeleteButton()
-
+        configureDoctorRating()
+        configureReviewsCount()
+        configureDoctorBio()
+        configureTimeLebal()
     }
     
     func setdoctorImage(image: Data){
@@ -79,7 +85,10 @@ class AppoinmentCell: UITableViewCell {
         containerView.addSubview(doctorName)
         containerView.addSubview(doctorImage)
         containerView.addSubview(deleteButton)
-        
+        containerView.addSubview(doctorRating)
+        containerView.addSubview(reviewsCount)
+        containerView.addSubview(doctorBio)
+        containerView.addSubview(appoinmentTime)
         containerView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 22),
@@ -136,6 +145,7 @@ class AppoinmentCell: UITableViewCell {
         doctorRating.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             doctorRating.topAnchor.constraint(equalTo: doctorName.bottomAnchor, constant: 5),
+            //doctorRating.bottomAnchor.constraint(equalTo: doctorBio.topAnchor),
             doctorRating.leadingAnchor.constraint(equalTo: doctorName.leadingAnchor),
         ])
         for _ in doctorRating.arrangedSubviews.count ..< 5 {
@@ -147,6 +157,24 @@ class AppoinmentCell: UITableViewCell {
         NSLayoutConstraint.activate([
             reviewsCount.centerYAnchor.constraint(equalTo: doctorRating.centerYAnchor),
             reviewsCount.leadingAnchor.constraint(equalTo: doctorRating.trailingAnchor, constant: 10)
+        ])
+    }
+    private func configureDoctorBio() {
+        doctorBio.numberOfLines = 4
+        NSLayoutConstraint.activate([
+            doctorBio.leadingAnchor.constraint(equalTo: doctorName.leadingAnchor),
+            doctorBio.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            doctorBio.topAnchor.constraint(equalTo: doctorRating.bottomAnchor, constant: 16),
+            //doctorBio.bottomAnchor.constraint(equalTo: appoinmentTime.topAnchor)
+        ])
+    }
+    
+    private func configureTimeLebal() {
+        NSLayoutConstraint.activate([
+            appoinmentTime.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10),
+            appoinmentTime.topAnchor.constraint(equalTo: doctorBio.bottomAnchor, constant: 5),
+            appoinmentTime.leadingAnchor.constraint(equalTo: doctorName.leadingAnchor),
+
         ])
     }
     

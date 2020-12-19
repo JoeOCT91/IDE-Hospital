@@ -23,7 +23,7 @@ class AppointmentsVC: UIViewController {
         appointmentsView.setup()
         navigationController?.setViewControllerTitle(to: "Appointments")
         appointmentsView.setupTableView(delgate: self, dataSource: self)
-        viewModel.getAppointments()
+        viewModel.getData()
     }
     
     // Public Methods
@@ -51,6 +51,11 @@ extension AppointmentsVC: UITableViewDelegate, UITableViewDataSource {
         cell.setupCellData(cellData: viewModel.getAppointmentData(indexPath: indexPath))
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        viewModel.scrollObserve(cellCount: indexPath.row)
+    }
+    
     
     
     

@@ -8,30 +8,25 @@
 import Foundation
 
 protocol AppointmentsVMProtocol: ViewModelWithPaginatioProtocol {
-    func getAppointments()
     func getAppointmentData(indexPath: IndexPath) -> Appointment
 }
 
 class AppointmentsVM<T: AppointmentsVCProtocol>: ViewModelWithPagination<T>, AppointmentsVMProtocol {
-
-    //private weak var view: AppointmentsVCProtocol?
-    
-    //override var dataList: [AnyEncodable] = [Appointment]()
-    //Pagination
-    //var page = 1
-    //var hasMorePages = true
     
     init(view: T){
         super.init()
         self.view = view
+        child = self
     }
     
-    func getAppointments(){
+    func getData(){
         APIManager.getAppointments(page: page) { [weak self] (result) in
             guard let self = self else { return }
             switch result {
             case .success(let appoinmentsData):
-                self.dataList = appoinmentsData.data.appointments
+                self.dataList.append(contentsOf: appoinmentsData.data.appointments)
+                self.page += 1
+                self.isHasMorePages(pagesCount: appoinmentsData.data.page)
                 self.view?.reloadTableview()
                 print(self.dataList.count)
             case .failure(let error):
@@ -39,7 +34,6 @@ class AppointmentsVM<T: AppointmentsVCProtocol>: ViewModelWithPagination<T>, App
             }
         }
     }
-
     
     func getAppointmentData(indexPath: IndexPath) -> Appointment{
         return self.dataList[indexPath.row] as! Appointment

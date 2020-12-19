@@ -34,6 +34,8 @@ internal enum L10n {
   internal static let ideaEgHospitalTheBestChoice = L10n.tr("Localizable", "ideaEgHospitalTheBestChoice")
   /// IDEA EG HOSPITAL
   internal static let ideaHospital = L10n.tr("Localizable", "ideaHospital")
+  /// My Favorites
+  internal static let myFavorites = L10n.tr("Localizable", "myFavorites")
   /// Service Search
   internal static let serviceSearch = L10n.tr("Localizable", "serviceSearch")
   /// Sorry

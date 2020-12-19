@@ -60,17 +60,17 @@ class FavoritesCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupData(cellData: CellData){
+    func setupData(doctor: Doctor){
         setupCell()
-        self.tag = cellData.doctorID
-        doctorName.text = cellData.name
-        doctorSpecialty.text = cellData.specialty
-        secondBio.setupContent(imageName: Asset.bioIcon.name, text: cellData.secondBio)
-        doctorAddress.setupContent(imageName: Asset.pin.name, text: cellData.address)
-        watingTime.setupContent(imageName: Asset.clock.name, text: "Waiting Time : \(cellData.waitingTime) minutes")
-        examinationFees.setupContent(imageName: Asset.money3.name, text: "Examination Fees : \(cellData.fees) LE")
-        reviewsCount.text = "\(cellData.reviesCount) Review"
-        setupRating(rating: cellData.rating)
+        self.tag = doctor.id
+        doctorName.text = doctor.name
+        doctorSpecialty.text = doctor.specialty
+        secondBio.setupContent(imageName: Asset.bioIcon.name, text: doctor.secondBio)
+        doctorAddress.setupContent(imageName: Asset.pin.name, text: doctor.address)
+        watingTime.setupContent(imageName: Asset.clock.name, text: "Waiting Time : \(doctor.waitingTime) minutes")
+        examinationFees.setupContent(imageName: Asset.money3.name, text: "Examination Fees : \(doctor.fees) LE")
+        reviewsCount.text = "\(doctor.reviewsCount) Review"
+        setupRating(rating: doctor.rating)
     }
     
     private func setupCell(){

@@ -7,6 +7,23 @@
 
 import Foundation
 
+struct BaseResponse<Element: Codable>: Codable {
+    let data: ResponseBaseData<Element>
+    let code: Int
+    let success: Bool
+}
+struct ResponseBaseData<Element: Codable>: Codable {
+    let items: [Element]
+    let total, page, perPage, totalPages: Int
+
+    enum CodingKeys: String, CodingKey {
+        case items
+        case total, page
+        case perPage = "per_page"
+        case totalPages = "total_pages"
+    }
+}
+
 // MARK: - Welcome
 struct FavoritesResponse: Codable {
     let data: DataClass
@@ -28,8 +45,5 @@ struct DataClass: Codable {
 
 
 
-enum City: String, Codable {
-    case alexandria = "Alexandria"
-    case behira = "Behira"
-    case cairo = "Cairo"
-}
+
+
