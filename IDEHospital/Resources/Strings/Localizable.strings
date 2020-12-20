@@ -10,5 +10,12 @@
 "chooseCity" = "Choose City";
 "chooseRegion" = "Choose Region";
 "chooseCompanies" = "Choose Companies";
-"DoctorName" = "DoctorName";
+"DoctorName" = "Doctor Name";
 "findDoctor" = "Find a doctor";
+"homeNurse" = "Home Nurse";
+"nurseVcLabel" = "If you would like further information about how we can help you and your health it would be great to hear from you";
+"nameTextFieldPlaceholder" = "Your Name";
+"emailTextFieldPlaceholder" = "Your Email";
+"phoneTextFieldPlaceholder" = "Mobile Number";
+"enterDetails" = "Enter Details";
+"sendRequest" = "Send Request";

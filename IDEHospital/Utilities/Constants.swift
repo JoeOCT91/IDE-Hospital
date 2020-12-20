@@ -13,6 +13,7 @@ struct Storyboards {
     static let search = "Search"
     static let main = "Main"
     static let home = "Home"
+    static let nurse = "Nurse"
 }
 
 // Cells
@@ -28,6 +29,7 @@ struct ViewControllers {
     static let favoritesVC = "FavoritesVC"
     static let scheduleVC = "ScheduleVC"
     static let tabBarVC = "TabBarVC"
+    static let nurseVC = "NurseVC"
 }
 
 

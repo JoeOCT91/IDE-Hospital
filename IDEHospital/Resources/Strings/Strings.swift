@@ -22,18 +22,32 @@ internal enum L10n {
   internal static let chooseSpecialists = L10n.tr("Localizable", "chooseSpecialists")
   /// Data Not Found
   internal static let dataNotFound = L10n.tr("Localizable", "dataNotFound")
-  /// DoctorName
+  /// Doctor Name
   internal static let doctorName = L10n.tr("Localizable", "DoctorName")
   /// done
   internal static let done = L10n.tr("Localizable", "done")
+  /// Your Email
+  internal static let emailTextFieldPlaceholder = L10n.tr("Localizable", "emailTextFieldPlaceholder")
+  /// Enter Details
+  internal static let enterDetails = L10n.tr("Localizable", "enterDetails")
   /// Find a doctor
   internal static let findDoctor = L10n.tr("Localizable", "findDoctor")
   /// IDEA EG HOSPITAL THE BEST CHOICE
   internal static let homeDescription = L10n.tr("Localizable", "homeDescription")
+  /// Home Nurse
+  internal static let homeNurse = L10n.tr("Localizable", "homeNurse")
   /// IDEA EG HOSPITAL THE BEST CHOICE
   internal static let ideaEgHospitalTheBestChoice = L10n.tr("Localizable", "ideaEgHospitalTheBestChoice")
   /// IDEA EG HOSPITAL
   internal static let ideaHospital = L10n.tr("Localizable", "ideaHospital")
+  /// Your Name
+  internal static let nameTextFieldPlaceholder = L10n.tr("Localizable", "nameTextFieldPlaceholder")
+  /// If you would like further information about how we can help you and your health it would be great to hear from you
+  internal static let nurseVcLabel = L10n.tr("Localizable", "nurseVcLabel")
+  /// Mobile Number
+  internal static let phoneTextFieldPlaceholder = L10n.tr("Localizable", "phoneTextFieldPlaceholder")
+  /// Send Request
+  internal static let sendRequest = L10n.tr("Localizable", "sendRequest")
   /// Service Search
   internal static let serviceSearch = L10n.tr("Localizable", "serviceSearch")
   /// Sorry

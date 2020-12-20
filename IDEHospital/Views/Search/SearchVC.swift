@@ -22,7 +22,8 @@ class SearchVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.searchView.setUp()
-        self.navigationController?.setUpNavigationBar()
+        self.setupNavigationBar()
+        self.setViewControllerTitle(to: L10n.serviceSearch, fontColor: .white)
         self.setUpButtonsInNavigationBar()
         self.viewModel.callGetCategoriesAPI()
     }

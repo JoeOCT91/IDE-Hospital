@@ -12,6 +12,8 @@ protocol HomeVCProtocol: class {
     func HideLoader()
     func reloadData()
     func setCellData(title: String, color: String, image: Data, ID:Int,indexPath: IndexPath)
+    func goToNurseScreen()
+    func goChooseServicesScreen(celTag:Int)
 }
 
 class HomeVC: UIViewController {
@@ -34,7 +36,10 @@ class HomeVC: UIViewController {
     
     //MARK:- Private Methods
     private func configureNavigationBar() {
-        navigationController?.setViewControllerTitle(to: L10n.chooseServices, fontColor: UIColor(named: ColorName.white))
+        //navigationController?.setViewControllerTitle(to: L10n.chooseServices, fontColor: UIColor(named: ColorName.white))
+        self.setupNavigationBar()
+        self.setViewControllerTitle(to: L10n.chooseServices, fontColor: .white)
+        
     }
     
     // MARK:- Public Methods
@@ -48,6 +53,19 @@ class HomeVC: UIViewController {
 }
 
 extension HomeVC: HomeVCProtocol {
+    
+    func goChooseServicesScreen(celTag:Int) {
+        let tabBarController = SupplierTabBarVC()
+        tabBarController.modalPresentationStyle = .fullScreen
+        tabBarController.categoryID = celTag
+        self.present(tabBarController, animated: true)
+    }
+    func goToNurseScreen() {
+      let nurseVC = NurseVC.create()
+      nurseVC.modalPresentationStyle = .fullScreen
+      self.navigationController?.pushViewController(nurseVC, animated: true)
+    }
+    
     internal func reloadData() {
         homeView.collectionView.reloadData()
     }
@@ -75,13 +93,9 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! CategoryCell
-        //Cell tag hold category ID to use when navigate to others controllers 
-        print(cell.tag)
-        let tabBarController = SupplierTabBarVC()
-        tabBarController.modalPresentationStyle = .fullScreen
-        tabBarController.categoryID = cell.tag
-        self.present(tabBarController, animated: true)
-        
+        //Cell tag hold category ID to use when navigate to others controllers
+         print(cell.tag)
+        viewModel.determineWhichVCToOpen(tag: cell.tag)
     }
     
     

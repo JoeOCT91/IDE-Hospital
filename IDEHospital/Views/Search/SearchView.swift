@@ -88,7 +88,7 @@ class SearchView: UIView {
     private func setUpLabel(label:UILabel, labelText:String, fontName:FontConvertible, fontSize:CGFloat, fontColor:UIColor, latterSpacing:CGFloat, changeLatterSpacing:Bool) {
         label.font = UIFont(font: fontName, size: fontSize)
         label.numberOfLines = 1
-        label.adjustsFontSizeToFitWidth = true
+       label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.8
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
