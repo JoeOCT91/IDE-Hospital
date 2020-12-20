@@ -19,3 +19,9 @@
 "phoneTextFieldPlaceholder" = "Mobile Number";
 "enterDetails" = "Enter Details";
 "sendRequest" = "Send Request";
+"pleaseEnterName" = "Name Field is Empty, Please Re-Enter your Name";
+"pleaseEnterEmail" = "Email Field is Empty, Please Re-Enter your Email";
+"pleaseEnterPhoneNumber" = "Phone Number Field is Empty, Please Re-Enter your Phone Number";
+"invalidE-mailFormat" = "Invalid E-mail Format";
+"rightPhoneNumberFormatDescription" = "The Entered Number Doesn't Start with 010,011,012 or 015 with Max 11 Numbers at All";
+"pleaseEnterDetails" = "Details Field is Empty, Please Write your Details";

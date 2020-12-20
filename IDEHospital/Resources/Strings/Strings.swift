@@ -40,12 +40,24 @@ internal enum L10n {
   internal static let ideaEgHospitalTheBestChoice = L10n.tr("Localizable", "ideaEgHospitalTheBestChoice")
   /// IDEA EG HOSPITAL
   internal static let ideaHospital = L10n.tr("Localizable", "ideaHospital")
+  /// Invalid E-mail Format
+  internal static let invalidEMailFormat = L10n.tr("Localizable", "invalidE-mailFormat")
   /// Your Name
   internal static let nameTextFieldPlaceholder = L10n.tr("Localizable", "nameTextFieldPlaceholder")
   /// If you would like further information about how we can help you and your health it would be great to hear from you
   internal static let nurseVcLabel = L10n.tr("Localizable", "nurseVcLabel")
   /// Mobile Number
   internal static let phoneTextFieldPlaceholder = L10n.tr("Localizable", "phoneTextFieldPlaceholder")
+  /// Details Field is Empty, Please Write your Details
+  internal static let pleaseEnterDetails = L10n.tr("Localizable", "pleaseEnterDetails")
+  /// Email Field is Empty, Please Re-Enter your Email
+  internal static let pleaseEnterEmail = L10n.tr("Localizable", "pleaseEnterEmail")
+  /// Name Field is Empty, Please Re-Enter your Name
+  internal static let pleaseEnterName = L10n.tr("Localizable", "pleaseEnterName")
+  /// Phone Number Field is Empty, Please Re-Enter your Phone Number
+  internal static let pleaseEnterPhoneNumber = L10n.tr("Localizable", "pleaseEnterPhoneNumber")
+  /// The Entered Number Doesn't Start with 010,011,012 or 015 with Max 11 Numbers at All
+  internal static let rightPhoneNumberFormatDescription = L10n.tr("Localizable", "rightPhoneNumberFormatDescription")
   /// Send Request
   internal static let sendRequest = L10n.tr("Localizable", "sendRequest")
   /// Service Search

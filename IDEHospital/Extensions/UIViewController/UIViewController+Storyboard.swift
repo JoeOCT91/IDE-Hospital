@@ -12,10 +12,7 @@ extension UIViewController {
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
         return storyboard.instantiateViewController(withIdentifier: identifier) as! T
     }
-    func setUpButtonsInNavigationBar() {
-        self.createRightButtonInNavigationBar()
-        self.createLeftButtonInNavigationBar()
-    }
+    
     func setupNavigationBar() {
       // NavBar Appearance
       navigationController?.navigationBar.tintColor = .clear
@@ -33,6 +30,14 @@ extension UIViewController {
       titleLabel.textColor = fontColor
       self.navigationItem.titleView = titleLabel
      }
+    func setUpButtonsInNavigationBar() {
+        self.createRightButtonInNavigationBar()
+        self.createLeftButtonInNavigationBar()
+    }
+    func setUpButtonsInPushedNavigationBar() {
+      self.createRightButtonInNavigationBar()
+      self.createBackButtonInNavigationBar()
+    }
     private func createRightButtonInNavigationBar() {
        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(settingsButton))
        navigationItem.rightBarButtonItem?.setBackgroundImage(Asset.settings.image, for: .normal, barMetrics: .default)
@@ -46,6 +51,14 @@ extension UIViewController {
       }
     @objc private func goBackButton(_ sender:UIBarButtonItem){
         print("dkfk")
-        self.navigationController?.presentingViewController?.dismiss(animated: true)
+        self.dismiss(animated: true)
+    }
+    private func createBackButtonInNavigationBar() {
+          navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backButton))
+          navigationItem.leftBarButtonItem?.setBackgroundImage(Asset.back2.image, for: .normal, barMetrics: .default)
+    }
+    
+    @objc private func backButton(_ sender:UIBarButtonItem){
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }

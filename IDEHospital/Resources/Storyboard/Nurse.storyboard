@@ -65,6 +65,9 @@
                                                     <constraint firstAttribute="height" constant="45" id="pFC-Hg-Y9k"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="nurseRequestButtonPressed:" destination="9w1-Ag-Fgs" eventType="touchUpInside" id="CK3-mp-tW6"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -73,10 +76,10 @@
                                             <constraint firstItem="U1D-2g-Qhw" firstAttribute="top" secondItem="ycg-k4-Usb" secondAttribute="bottom" constant="61" id="3YO-gu-feo"/>
                                             <constraint firstAttribute="trailing" secondItem="vXI-7P-fP3" secondAttribute="trailing" constant="26" id="4Ee-3r-7La"/>
                                             <constraint firstAttribute="bottom" secondItem="zFb-Zb-KlZ" secondAttribute="bottom" constant="40" id="4J9-Cl-ayc"/>
+                                            <constraint firstAttribute="trailing" secondItem="ycg-k4-Usb" secondAttribute="trailing" constant="23.5" id="56K-M2-TQq"/>
                                             <constraint firstItem="zFb-Zb-KlZ" firstAttribute="top" secondItem="p8w-Mm-fsx" secondAttribute="bottom" constant="17" id="5bd-FC-6nz"/>
                                             <constraint firstItem="zFb-Zb-KlZ" firstAttribute="leading" secondItem="p8w-Mm-fsx" secondAttribute="leading" id="9Pt-hB-NlZ"/>
                                             <constraint firstItem="U1D-2g-Qhw" firstAttribute="width" secondItem="ycg-k4-Usb" secondAttribute="width" id="BcX-VA-2Ua"/>
-                                            <constraint firstItem="ycg-k4-Usb" firstAttribute="width" secondItem="9Pk-88-YlJ" secondAttribute="width" multiplier="321:375" id="D4H-aR-JE7"/>
                                             <constraint firstItem="U1D-2g-Qhw" firstAttribute="height" secondItem="ycg-k4-Usb" secondAttribute="height" id="KdL-ZF-gQ9"/>
                                             <constraint firstItem="Quj-Lb-skY" firstAttribute="width" secondItem="U1D-2g-Qhw" secondAttribute="width" id="VdI-On-PUZ"/>
                                             <constraint firstItem="vXI-7P-fP3" firstAttribute="leading" secondItem="9Pk-88-YlJ" secondAttribute="leading" constant="27" id="a99-nC-Ybu"/>

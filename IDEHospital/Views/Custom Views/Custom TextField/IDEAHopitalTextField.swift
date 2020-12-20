@@ -37,7 +37,8 @@ class IDEAHopitalTextField: UITextField  {
  
     func createBottomLine(){
         let bottomLine = CALayer()
-        bottomLine.frame = CGRect(x: 0, y: frame.height, width: frame.width, height: 3)
+        bottomLine.frame = CGRect(x: 0, y: frame.height, width: self.frame.width, height: 3)
+        print(self.bounds.width)
         bottomLine.backgroundColor = UIColor.white.cgColor
         super.layer.addSublayer(bottomLine)
     }

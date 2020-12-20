@@ -19,6 +19,7 @@ class NurseView: UIView {
     
     @IBOutlet weak var sendRequestButton: UIButton!
     public func setUp() {
+        self.layoutIfNeeded()
         // setBackGroundImage
         self.setupBackground()
         //setLable
@@ -44,6 +45,7 @@ class NurseView: UIView {
       }
       
     private func setUpTextFiled(textFiled:IDEAHopitalTextField,textValue:String, placeholder:String, imageName:UIImage, numbersPad:Bool, emailPad:Bool) {
+        self.layoutIfNeeded()
         textFiled.setup(leftImage: imageName, placeholder: placeholder)
         textFiled.text = textValue
        textFiled.createBottomLine()

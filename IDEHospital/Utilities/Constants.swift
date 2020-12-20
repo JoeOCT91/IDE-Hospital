@@ -38,6 +38,7 @@ struct URLs {
     static let base = "http://ide-hospital.ideaeg.co/api/"
     static let mainCategories = "main_categories"
     static let getCategories = "main_categories/"
+    static let nurseRequest = "nursing_requests"
 }
 
 // Header Keys
