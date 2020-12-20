@@ -35,6 +35,12 @@ class APIManager {
         }
     }
     
+    class func removeFavorite(doctorID: Int){
+        request(APIRouter.removeFavorite(doctorID: doctorID)) { (result : Result<Data, Error>) in
+            print(result)
+        }
+    }
+    
 }
 extension APIManager{
     // MARK:- The request function to get results in a closure

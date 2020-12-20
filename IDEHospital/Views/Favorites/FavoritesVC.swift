@@ -25,6 +25,7 @@ class FavoritesVC: UIViewController {
         favoritesView.setup()
         favoritesView.setupTableView(delgate: self, dataSource: self)
         navigationController?.setViewControllerTitle(to: L10n.myFavorites)
+        setUpButtonsInNavigationBar()
         viewModel.getData()
     }
     

@@ -8,7 +8,7 @@
 import UIKit
 
 extension UINavigationController {
-
+    
     func setViewControllerTitle(to title:String, fontColor: UIColor = .white) {
         // lable that hold the title
         let titleLabel = UILabel()
@@ -26,9 +26,12 @@ extension UINavigationController {
         self.navigationBar.backgroundColor = UIColor(named: ColorName.veryLightPink)
         self.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationBar.isTranslucent = true
-      }
+        
+    }
     
-      func setUpNavigationBar() {
+    func setUpNavigationBar() {
         self.setViewControllerTitle(to: L10n.serviceSearch, fontColor: .white)
-        }
+    }
+    
+
 }

@@ -131,6 +131,7 @@ enum APIRouter:URLRequestConvertible {
     case getCategories
     case getFavories(_ page: Int)
     case getAppointments(_ page: Int)
+    case removeFavorite(doctorID: Int)
 
     case getCategory(_ ID: Int)
     case login
@@ -156,6 +157,8 @@ enum APIRouter:URLRequestConvertible {
             return URLs.favorites
         case .getAppointments:
             return URLs.appoitments
+        case .removeFavorite(let doctorID):
+            return URLs.favorites + "/\(doctorID)/add_remove"
         default:
             return ""
         }
@@ -166,7 +169,6 @@ enum APIRouter:URLRequestConvertible {
             return URLQueryItem(name: "page", value: String(page))
         case .getAppointments(let page):
             return URLQueryItem(name: "page", value: String(page))
-
         default:
             return nil
         }
@@ -184,8 +186,6 @@ enum APIRouter:URLRequestConvertible {
     }
     
     func asURLRequest() throws -> URLRequest {
-        
-        
         
         // var url = try  //URLs.base.asURL()
         var urlComponents = URLComponents(string: URLs.base + path)!
