@@ -56,7 +56,7 @@ extension NurseViewModel:NurseViewModelProtocol{
             self.view.presentError(title: L10n.sorry, message: L10n.rightPhoneNumberFormatDescription)
             return
         }
-        guard !details!.isEmpty else{
+        guard !details!.isEmpty, details != L10n.enterDetails else{
             self.view.presentError(title: L10n.sorry, message: L10n.pleaseEnterDetails)
             return
         }

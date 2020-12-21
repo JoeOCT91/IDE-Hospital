@@ -46,8 +46,6 @@ enum APIRouter:URLRequestConvertible {
         switch self {
         case .getCategory, .getCategories:
             return nil
-        case .nurseRequest(let body):
-            return [ParameterKeys.name: body.name, ParameterKeys.email: body.email, ParameterKeys.mobile: body.mobile, ParameterKeys.message: body.message]
         default:
             return nil
         }
