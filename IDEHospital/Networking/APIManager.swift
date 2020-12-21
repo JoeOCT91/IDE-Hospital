@@ -23,6 +23,13 @@ class APIManager {
         }
     }
     
+    // nurseRequest
+    class func sendNurseRequestAPI(body:RequsetBodyData ,completion: @escaping (Result<NurseResponse, Error>)-> ()){
+        request(APIRouter.nurseRequest(body)){ (response) in
+               completion(response)
+           }
+       }
+    
 }
 extension APIManager{
     // MARK:- The request function to get results in a closure

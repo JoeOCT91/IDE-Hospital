@@ -44,6 +44,8 @@ internal enum L10n {
   internal static let invalidEMailFormat = L10n.tr("Localizable", "invalidE-mailFormat")
   /// Your Name
   internal static let nameTextFieldPlaceholder = L10n.tr("Localizable", "nameTextFieldPlaceholder")
+  /// Your Request has been Sent Successfully
+  internal static let nurseSuccessRequestMessage = L10n.tr("Localizable", "nurseSuccessRequestMessage")
   /// If you would like further information about how we can help you and your health it would be great to hear from you
   internal static let nurseVcLabel = L10n.tr("Localizable", "nurseVcLabel")
   /// Mobile Number
@@ -64,6 +66,8 @@ internal enum L10n {
   internal static let serviceSearch = L10n.tr("Localizable", "serviceSearch")
   /// Sorry
   internal static let sorry = L10n.tr("Localizable", "sorry")
+  /// Successful Request
+  internal static let successfulRequest = L10n.tr("Localizable", "successfulRequest")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

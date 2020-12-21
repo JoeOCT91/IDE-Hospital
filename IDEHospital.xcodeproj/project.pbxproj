@@ -56,6 +56,8 @@
 		B21BDE352584F2C800430408 /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21BDE342584F2C800430408 /* Cities.swift */; };
 		B21BDE372584F2E000430408 /* Regions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21BDE362584F2E000430408 /* Regions.swift */; };
 		B21BDE392584F2F700430408 /* Companies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21BDE382584F2F700430408 /* Companies.swift */; };
+		B26013902590C80F004E95B1 /* NurseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B260138F2590C80F004E95B1 /* NurseResponse.swift */; };
+		B26013922590CB98004E95B1 /* RequestBodyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26013912590CB98004E95B1 /* RequestBodyData.swift */; };
 		B26DB985258BCBE800DDE8B8 /*  UIView+BackgroundExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26DB984258BCBE800DDE8B8 /*  UIView+BackgroundExtension.swift */; };
 		B26DB988258DE44700DDE8B8 /* NurseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26DB987258DE44700DDE8B8 /* NurseVC.swift */; };
 		B26DB98A258DE45700DDE8B8 /* NurseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26DB989258DE45700DDE8B8 /* NurseView.swift */; };
@@ -119,6 +121,8 @@
 		B21BDE342584F2C800430408 /* Cities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
 		B21BDE362584F2E000430408 /* Regions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regions.swift; sourceTree = "<group>"; };
 		B21BDE382584F2F700430408 /* Companies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Companies.swift; sourceTree = "<group>"; };
+		B260138F2590C80F004E95B1 /* NurseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NurseResponse.swift; sourceTree = "<group>"; };
+		B26013912590CB98004E95B1 /* RequestBodyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBodyData.swift; sourceTree = "<group>"; };
 		B26DB984258BCBE800DDE8B8 /*  UIView+BackgroundExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " UIView+BackgroundExtension.swift"; sourceTree = "<group>"; };
 		B26DB987258DE44700DDE8B8 /* NurseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NurseVC.swift; sourceTree = "<group>"; };
 		B26DB989258DE45700DDE8B8 /* NurseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NurseView.swift; sourceTree = "<group>"; };
@@ -272,6 +276,7 @@
 		863232E6257D73DF00514F5A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B260138E2590C7E5004E95B1 /* Nurse */,
 				862851DB257FE6410059122F /* Categories */,
 				B21BDE3A2584F55200430408 /* Categories */,
 			);
@@ -471,6 +476,15 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		B260138E2590C7E5004E95B1 /* Nurse */ = {
+			isa = PBXGroup;
+			children = (
+				B260138F2590C80F004E95B1 /* NurseResponse.swift */,
+				B26013912590CB98004E95B1 /* RequestBodyData.swift */,
+			);
+			path = Nurse;
+			sourceTree = "<group>";
+		};
 		B26DB986258DE42A00DDE8B8 /* Nurse */ = {
 			isa = PBXGroup;
 			children = (
@@ -642,6 +656,7 @@
 				863232FF257D835F00514F5A /* UserDefaultsManager.swift in Sources */,
 				863232F9257D7BE300514F5A /* APIRouter.swift in Sources */,
 				862851DD257FE6570059122F /* MainCategoriesReponse.swift in Sources */,
+				B26013922590CB98004E95B1 /* RequestBodyData.swift in Sources */,
 				86398BC22582B4BE00C284B3 /* ColorsManager.swift in Sources */,
 				862851C1257FC28D0059122F /* SearchViewModel.swift in Sources */,
 				8632AA23258904D100E4DB8D /* UIView+Loader.swift in Sources */,
@@ -662,6 +677,7 @@
 				B26DB985258BCBE800DDE8B8 /*  UIView+BackgroundExtension.swift in Sources */,
 				8632A9FD2589019E00E4DB8D /* CategoryCell.swift in Sources */,
 				B21BDE312584F29300430408 /* CategoriesData.swift in Sources */,
+				B26013902590C80F004E95B1 /* NurseResponse.swift in Sources */,
 				862851C1257FC28D0059122F /* SearchViewModel.swift in Sources */,
 				863232D1257D733C00514F5A /* SearchVC.swift in Sources */,
 				B207B4C725894D0A002603EA /* SupplierTabBarVC.swift in Sources */,

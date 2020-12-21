@@ -16,21 +16,21 @@ class NurseViewModel {
         self.view = view
     }
     // MARK:- Private Functions
-    private func sendNurseRequestAPI(name:String, email:String, phoneNumber:String, details:String){
-//           let body = User(email: email, password: password)
-//           self.signInVC.showLoader()
-//           APIManager.loginAPIRouter(body:body){(response) in
-//               switch response{
-//               case .failure(let error):
-//                   self.signInVC.presentError(message:error.localizedDescription)
-//                   print(error.localizedDescription)
-//               case .success(let result):
-//                   print(result.token)
-//                   UserDefaultsManager.shared().token = result.token
-//                   self.signInVC.switchToMainState()
-//               }
-//                self.signInVC.hideLoader()
-//           }
+    private func sendNurseRequestAPI(body:RequsetBodyData){
+           self.view.showLoader()
+        APIManager.sendNurseRequestAPI(body: body){(response) in
+              switch response{
+              case .failure(let error):
+                self.view.presentError(title: L10n.sorry, message: error.localizedDescription)
+                  print(error.localizedDescription)
+               case .success(let result):
+                print(result.code)
+                if result.code == 202 {
+                    self.view.presentSuccessAlert(title: L10n.successfulRequest, message: L10n.nurseSuccessRequestMessage)
+                }
+             }
+               self.view.hideLoader()
+          }
      }
 }
 extension NurseViewModel:NurseViewModelProtocol{
@@ -60,6 +60,9 @@ extension NurseViewModel:NurseViewModelProtocol{
             self.view.presentError(title: L10n.sorry, message: L10n.pleaseEnterDetails)
             return
         }
-        self.sendNurseRequestAPI(name: name!, email: email, phoneNumber: phoneNumber!, details: details!)
+        
+        let body = RequsetBodyData(name: name!, email: email, mobile: phoneNumber!, message: details!)
+        
+        self.sendNurseRequestAPI(body: body)
     }
 }

@@ -52,7 +52,10 @@ struct Authorization {
 
 // Parameters Keys
 struct ParameterKeys {
-    
+    static let name = "name"
+    static let email = "email"
+    static let mobile = "mobile"
+    static let message = "message"
 }
 
 // UserDefaultsKeys

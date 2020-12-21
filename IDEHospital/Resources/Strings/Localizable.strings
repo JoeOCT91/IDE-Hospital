@@ -25,3 +25,5 @@
 "invalidE-mailFormat" = "Invalid E-mail Format";
 "rightPhoneNumberFormatDescription" = "The Entered Number Doesn't Start with 010,011,012 or 015 with Max 11 Numbers at All";
 "pleaseEnterDetails" = "Details Field is Empty, Please Write your Details";
+"successfulRequest" = "Successful Request";
+"nurseSuccessRequestMessage" = "Your Request has been Sent Successfully";

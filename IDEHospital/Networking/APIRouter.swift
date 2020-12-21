@@ -13,6 +13,7 @@ enum APIRouter:URLRequestConvertible {
     
     case getCategories
     case getCategory(_ ID: Int)
+    case nurseRequest(_ body:RequsetBodyData)
     case login
     
     //Mark:- HTTP Methods
@@ -32,6 +33,8 @@ enum APIRouter:URLRequestConvertible {
             return URLs.getCategories + "\(categoryID)" + "/doctors_query_parameters"
         case .getCategories:
             return URLs.getCategories
+        case .nurseRequest:
+            return URLs.nurseRequest
         default:
             return ""
         }
@@ -43,6 +46,8 @@ enum APIRouter:URLRequestConvertible {
         switch self {
         case .getCategory, .getCategories:
             return nil
+        case .nurseRequest(let body):
+            return [ParameterKeys.name: body.name, ParameterKeys.email: body.email, ParameterKeys.mobile: body.mobile, ParameterKeys.message: body.message]
         default:
             return nil
         }
@@ -70,6 +75,8 @@ enum APIRouter:URLRequestConvertible {
         // HTTP Body
         let httpBody: Data? = {
             switch self {
+            case.nurseRequest(let body):
+                return encodeToJSON(body)
             default:
                 return nil
             }

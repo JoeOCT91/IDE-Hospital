@@ -7,6 +7,7 @@
 
 import UIKit
 protocol NurseVCProtocol: class {
+    func presentSuccessAlert(title:String, message:String)
     func presentError(title:String,message: String)
     func showLoader()
     func hideLoader()
@@ -37,14 +38,16 @@ class NurseVC: UIViewController {
 }
 extension NurseVC:NurseVCProtocol{
     
+    func presentSuccessAlert(title: String, message: String) {
+        self.showSuccessfulAlert(title: title, message: message)
+    }
     func presentError(title:String,message: String) {
            self.showAlert(title: title, message: message)
-       }
-       
-       func showLoader() {
+    }
+    func showLoader() {
            self.view.showLoader()
-       }
-       func hideLoader() {
+    }
+    func hideLoader() {
            self.view.hideLoader()
-       }
+    }
 }
