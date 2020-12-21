@@ -74,11 +74,22 @@ extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
 extension FavoritesVC: FavoritesCellDelgate{
     
     @objc func deleteFavorite(doctorID : Int) {
-        self.presentAlertOnMainThread()
+        let alertVC = ConfirmationAlert(id: doctorID)
+        alertVC.delgate = self
+        self.presentAlertOnMainThread(alertVC: alertVC)
     }
     
     @objc func viewDoctorProfile(doctorID: Int) {
-        self.presentAlertOnMainThread()
+        let alertVC = AlertVC()
+        self.presentAlertOnMainThread(alertVC: alertVC)
     }
+    
+}
+extension FavoritesVC: ConfirmationAlertDelgate {
+    func confirmPressed(id: Int) {
+        self.viewModel.deleteEntry(id: id)
+    }
+
+    
     
 }

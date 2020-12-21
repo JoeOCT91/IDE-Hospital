@@ -210,7 +210,7 @@ enum APIRouter:URLRequestConvertible {
         case  .getCategory, .getCategories:
             urlRequest.setValue("Accept-Language", forHTTPHeaderField: "en")
             break
-        case .getFavories, .getAppointments:
+        case .getFavories, .getAppointments, .removeFavorite:
             urlRequest.setValue(UserDefaultsManager.shared().token, forHTTPHeaderField: HeaderKeys.authorization)
         default:
             break

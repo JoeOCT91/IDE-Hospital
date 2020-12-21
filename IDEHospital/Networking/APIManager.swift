@@ -36,7 +36,7 @@ class APIManager {
     }
     
     class func removeFavorite(doctorID: Int){
-        request(APIRouter.removeFavorite(doctorID: doctorID)) { (result : Result<Data, Error>) in
+        request(APIRouter.removeFavorite(doctorID: doctorID)) { (result : Result<DeleteResponse, Error>) in
             print(result)
         }
     }
@@ -52,10 +52,11 @@ extension APIManager{
                 completion(.success(value))
             case .failure(let error):
                 completion(.failure(error))
-                //let str = String(data: response.data!, encoding: .utf8)
+//                let str = String(data: response.data!, encoding: .utf8)
+//                print(str)
             }
         }.responseJSON { response in
-            print(response)
+            //print(response)
         }
     }
 }

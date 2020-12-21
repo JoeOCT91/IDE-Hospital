@@ -11,6 +11,7 @@ import SDWebImage
 protocol FavoritesVMProtocol: ViewModelWithPaginatioProtocol {
     func getDoctorImage(indexPath: IndexPath)
     func getCellData(indexPath: IndexPath) -> Doctor
+    func deleteEntry(id: Int)
 }
 
 class FavoritesVM<T: FavoritesVCProtocol>: ViewModelWithPagination<T>, FavoritesVMProtocol {
@@ -66,5 +67,8 @@ class FavoritesVM<T: FavoritesVCProtocol>: ViewModelWithPagination<T>, Favorites
     
     func getCellData(indexPath: IndexPath) -> Doctor {
         return dataList[indexPath.row] as! Doctor
+    }
+    func deleteEntry(id: Int){
+        APIManager.removeFavorite(doctorID: id)
     }
 }
