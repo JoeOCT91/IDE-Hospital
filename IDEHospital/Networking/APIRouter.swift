@@ -186,8 +186,6 @@ enum APIRouter:URLRequestConvertible {
     }
     
     func asURLRequest() throws -> URLRequest {
-        
-        // var url = try  //URLs.base.asURL()
         var urlComponents = URLComponents(string: URLs.base + path)!
         if let query = query {
             urlComponents.queryItems = [query]
@@ -196,15 +194,8 @@ enum APIRouter:URLRequestConvertible {
         var urlRequest = URLRequest(url: url)
 
         
-        // urlComponents.queryItems = [query!]
-        // var url = URLComponents(string: <#T##String#>)
-        // url.appendPathComponent(path)
-        // url.url
-        //var urlRequest = URLRequest(url: url.appendingPathComponent(path))
-                
-        //httpMethod
         urlRequest.httpMethod = method.rawValue
-        print(urlRequest)
+        
         //Http Headers
         switch self {
         case  .getCategory, .getCategories:

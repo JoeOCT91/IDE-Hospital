@@ -9,6 +9,8 @@ import UIKit
 
 protocol PaginationVCProtocol: class {
     func reloadTableview()
+    func showLoader()
+    func hideLoader()
 }
 
 protocol FavoritesVCProtocol: PaginationVCProtocol {
@@ -26,7 +28,13 @@ class FavoritesVC: UIViewController {
         favoritesView.setupTableView(delgate: self, dataSource: self)
         navigationController?.setViewControllerTitle(to: L10n.myFavorites)
         setUpButtonsInNavigationBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         viewModel.getData()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        viewModel.clearData()
     }
     
     // Public Methods
@@ -41,6 +49,12 @@ class FavoritesVC: UIViewController {
 extension FavoritesVC: FavoritesVCProtocol {
     func reloadTableview(){
         favoritesView.favoritesTableView.reloadData()
+    }
+    func showLoader(){
+        view.showLoader()
+    }
+    func hideLoader(){
+        view.hideLoader()
     }
 }
 
@@ -86,11 +100,9 @@ extension FavoritesVC: FavoritesCellDelgate{
     }
     
 }
+
 extension FavoritesVC: ConfirmationAlertDelgate {
     func confirmPressed(id: Int) {
         self.viewModel.deleteEntry(id: id)
     }
-
-    
-    
 }

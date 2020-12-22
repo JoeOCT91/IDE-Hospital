@@ -36,6 +36,12 @@ class AppointmentsVC: UIViewController {
 }
 
 extension AppointmentsVC: AppointmentsVCProtocol {
+    func hideLoader() {
+        view.hideLoader()
+    }
+    func showLoader() {
+        view.showLoader()
+    }
     func reloadTableview(){
         appointmentsView.appointmentsTableView.reloadData()
     }

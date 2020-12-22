@@ -10,6 +10,7 @@ import Foundation
 protocol ViewModelWithPaginatioProtocol: PaginationChild {
     func getDataListCount() -> Int
     func scrollObserve(cellCount: Int)
+    func clearData()
 }
 
 protocol PaginationChild: class {
@@ -47,6 +48,9 @@ class ViewModelWithPagination<T: PaginationVCProtocol> {
     
     //Clear all data in list View
     internal func clearData(){
+        self.page = 1
+        self.hasMorePages = true
         dataList.removeAll()
+        view?.reloadTableview()
     }
 }

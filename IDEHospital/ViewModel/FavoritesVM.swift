@@ -24,17 +24,19 @@ class FavoritesVM<T: FavoritesVCProtocol>: ViewModelWithPagination<T>, Favorites
     
     //Call data from the server
     func getData(){
+        self.view?.showLoader()
         APIManager.getFavorites(page: page) { [weak self] (result: Result<BaseResponse<Doctor>, Error>) in
             guard let self = self else { return }
             switch result {
             case .success(let favorites):
                 self.dataList.append(contentsOf: favorites.data.items)
-                print(self.page)
+                print("page is \(self.page)")
                 self.isHasMorePages(pagesCount: favorites.data.totalPages)
                 self.page += 1
+                self.view?.hideLoader()
                 self.view?.reloadTableview()
-                print(self.dataList.count)
             case .failure(let error):
+                self.view?.hideLoader()
                 print(error)
             }
         }
@@ -56,15 +58,12 @@ class FavoritesVM<T: FavoritesVCProtocol>: ViewModelWithPagination<T>, Favorites
     }
 
     func deleteEntry(id: Int){
-        print("entry deleted")
         APIManager.removeFavorite(doctorID: id) { [weak self] result in
             guard let self = self else { return }
             switch result {
-            case .success(let data):
-                self.page = 1
+            case .success(_):
                 self.clearData()
                 self.getData()
-                print(data)
             case .failure(let error):
                 print(error)
             }
