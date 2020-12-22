@@ -210,6 +210,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AUu-Q7-CYK">
                                                 <rect key="frame" x="25" y="515" width="315.5" height="45"/>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="findDoctorButtonPressed:" destination="CUq-N0-oP5" eventType="touchUpInside" id="S3l-AI-9Ud"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -328,6 +331,32 @@
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="76.911544227886068"/>
         </scene>
+        <!--Search ResultVC-->
+        <scene sceneID="w6S-lF-1aZ">
+            <objects>
+                <viewController storyboardIdentifier="SearchResultVC" id="tJ5-IG-cfS" customClass="SearchResultVC" customModule="IDEHospital" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nyq-lq-CkI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vpY-U5-qB4">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="vpY-U5-qB4" firstAttribute="leading" secondItem="p57-M5-Lqd" secondAttribute="leading" id="4JL-iF-wUf"/>
+                            <constraint firstItem="vpY-U5-qB4" firstAttribute="top" secondItem="p57-M5-Lqd" secondAttribute="top" id="66l-Hb-vqX"/>
+                            <constraint firstItem="p57-M5-Lqd" firstAttribute="trailing" secondItem="vpY-U5-qB4" secondAttribute="trailing" id="TFf-A2-vDF"/>
+                            <constraint firstItem="p57-M5-Lqd" firstAttribute="bottom" secondItem="vpY-U5-qB4" secondAttribute="bottom" id="UBq-w9-47H"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="p57-M5-Lqd"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6PH-8u-KHU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="672.79999999999995" y="76.911544227886068"/>
+        </scene>
         <!--FavoritesVC-->
         <scene sceneID="uJR-Al-0my">
             <objects>
@@ -344,7 +373,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2t8-Lg-KMd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="704" y="77"/>
+            <point key="canvasLocation" x="1326" y="77"/>
         </scene>
         <!--ScheduleVC-->
         <scene sceneID="0jg-3T-fwy">
@@ -362,7 +391,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="96I-G1-xUe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1412" y="77"/>
+            <point key="canvasLocation" x="1964" y="79"/>
         </scene>
     </scenes>
 </document>

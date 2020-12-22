@@ -34,6 +34,12 @@ class SearchVC: UIViewController {
         searchVC.viewModel = SearchViewModel(search: searchVC, categoryID: id)
         return searchVC
     }
+    
+    @IBAction func findDoctorButtonPressed(_ sender: Any) {
+        let searchResult = SearchResultVC.create()
+        self.navigationController?.pushViewController(searchResult, animated: true)
+    }
+    
 }
 extension SearchVC:SearchVCProtocol{
     // For Reset Reaion Value after Picking new City Value

@@ -60,6 +60,8 @@ internal enum L10n {
   internal static let pleaseEnterPhoneNumber = L10n.tr("Localizable", "pleaseEnterPhoneNumber")
   /// The Entered Number Doesn't Start with 010,011,012 or 015 with Max 11 Numbers at All
   internal static let rightPhoneNumberFormatDescription = L10n.tr("Localizable", "rightPhoneNumberFormatDescription")
+  /// Search Result
+  internal static let searchResult = L10n.tr("Localizable", "searchResult")
   /// Send Request
   internal static let sendRequest = L10n.tr("Localizable", "sendRequest")
   /// Service Search

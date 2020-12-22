@@ -59,6 +59,6 @@ extension UIViewController {
     }
     
     @objc private func backButton(_ sender:UIBarButtonItem){
-        self.navigationController?.popToRootViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
 }

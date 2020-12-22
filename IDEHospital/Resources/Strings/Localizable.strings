@@ -27,3 +27,4 @@
 "pleaseEnterDetails" = "Details Field is Empty, Please Write your Details";
 "successfulRequest" = "Successful Request";
 "nurseSuccessRequestMessage" = "Your Request has been Sent Successfully";
+"searchResult" = "Search Result";

@@ -58,6 +58,7 @@
 		B21BDE392584F2F700430408 /* Companies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21BDE382584F2F700430408 /* Companies.swift */; };
 		B26013902590C80F004E95B1 /* NurseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B260138F2590C80F004E95B1 /* NurseResponse.swift */; };
 		B26013922590CB98004E95B1 /* RequestBodyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26013912590CB98004E95B1 /* RequestBodyData.swift */; };
+		B260139A25913AB0004E95B1 /* SearchResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B260139925913AB0004E95B1 /* SearchResultVC.swift */; };
 		B26DB985258BCBE800DDE8B8 /*  UIView+BackgroundExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26DB984258BCBE800DDE8B8 /*  UIView+BackgroundExtension.swift */; };
 		B26DB988258DE44700DDE8B8 /* NurseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26DB987258DE44700DDE8B8 /* NurseVC.swift */; };
 		B26DB98A258DE45700DDE8B8 /* NurseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26DB989258DE45700DDE8B8 /* NurseView.swift */; };
@@ -123,6 +124,7 @@
 		B21BDE382584F2F700430408 /* Companies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Companies.swift; sourceTree = "<group>"; };
 		B260138F2590C80F004E95B1 /* NurseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NurseResponse.swift; sourceTree = "<group>"; };
 		B26013912590CB98004E95B1 /* RequestBodyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBodyData.swift; sourceTree = "<group>"; };
+		B260139925913AB0004E95B1 /* SearchResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultVC.swift; sourceTree = "<group>"; };
 		B26DB984258BCBE800DDE8B8 /*  UIView+BackgroundExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " UIView+BackgroundExtension.swift"; sourceTree = "<group>"; };
 		B26DB987258DE44700DDE8B8 /* NurseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NurseVC.swift; sourceTree = "<group>"; };
 		B26DB989258DE45700DDE8B8 /* NurseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NurseView.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 				B207B4C525894CA2002603EA /* Custom Views */,
 				8632A9FF258901AC00E4DB8D /* Home */,
 				B21BDE052582BE1700430408 /* Search */,
+				B260139825913A98004E95B1 /* Search Result */,
 				B26DB986258DE42A00DDE8B8 /* Nurse */,
 				B21BDE062582BE2800430408 /* Favorites */,
 				B21BDE072582BE3C00430408 /* Schedule */,
@@ -483,6 +486,14 @@
 				B26013912590CB98004E95B1 /* RequestBodyData.swift */,
 			);
 			path = Nurse;
+			sourceTree = "<group>";
+		};
+		B260139825913A98004E95B1 /* Search Result */ = {
+			isa = PBXGroup;
+			children = (
+				B260139925913AB0004E95B1 /* SearchResultVC.swift */,
+			);
+			path = "Search Result";
 			sourceTree = "<group>";
 		};
 		B26DB986258DE42A00DDE8B8 /* Nurse */ = {
@@ -684,6 +695,7 @@
 				B21BDE2F2584F26400430408 /* CategoriesResponse.swift in Sources */,
 				B21BDE332584F2AD00430408 /* Specialties.swift in Sources */,
 				B26DB988258DE44700DDE8B8 /* NurseVC.swift in Sources */,
+				B260139A25913AB0004E95B1 /* SearchResultVC.swift in Sources */,
 				86323302257D83A400514F5A /* ValidatorManager.swift in Sources */,
 				8632AA20258904A100E4DB8D /* String+trimming.swift in Sources */,
 				8632AA06258901DF00E4DB8D /* HomeViewModel.swift in Sources */,

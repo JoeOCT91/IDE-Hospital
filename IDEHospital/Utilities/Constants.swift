@@ -26,10 +26,12 @@ struct ViewControllers {
     
     static let homeVC   = "HomeVC"
     static let searchVC = "SearchVC"
+    static let searchResult = "SearchResultVC"
     static let favoritesVC = "FavoritesVC"
     static let scheduleVC = "ScheduleVC"
     static let tabBarVC = "TabBarVC"
     static let nurseVC = "NurseVC"
+  
 }
 
 
