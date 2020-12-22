@@ -9,6 +9,7 @@ import UIKit
 
 class SearchResultVC: UIViewController {
 
+    @IBOutlet var searchResultView: SearchResultView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.setupBackground()

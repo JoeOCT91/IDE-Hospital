@@ -9,10 +9,10 @@ import UIKit
 
 class SearchResultCell: UITableViewCell {
 
-    @IBOutlet weak var searchResultView: SearchResultView!
+    @IBOutlet weak var searchResultCellView: SearchResultCellView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.searchResultView.setupView()
+        self.searchResultCellView.setupView()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

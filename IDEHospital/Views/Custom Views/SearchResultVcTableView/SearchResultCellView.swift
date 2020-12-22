@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-class SearchResultView:UIView
+class SearchResultCellView:UIView
 {
     
     //MARK:- Public Functions
