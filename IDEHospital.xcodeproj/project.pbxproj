@@ -188,6 +188,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8618F5AF25925CF60006E10F /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				862C489E258F4FC9000066E5 /* ConfirmationAlert.swift */,
+				8628D5A5258C075B00CAB803 /* AlertVC.swift */,
+			);
+			path = Alerts;
+			sourceTree = "<group>";
+		};
 		861D576E258C28BC00EFED1D /* Appointments */ = {
 			isa = PBXGroup;
 			children = (
@@ -320,10 +329,10 @@
 			isa = PBXGroup;
 			children = (
 				86385A57258CB2180060C564 /* Appointments */,
-				8628D5C3258C0B0700CAB803 /* Doctor.swift */,
 				8628D5C1258C0B0700CAB803 /* Favorites */,
 				862851DB257FE6410059122F /* Categories */,
 				B21BDE3A2584F55200430408 /* Categories */,
+				8628D5C3258C0B0700CAB803 /* Doctor.swift */,
 				862C489B258F4E00000066E5 /* DeleteResponse.swift */,
 			);
 			path = Models;
@@ -353,11 +362,9 @@
 		863232E9257D74ED00514F5A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8618F5AF25925CF60006E10F /* Alerts */,
 				861D576E258C28BC00EFED1D /* Appointments */,
 				B21BDE062582BE2800430408 /* Favorites */,
-				8628D5A5258C075B00CAB803 /* AlertVC.swift */,
-				8628D5A6258C075B00CAB803 /* HospitalButton.swift */,
-				8628D5A4258C075A00CAB803 /* HospitalCellLabel.swift */,
 				B207B4C525894CA2002603EA /* Custom Views */,
 				8632A9FB2589019E00E4DB8D /* Cells */,
 				8632A9FF258901AC00E4DB8D /* Home */,
@@ -470,8 +477,10 @@
 		B207B4C525894CA2002603EA /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				8628D5A3258C075A00CAB803 /* DoctorImageView.swift */,
 				B21BDE122582C2A000430408 /* TabBarController */,
+				8628D5A4258C075A00CAB803 /* HospitalCellLabel.swift */,
+				8628D5A6258C075B00CAB803 /* HospitalButton.swift */,
+				8628D5A3258C075A00CAB803 /* DoctorImageView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -490,7 +499,6 @@
 			children = (
 				8628D5B7258C07FE00CAB803 /* FavoritesVC.swift */,
 				8628D5B6258C07FE00CAB803 /* FavoritesView.swift */,
-				862C489E258F4FC9000066E5 /* ConfirmationAlert.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";

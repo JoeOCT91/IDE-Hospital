@@ -35,9 +35,9 @@ class APIManager {
         }
     }
     
-    class func removeFavorite(doctorID: Int){
-        request(APIRouter.removeFavorite(doctorID: doctorID)) { (result : Result<DeleteResponse, Error>) in
-            print(result)
+    class func removeFavorite(doctorID: Int, complation: @escaping (Result<DeleteResponse, Error>) -> () ) {
+        request(APIRouter.removeFavorite(doctorID: doctorID)) { (response) in
+            complation(response)
         }
     }
     

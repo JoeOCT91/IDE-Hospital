@@ -108,6 +108,5 @@ class ConfirmationAlert: UIViewController {
     @objc private func confirmPressed(){
         delgate?.confirmPressed(id: Id)
         self.dismiss(animated: true)
-
     }
 }

@@ -22,21 +22,8 @@ class FavoritesVM<T: FavoritesVCProtocol>: ViewModelWithPagination<T>, Favorites
         child = self
     }
     
+    //Call data from the server
     func getData(){
-//        APIManager.getFavorites(page: 11) { [weak self] (result: Result<ResponseHead<Doctor>, Error>) in
-//            guard let self = self else { return }
-//            switch result {
-//            case .success(let favorites):
-//                self.dataList.append(contentsOf: favorites.data.appointments)
-//                print(self.page)
-//                self.isHasMorePages(pagesCount: favorites.data.totalPages)
-//                self.page += 1
-//                self.view?.reloadTableview()
-//                print(self.dataList.count)
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
         APIManager.getFavorites(page: page) { [weak self] (result: Result<BaseResponse<Doctor>, Error>) in
             guard let self = self else { return }
             switch result {
@@ -64,11 +51,23 @@ class FavoritesVM<T: FavoritesVCProtocol>: ViewModelWithPagination<T>, Favorites
         }
     }
     
-    
     func getCellData(indexPath: IndexPath) -> Doctor {
         return dataList[indexPath.row] as! Doctor
     }
+
     func deleteEntry(id: Int){
-        APIManager.removeFavorite(doctorID: id)
+        print("entry deleted")
+        APIManager.removeFavorite(doctorID: id) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let data):
+                self.page = 1
+                self.clearData()
+                self.getData()
+                print(data)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }

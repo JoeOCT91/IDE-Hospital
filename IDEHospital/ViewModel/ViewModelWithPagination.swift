@@ -44,4 +44,9 @@ class ViewModelWithPagination<T: PaginationVCProtocol> {
     internal func isHasMorePages(pagesCount: Int){
         pagesCount > page ? (hasMorePages = true) : (hasMorePages = false)
     }
+    
+    //Clear all data in list View
+    internal func clearData(){
+        dataList.removeAll()
+    }
 }

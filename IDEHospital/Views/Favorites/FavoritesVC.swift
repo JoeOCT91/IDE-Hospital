@@ -80,6 +80,7 @@ extension FavoritesVC: FavoritesCellDelgate{
     }
     
     @objc func viewDoctorProfile(doctorID: Int) {
+        print(doctorID)
         let alertVC = AlertVC()
         self.presentAlertOnMainThread(alertVC: alertVC)
     }

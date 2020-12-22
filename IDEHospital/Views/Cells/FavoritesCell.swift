@@ -226,7 +226,7 @@ class FavoritesCell: UITableViewCell {
             viewProfileButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             viewProfileButton.widthAnchor.constraint(equalToConstant: width)
         ])
-        viewProfileButton.addTarget(self, action: #selector(viewDoctorProfilePressed),for: .touchUpInside)
+        viewProfileButton.addTarget(self, action: #selector(viewDoctorProfilePressed), for: .touchUpInside)
     }
     @objc private func viewDoctorProfilePressed(){
         delgate?.viewDoctorProfile(doctorID: self.tag)
