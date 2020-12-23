@@ -23,6 +23,24 @@ class APIManager {
         }
     }
     
+    class func getFavorites<Element>(page: Int, complation: @escaping (Result<BaseResponse<Element>, Error>) -> () ) {
+        request(APIRouter.getFavories(page)) { (response) in
+            complation(response)
+        }
+    }
+
+    class func getAppointments(page: Int, complation: @escaping (Result<AppointmentsMainResponse, Error>) -> () ) {
+        request(APIRouter.getAppointments(page)) { (response) in
+            complation(response)
+        }
+    }
+    
+    class func removeFavorite(doctorID: Int, complation: @escaping (Result<DeleteResponse, Error>) -> () ) {
+        request(APIRouter.removeFavorite(doctorID: doctorID)) { (response) in
+            complation(response)
+        }
+    }
+    
 }
 extension APIManager{
     // MARK:- The request function to get results in a closure
@@ -34,10 +52,11 @@ extension APIManager{
                 completion(.success(value))
             case .failure(let error):
                 completion(.failure(error))
-            //let ster = String(data: response.data!, encoding: .utf8)
+//                let str = String(data: response.data!, encoding: .utf8)
+//                print(str)
             }
         }.responseJSON { response in
-            print(response)
+            //print(response)
         }
     }
 }

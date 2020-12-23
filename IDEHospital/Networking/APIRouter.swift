@@ -12,13 +12,17 @@ enum APIRouter:URLRequestConvertible {
     //End Points names
     
     case getCategories
+    case getFavories(_ page: Int)
+    case getAppointments(_ page: Int)
+    case removeFavorite(doctorID: Int)
+
     case getCategory(_ ID: Int)
     case login
     
     //Mark:- HTTP Methods
     private var method: HTTPMethod {
         switch self {
-        case .getCategory ,.getCategories:
+        case .login, .getCategories, .getFavories, .getCategory, .getAppointments:
             return .get
         default:
             return .post
@@ -32,8 +36,24 @@ enum APIRouter:URLRequestConvertible {
             return URLs.getCategories + "\(categoryID)" + "/doctors_query_parameters"
         case .getCategories:
             return URLs.getCategories
+        case .getFavories:
+            return URLs.favorites
+        case .getAppointments:
+            return URLs.appoitments
+        case .removeFavorite(let doctorID):
+            return URLs.favorites + "/\(doctorID)/add_remove"
         default:
             return ""
+        }
+    }
+    private var query: URLQueryItem? {
+        switch self {
+        case .getFavories(let page):
+            return URLQueryItem(name: "page", value: String(page))
+        case .getAppointments(let page):
+            return URLQueryItem(name: "page", value: String(page))
+        default:
+            return nil
         }
     }
     
@@ -41,20 +61,23 @@ enum APIRouter:URLRequestConvertible {
     //MARK:- Parameters
     private var parameters: Parameters? {
         switch self {
-        case .getCategory, .getCategories:
+        case .getCategory, .getCategories, .getFavories, .getAppointments:
             return nil
         default:
             return nil
         }
     }
     
-    
     func asURLRequest() throws -> URLRequest {
-
-        let url = try URLs.base.asURL()
-        var urlRequest = URLRequest(url: url.appendingPathComponent(path))
         
-        //httpMethod
+        var urlComponents = URLComponents(string: URLs.base + path)!
+        if let query = query {
+            urlComponents.queryItems = [query]
+        }
+        let url =  try urlComponents.asURL()
+        var urlRequest = URLRequest(url: url)
+
+        
         urlRequest.httpMethod = method.rawValue
         
         //Http Headers
@@ -62,6 +85,8 @@ enum APIRouter:URLRequestConvertible {
         case  .getCategory, .getCategories:
             urlRequest.setValue("Accept-Language", forHTTPHeaderField: "en")
             break
+        case .getFavories, .getAppointments, .removeFavorite:
+            urlRequest.setValue(UserDefaultsManager.shared().token, forHTTPHeaderField: HeaderKeys.authorization)
         default:
             break
         }
