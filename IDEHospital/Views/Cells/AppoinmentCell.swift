@@ -41,7 +41,6 @@ class AppoinmentCell: UITableViewCell {
     private let secondBio = HospitalCellLabel(textAlignment: .left, fontSize: 12)
     private let reviewsCount = HospitalCellLabel(textAlignment: .left, fontSize: 12, font: UIFont(font: FontFamily.PTSans.regular, size: 12))
     //Buttons Views
-    private let viewProfileButton = HospitalButton(frame: .zero, tittle: "View Profile")
     private let deleteButton = UIButton(frame: .zero)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
@@ -61,6 +60,10 @@ class AppoinmentCell: UITableViewCell {
         setupRating(rating: cellData.doctor.rating)
         appoinmentTime.text = "10 : 20 PM"
     }
+    func setupAppointmentDate(dateArr: [String]){
+        appoinmentTime.text = dateArr[1]
+        appoinmentDate.text = dateArr[0]
+    }
     
     private func setupCell(){
         configureSpretorView()
@@ -73,9 +76,10 @@ class AppoinmentCell: UITableViewCell {
         configureReviewsCount()
         configureDoctorBio()
         configureTimeLebal()
+        configureDateLabel()
     }
     
-    func setdoctorImage(image: Data){
+    func setDoctorImage(image: Data){
         self.doctorImage.image = UIImage(data: image)
     }
     
@@ -89,6 +93,7 @@ class AppoinmentCell: UITableViewCell {
         containerView.addSubview(reviewsCount)
         containerView.addSubview(doctorBio)
         containerView.addSubview(appoinmentTime)
+        containerView.addSubview(appoinmentDate)
         containerView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 22),
@@ -168,13 +173,17 @@ class AppoinmentCell: UITableViewCell {
             //doctorBio.bottomAnchor.constraint(equalTo: appoinmentTime.topAnchor)
         ])
     }
-    
+    private func configureDateLabel(){
+        NSLayoutConstraint.activate([
+            appoinmentDate.topAnchor.constraint(equalTo: doctorBio.bottomAnchor, constant: 15),
+            appoinmentDate.leadingAnchor.constraint(equalTo: doctorName.leadingAnchor)
+        ])
+    }
     private func configureTimeLebal() {
         NSLayoutConstraint.activate([
             appoinmentTime.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10),
-            appoinmentTime.topAnchor.constraint(equalTo: doctorBio.bottomAnchor, constant: 5),
+            appoinmentTime.topAnchor.constraint(equalTo: appoinmentDate.bottomAnchor, constant: 5),
             appoinmentTime.leadingAnchor.constraint(equalTo: doctorName.leadingAnchor),
-
         ])
     }
     

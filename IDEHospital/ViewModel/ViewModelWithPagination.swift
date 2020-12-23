@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SDWebImage
 
 protocol ViewModelWithPaginatioProtocol: PaginationChild {
     func getDataListCount() -> Int

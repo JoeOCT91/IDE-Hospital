@@ -8,6 +8,7 @@
 import UIKit
 
 protocol AppointmentsVCProtocol: PaginationVCProtocol {
+    func setCellImage(image: Data, indexPath: IndexPath)
     func reloadTableview()
 }
 
@@ -36,6 +37,7 @@ class AppointmentsVC: UIViewController {
 }
 
 extension AppointmentsVC: AppointmentsVCProtocol {
+    
     func hideLoader() {
         view.hideLoader()
     }
@@ -55,13 +57,19 @@ extension AppointmentsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  tableView.dequeueReusableCell(withIdentifier: Cells.appointment, for: indexPath) as! AppoinmentCell
         cell.setupCellData(cellData: viewModel.getAppointmentData(indexPath: indexPath))
+        cell.setupAppointmentDate(dateArr: viewModel.getAppointmentDate(indexPath: indexPath))
+        viewModel.getDoctorImage(indexPath: indexPath)
         return cell
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        viewModel.scrollObserve(cellCount: indexPath.row)
     }
     
+    internal func setCellImage(image: Data, indexPath: IndexPath) {
+        guard let cell = appointmentsView.appointmentsTableView.cellForRow(at: indexPath) as? AppoinmentCell else { return }
+        cell.setDoctorImage(image: image)
+        viewModel.scrollObserve(cellCount: indexPath.row)
+    }
     
     
     

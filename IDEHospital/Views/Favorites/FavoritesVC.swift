@@ -11,6 +11,7 @@ protocol PaginationVCProtocol: class {
     func reloadTableview()
     func showLoader()
     func hideLoader()
+    func setCellImage(image: Data, indexPath: IndexPath)
 }
 
 protocol FavoritesVCProtocol: PaginationVCProtocol {

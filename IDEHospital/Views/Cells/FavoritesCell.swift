@@ -33,7 +33,7 @@ class FavoritesCell: UITableViewCell {
         let width: CGFloat = widthRatio * 20.08
         return width
     }
-    
+    private let shadowView = UIView(frame: .zero)
     //ContentView Sub Views
     private let containerView = UIView()
     private let sepratorView = UIView()
@@ -58,6 +58,10 @@ class FavoritesCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        self.selectedBackgroundView?.frame = CGRect.zero
     }
     
     func setupData(doctor: Doctor){
