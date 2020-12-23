@@ -85,21 +85,18 @@ extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
 extension FavoritesVC: FavoritesCellDelgate{
     
     @objc func deleteFavorite(doctorID : Int) {
-        let alertVC = ConfirmationAlert(id: doctorID)
-        alertVC.delgate = self
-        self.presentAlertOnMainThread(alertVC: alertVC)
+        self.viewModel.deleteEntry(id: doctorID)
     }
     
     @objc func viewDoctorProfile(doctorID: Int) {
-        print(doctorID)
         let alertVC = AlertVC()
         self.presentAlertOnMainThread(alertVC: alertVC)
     }
     
 }
-
-extension FavoritesVC: ConfirmationAlertDelgate {
-    func confirmPressed(id: Int) {
-        self.viewModel.deleteEntry(id: id)
-    }
-}
+// I need this line to need for make comment about them :)
+//extension FavoritesVC: ConfirmationAlertDelgate {
+//    func confirmPressed(id: Int) {
+//
+//    }
+//}
