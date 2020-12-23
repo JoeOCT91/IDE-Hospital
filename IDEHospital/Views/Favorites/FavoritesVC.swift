@@ -80,10 +80,6 @@ extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
         cell.setdoctorImage(image: image)
         viewModel.scrollObserve(cellCount: indexPath.row)
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
 }
 
 extension FavoritesVC: FavoritesCellDelgate{

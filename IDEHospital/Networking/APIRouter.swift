@@ -5,7 +5,6 @@
 //  Created by Yousef Mohamed on 06/12/2020.
 //
 
-
 import Foundation
 import Alamofire
 
@@ -70,6 +69,7 @@ enum APIRouter:URLRequestConvertible {
     }
     
     func asURLRequest() throws -> URLRequest {
+        
         var urlComponents = URLComponents(string: URLs.base + path)!
         if let query = query {
             urlComponents.queryItems = [query]

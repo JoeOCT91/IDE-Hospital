@@ -7,16 +7,6 @@
 
 import UIKit
 
-typealias CellData = (name: String,
-                      address : String,
-                      specialty : String,
-                      doctorID: Int,
-                      secondBio:String,
-                      waitingTime: Int,
-                      fees : String,
-                      rating: Int,
-                      reviesCount: Int)
-
 @objc protocol FavoritesCellDelgate: class {
     func viewDoctorProfile(doctorID : Int)
     func deleteFavorite(doctorID : Int)
@@ -63,7 +53,7 @@ class FavoritesCell: UITableViewCell {
     override func layoutSubviews() {
         self.selectedBackgroundView?.frame = CGRect.zero
     }
-    
+    //Public Methods
     func setupData(doctor: Doctor){
         setupCell()
         self.tag = doctor.id
@@ -77,6 +67,10 @@ class FavoritesCell: UITableViewCell {
         setupRating(rating: doctor.rating)
     }
     
+    func setdoctorImage(image: Data){
+        self.doctorImage.image = UIImage(data: image)
+    }
+    // Private Methods
     private func setupCell(){
         configureSpretorView()
         self.backgroundColor = .clear
@@ -92,10 +86,6 @@ class FavoritesCell: UITableViewCell {
         configureExaminationFees()
         configureViewProfileButton()
         configureDeleteButton()
-    }
-    
-    func setdoctorImage(image: Data){
-        self.doctorImage.image = UIImage(data: image)
     }
     
     private func configureConatinerView() {
@@ -175,6 +165,7 @@ class FavoritesCell: UITableViewCell {
             doctorRating.addArrangedSubview(starImage)
         }
     }
+    
     private func configureReviewsCount(){
         NSLayoutConstraint.activate([
             reviewsCount.centerYAnchor.constraint(equalTo: doctorRating.centerYAnchor),
