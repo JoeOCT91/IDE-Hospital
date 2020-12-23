@@ -31,6 +31,7 @@ struct ViewControllers {
     static let scheduleVC = "ScheduleVC"
     static let tabBarVC = "TabBarVC"
     static let nurseVC = "NurseVC"
+    static let searchResultCell = "SearchResultCell"
   
 }
 

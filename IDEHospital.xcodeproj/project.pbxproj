@@ -61,7 +61,6 @@
 		B260139A25913AB0004E95B1 /* SearchResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B260139925913AB0004E95B1 /* SearchResultVC.swift */; };
 		B260139E25920A91004E95B1 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B260139C25920A91004E95B1 /* SearchResultCell.swift */; };
 		B260139F25920A91004E95B1 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B260139D25920A91004E95B1 /* SearchResultCell.xib */; };
-		B26013A125920C7A004E95B1 /* SearchResultCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26013A025920C7A004E95B1 /* SearchResultCellView.swift */; };
 		B26013A325921402004E95B1 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26013A225921402004E95B1 /* SearchResultView.swift */; };
 		B26DB985258BCBE800DDE8B8 /*  UIView+BackgroundExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26DB984258BCBE800DDE8B8 /*  UIView+BackgroundExtension.swift */; };
 		B26DB988258DE44700DDE8B8 /* NurseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26DB987258DE44700DDE8B8 /* NurseVC.swift */; };
@@ -69,6 +68,8 @@
 		B26DB98C258DE47C00DDE8B8 /* NurseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26DB98B258DE47C00DDE8B8 /* NurseViewModel.swift */; };
 		B26DB98E258DE66D00DDE8B8 /* Nurse.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B26DB98D258DE66D00DDE8B8 /* Nurse.storyboard */; };
 		B26DB991258E665400DDE8B8 /* IDEAHopitalTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26DB990258E665400DDE8B8 /* IDEAHopitalTextField.swift */; };
+		B2BE220F2592A35E004BA737 /* SearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BE220E2592A35E004BA737 /* SearchResultViewModel.swift */; };
+		B2BE2211259379C7004BA737 /* SearchResultCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BE2210259379C7004BA737 /* SearchResultCellView.swift */; };
 		B7E6D5DC1F585871719B5F3D /* Pods_IDEHospital.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0BDB737E5E4140C2CAB0880 /* Pods_IDEHospital.framework */; };
 /* End PBXBuildFile section */
 
@@ -131,7 +132,6 @@
 		B260139925913AB0004E95B1 /* SearchResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultVC.swift; sourceTree = "<group>"; };
 		B260139C25920A91004E95B1 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		B260139D25920A91004E95B1 /* SearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
-		B26013A025920C7A004E95B1 /* SearchResultCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCellView.swift; sourceTree = "<group>"; };
 		B26013A225921402004E95B1 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 		B26DB984258BCBE800DDE8B8 /*  UIView+BackgroundExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " UIView+BackgroundExtension.swift"; sourceTree = "<group>"; };
 		B26DB987258DE44700DDE8B8 /* NurseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NurseVC.swift; sourceTree = "<group>"; };
@@ -139,6 +139,8 @@
 		B26DB98B258DE47C00DDE8B8 /* NurseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NurseViewModel.swift; sourceTree = "<group>"; };
 		B26DB98D258DE66D00DDE8B8 /* Nurse.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Nurse.storyboard; sourceTree = "<group>"; };
 		B26DB990258E665400DDE8B8 /* IDEAHopitalTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDEAHopitalTextField.swift; sourceTree = "<group>"; };
+		B2BE220E2592A35E004BA737 /* SearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewModel.swift; sourceTree = "<group>"; };
+		B2BE2210259379C7004BA737 /* SearchResultCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCellView.swift; sourceTree = "<group>"; };
 		D0BDB737E5E4140C2CAB0880 /* Pods_IDEHospital.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IDEHospital.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB534F8EC6442A45ACC19CEC /* Pods-IDEHospital.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IDEHospital.debug.xcconfig"; path = "Target Support Files/Pods-IDEHospital/Pods-IDEHospital.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -308,6 +310,7 @@
 				8632AA05258901DF00E4DB8D /* HomeViewModel.swift */,
 				862851C0257FC28D0059122F /* SearchViewModel.swift */,
 				B26DB98B258DE47C00DDE8B8 /* NurseViewModel.swift */,
+				B2BE220E2592A35E004BA737 /* SearchResultViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -511,7 +514,7 @@
 			children = (
 				B260139C25920A91004E95B1 /* SearchResultCell.swift */,
 				B260139D25920A91004E95B1 /* SearchResultCell.xib */,
-				B26013A025920C7A004E95B1 /* SearchResultCellView.swift */,
+				B2BE2210259379C7004BA737 /* SearchResultCellView.swift */,
 			);
 			path = SearchResultVcTableView;
 			sourceTree = "<group>";
@@ -700,6 +703,7 @@
 				B21BDE352584F2C800430408 /* Cities.swift in Sources */,
 				B26DB98A258DE45700DDE8B8 /* NurseView.swift in Sources */,
 				8632AA182589045800E4DB8D /* UIViewController+Alert.swift in Sources */,
+				B2BE2211259379C7004BA737 /* SearchResultCellView.swift in Sources */,
 				B21BDE1A2582C45700430408 /* ScheduleView.swift in Sources */,
 				B260139E25920A91004E95B1 /* SearchResultCell.swift in Sources */,
 				B21BDE0D2582BEA600430408 /* FavoritesVC.swift in Sources */,
@@ -716,6 +720,7 @@
 				863232D1257D733C00514F5A /* SearchVC.swift in Sources */,
 				B207B4C725894D0A002603EA /* SupplierTabBarVC.swift in Sources */,
 				B21BDE2F2584F26400430408 /* CategoriesResponse.swift in Sources */,
+				B2BE220F2592A35E004BA737 /* SearchResultViewModel.swift in Sources */,
 				B21BDE332584F2AD00430408 /* Specialties.swift in Sources */,
 				B26DB988258DE44700DDE8B8 /* NurseVC.swift in Sources */,
 				B260139A25913AB0004E95B1 /* SearchResultVC.swift in Sources */,
@@ -723,7 +728,6 @@
 				8632AA20258904A100E4DB8D /* String+trimming.swift in Sources */,
 				8632AA06258901DF00E4DB8D /* HomeViewModel.swift in Sources */,
 				863232CD257D733C00514F5A /* AppDelegate.swift in Sources */,
-				B26013A125920C7A004E95B1 /* SearchResultCellView.swift in Sources */,
 				862851ED258061740059122F /* UIColor+FromHex.swift in Sources */,
 				B21BDE182582C44000430408 /* FavoritesView.swift in Sources */,
 				8632AA142589043700E4DB8D /* UIViewController+Storyboard.swift in Sources */,

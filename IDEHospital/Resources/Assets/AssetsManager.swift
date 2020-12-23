@@ -36,11 +36,17 @@ internal enum Asset {
   internal static let arrow = ImageAsset(name: "arrow")
   internal static let back2 = ImageAsset(name: "back-2")
   internal static let calendar3 = ImageAsset(name: "calendar-3")
+  internal static let clock = ImageAsset(name: "clock")
   internal static let doctor = ImageAsset(name: "doctor")
+  internal static let emptyHeart = ImageAsset(name: "empty_heart")
   internal static let joheart = ImageAsset(name: "joheart")
   internal static let logo = ImageAsset(name: "logo")
+  internal static let money = ImageAsset(name: "money")
+  internal static let placeholderImage = ImageAsset(name: "placeholder-image")
+  internal static let redHeart = ImageAsset(name: "red_heart")
   internal static let settings = ImageAsset(name: "settings")
   internal static let splashBackGround = ImageAsset(name: "splashBackGround")
+  internal static let whiteArrow = ImageAsset(name: "white_arrow")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 

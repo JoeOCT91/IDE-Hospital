@@ -10,6 +10,8 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
+  /// SearchResultTableViewCell
+  internal static let cellIdentifire = L10n.tr("Localizable", "cellIdentifire")
   /// Choose City
   internal static let chooseCity = L10n.tr("Localizable", "chooseCity")
   /// Choose Companies
@@ -26,10 +28,16 @@ internal enum L10n {
   internal static let doctorName = L10n.tr("Localizable", "DoctorName")
   /// done
   internal static let done = L10n.tr("Localizable", "done")
+  ///  LE
+  internal static let egyptionPound = L10n.tr("Localizable", "egyptionPound")
   /// Your Email
   internal static let emailTextFieldPlaceholder = L10n.tr("Localizable", "emailTextFieldPlaceholder")
   /// Enter Details
   internal static let enterDetails = L10n.tr("Localizable", "enterDetails")
+  /// Examination Fees: 
+  internal static let examinationFess = L10n.tr("Localizable", "examinationFess")
+  /// Fees
+  internal static let fees = L10n.tr("Localizable", "fees")
   /// Find a doctor
   internal static let findDoctor = L10n.tr("Localizable", "findDoctor")
   /// IDEA EG HOSPITAL THE BEST CHOICE
@@ -42,8 +50,12 @@ internal enum L10n {
   internal static let ideaHospital = L10n.tr("Localizable", "ideaHospital")
   /// Invalid E-mail Format
   internal static let invalidEMailFormat = L10n.tr("Localizable", "invalidE-mailFormat")
+  ///  minutes
+  internal static let minutes = L10n.tr("Localizable", "minutes")
   /// Your Name
   internal static let nameTextFieldPlaceholder = L10n.tr("Localizable", "nameTextFieldPlaceholder")
+  /// No Search Result Found
+  internal static let noSearchResult = L10n.tr("Localizable", "noSearchResult")
   /// Your Request has been Sent Successfully
   internal static let nurseSuccessRequestMessage = L10n.tr("Localizable", "nurseSuccessRequestMessage")
   /// If you would like further information about how we can help you and your health it would be great to hear from you
@@ -58,6 +70,8 @@ internal enum L10n {
   internal static let pleaseEnterName = L10n.tr("Localizable", "pleaseEnterName")
   /// Phone Number Field is Empty, Please Re-Enter your Phone Number
   internal static let pleaseEnterPhoneNumber = L10n.tr("Localizable", "pleaseEnterPhoneNumber")
+  /// Rating
+  internal static let rating = L10n.tr("Localizable", "rating")
   /// The Entered Number Doesn't Start with 010,011,012 or 015 with Max 11 Numbers at All
   internal static let rightPhoneNumberFormatDescription = L10n.tr("Localizable", "rightPhoneNumberFormatDescription")
   /// Search Result
@@ -68,8 +82,12 @@ internal enum L10n {
   internal static let serviceSearch = L10n.tr("Localizable", "serviceSearch")
   /// Sorry
   internal static let sorry = L10n.tr("Localizable", "sorry")
+  /// Sort By
+  internal static let sortBy = L10n.tr("Localizable", "sortBy")
   /// Successful Request
   internal static let successfulRequest = L10n.tr("Localizable", "successfulRequest")
+  /// Wating Time: 
+  internal static let watingTime = L10n.tr("Localizable", "watingTime")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

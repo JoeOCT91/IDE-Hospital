@@ -28,3 +28,12 @@
 "successfulRequest" = "Successful Request";
 "nurseSuccessRequestMessage" = "Your Request has been Sent Successfully";
 "searchResult" = "Search Result";
+"sortBy" = "Sort By";
+"noSearchResult" = "No Search Result Found";
+"fees" = "Fees";
+"rating" = "Rating";
+"cellIdentifire" = "SearchResultTableViewCell";
+"watingTime" = "Wating Time: ";
+"minutes" = " minutes";
+"examinationFess" = "Examination Fees: ";
+"egyptionPound" =  " LE";
