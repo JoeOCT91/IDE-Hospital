@@ -29,6 +29,6 @@ class HospitalButton: UIButton {
         self.titleLabel?.font = self.titleLabel?.font.withSize(12)
         self.translatesAutoresizingMaskIntoConstraints = false
         self.backgroundColor = UIColor(named: ColorName.darkRoyalBlue)
-        self.layer.cornerRadius = 12
+        self.layer.cornerRadius = 10
     }
 }
