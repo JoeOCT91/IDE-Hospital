@@ -8,13 +8,11 @@
 import UIKit
 
 @objc protocol AppoinmentCellDelgate: class {
-    func viewDoctorProfile(doctorID : Int)
-    func deleteFavorite(doctorID : Int)
+    func cancelAppointment(doctorID : Int)
 }
 
 class AppoinmentCell: UITableViewCell {
-    
-    
+
     //Cell Delgate property
     weak var delgate: AppoinmentCellDelgate?
     
@@ -25,6 +23,7 @@ class AppoinmentCell: UITableViewCell {
         return width
     }
     
+    private let shadowView = UIView(frame: .zero)
     //ContentView Sub Views
     private let containerView = UIView()
     private let sepratorView = UIView()
@@ -37,7 +36,7 @@ class AppoinmentCell: UITableViewCell {
     
     private let appoinmentTime = HospitalCellLabel(textAlignment: .left, fontSize: 12)
     private let appoinmentDate = HospitalCellLabel(textAlignment: .left, fontSize: 12)
-    
+    private let viewOnMapButton = UIButton(frame: .zero)
     private let secondBio = HospitalCellLabel(textAlignment: .left, fontSize: 12)
     private let reviewsCount = HospitalCellLabel(textAlignment: .left, fontSize: 12, font: UIFont(font: FontFamily.PTSans.regular, size: 12))
     //Buttons Views
@@ -51,20 +50,29 @@ class AppoinmentCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func layoutSubviews() {
+        self.selectedBackgroundView?.frame = CGRect.zero
+    }
+    //MARK:- Cell Setup Methods
     func setupCellData(cellData: Appointment){
         setupCell()
-        //self.tag = cellData.doctorID
+        self.tag = cellData.id
         doctorName.text = cellData.doctor.name
         reviewsCount.text = "\(cellData.doctor.reviewsCount) Reviws"
         doctorBio.text = cellData.doctor.bio
         setupRating(rating: cellData.doctor.rating)
-        appoinmentTime.text = "10 : 20 PM"
     }
+    
     func setupAppointmentDate(dateArr: [String]){
         appoinmentTime.text = dateArr[1]
         appoinmentDate.text = dateArr[0]
     }
     
+    func setDoctorImage(image: Data){
+        self.doctorImage.image = UIImage(data: image)
+    }
+    
+    //MARK:- Private Methods
     private func setupCell(){
         configureSpretorView()
         self.backgroundColor = .clear
@@ -75,12 +83,9 @@ class AppoinmentCell: UITableViewCell {
         configureDoctorRating()
         configureReviewsCount()
         configureDoctorBio()
+        configureViewOnMapButton()
         configureTimeLebal()
         configureDateLabel()
-    }
-    
-    func setDoctorImage(image: Data){
-        self.doctorImage.image = UIImage(data: image)
     }
     
     private func configureConatinerView() {
@@ -92,8 +97,10 @@ class AppoinmentCell: UITableViewCell {
         containerView.addSubview(doctorRating)
         containerView.addSubview(reviewsCount)
         containerView.addSubview(doctorBio)
+        containerView.addSubview(viewOnMapButton)
         containerView.addSubview(appoinmentTime)
         containerView.addSubview(appoinmentDate)
+        //Container view constarians
         containerView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 22),
@@ -101,7 +108,6 @@ class AppoinmentCell: UITableViewCell {
             containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 26),
             containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -23),
         ])
-        
     }
     
     private func setupRating(rating: Int) {
@@ -124,7 +130,7 @@ class AppoinmentCell: UITableViewCell {
     }
     
     @objc private func deletebutttonPressed(){
-        delgate?.deleteFavorite(doctorID: self.tag)
+        delgate?.cancelAppointment(doctorID: self.tag)
     }
     
     private func configureDoctorImage(){
@@ -150,7 +156,6 @@ class AppoinmentCell: UITableViewCell {
         doctorRating.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             doctorRating.topAnchor.constraint(equalTo: doctorName.bottomAnchor, constant: 5),
-            //doctorRating.bottomAnchor.constraint(equalTo: doctorBio.topAnchor),
             doctorRating.leadingAnchor.constraint(equalTo: doctorName.leadingAnchor),
         ])
         for _ in doctorRating.arrangedSubviews.count ..< 5 {
@@ -158,27 +163,42 @@ class AppoinmentCell: UITableViewCell {
             doctorRating.addArrangedSubview(starImage)
         }
     }
+    
     private func configureReviewsCount(){
         NSLayoutConstraint.activate([
             reviewsCount.centerYAnchor.constraint(equalTo: doctorRating.centerYAnchor),
             reviewsCount.leadingAnchor.constraint(equalTo: doctorRating.trailingAnchor, constant: 10)
         ])
     }
+    
     private func configureDoctorBio() {
         doctorBio.numberOfLines = 4
         NSLayoutConstraint.activate([
             doctorBio.leadingAnchor.constraint(equalTo: doctorName.leadingAnchor),
             doctorBio.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             doctorBio.topAnchor.constraint(equalTo: doctorRating.bottomAnchor, constant: 16),
-            //doctorBio.bottomAnchor.constraint(equalTo: appoinmentTime.topAnchor)
         ])
     }
+    
+    private func configureViewOnMapButton(){
+        let viewOnMapLabel = HospitalCellLabel(textAlignment: .left, fontSize: 13)
+        viewOnMapLabel.setupContent(imageName: Asset.pin.name, text: "View on map")
+        viewOnMapButton.addSubview(viewOnMapLabel)
+        viewOnMapButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            viewOnMapButton.topAnchor.constraint(equalTo: doctorBio.bottomAnchor, constant: 15),
+            viewOnMapButton.heightAnchor.constraint(equalToConstant: 16),
+            viewOnMapButton.leadingAnchor.constraint(equalTo: doctorName.leadingAnchor)
+        ])
+    }
+    
     private func configureDateLabel(){
         NSLayoutConstraint.activate([
-            appoinmentDate.topAnchor.constraint(equalTo: doctorBio.bottomAnchor, constant: 15),
+            appoinmentDate.topAnchor.constraint(equalTo: viewOnMapButton.bottomAnchor, constant: 5),
             appoinmentDate.leadingAnchor.constraint(equalTo: doctorName.leadingAnchor)
         ])
     }
+    
     private func configureTimeLebal() {
         NSLayoutConstraint.activate([
             appoinmentTime.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10),

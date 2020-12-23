@@ -15,7 +15,7 @@ enum APIRouter:URLRequestConvertible {
     case getFavories(_ page: Int)
     case getAppointments(_ page: Int)
     case removeFavorite(doctorID: Int)
-
+    case removeAppointment(appointmentID: Int)
     case getCategory(_ ID: Int)
     case login
     
@@ -24,6 +24,8 @@ enum APIRouter:URLRequestConvertible {
         switch self {
         case .login, .getCategories, .getFavories, .getCategory, .getAppointments:
             return .get
+        case .removeAppointment:
+            return .delete
         default:
             return .post
         }
@@ -42,6 +44,8 @@ enum APIRouter:URLRequestConvertible {
             return URLs.appoitments
         case .removeFavorite(let doctorID):
             return URLs.favorites + "/\(doctorID)/add_remove"
+        case .removeAppointment(let appointmentID):
+            return URLs.appoitments + "/\(appointmentID)"
         default:
             return ""
         }
@@ -76,20 +80,19 @@ enum APIRouter:URLRequestConvertible {
         }
         let url =  try urlComponents.asURL()
         var urlRequest = URLRequest(url: url)
-
-        
+        //Set request Method
         urlRequest.httpMethod = method.rawValue
-        
         //Http Headers
         switch self {
         case  .getCategory, .getCategories:
             urlRequest.setValue("Accept-Language", forHTTPHeaderField: "en")
             break
-        case .getFavories, .getAppointments, .removeFavorite:
+        case .getFavories, .getAppointments, .removeFavorite, .removeAppointment:
             urlRequest.setValue(UserDefaultsManager.shared().token, forHTTPHeaderField: HeaderKeys.authorization)
         default:
             break
         }
+        
         urlRequest.setValue("application/json", forHTTPHeaderField: HeaderKeys.contentType)
         
         // HTTP Body

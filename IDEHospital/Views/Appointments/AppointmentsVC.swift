@@ -37,7 +37,6 @@ class AppointmentsVC: UIViewController {
 }
 
 extension AppointmentsVC: AppointmentsVCProtocol {
-    
     func hideLoader() {
         view.hideLoader()
     }
@@ -59,6 +58,7 @@ extension AppointmentsVC: UITableViewDelegate, UITableViewDataSource {
         cell.setupCellData(cellData: viewModel.getAppointmentData(indexPath: indexPath))
         cell.setupAppointmentDate(dateArr: viewModel.getAppointmentDate(indexPath: indexPath))
         viewModel.getDoctorImage(indexPath: indexPath)
+        cell.delgate = self
         return cell
     }
     
@@ -70,7 +70,17 @@ extension AppointmentsVC: UITableViewDelegate, UITableViewDataSource {
         cell.setDoctorImage(image: image)
         viewModel.scrollObserve(cellCount: indexPath.row)
     }
-    
-    
-    
+}
+
+extension AppointmentsVC: ConfirmationAlertDelgate {
+    func confirmPressed(id: Int) {
+        viewModel.deleteEntry(id: id)
+    }
+}
+extension AppointmentsVC: AppoinmentCellDelgate {
+    func cancelAppointment(doctorID: Int) {
+        let alertVC = ConfirmationAlert(id: doctorID, message: AlertMessages.appointmentCancel)
+        alertVC.delgate = self
+        presentAlertOnMainThread(alertVC: alertVC)
+    }
 }

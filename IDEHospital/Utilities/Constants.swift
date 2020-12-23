@@ -69,4 +69,5 @@ struct UserDefaultsKeys {
 // AlertMeassages
 struct AlertMessages {
     static let selectCityBeforeRegionFirst = "You have to select a city first then select it's Region"
+    static let appointmentCancel = "Are you sure that you want to cancel this appointment"
 }
