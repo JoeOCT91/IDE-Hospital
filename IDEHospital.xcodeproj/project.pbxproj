@@ -69,7 +69,10 @@
 		B26DB98E258DE66D00DDE8B8 /* Nurse.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B26DB98D258DE66D00DDE8B8 /* Nurse.storyboard */; };
 		B26DB991258E665400DDE8B8 /* IDEAHopitalTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26DB990258E665400DDE8B8 /* IDEAHopitalTextField.swift */; };
 		B2BE220F2592A35E004BA737 /* SearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BE220E2592A35E004BA737 /* SearchResultViewModel.swift */; };
-		B2BE2211259379C7004BA737 /* SearchResultCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BE2210259379C7004BA737 /* SearchResultCellView.swift */; };
+		B2BE22142593A48A004BA737 /* SearchResultResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BE22132593A48A004BA737 /* SearchResultResponse.swift */; };
+		B2BE22162593A49E004BA737 /* SearchResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BE22152593A49E004BA737 /* SearchResultData.swift */; };
+		B2BE22182593A65C004BA737 /* ItemsInCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BE22172593A65C004BA737 /* ItemsInCell.swift */; };
+		B2BE221A2593AAC1004BA737 /* SearchResultBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BE22192593AAC1004BA737 /* SearchResultBody.swift */; };
 		B7E6D5DC1F585871719B5F3D /* Pods_IDEHospital.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0BDB737E5E4140C2CAB0880 /* Pods_IDEHospital.framework */; };
 /* End PBXBuildFile section */
 
@@ -140,7 +143,10 @@
 		B26DB98D258DE66D00DDE8B8 /* Nurse.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Nurse.storyboard; sourceTree = "<group>"; };
 		B26DB990258E665400DDE8B8 /* IDEAHopitalTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDEAHopitalTextField.swift; sourceTree = "<group>"; };
 		B2BE220E2592A35E004BA737 /* SearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewModel.swift; sourceTree = "<group>"; };
-		B2BE2210259379C7004BA737 /* SearchResultCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCellView.swift; sourceTree = "<group>"; };
+		B2BE22132593A48A004BA737 /* SearchResultResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultResponse.swift; sourceTree = "<group>"; };
+		B2BE22152593A49E004BA737 /* SearchResultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultData.swift; sourceTree = "<group>"; };
+		B2BE22172593A65C004BA737 /* ItemsInCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsInCell.swift; sourceTree = "<group>"; };
+		B2BE22192593AAC1004BA737 /* SearchResultBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultBody.swift; sourceTree = "<group>"; };
 		D0BDB737E5E4140C2CAB0880 /* Pods_IDEHospital.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IDEHospital.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB534F8EC6442A45ACC19CEC /* Pods-IDEHospital.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IDEHospital.debug.xcconfig"; path = "Target Support Files/Pods-IDEHospital/Pods-IDEHospital.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -288,6 +294,7 @@
 		863232E6257D73DF00514F5A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B2BE22122593A46A004BA737 /* Search Result */,
 				B260138E2590C7E5004E95B1 /* Nurse */,
 				862851DB257FE6410059122F /* Categories */,
 				B21BDE3A2584F55200430408 /* Categories */,
@@ -514,7 +521,6 @@
 			children = (
 				B260139C25920A91004E95B1 /* SearchResultCell.swift */,
 				B260139D25920A91004E95B1 /* SearchResultCell.xib */,
-				B2BE2210259379C7004BA737 /* SearchResultCellView.swift */,
 			);
 			path = SearchResultVcTableView;
 			sourceTree = "<group>";
@@ -534,6 +540,17 @@
 				B26DB990258E665400DDE8B8 /* IDEAHopitalTextField.swift */,
 			);
 			path = "Custom TextField";
+			sourceTree = "<group>";
+		};
+		B2BE22122593A46A004BA737 /* Search Result */ = {
+			isa = PBXGroup;
+			children = (
+				B2BE22132593A48A004BA737 /* SearchResultResponse.swift */,
+				B2BE22152593A49E004BA737 /* SearchResultData.swift */,
+				B2BE22172593A65C004BA737 /* ItemsInCell.swift */,
+				B2BE22192593AAC1004BA737 /* SearchResultBody.swift */,
+			);
+			path = "Search Result";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -687,6 +704,7 @@
 				863232FC257D82DB00514F5A /* Constants.swift in Sources */,
 				86285234258085010059122F /* Strings.swift in Sources */,
 				8628521525807B2A0059122F /* AssetsManager.swift in Sources */,
+				B2BE22142593A48A004BA737 /* SearchResultResponse.swift in Sources */,
 				863232F6257D7BB700514F5A /* APIManager.swift in Sources */,
 				863232FF257D835F00514F5A /* UserDefaultsManager.swift in Sources */,
 				863232F9257D7BE300514F5A /* APIRouter.swift in Sources */,
@@ -703,7 +721,6 @@
 				B21BDE352584F2C800430408 /* Cities.swift in Sources */,
 				B26DB98A258DE45700DDE8B8 /* NurseView.swift in Sources */,
 				8632AA182589045800E4DB8D /* UIViewController+Alert.swift in Sources */,
-				B2BE2211259379C7004BA737 /* SearchResultCellView.swift in Sources */,
 				B21BDE1A2582C45700430408 /* ScheduleView.swift in Sources */,
 				B260139E25920A91004E95B1 /* SearchResultCell.swift in Sources */,
 				B21BDE0D2582BEA600430408 /* FavoritesVC.swift in Sources */,
@@ -711,6 +728,8 @@
 				B26013A325921402004E95B1 /* SearchResultView.swift in Sources */,
 				B21BDE372584F2E000430408 /* Regions.swift in Sources */,
 				B21BDE392584F2F700430408 /* Companies.swift in Sources */,
+				B2BE221A2593AAC1004BA737 /* SearchResultBody.swift in Sources */,
+				B2BE22162593A49E004BA737 /* SearchResultData.swift in Sources */,
 				B21BDE162582C42A00430408 /* SearchView.swift in Sources */,
 				B26DB985258BCBE800DDE8B8 /*  UIView+BackgroundExtension.swift in Sources */,
 				8632A9FD2589019E00E4DB8D /* CategoryCell.swift in Sources */,
@@ -733,6 +752,7 @@
 				8632AA142589043700E4DB8D /* UIViewController+Storyboard.swift in Sources */,
 				B26DB991258E665400DDE8B8 /* IDEAHopitalTextField.swift in Sources */,
 				B26DB98C258DE47C00DDE8B8 /* NurseViewModel.swift in Sources */,
+				B2BE22182593A65C004BA737 /* ItemsInCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

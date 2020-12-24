@@ -34,11 +34,11 @@ class SearchResultCell: UITableViewCell {
         // Configure the view for the selected state
     }
     //MARK:- Public Functions
-    func configureCell(doctorName:String, doctorImage:String, ratingImage:UIImage, ratingViewCount:String, doctorSpecilty:String, secondBio:String, region:String, address:String, heartIamge:Bool, watingTime:String, fees:String) {
+    func configureCell(doctorName:String, doctorImage:String, ratingImage:UIImage, ratingViewCount:Int, doctorSpecilty:String, secondBio:String, region:String, address:String, heartIamge:Bool, watingTime:Int, fees:Int) {
         self.nameLabel.text = doctorName
         self.profileImageView.sd_setImage(with:  URL(string: doctorImage), placeholderImage: Asset.placeholderImage.image)
         self.ratingImageView.image = ratingImage
-        self.reviewCountLabel.text = ratingViewCount
+        self.reviewCountLabel.text = "\(ratingViewCount)"
         self.specialtyLabel.text = doctorSpecilty
         self.secondBioLabel.text = secondBio
         self.regionLabel.text = region + ":" + address
@@ -48,8 +48,8 @@ class SearchResultCell: UITableViewCell {
         else{
             heartImageView.image = Asset.emptyHeart.image
         }
-        self.watingTimeLabel.text = L10n.watingTime + watingTime + L10n.minutes
-        self.feesLabel.text = L10n.examinationFess + fees + L10n.egyptionPound
+        self.watingTimeLabel.text = L10n.watingTime + "\(watingTime)" + L10n.minutes
+        self.feesLabel.text = L10n.examinationFess + "\(fees)" + L10n.egyptionPound
     }
     // MARK:- Preivate Functions
     private func makeImageViewCirclerShape() {

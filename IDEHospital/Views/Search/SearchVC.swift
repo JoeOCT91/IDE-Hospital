@@ -1,4 +1,3 @@
-//
 //  ViewController.swift
 //  IDEHospital
 //
@@ -13,6 +12,7 @@ protocol SearchVCProtocol: class {
     func addSelectedItem(tag:Int, item:String)
     func switchToCityTextField()
     func resetRegionTextFieldValue()
+    func getCurrentDoctorValue() -> String
 }
 class SearchVC: UIViewController {
 
@@ -36,12 +36,15 @@ class SearchVC: UIViewController {
     }
     
     @IBAction func findDoctorButtonPressed(_ sender: Any) {
-        let searchResult = SearchResultVC.create()
+        let searchResult = SearchResultVC.create(doctorsData: viewModel.getCurrentChoosenData())
         self.navigationController?.pushViewController(searchResult, animated: true)
     }
     
 }
 extension SearchVC:SearchVCProtocol{
+    func getCurrentDoctorValue() -> String {
+        return self.searchView.textField5.text ?? ""
+    }
     // For Reset Reaion Value after Picking new City Value
     func resetRegionTextFieldValue() {
         searchView.textField3.text = ""
@@ -78,7 +81,6 @@ extension SearchVC:UIPickerViewDelegate,UIPickerViewDataSource, UITextFieldDeleg
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
        return 1
     }
-    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         viewModel.bringCountPickerValues(tag: pickerView.tag)
     }

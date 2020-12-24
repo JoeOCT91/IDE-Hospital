@@ -13,6 +13,7 @@ protocol SearchViewModelProtocol {
     func itemSelected(tag:Int, row:Int)
     func checkIfCityFieldSelectedFirstOrNot(tag:Int)
     func checkResistingRegionValueOrNot(tag:Int)
+    func getCurrentChoosenData() -> SearchResultBody
   
 }
 class SearchViewModel{
@@ -22,13 +23,25 @@ class SearchViewModel{
    private var regionArr:[Regions] = []
    private var companiesArr:[Companies] = []
    private var categoryID = 0
+   private var currentSpecialtiesID:Int?
+   private var currentCitiesID:Int?
+   private var currentRegionID:Int?
+   private var currentCompaniesID:Int?
     init(search:SearchVCProtocol, categoryID:Int) {
         self.view = search
         self.categoryID = categoryID
     }
 }
 extension SearchViewModel:SearchViewModelProtocol{
+    func getCurrentChoosenData() -> SearchResultBody {
+         let currentChosenData = SearchResultBody(main_category_id: self.categoryID, userToken: nil, specialty_id: self.currentSpecialtiesID, city_id: self.currentCitiesID, region_id: self.currentRegionID, company_id: self.currentCompaniesID, name: self.view.getCurrentDoctorValue(), order_by: nil, page: 1, per_page: nil)
+        print("scsff")
+        print(self.categoryID)
+        print(self.currentSpecialtiesID)
     
+         return currentChosenData
+    }
+
     func callGetCategoriesAPI() {
         APIManager.getCategoriesAPIRouter(categoryID: self.categoryID){(response) in
               self.view.showLoader()
@@ -77,13 +90,17 @@ extension SearchViewModel:SearchViewModelProtocol{
        func itemSelected(tag: Int, row: Int) {
            switch tag {
            case 1:
+               self.currentSpecialtiesID = self.specialtiesArr[row].id
                view.addSelectedItem(tag: tag, item: self.specialtiesArr[row].name)
            case 2:
+               self.currentCitiesID = self.citiesArr[row].id
                view.addSelectedItem(tag: tag, item: self.citiesArr[row].name)
                self.regionArr = citiesArr[row].regions
            case 3:
-                  view.addSelectedItem(tag: tag, item:self.regionArr[row].name)
+               self.currentRegionID = self.regionArr[row].id
+               view.addSelectedItem(tag: tag, item:self.regionArr[row].name)
            case 4:
+               self.currentCompaniesID = self.companiesArr[row].id
                view.addSelectedItem(tag: tag, item: self.companiesArr[row].name)
            default:
                break

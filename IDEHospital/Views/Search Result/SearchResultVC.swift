@@ -11,6 +11,7 @@ protocol SearchResultVCProtocol: class {
     func showLoader()
     func hideLoader()
     func addSelectedItem(tag:Int, item:String)
+    func reloadTableViewData()
 }
 class SearchResultVC: UIViewController {
 
@@ -23,11 +24,12 @@ class SearchResultVC: UIViewController {
         self.setViewControllerTitle(to: L10n.searchResult, fontColor: .white)
         self.setUpButtonsInPushedNavigationBar()
         self.setUpSearchResultTable()
+        self.viewModel.sendSearchResultRequestAPI()
     }
     // MARK:- Public Methods
-    class func create() -> SearchResultVC {
+    class func create(doctorsData:SearchResultBody) -> SearchResultVC {
         let searchResultVC: SearchResultVC = UIViewController.create(storyboardName: Storyboards.search, identifier: ViewControllers.searchResult)
-        searchResultVC.viewModel = SearchResultViewModel(view: searchResultVC)
+        searchResultVC.viewModel = SearchResultViewModel(view: searchResultVC, doctorsData: doctorsData)
            return searchResultVC
     }
     // MARK:- Private Methods
@@ -38,7 +40,9 @@ class SearchResultVC: UIViewController {
     }
 }
 extension SearchResultVC:SearchResultVCProtocol{
-    
+    func reloadTableViewData() {
+        self.searchResultView.searchResultTableView.reloadData()
+    }
     func addSelectedItem(tag: Int, item: String) {
         let texFiled = self.searchResultView.viewWithTag(tag) as! UITextField
         texFiled.text = item
@@ -58,7 +62,8 @@ extension SearchResultVC:SearchResultVCProtocol{
 
 extension SearchResultVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        print(viewModel.getDoctorsItemsArr()?.count)
+        return viewModel.getDoctorsItemsArr()?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -67,13 +72,16 @@ extension SearchResultVC: UITableViewDelegate, UITableViewDataSource{
             self.searchResultView.emptyDataLabel.alpha = 1
             return UITableViewCell()
         }
-        
-        cell.configureCell(doctorName: "Mostafa", doctorImage: "http://ide-hospital.ideaeg.co/assets/images/avatar.png", ratingImage: UIImage(), ratingViewCount: "10 Review", doctorSpecilty: "Dogs", secondBio: "Cats", region: "Giza", address: "6 of October", heartIamge: true, watingTime: "10", fees: "10")
-        return cell
+    
+        return viewModel.putDoctorItemsInTableView(cell: cell, indexPath: indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("\(indexPath) Cell Cliced")
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        self.viewModel.checkPagination(indexPath: indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

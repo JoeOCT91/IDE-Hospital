@@ -47,6 +47,8 @@ struct URLs {
 // Header Keys
 struct HeaderKeys {
     static let contentType = "Content-Type"
+    static let authorization = "Authorization"
+    static let accept = "accept"
 }
 // Authorization Key
 struct Authorization {
@@ -59,6 +61,17 @@ struct ParameterKeys {
     static let email = "email"
     static let mobile = "mobile"
     static let message = "message"
+    static let main_category_id = "main_category_id"
+    static var userToken = "userToken"
+    static var specialty_id = "specialty_id"
+    static var city_id = "city_id"
+    static var region_id = "region_id"
+    static var company_id = "company_id"
+    static var order_by = "order_by"
+    static var page = "page"
+    static var per_page = "per_page"
+    
+    
 }
 
 // UserDefaultsKeys

@@ -29,6 +29,12 @@ class APIManager {
                completion(response)
            }
        }
+    // search Result Request
+    class func sendSearchResultRequestAPI(body:SearchResultBody ,completion: @escaping (Result<SearchResultResponse, Error>)-> ()){
+        request(APIRouter.searchResultRequest(body)){ (response) in
+                  completion(response)
+              }
+    }
     
 }
 extension APIManager{

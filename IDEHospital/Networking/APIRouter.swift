@@ -14,12 +14,13 @@ enum APIRouter:URLRequestConvertible {
     case getCategories
     case getCategory(_ ID: Int)
     case nurseRequest(_ body:RequsetBodyData)
+    case searchResultRequest(_ body:SearchResultBody)
     case login
     
     //Mark:- HTTP Methods
     private var method: HTTPMethod {
         switch self {
-        case .getCategory ,.getCategories:
+        case .getCategory ,.getCategories,.searchResultRequest:
             return .get
         default:
             return .post
@@ -35,6 +36,8 @@ enum APIRouter:URLRequestConvertible {
             return URLs.getCategories
         case .nurseRequest:
             return URLs.nurseRequest
+        case .searchResultRequest(let body):
+            return URLs.getCategories + "\(body.main_category_id)" + "/doctors"
         default:
             return ""
         }
@@ -46,6 +49,8 @@ enum APIRouter:URLRequestConvertible {
         switch self {
         case .getCategory, .getCategories:
             return nil
+        case .searchResultRequest(let body):
+            return [ParameterKeys.page: body.page , ParameterKeys.per_page: body.per_page, ParameterKeys.specialty_id: body.specialty_id ?? "", ParameterKeys.city_id: body.city_id ?? "" ,ParameterKeys.region_id: body.region_id ?? "", ParameterKeys.name: body.name ?? "", ParameterKeys.company_id: body.company_id ?? "", ParameterKeys.order_by: body.order_by ?? "rating"]
         default:
             return nil
         }
@@ -64,11 +69,14 @@ enum APIRouter:URLRequestConvertible {
         switch self {
         case  .getCategory, .getCategories:
             urlRequest.setValue("Accept-Language", forHTTPHeaderField: "en")
-            break
+        case .searchResultRequest(let body):
+            urlRequest.setValue("Bearer " + (body.userToken ?? ""), forHTTPHeaderField: HeaderKeys.authorization)
+            urlRequest.setValue("Accept-Language", forHTTPHeaderField: "en")
         default:
             break
         }
         urlRequest.setValue("application/json", forHTTPHeaderField: HeaderKeys.contentType)
+        urlRequest.setValue("application/json", forHTTPHeaderField: HeaderKeys.accept)
         
         // HTTP Body
         let httpBody: Data? = {
@@ -83,7 +91,17 @@ enum APIRouter:URLRequestConvertible {
         urlRequest.httpBody = httpBody
         
         // Encoding
-        let encoding: ParameterEncoding = JSONEncoding.default
+        let encoding: ParameterEncoding = {
+          switch method {
+          case .get, .delete:
+            return URLEncoding.default
+          default:
+            return JSONEncoding.default
+          }
+        }()
+        
+        // Encoding
+        //let encoding: ParameterEncoding = JSONEncoding.default
         
         //print(try encoding.encode(urlRequest, with: parameters))
         return try encoding.encode(urlRequest, with: parameters)
