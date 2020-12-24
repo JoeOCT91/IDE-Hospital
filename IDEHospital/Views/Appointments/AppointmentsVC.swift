@@ -93,11 +93,11 @@ extension AppointmentsVC: AppoinmentCellDelgate {
     func openDoctorLocation(doctorName: String, latitude: CLLocationDegrees, longitude: CLLocationDegrees){
         //Make a request to get current location
         locationManager.requestLocation()
-        var currentLocation: CLLocationCoordinate2D!
+        var currentLocation: CLLocationCoordinate2D?
         currentLocation = locationManager.location?.coordinate
         // hold lat and lng cordinates
-        let lng = currentLocation.longitude
-        let lat = currentLocation.latitude
+        let lng = currentLocation?.longitude ?? Double(99)
+        let lat = currentLocation?.latitude  ?? Double(99)
         
         let source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: lat ,longitude: lng)))
         source.name = "Your location"
