@@ -11,7 +11,9 @@ import SDWebImage
 protocol AppointmentsVMProtocol: ViewModelWithPaginatioProtocol {
     func getAppointmentData(indexPath: IndexPath) -> Appointment
     func getDoctorImage(indexPath: IndexPath)
-    func getAppointmentDate(indexPath: IndexPath) -> [String]}
+    func getAppointmentDate(indexPath: IndexPath) -> [String]
+    func deleteEntry(id: Int)
+}
 
 class AppointmentsVM<T: AppointmentsVCProtocol>: ViewModelWithPagination<T>, AppointmentsVMProtocol {
     
@@ -21,7 +23,7 @@ class AppointmentsVM<T: AppointmentsVCProtocol>: ViewModelWithPagination<T>, App
         child = self
     }
     
-    func getAppointmentDate(indexPath: IndexPath) -> [String]{
+    internal func getAppointmentDate(indexPath: IndexPath) -> [String]{
         let timestamp = Double((dataList[indexPath.row] as! Appointment).appointment)
         let date = Date(timeIntervalSince1970: timestamp)
         let dateFormatter = DateFormatter()
@@ -63,8 +65,21 @@ class AppointmentsVM<T: AppointmentsVCProtocol>: ViewModelWithPagination<T>, App
     }
     
     func getAppointmentData(indexPath: IndexPath) -> Appointment{
-        
         return self.dataList[indexPath.row] as! Appointment
+    }
+    
+    func deleteEntry(id: Int){
+        
+        APIManager.removeAppointment(AppointmentID: id) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(_):
+                self.clearData()
+                self.getData()
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
 }

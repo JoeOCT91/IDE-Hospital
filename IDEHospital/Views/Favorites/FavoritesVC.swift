@@ -94,9 +94,4 @@ extension FavoritesVC: FavoritesCellDelgate{
     }
     
 }
-// I need this line to need for make comment about them :)
-//extension FavoritesVC: ConfirmationAlertDelgate {
-//    func confirmPressed(id: Int) {
-//
-//    }
-//}
+

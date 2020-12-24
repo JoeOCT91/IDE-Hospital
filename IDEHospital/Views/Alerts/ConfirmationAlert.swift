@@ -14,7 +14,9 @@ import UIKit
 class ConfirmationAlert: UIViewController {
     
     var delgate: ConfirmationAlertDelgate?
-    private var Id: Int = 0
+    
+    private var Id: Int!
+    private var message: String!
     
     private let containerView = UIView()
     
@@ -29,9 +31,10 @@ class ConfirmationAlert: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(id: Int){
+    init(id: Int, message: String ){
         super.init(nibName: nil, bundle: nil)
         self.Id = id
+        self.message = message
     }
     
     override func viewDidLoad() {
@@ -68,7 +71,9 @@ class ConfirmationAlert: UIViewController {
     }
     
     private func configureMessageLabel(){
-        messageLabel.text = "Are you sure you want to delete this favorite"
+        messageLabel.numberOfLines = 2
+        messageLabel.minimumScaleFactor = 0.9
+        messageLabel.text = message
         messageLabel.textAlignment = .center
         messageLabel.textColor = UIColor(named: ColorName.darkRoyalBlue)
         NSLayoutConstraint.activate([
@@ -86,7 +91,7 @@ class ConfirmationAlert: UIViewController {
             agreeButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor,constant: -20),
             agreeButton.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 20),
             agreeButton.widthAnchor.constraint(equalToConstant: buttonWidth),
-            agreeButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor, constant: -(buttonWidth / 2) - 10 )
+            agreeButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor, constant: (buttonWidth / 2) + 10 )
             
         ])
         agreeButton.addTarget(self, action: #selector(confirmPressed), for: .touchUpInside)
@@ -97,7 +102,7 @@ class ConfirmationAlert: UIViewController {
             discardButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor,constant: -20),
             discardButton.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 20),
             discardButton.widthAnchor.constraint(equalToConstant: buttonWidth),
-            discardButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor, constant: (buttonWidth / 2) + 10 )
+            discardButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor, constant: -(buttonWidth / 2) - 10 )
         ])
         discardButton.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
     }

@@ -35,6 +35,12 @@ class APIManager {
         }
     }
     
+    class func removeAppointment(AppointmentID: Int, complation: @escaping (Result<DeleteResponse, Error>) -> () ) {
+        request(APIRouter.removeAppointment(appointmentID: AppointmentID)) { (response) in
+            complation(response)
+        }
+    }
+    
     class func removeFavorite(doctorID: Int, complation: @escaping (Result<DeleteResponse, Error>) -> () ) {
         request(APIRouter.removeFavorite(doctorID: doctorID)) { (response) in
             complation(response)
