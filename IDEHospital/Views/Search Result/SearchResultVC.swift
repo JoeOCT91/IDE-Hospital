@@ -12,6 +12,7 @@ protocol SearchResultVCProtocol: class {
     func hideLoader()
     func addSelectedItem(tag:Int, item:String)
     func reloadTableViewData()
+    func showEmptyDataLabel()
 }
 class SearchResultVC: UIViewController {
 
@@ -40,6 +41,11 @@ class SearchResultVC: UIViewController {
     }
 }
 extension SearchResultVC:SearchResultVCProtocol{
+    func showEmptyDataLabel() {
+        self.searchResultView.searchResultTableView.alpha = 0
+        self.searchResultView.emptyDataLabel.alpha = 1
+    }
+    
     func reloadTableViewData() {
         self.searchResultView.searchResultTableView.reloadData()
     }
@@ -62,14 +68,11 @@ extension SearchResultVC:SearchResultVCProtocol{
 
 extension SearchResultVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(viewModel.getDoctorsItemsArr()?.count)
         return viewModel.getDoctorsItemsArr()?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = self.searchResultView.searchResultTableView.dequeueReusableCell(withIdentifier: L10n.cellIdentifire, for: indexPath) as? SearchResultCell else {
-            self.searchResultView.searchResultTableView.alpha = 0
-            self.searchResultView.emptyDataLabel.alpha = 1
             return UITableViewCell()
         }
     

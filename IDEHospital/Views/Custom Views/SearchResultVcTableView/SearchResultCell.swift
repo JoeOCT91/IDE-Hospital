@@ -7,11 +7,12 @@
 
 import UIKit
 import SDWebImage
+import Cosmos
 
 class SearchResultCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var ratingImageView: UIImageView!
+    @IBOutlet weak var ratingView: CosmosView!
     @IBOutlet weak var reviewCountLabel: UILabel!
     @IBOutlet weak var specialtyLabel: UILabel!
     @IBOutlet weak var secondBioLabel: UILabel!
@@ -34,10 +35,10 @@ class SearchResultCell: UITableViewCell {
         // Configure the view for the selected state
     }
     //MARK:- Public Functions
-    func configureCell(doctorName:String, doctorImage:String, ratingImage:UIImage, ratingViewCount:Int, doctorSpecilty:String, secondBio:String, region:String, address:String, heartIamge:Bool, watingTime:Int, fees:Int) {
+    func configureCell(doctorName:String, doctorImage:String, rating:Int, ratingViewCount:Int, doctorSpecilty:String, secondBio:String, region:String, address:String, heartIamge:Bool, watingTime:Int, fees:Int) {
         self.nameLabel.text = doctorName
         self.profileImageView.sd_setImage(with:  URL(string: doctorImage), placeholderImage: Asset.placeholderImage.image)
-        self.ratingImageView.image = ratingImage
+        self.ratingView.rating = Double(rating)
         self.reviewCountLabel.text = "\(ratingViewCount)"
         self.specialtyLabel.text = doctorSpecilty
         self.secondBioLabel.text = secondBio

@@ -16,7 +16,6 @@ protocol SearchResultViewModelProtocol {
     func getDoctorsItemsArr() -> [ItemsInCell]?
     func putDoctorItemsInTableView(cell: SearchResultCell, indexPath:Int)  -> SearchResultCell
     func checkPagination(indexPath:Int)
-
 }
 class SearchResultViewModel{
     private weak var view:SearchResultVCProtocol!
@@ -39,10 +38,8 @@ extension SearchResultViewModel:SearchResultViewModelProtocol{
             }
         }
     }
-    
-    
     func putDoctorItemsInTableView(cell: SearchResultCell, indexPath:Int) -> SearchResultCell {
-        cell.configureCell(doctorName: doctorItems[indexPath].name, doctorImage: doctorItems[indexPath].image, ratingImage: UIImage(), ratingViewCount: doctorItems[indexPath].reviews_count, doctorSpecilty: doctorItems[indexPath].specialty, secondBio: doctorItems[indexPath].second_bio, region: doctorItems[indexPath].region, address: doctorItems[indexPath].address, heartIamge: doctorItems[indexPath].is_favorited, watingTime: doctorItems[indexPath].waiting_time, fees: doctorItems[indexPath].fees)
+        cell.configureCell(doctorName: doctorItems[indexPath].name, doctorImage: doctorItems[indexPath].image, rating: doctorItems[indexPath].rating, ratingViewCount: doctorItems[indexPath].reviews_count, doctorSpecilty: doctorItems[indexPath].specialty, secondBio: doctorItems[indexPath].second_bio, region: doctorItems[indexPath].region, address: doctorItems[indexPath].address, heartIamge: doctorItems[indexPath].is_favorited, watingTime: doctorItems[indexPath].waiting_time, fees: doctorItems[indexPath].fees)
         return cell
     }
     func getDoctorsItemsArr() -> [ItemsInCell]? {
@@ -65,6 +62,9 @@ extension SearchResultViewModel:SearchResultViewModelProtocol{
                 self.doctorItems += doctorsData.data.items
                 self.view.reloadTableViewData()
             }
+            if self.doctorItems.count == 0{
+                self.view.showEmptyDataLabel()
+            }
             self.view.hideLoader()
         }
     }
@@ -79,8 +79,11 @@ extension SearchResultViewModel:SearchResultViewModelProtocol{
     
     func itemSelected(tag: Int, row: Int) {
         view.addSelectedItem(tag: tag, item: self.sortArr[row])
-             
+        if self.sortArr[row] != doctorsDataBody.order_by {
+            doctorsDataBody.order_by = self.sortArr[row]
+            self.doctorsDataBody.page = 1
+            self.doctorItems = []
+            self.sendSearchResultRequestAPI()
+        }
     }
-    
-    
 }

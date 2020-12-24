@@ -30,8 +30,8 @@
 "searchResult" = "Search Result";
 "sortBy" = "Sort By";
 "noSearchResult" = "No Search Result Found";
-"fees" = "Fees";
-"rating" = "Rating";
+"fees" = "fees";
+"rating" = "rating";
 "cellIdentifire" = "SearchResultTableViewCell";
 "watingTime" = "Wating Time: ";
 "minutes" = " minutes";

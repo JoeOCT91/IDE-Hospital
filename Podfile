@@ -9,5 +9,6 @@ target 'IDEHospital' do
   pod 'SDWebImage', '~> 5.0'
 	pod 'Alamofire', '~> 5.2'
 	pod 'IQKeyboardManagerSwift'
-	pod 'SwiftGen', '~> 6.0' 
+	pod 'SwiftGen', '~> 6.0'
+  pod 'Cosmos', '~> 23.0'
 end
