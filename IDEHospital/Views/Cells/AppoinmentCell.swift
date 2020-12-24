@@ -194,7 +194,8 @@ class AppoinmentCell: UITableViewCell {
         NSLayoutConstraint.activate([
             viewOnMapButton.topAnchor.constraint(equalTo: doctorBio.bottomAnchor, constant: 15),
             viewOnMapButton.heightAnchor.constraint(equalToConstant: 16),
-            viewOnMapButton.leadingAnchor.constraint(equalTo: doctorName.leadingAnchor)
+            viewOnMapButton.leadingAnchor.constraint(equalTo: doctorName.leadingAnchor),
+            viewOnMapButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
         ])
         viewOnMapButton.addTarget(self, action: #selector(viewOnMapPressed), for: .touchUpInside)
     }
