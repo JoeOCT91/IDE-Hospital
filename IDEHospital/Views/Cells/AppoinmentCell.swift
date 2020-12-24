@@ -6,16 +6,20 @@
 //
 
 import UIKit
+import MapKit
 
 @objc protocol AppoinmentCellDelgate: class {
     func cancelAppointment(doctorID : Int)
-}
+    func openDoctorLocation(latitude: CLLocationDegrees, longitude: CLLocationDegrees)}
 
 class AppoinmentCell: UITableViewCell {
 
     //Cell Delgate property
     weak var delgate: AppoinmentCellDelgate?
     
+    //Proprties
+    var lat: CLLocationDegrees = 0
+    var lng: CLLocationDegrees = 0
     //Doctor image width based on screen width
     private var imageWidth: CGFloat {
         let widthRatio: CGFloat = UIScreen.main.bounds.width / 100
@@ -61,6 +65,8 @@ class AppoinmentCell: UITableViewCell {
         reviewsCount.text = "\(cellData.doctor.reviewsCount) Reviws"
         doctorBio.text = cellData.doctor.bio
         setupRating(rating: cellData.doctor.rating)
+        lat = cellData.doctor.lat
+        lng = cellData.doctor.lng
     }
     
     func setupAppointmentDate(dateArr: [String]){
@@ -190,6 +196,10 @@ class AppoinmentCell: UITableViewCell {
             viewOnMapButton.heightAnchor.constraint(equalToConstant: 16),
             viewOnMapButton.leadingAnchor.constraint(equalTo: doctorName.leadingAnchor)
         ])
+        viewOnMapButton.addTarget(self, action: #selector(viewOnMapPressed), for: .touchUpInside)
+    }
+    @objc private func viewOnMapPressed(){
+        delgate?.openDoctorLocation(latitude: lat, longitude: lng)
     }
     
     private func configureDateLabel(){
