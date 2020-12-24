@@ -36,7 +36,9 @@ internal enum L10n {
   internal static let enterDetails = L10n.tr("Localizable", "enterDetails")
   /// Examination Fees: 
   internal static let examinationFess = L10n.tr("Localizable", "examinationFess")
-  /// fees
+  /// Favorite
+  internal static let favorite = L10n.tr("Localizable", "favorite")
+  /// Fees
   internal static let fees = L10n.tr("Localizable", "fees")
   /// Find a doctor
   internal static let findDoctor = L10n.tr("Localizable", "findDoctor")
@@ -70,10 +72,16 @@ internal enum L10n {
   internal static let pleaseEnterName = L10n.tr("Localizable", "pleaseEnterName")
   /// Phone Number Field is Empty, Please Re-Enter your Phone Number
   internal static let pleaseEnterPhoneNumber = L10n.tr("Localizable", "pleaseEnterPhoneNumber")
-  /// rating
+  /// Rating
   internal static let rating = L10n.tr("Localizable", "rating")
+  ///  Review
+  internal static let review = L10n.tr("Localizable", "review")
   /// The Entered Number Doesn't Start with 010,011,012 or 015 with Max 11 Numbers at All
   internal static let rightPhoneNumberFormatDescription = L10n.tr("Localizable", "rightPhoneNumberFormatDescription")
+  /// Schedule
+  internal static let schedule = L10n.tr("Localizable", "schedule")
+  /// Search
+  internal static let search = L10n.tr("Localizable", "search")
   /// Search Result
   internal static let searchResult = L10n.tr("Localizable", "searchResult")
   /// Send Request

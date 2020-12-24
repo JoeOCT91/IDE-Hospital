@@ -30,10 +30,14 @@
 "searchResult" = "Search Result";
 "sortBy" = "Sort By";
 "noSearchResult" = "No Search Result Found";
-"fees" = "fees";
-"rating" = "rating";
+"fees" = "Fees";
+"rating" = "Rating";
 "cellIdentifire" = "SearchResultTableViewCell";
 "watingTime" = "Wating Time: ";
 "minutes" = " minutes";
 "examinationFess" = "Examination Fees: ";
 "egyptionPound" =  " LE";
+"review" = " Review";
+"search" = "Search";
+"favorite" = "Favorite";
+"schedule" = "Schedule";

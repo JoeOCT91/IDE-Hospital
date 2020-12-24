@@ -149,7 +149,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nc3-pm-GLY">
-                        <rect key="frame" x="188" y="45.5" width="24" height="12"/>
+                        <rect key="frame" x="188" y="48" width="24" height="12"/>
                         <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="10"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -175,7 +175,7 @@
                     <constraint firstItem="ZkX-G2-5r8" firstAttribute="leading" secondItem="eJI-kO-hBB" secondAttribute="leading" id="etz-4T-LGO"/>
                     <constraint firstItem="TGp-TI-NEW" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="1.9" id="hLH-bQ-uFS"/>
                     <constraint firstItem="fbM-hd-rqy" firstAttribute="leading" secondItem="KBp-NP-gGh" secondAttribute="trailing" constant="8" id="iLh-MF-N7w"/>
-                    <constraint firstItem="Nc3-pm-GLY" firstAttribute="centerY" secondItem="euH-au-lu9" secondAttribute="centerY" id="ivP-TF-C7U"/>
+                    <constraint firstItem="Nc3-pm-GLY" firstAttribute="centerY" secondItem="euH-au-lu9" secondAttribute="centerY" multiplier="1.05" id="ivP-TF-C7U"/>
                     <constraint firstItem="cJZ-Ga-aMK" firstAttribute="leading" secondItem="riL-ii-se9" secondAttribute="trailing" constant="8" id="jDA-IM-0UA"/>
                     <constraint firstItem="KBp-NP-gGh" firstAttribute="leading" secondItem="riL-ii-se9" secondAttribute="leading" id="lOm-VQ-we6"/>
                     <constraint firstItem="eJI-kO-hBB" firstAttribute="leading" secondItem="KBp-NP-gGh" secondAttribute="leading" id="lSC-U3-RP9"/>

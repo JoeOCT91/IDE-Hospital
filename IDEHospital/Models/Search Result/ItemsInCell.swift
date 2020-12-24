@@ -8,7 +8,7 @@
 import Foundation
 struct ItemsInCell:Codable  {
     let id:Int
-    let rating:Int
+    let rating:Double
     let reviews_count:Int
     let name:String
     let bio:String

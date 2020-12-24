@@ -79,8 +79,8 @@ extension SearchResultViewModel:SearchResultViewModelProtocol{
     
     func itemSelected(tag: Int, row: Int) {
         view.addSelectedItem(tag: tag, item: self.sortArr[row])
-        if self.sortArr[row] != doctorsDataBody.order_by {
-            doctorsDataBody.order_by = self.sortArr[row]
+        if self.sortArr[row].lowercased() != doctorsDataBody.order_by {
+            doctorsDataBody.order_by = self.sortArr[row].lowercased()
             self.doctorsDataBody.page = 1
             self.doctorItems = []
             self.sendSearchResultRequestAPI()
