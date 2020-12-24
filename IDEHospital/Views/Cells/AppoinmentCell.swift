@@ -10,16 +10,17 @@ import MapKit
 
 @objc protocol AppoinmentCellDelgate: class {
     func cancelAppointment(doctorID : Int)
-    func openDoctorLocation(latitude: CLLocationDegrees, longitude: CLLocationDegrees)}
+    func openDoctorLocation(doctorName: String, latitude: CLLocationDegrees, longitude: CLLocationDegrees)}
 
 class AppoinmentCell: UITableViewCell {
 
     //Cell Delgate property
     weak var delgate: AppoinmentCellDelgate?
     
-    //Proprties
-    var lat: CLLocationDegrees = 0
-    var lng: CLLocationDegrees = 0
+    //Proprties of location
+    private var lat: CLLocationDegrees = 0
+    private var lng: CLLocationDegrees = 0
+    private var doctorName = ""
     //Doctor image width based on screen width
     private var imageWidth: CGFloat {
         let widthRatio: CGFloat = UIScreen.main.bounds.width / 100
@@ -35,7 +36,7 @@ class AppoinmentCell: UITableViewCell {
     private let doctorRating = UIStackView()
     private lazy var doctorImage = DoctorImageView(frame: CGRect(x: 0, y: 0, width: imageWidth, height: imageWidth))
     //Labels Views
-    private let doctorName = HospitalCellLabel(textAlignment: .left, fontSize: 15, font: UIFont(font: FontFamily.PTSans.bold, size: 15))
+    private let doctorNameLabel = HospitalCellLabel(textAlignment: .left, fontSize: 15, font: UIFont(font: FontFamily.PTSans.bold, size: 15))
     private let doctorBio = HospitalCellLabel(textAlignment: .left, fontSize: 10, font: UIFont(font: FontFamily.PTSans.regular, size: 10))
     
     private let appoinmentTime = HospitalCellLabel(textAlignment: .left, fontSize: 12)
@@ -61,10 +62,11 @@ class AppoinmentCell: UITableViewCell {
     func setupCellData(cellData: Appointment){
         setupCell()
         self.tag = cellData.id
-        doctorName.text = cellData.doctor.name
+        doctorNameLabel.text = cellData.doctor.name
         reviewsCount.text = "\(cellData.doctor.reviewsCount) Reviws"
         doctorBio.text = cellData.doctor.bio
         setupRating(rating: cellData.doctor.rating)
+        doctorName = cellData.doctor.name
         lat = cellData.doctor.lat
         lng = cellData.doctor.lng
     }
@@ -97,7 +99,7 @@ class AppoinmentCell: UITableViewCell {
     private func configureConatinerView() {
         //sub views
         contentView.addSubview(containerView)
-        containerView.addSubview(doctorName)
+        containerView.addSubview(doctorNameLabel)
         containerView.addSubview(doctorImage)
         containerView.addSubview(deleteButton)
         containerView.addSubview(doctorRating)
@@ -151,8 +153,8 @@ class AppoinmentCell: UITableViewCell {
     
     private func configureDoctorName(){
         NSLayoutConstraint.activate([
-            doctorName.leadingAnchor.constraint(equalTo: doctorImage.trailingAnchor, constant: 15),
-            doctorName.topAnchor.constraint(equalTo: containerView.topAnchor, constant:  10),
+            doctorNameLabel.leadingAnchor.constraint(equalTo: doctorImage.trailingAnchor, constant: 15),
+            doctorNameLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant:  10),
         ])
     }
     
@@ -161,8 +163,8 @@ class AppoinmentCell: UITableViewCell {
         doctorRating.spacing = 3
         doctorRating.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            doctorRating.topAnchor.constraint(equalTo: doctorName.bottomAnchor, constant: 5),
-            doctorRating.leadingAnchor.constraint(equalTo: doctorName.leadingAnchor),
+            doctorRating.topAnchor.constraint(equalTo: doctorNameLabel.bottomAnchor, constant: 5),
+            doctorRating.leadingAnchor.constraint(equalTo: doctorNameLabel.leadingAnchor),
         ])
         for _ in doctorRating.arrangedSubviews.count ..< 5 {
             let starImage = UIImageView(image: Asset.emptyStar.image)
@@ -180,7 +182,7 @@ class AppoinmentCell: UITableViewCell {
     private func configureDoctorBio() {
         doctorBio.numberOfLines = 4
         NSLayoutConstraint.activate([
-            doctorBio.leadingAnchor.constraint(equalTo: doctorName.leadingAnchor),
+            doctorBio.leadingAnchor.constraint(equalTo: doctorNameLabel.leadingAnchor),
             doctorBio.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             doctorBio.topAnchor.constraint(equalTo: doctorRating.bottomAnchor, constant: 16),
         ])
@@ -194,19 +196,19 @@ class AppoinmentCell: UITableViewCell {
         NSLayoutConstraint.activate([
             viewOnMapButton.topAnchor.constraint(equalTo: doctorBio.bottomAnchor, constant: 15),
             viewOnMapButton.heightAnchor.constraint(equalToConstant: 16),
-            viewOnMapButton.leadingAnchor.constraint(equalTo: doctorName.leadingAnchor),
+            viewOnMapButton.leadingAnchor.constraint(equalTo: doctorNameLabel.leadingAnchor),
             viewOnMapButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
         ])
         viewOnMapButton.addTarget(self, action: #selector(viewOnMapPressed), for: .touchUpInside)
     }
     @objc private func viewOnMapPressed(){
-        delgate?.openDoctorLocation(latitude: lat, longitude: lng)
+        delgate?.openDoctorLocation(doctorName: doctorName, latitude: lat, longitude: lng)
     }
     
     private func configureDateLabel(){
         NSLayoutConstraint.activate([
             appoinmentDate.topAnchor.constraint(equalTo: viewOnMapButton.bottomAnchor, constant: 5),
-            appoinmentDate.leadingAnchor.constraint(equalTo: doctorName.leadingAnchor)
+            appoinmentDate.leadingAnchor.constraint(equalTo: doctorNameLabel.leadingAnchor)
         ])
     }
     
@@ -214,7 +216,7 @@ class AppoinmentCell: UITableViewCell {
         NSLayoutConstraint.activate([
             appoinmentTime.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10),
             appoinmentTime.topAnchor.constraint(equalTo: appoinmentDate.bottomAnchor, constant: 5),
-            appoinmentTime.leadingAnchor.constraint(equalTo: doctorName.leadingAnchor),
+            appoinmentTime.leadingAnchor.constraint(equalTo: doctorNameLabel.leadingAnchor),
         ])
     }
     

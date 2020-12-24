@@ -14,7 +14,6 @@ protocol AppointmentsVCProtocol: PaginationVCProtocol {
     func reloadTableview()
 }
 
-
 class AppointmentsVC: UIViewController{
     
     @IBOutlet var appointmentsView: AppointmentsView!
@@ -91,7 +90,7 @@ extension AppointmentsVC: AppoinmentCellDelgate {
         presentAlertOnMainThread(alertVC: alertVC)
     }
     
-    func openDoctorLocation(latitude: CLLocationDegrees, longitude: CLLocationDegrees){
+    func openDoctorLocation(doctorName: String, latitude: CLLocationDegrees, longitude: CLLocationDegrees){
         //Make a request to get current location
         locationManager.requestLocation()
         var currentLocation: CLLocationCoordinate2D!
@@ -103,7 +102,7 @@ extension AppointmentsVC: AppoinmentCellDelgate {
         let source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: lat ,longitude: lng)))
         source.name = "Your location"
         let destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude)))
-        source.name = "Your location"
+        destination.name = "doctor \(doctorName) clinc"
         MKMapItem.openMaps(with: [source, destination], launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving])
     }
     
