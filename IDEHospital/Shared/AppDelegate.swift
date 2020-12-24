@@ -17,14 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         IQKeyboardManager.shared.enable = true
         
-//        let homeVC = HomeVC.create()
-//        let navigationController = UINavigationController(rootViewController: homeVC)
-//        window?.rootViewController = navigationController
-        
-        
-        let appointmentVC = AppointmentsVC.create()
-        let navigationController = UINavigationController(rootViewController: appointmentVC)
+        let homeVC = HomeVC.create()
+        let navigationController = UINavigationController(rootViewController: homeVC)
         window?.rootViewController = navigationController
+        
+        
+//        let appointmentVC = AppointmentsVC.create()
+//        let navigationController = UINavigationController(rootViewController: appointmentVC)
+//        window?.rootViewController = navigationController
         
 //        let favoritesVC = FavoritesVC.create()
 //        let navigationController = UINavigationController(rootViewController: favoritesVC)
