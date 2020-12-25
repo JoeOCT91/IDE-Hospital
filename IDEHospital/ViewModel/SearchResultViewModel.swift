@@ -16,6 +16,7 @@ protocol SearchResultViewModelProtocol {
     func getDoctorsItemsArr() -> [ItemsInCell]?
     func putDoctorItemsInTableView(cell: SearchResultCell, indexPath:Int)  -> SearchResultCell
     func checkPagination(indexPath:Int)
+    func callAddOrDeleteDoctorFromFavoriteListAPI(id:Int)
 }
 class SearchResultViewModel{
     private weak var view:SearchResultVCProtocol!
@@ -30,16 +31,35 @@ class SearchResultViewModel{
     }
 }
 extension SearchResultViewModel:SearchResultViewModelProtocol{
+    func callAddOrDeleteDoctorFromFavoriteListAPI(id: Int) {
+        print("view Model ID" + " \(id)")
+        APIManager.addOrDeleteDoctorFromFavoriteListAPI(doctorID: id){(response) in
+            switch response{
+            case .failure(let error):
+                print("ffds")
+                print(error.localizedDescription)
+            case .success(let response):
+                if response.code == 202{
+                    print("Heart Changed Successfullu")
+                    self.sendSearchResultRequestAPI()
+                   // self.doctorItems = self.doctorsSearchResultData.items
+                    self.view.reloadTableViewData()
+                }
+            }
+        }
+    }
+    
     func checkPagination(indexPath: Int) {
+        print("\(indexPath)" + "row" + "\(doctorItems.count)")
         if indexPath == doctorItems.count - 1 {
-            if doctorsDataBody.page <= doctorsSearchResultData.total_pages{
+            if doctorsDataBody.page + 1 <= doctorsSearchResultData.total_pages{
                 self.doctorsDataBody.page += 1
                 self.sendSearchResultRequestAPI()
             }
         }
     }
     func putDoctorItemsInTableView(cell: SearchResultCell, indexPath:Int) -> SearchResultCell {
-        cell.configureCell(doctorName: doctorItems[indexPath].name, doctorImage: doctorItems[indexPath].image, rating: doctorItems[indexPath].rating, ratingViewCount: doctorItems[indexPath].reviews_count, doctorSpecilty: doctorItems[indexPath].specialty, secondBio: doctorItems[indexPath].second_bio, region: doctorItems[indexPath].region, address: doctorItems[indexPath].address, heartIamge: doctorItems[indexPath].is_favorited, watingTime: doctorItems[indexPath].waiting_time, fees: doctorItems[indexPath].fees)
+        cell.configureCell(doctorID: doctorItems[indexPath].id, doctorName: doctorItems[indexPath].name, doctorImage: doctorItems[indexPath].image, rating: doctorItems[indexPath].rating, ratingViewCount: doctorItems[indexPath].reviews_count, doctorSpecilty: doctorItems[indexPath].specialty, secondBio: doctorItems[indexPath].second_bio, region: doctorItems[indexPath].region, address: doctorItems[indexPath].address, heartIamge: doctorItems[indexPath].is_favorited, watingTime: doctorItems[indexPath].waiting_time, fees: doctorItems[indexPath].fees)
         return cell
     }
     func getDoctorsItemsArr() -> [ItemsInCell]? {
@@ -57,7 +77,7 @@ extension SearchResultViewModel:SearchResultViewModelProtocol{
             case .failure(let error):
                 print(error.localizedDescription)
             case .success(let doctorsData):
-                print(doctorsData.data)
+                print(doctorsData.data.page)
                 self.doctorsSearchResultData = doctorsData.data
                 self.doctorItems += doctorsData.data.items
                 self.view.reloadTableViewData()

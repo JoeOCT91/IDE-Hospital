@@ -93,6 +93,7 @@
 		B2BE22162593A49E004BA737 /* SearchResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BE22152593A49E004BA737 /* SearchResultData.swift */; };
 		B2BE22182593A65C004BA737 /* ItemsInCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BE22172593A65C004BA737 /* ItemsInCell.swift */; };
 		B2BE221A2593AAC1004BA737 /* SearchResultBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BE22192593AAC1004BA737 /* SearchResultBody.swift */; };
+		B2DF041F25967A9600400F8F /* HeartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DF041E25967A9600400F8F /* HeartResponse.swift */; };
 		B7E6D5DC1F585871719B5F3D /* Pods_IDEHospital.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0BDB737E5E4140C2CAB0880 /* Pods_IDEHospital.framework */; };
 /* End PBXBuildFile section */
 
@@ -187,6 +188,7 @@
 		B2BE22152593A49E004BA737 /* SearchResultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultData.swift; sourceTree = "<group>"; };
 		B2BE22172593A65C004BA737 /* ItemsInCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsInCell.swift; sourceTree = "<group>"; };
 		B2BE22192593AAC1004BA737 /* SearchResultBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultBody.swift; sourceTree = "<group>"; };
+		B2DF041E25967A9600400F8F /* HeartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartResponse.swift; sourceTree = "<group>"; };
 		D0BDB737E5E4140C2CAB0880 /* Pods_IDEHospital.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IDEHospital.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB534F8EC6442A45ACC19CEC /* Pods-IDEHospital.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IDEHospital.debug.xcconfig"; path = "Target Support Files/Pods-IDEHospital/Pods-IDEHospital.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -398,13 +400,9 @@
 		863232E9257D74ED00514F5A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8632A9FB2589019E00E4DB8D /* Cells */,
 				B207B4C525894CA2002603EA /* Custom Views */,
-				8632A9FF258901AC00E4DB8D /* Home */,
-				B21BDE052582BE1700430408 /* Search */,
 				B260139825913A98004E95B1 /* Search Result */,
 				B26DB986258DE42A00DDE8B8 /* Nurse */,
-				B21BDE062582BE2800430408 /* Favorites */,
 				8618F5AF25925CF60006E10F /* Alerts */,
 				861D576E258C28BC00EFED1D /* Appointments */,
 				B21BDE062582BE2800430408 /* Favorites */,
@@ -645,8 +643,17 @@
 				B2BE22152593A49E004BA737 /* SearchResultData.swift */,
 				B2BE22172593A65C004BA737 /* ItemsInCell.swift */,
 				B2BE22192593AAC1004BA737 /* SearchResultBody.swift */,
+				B2DF041D25967A6400400F8F /* HeartResponse */,
 			);
 			path = "Search Result";
+			sourceTree = "<group>";
+		};
+		B2DF041D25967A6400400F8F /* HeartResponse */ = {
+			isa = PBXGroup;
+			children = (
+				B2DF041E25967A9600400F8F /* HeartResponse.swift */,
+			);
+			path = HeartResponse;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -822,6 +829,7 @@
 				861D5779258C294E00EFED1D /* AppointmentsVM.swift in Sources */,
 				8628D5BF258C0ABD00CAB803 /* FavoritesVM.swift in Sources */,
 				862127D72581302A00C1A5DF /* FontsManager.swift in Sources */,
+				B2DF041F25967A9600400F8F /* HeartResponse.swift in Sources */,
 				862851E1257FE68C0059122F /* MainCategory.swift in Sources */,
 				86385A5F258CB2D00060C564 /* Appointment.swift in Sources */,
 				86385A5C258CB2870060C564 /* AppointmentsResponse.swift in Sources */,
@@ -831,7 +839,6 @@
 				8632AA182589045800E4DB8D /* UIViewController+Alert.swift in Sources */,
 				B21BDE1A2582C45700430408 /* ScheduleView.swift in Sources */,
 				B260139E25920A91004E95B1 /* SearchResultCell.swift in Sources */,
-				B21BDE0D2582BEA600430408 /* FavoritesVC.swift in Sources */,
 				86215D08258D596C00022D86 /* ViewModelWithPagination.swift in Sources */,
 				8628D5C5258C0B0700CAB803 /* Doctor.swift in Sources */,
 				8628D5B3258C07EE00CAB803 /* FavoritesCell.swift in Sources */,

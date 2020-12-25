@@ -8,11 +8,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="PT Sans Regular.ttf">
+            <string>PTSans-Regular</string>
+        </array>
         <array key="PT_Sans_Bold.ttf">
             <string>PTSans-Bold</string>
-        </array>
-        <array key="PT_Sans_Regular.ttf">
-            <string>PTSans-Regular</string>
         </array>
     </customFonts>
     <objects>
@@ -44,13 +44,6 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TGp-TI-NEW">
-                        <rect key="frame" x="344" y="20" width="24.5" height="21.5"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="24.699999999999999" id="Gxe-nE-TCw"/>
-                            <constraint firstAttribute="height" constant="21.600000000000001" id="NaW-Iu-rRt"/>
-                        </constraints>
-                    </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="KBp-NP-gGh">
                         <rect key="frame" x="11" y="108.5" width="10" height="10.5"/>
                         <constraints>
@@ -154,11 +147,21 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOo-kY-i5p">
+                        <rect key="frame" x="334.5" y="20" width="24.5" height="21.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21.600000000000001" id="Bvl-Dr-LAr"/>
+                            <constraint firstAttribute="width" constant="24.699999999999999" id="gCq-Be-Qq1"/>
+                        </constraints>
+                        <connections>
+                            <action selector="heartButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="5zd-pZ-dMY"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="BCI-ml-xBI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="1" id="0nK-KD-yxa"/>
                     <constraint firstAttribute="trailing" secondItem="BCI-ml-xBI" secondAttribute="trailing" id="5Zf-GW-lix"/>
-                    <constraint firstItem="TGp-TI-NEW" firstAttribute="centerY" secondItem="cJZ-Ga-aMK" secondAttribute="centerY" id="E2F-pH-mSW"/>
+                    <constraint firstItem="VOo-kY-i5p" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="1.85" id="6Ct-eE-sab"/>
                     <constraint firstItem="fuN-zo-ljK" firstAttribute="centerY" secondItem="ZkX-G2-5r8" secondAttribute="centerY" id="GBS-NN-JZe"/>
                     <constraint firstItem="FIF-bF-x3o" firstAttribute="centerY" secondItem="RzT-tx-uyv" secondAttribute="centerY" id="GTR-rb-XHl"/>
                     <constraint firstItem="riL-ii-se9" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="0.26" id="NM9-WD-R8C"/>
@@ -171,9 +174,9 @@
                     <constraint firstItem="Hqs-ej-E4E" firstAttribute="centerY" secondItem="eJI-kO-hBB" secondAttribute="centerY" id="cZ8-cp-Hib"/>
                     <constraint firstItem="BCI-ml-xBI" firstAttribute="top" secondItem="Tf3-fO-Lwe" secondAttribute="bottom" constant="19.5" id="d0m-Zb-1rS"/>
                     <constraint firstItem="eJI-kO-hBB" firstAttribute="top" secondItem="KBp-NP-gGh" secondAttribute="bottom" constant="10" id="d6V-m8-qaJ"/>
+                    <constraint firstItem="VOo-kY-i5p" firstAttribute="centerY" secondItem="cJZ-Ga-aMK" secondAttribute="centerY" id="dq5-QC-dtL"/>
                     <constraint firstItem="Tf3-fO-Lwe" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="enb-ia-C3B"/>
                     <constraint firstItem="ZkX-G2-5r8" firstAttribute="leading" secondItem="eJI-kO-hBB" secondAttribute="leading" id="etz-4T-LGO"/>
-                    <constraint firstItem="TGp-TI-NEW" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="1.9" id="hLH-bQ-uFS"/>
                     <constraint firstItem="fbM-hd-rqy" firstAttribute="leading" secondItem="KBp-NP-gGh" secondAttribute="trailing" constant="8" id="iLh-MF-N7w"/>
                     <constraint firstItem="Nc3-pm-GLY" firstAttribute="centerY" secondItem="euH-au-lu9" secondAttribute="centerY" multiplier="1.05" id="ivP-TF-C7U"/>
                     <constraint firstItem="cJZ-Ga-aMK" firstAttribute="leading" secondItem="riL-ii-se9" secondAttribute="trailing" constant="8" id="jDA-IM-0UA"/>
@@ -195,7 +198,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="feesLabel" destination="FIF-bF-x3o" id="RP2-AI-GtS"/>
-                <outlet property="heartImageView" destination="TGp-TI-NEW" id="eZr-W3-mPk"/>
+                <outlet property="heartButton" destination="VOo-kY-i5p" id="cQQ-p2-KaI"/>
                 <outlet property="nameLabel" destination="cJZ-Ga-aMK" id="12y-Cg-iOl"/>
                 <outlet property="profileImageView" destination="riL-ii-se9" id="9Cs-lB-yWa"/>
                 <outlet property="ratingView" destination="euH-au-lu9" id="n6U-Kx-EXG"/>

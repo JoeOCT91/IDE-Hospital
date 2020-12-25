@@ -19,6 +19,7 @@ enum APIRouter:URLRequestConvertible {
     case getCategory(_ ID: Int)
     case nurseRequest(_ body:RequsetBodyData)
     case searchResultRequest(_ body:SearchResultBody)
+    case addOrDeleteDoctorFromFavoriteList(_ doctorID:Int)
     case login
     
     //Mark:- HTTP Methods
@@ -40,7 +41,6 @@ enum APIRouter:URLRequestConvertible {
             return URLs.getCategories + "\(categoryID)" + "/doctors_query_parameters"
         case .getCategories:
             return URLs.getCategories
-
         case .nurseRequest:
             return URLs.nurseRequest
         case .searchResultRequest(let body):
@@ -53,6 +53,8 @@ enum APIRouter:URLRequestConvertible {
             return URLs.favorites + "/\(doctorID)/add_remove"
         case .removeAppointment(let appointmentID):
             return URLs.appoitments + "/\(appointmentID)"
+        case .addOrDeleteDoctorFromFavoriteList(let id):
+            return URLs.favorites + "/\(id)" + "/add_remove"
         default:
             return ""
         }
@@ -93,7 +95,7 @@ enum APIRouter:URLRequestConvertible {
         urlRequest.httpMethod = method.rawValue
         //Http Headers
         switch self {
-        case .getFavories, .getAppointments, .removeFavorite, .removeAppointment,.searchResultRequest(_):
+        case .getFavories, .getAppointments, .removeFavorite, .removeAppointment,.searchResultRequest(_),.addOrDeleteDoctorFromFavoriteList:
             urlRequest.setValue(UserDefaultsManager.shared().token, forHTTPHeaderField: HeaderKeys.authorization)
         default:
             break

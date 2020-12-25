@@ -66,7 +66,11 @@ extension SearchResultVC:SearchResultVCProtocol{
     }
 }
 
-extension SearchResultVC: UITableViewDelegate, UITableViewDataSource{
+extension SearchResultVC: UITableViewDelegate, UITableViewDataSource , sendDoctorIdDelegate{
+    func getDoctorID(id: Int) {
+        self.viewModel.callAddOrDeleteDoctorFromFavoriteListAPI(id: id)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.getDoctorsItemsArr()?.count ?? 0
     }
@@ -75,7 +79,7 @@ extension SearchResultVC: UITableViewDelegate, UITableViewDataSource{
         guard let cell = self.searchResultView.searchResultTableView.dequeueReusableCell(withIdentifier: L10n.cellIdentifire, for: indexPath) as? SearchResultCell else {
             return UITableViewCell()
         }
-    
+        cell.sendDoctorDelegate = self
         return viewModel.putDoctorItemsInTableView(cell: cell, indexPath: indexPath.row)
     }
     

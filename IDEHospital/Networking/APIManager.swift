@@ -35,6 +35,13 @@ class APIManager {
                   completion(response)
               }
     }
+    
+    // add or delete doctor from favorite list Request
+    class func addOrDeleteDoctorFromFavoriteListAPI(doctorID:Int ,completion: @escaping (Result<HeartResponse, Error>)-> ()){
+        request(APIRouter.addOrDeleteDoctorFromFavoriteList(doctorID)){ (response) in
+                    completion(response)
+            }
+      }
 
     class func getFavorites<Element>(page: Int, complation: @escaping (Result<BaseResponse<Element>, Error>) -> () ) {
         request(APIRouter.getFavories(page)) { (response) in
