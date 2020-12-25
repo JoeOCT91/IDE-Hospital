@@ -50,7 +50,7 @@ class SupplierTabBarVC: UITabBarController {
     }
     
     private func setScheduleTab() {
-        let scheduleVC = ScheduleVC.create()
+        let scheduleVC = AppointmentsVC.create()
         scheduleVC.tabBarItem.image = Asset.calendar3.image.withRenderingMode(.alwaysOriginal)
         //scheduleVC.tabBarItem.selectedImage = Asset.calendar3.image.withRenderingMode(.alwaysOriginal)
         scheduleVC.tabBarItem.title = L10n.schedule

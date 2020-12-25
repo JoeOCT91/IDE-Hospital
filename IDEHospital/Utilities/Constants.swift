@@ -14,11 +14,15 @@ struct Storyboards {
     static let main = "Main"
     static let home = "Home"
     static let nurse = "Nurse"
+    static let favorites = "Favorites"
+    static let appointments = "Appointments"
 }
 
 // Cells
 struct Cells {
     static let category = "Category"
+    static let favorites = "Favorites"
+    static let appointment = "Appointment"
 }
 
 // View Controllers
@@ -32,9 +36,9 @@ struct ViewControllers {
     static let tabBarVC = "TabBarVC"
     static let nurseVC = "NurseVC"
     static let searchResultCell = "SearchResultCell"
-  
-}
+    static let appointmentsVC = "AppointmentsVC"
 
+}
 
 // Urls
 struct URLs {
@@ -42,6 +46,8 @@ struct URLs {
     static let mainCategories = "main_categories"
     static let getCategories = "main_categories/"
     static let nurseRequest = "nursing_requests"
+    static let favorites = "favorites/doctors"
+    static let appoitments = "user_appointments"
 }
 
 // Header Keys
@@ -49,6 +55,7 @@ struct HeaderKeys {
     static let contentType = "Content-Type"
     static let authorization = "Authorization"
     static let accept = "accept"
+
 }
 // Authorization Key
 struct Authorization {
@@ -82,4 +89,5 @@ struct UserDefaultsKeys {
 // AlertMeassages
 struct AlertMessages {
     static let selectCityBeforeRegionFirst = "You have to select a city first then select it's Region"
+    static let appointmentCancel = "Are you sure that you want to cancel this appointment"
 }

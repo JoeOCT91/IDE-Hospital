@@ -31,6 +31,8 @@ class CategoryCell: UICollectionViewCell {
         categoryTitle.textAlignment = .center
         categoryTitle.font = UIFont(font: FontFamily.PTSans.bold, size: 15)
         categoryTitle.font = categoryTitle.font.withSize(15)
+        categoryTitle.adjustsFontSizeToFitWidth = true
+        categoryTitle.minimumScaleFactor = 0.85
         
         contentView.bringSubviewToFront(categoryLogoImage)
         contentView.sendSubviewToBack(container)
@@ -40,7 +42,7 @@ class CategoryCell: UICollectionViewCell {
         categoryTitle.translatesAutoresizingMaskIntoConstraints = false
         
         container.layer.cornerRadius = 12
-        
+        let logoWidth =  (UIScreen.main.bounds.width / 2) - 15 - (25 * 2)
         NSLayoutConstraint.activate([
             container.topAnchor.constraint(equalTo: contentView.topAnchor),
             container.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
@@ -48,12 +50,12 @@ class CategoryCell: UICollectionViewCell {
             container.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
             categoryTitle.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -13),
-            categoryTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            categoryTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            categoryTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 6),
+            categoryTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -6),
             
             categoryLogoImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 18),
-            categoryLogoImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 42),
-            categoryLogoImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -42),
+            categoryLogoImage.centerXAnchor.constraint(equalTo: container.centerXAnchor, constant: 0),
+            categoryLogoImage.widthAnchor.constraint(equalToConstant: logoWidth / 1.5),
             categoryLogoImage.heightAnchor.constraint(equalTo: categoryLogoImage.widthAnchor)
         ])
         categoryLogoImage.contentMode = .scaleAspectFill

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--FavoritesVC-->
+        <scene sceneID="7ND-n9-S9g">
+            <objects>
+                <viewController storyboardIdentifier="FavoritesVC" id="zal-Ue-akj" customClass="FavoritesVC" customModule="IDEHospital" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qsr-kk-iqD" customClass="FavoritesView" customModule="IDEHospital" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ghB-b2-crT">
+                                <rect key="frame" x="93" y="477" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Aaf-iX-lVl">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1x7-21-S9Y"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1x7-21-S9Y" firstAttribute="trailing" secondItem="Aaf-iX-lVl" secondAttribute="trailing" id="DKD-r8-zSx"/>
+                            <constraint firstItem="1x7-21-S9Y" firstAttribute="bottom" secondItem="Aaf-iX-lVl" secondAttribute="bottom" id="Jzi-sH-8Hf"/>
+                            <constraint firstItem="Aaf-iX-lVl" firstAttribute="leading" secondItem="1x7-21-S9Y" secondAttribute="leading" id="yxt-Jv-xqj"/>
+                            <constraint firstItem="Aaf-iX-lVl" firstAttribute="top" secondItem="1x7-21-S9Y" secondAttribute="top" id="ziU-rf-KUu"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="backgroundImage" destination="ghB-b2-crT" id="jfu-c0-WhH"/>
+                            <outlet property="favoritesTableView" destination="Aaf-iX-lVl" id="vEi-hX-Pbs"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="favoritesView" destination="Qsr-kk-iqD" id="7gX-aj-Jzd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G9m-3C-fWl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3" y="60"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

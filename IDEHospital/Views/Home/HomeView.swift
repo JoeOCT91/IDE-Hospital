@@ -16,6 +16,11 @@ class HomeView: UIView {
     var collectionView: UICollectionView!
     
     //MARK:- Proprties
+    private var imageWidth: CGFloat {
+        let widthRatio: CGFloat = UIScreen.main.bounds.width / 100
+        let width: CGFloat = widthRatio * 22
+        return width
+    }
     
     //Setup Function to call from VC
     func setup() {
@@ -41,6 +46,7 @@ class HomeView: UIView {
     private func configureLogo(){
         logoImage.image = Asset.logo.image
         logoImage.contentMode = .scaleToFill
+        logoImage.frame = CGRect(x: logoImage.frame.origin.x, y: logoImage.frame.origin.y, width: imageWidth, height: imageWidth)
     }
     
     private func configureCollectionView(){
@@ -60,7 +66,7 @@ class HomeView: UIView {
     private func creatTwoColumnFlowLayout() -> UICollectionViewFlowLayout {
         let width = UIScreen.main.bounds.width
         let padding: CGFloat = 25
-        let minimumItemSpacing: CGFloat = 25
+        let minimumItemSpacing: CGFloat = 15
         let avilableWidth = width - (padding * 2) - minimumItemSpacing
         let itemwidth = avilableWidth / 2
         

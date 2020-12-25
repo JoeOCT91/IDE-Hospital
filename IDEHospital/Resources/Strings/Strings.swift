@@ -54,6 +54,10 @@ internal enum L10n {
   internal static let invalidEMailFormat = L10n.tr("Localizable", "invalidE-mailFormat")
   ///  minutes
   internal static let minutes = L10n.tr("Localizable", "minutes")
+  /// My Appointments
+  internal static let myAppointment = L10n.tr("Localizable", "myAppointment")
+  /// My Favorites
+  internal static let myFavorites = L10n.tr("Localizable", "myFavorites")
   /// Your Name
   internal static let nameTextFieldPlaceholder = L10n.tr("Localizable", "nameTextFieldPlaceholder")
   /// No Search Result Found

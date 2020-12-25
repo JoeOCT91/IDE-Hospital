@@ -12,6 +12,10 @@ enum APIRouter:URLRequestConvertible {
     //End Points names
     
     case getCategories
+    case getFavories(_ page: Int)
+    case getAppointments(_ page: Int)
+    case removeFavorite(doctorID: Int)
+    case removeAppointment(appointmentID: Int)
     case getCategory(_ ID: Int)
     case nurseRequest(_ body:RequsetBodyData)
     case searchResultRequest(_ body:SearchResultBody)
@@ -20,8 +24,10 @@ enum APIRouter:URLRequestConvertible {
     //Mark:- HTTP Methods
     private var method: HTTPMethod {
         switch self {
-        case .getCategory ,.getCategories,.searchResultRequest:
+        case .login, .getCategories, .getFavories, .getCategory, .getAppointments,.searchResultRequest:
             return .get
+        case .removeAppointment:
+            return .delete
         default:
             return .post
         }
@@ -34,12 +40,31 @@ enum APIRouter:URLRequestConvertible {
             return URLs.getCategories + "\(categoryID)" + "/doctors_query_parameters"
         case .getCategories:
             return URLs.getCategories
+
         case .nurseRequest:
             return URLs.nurseRequest
         case .searchResultRequest(let body):
             return URLs.getCategories + "\(body.main_category_id)" + "/doctors"
+        case .getFavories:
+            return URLs.favorites
+        case .getAppointments:
+            return URLs.appoitments
+        case .removeFavorite(let doctorID):
+            return URLs.favorites + "/\(doctorID)/add_remove"
+        case .removeAppointment(let appointmentID):
+            return URLs.appoitments + "/\(appointmentID)"
         default:
             return ""
+        }
+    }
+    private var query: URLQueryItem? {
+        switch self {
+        case .getFavories(let page):
+            return URLQueryItem(name: "page", value: String(page))
+        case .getAppointments(let page):
+            return URLQueryItem(name: "page", value: String(page))
+        default:
+            return nil
         }
     }
     
@@ -47,7 +72,7 @@ enum APIRouter:URLRequestConvertible {
     //MARK:- Parameters
     private var parameters: Parameters? {
         switch self {
-        case .getCategory, .getCategories:
+        case .getCategory, .getCategories, .getFavories, .getAppointments:
             return nil
         case .searchResultRequest(let body):
             return [ParameterKeys.page: body.page , ParameterKeys.per_page: body.per_page, ParameterKeys.specialty_id: body.specialty_id ?? "", ParameterKeys.city_id: body.city_id ?? "" ,ParameterKeys.region_id: body.region_id ?? "", ParameterKeys.name: body.name ?? "", ParameterKeys.company_id: body.company_id ?? "", ParameterKeys.order_by: body.order_by ?? "rating"]
@@ -56,25 +81,24 @@ enum APIRouter:URLRequestConvertible {
         }
     }
     
-    
     func asURLRequest() throws -> URLRequest {
-
-        let url = try URLs.base.asURL()
-        var urlRequest = URLRequest(url: url.appendingPathComponent(path))
         
-        //httpMethod
+        var urlComponents = URLComponents(string: URLs.base + path)!
+        if let query = query {
+            urlComponents.queryItems = [query]
+        }
+        let url =  try urlComponents.asURL()
+        var urlRequest = URLRequest(url: url)
+        //Set request Method
         urlRequest.httpMethod = method.rawValue
-        
         //Http Headers
         switch self {
-        case  .getCategory, .getCategories:
-            urlRequest.setValue("Accept-Language", forHTTPHeaderField: "en")
-        case .searchResultRequest(let body):
-            urlRequest.setValue("Bearer " + (body.userToken ?? ""), forHTTPHeaderField: HeaderKeys.authorization)
-            urlRequest.setValue("Accept-Language", forHTTPHeaderField: "en")
+        case .getFavories, .getAppointments, .removeFavorite, .removeAppointment,.searchResultRequest(_):
+            urlRequest.setValue(UserDefaultsManager.shared().token, forHTTPHeaderField: HeaderKeys.authorization)
         default:
             break
         }
+        urlRequest.setValue("Accept-Language", forHTTPHeaderField: "en")
         urlRequest.setValue("application/json", forHTTPHeaderField: HeaderKeys.contentType)
         urlRequest.setValue("application/json", forHTTPHeaderField: HeaderKeys.accept)
         
