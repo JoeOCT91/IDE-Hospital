@@ -39,6 +39,7 @@ class SearchResultCell: UITableViewCell {
         self.nameLabel.text = doctorName
         self.profileImageView.sd_setImage(with:  URL(string: doctorImage), placeholderImage: Asset.placeholderImage.image)
         self.ratingView.rating = rating
+        self.ratingView.settings.updateOnTouch = false
         self.reviewCountLabel.text = "\(ratingViewCount)" + L10n.review
         self.specialtyLabel.text = doctorSpecilty
         self.secondBioLabel.text = secondBio
