@@ -27,8 +27,10 @@ class FavoritesVC: UIViewController {
         super.viewDidLoad()
         favoritesView.setup()
         favoritesView.setupTableView(delgate: self, dataSource: self)
-        navigationController?.setViewControllerTitle(to: L10n.myFavorites)
-        setUpButtonsInNavigationBar()
+        self.setupNavigationBar()
+        self.setViewControllerTitle(to: L10n.myFavorites, fontColor: .white)
+        self.setUpButtonsInNavigationBar()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
