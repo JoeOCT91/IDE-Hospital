@@ -94,6 +94,16 @@
 		B2BE22182593A65C004BA737 /* DoctorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BE22172593A65C004BA737 /* DoctorResponse.swift */; };
 		B2BE221A2593AAC1004BA737 /* SearchResultBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BE22192593AAC1004BA737 /* SearchResultBody.swift */; };
 		B2DF041F25967A9600400F8F /* HeartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DF041E25967A9600400F8F /* HeartResponse.swift */; };
+		B2DF04212597D82F00400F8F /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2DF04202597D82F00400F8F /* Authentication.storyboard */; };
+		B2DF04282597D92700400F8F /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DF04272597D92700400F8F /* SignUpView.swift */; };
+		B2DF042C2597D96300400F8F /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DF042B2597D96300400F8F /* SignInView.swift */; };
+		B2DF04312597D9C800400F8F /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DF04302597D9C800400F8F /* ResetPasswordView.swift */; };
+		B2DF04332597DA4800400F8F /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DF04322597DA4800400F8F /* ResetPasswordVC.swift */; };
+		B2DF04352597DA8C00400F8F /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DF04342597DA8C00400F8F /* SignUpVC.swift */; };
+		B2DF04372597DAE300400F8F /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DF04362597DAE300400F8F /* SignInVC.swift */; };
+		B2DF04392597E16800400F8F /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DF04382597E16800400F8F /* ResetPasswordViewModel.swift */; };
+		B2DF043B2597E18700400F8F /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DF043A2597E18700400F8F /* SignUpViewModel.swift */; };
+		B2DF043D2597E1AD00400F8F /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DF043C2597E1AD00400F8F /* SignInViewModel.swift */; };
 		B7E6D5DC1F585871719B5F3D /* Pods_IDEHospital.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0BDB737E5E4140C2CAB0880 /* Pods_IDEHospital.framework */; };
 /* End PBXBuildFile section */
 
@@ -189,6 +199,16 @@
 		B2BE22172593A65C004BA737 /* DoctorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorResponse.swift; sourceTree = "<group>"; };
 		B2BE22192593AAC1004BA737 /* SearchResultBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultBody.swift; sourceTree = "<group>"; };
 		B2DF041E25967A9600400F8F /* HeartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartResponse.swift; sourceTree = "<group>"; };
+		B2DF04202597D82F00400F8F /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
+		B2DF04272597D92700400F8F /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		B2DF042B2597D96300400F8F /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		B2DF04302597D9C800400F8F /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
+		B2DF04322597DA4800400F8F /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
+		B2DF04342597DA8C00400F8F /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		B2DF04362597DAE300400F8F /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
+		B2DF04382597E16800400F8F /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
+		B2DF043A2597E18700400F8F /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		B2DF043C2597E1AD00400F8F /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		D0BDB737E5E4140C2CAB0880 /* Pods_IDEHospital.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IDEHospital.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB534F8EC6442A45ACC19CEC /* Pods-IDEHospital.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IDEHospital.debug.xcconfig"; path = "Target Support Files/Pods-IDEHospital/Pods-IDEHospital.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -393,6 +413,9 @@
 				B26DB98B258DE47C00DDE8B8 /* NurseViewModel.swift */,
 				B2BE220E2592A35E004BA737 /* SearchResultViewModel.swift */,
 				86215D07258D596C00022D86 /* ViewModelWithPagination.swift */,
+				B2DF04382597E16800400F8F /* ResetPasswordViewModel.swift */,
+				B2DF043A2597E18700400F8F /* SignUpViewModel.swift */,
+				B2DF043C2597E1AD00400F8F /* SignInViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -401,6 +424,7 @@
 			isa = PBXGroup;
 			children = (
 				B207B4C525894CA2002603EA /* Custom Views */,
+				B2DF04222597D89C00400F8F /* Authentication */,
 				B260139825913A98004E95B1 /* Search Result */,
 				B26DB986258DE42A00DDE8B8 /* Nurse */,
 				8618F5AF25925CF60006E10F /* Alerts */,
@@ -440,6 +464,7 @@
 		863232EC257D75E100514F5A /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				B2DF04202597D82F00400F8F /* Authentication.storyboard */,
 				8628D5C7258C0D8200CAB803 /* Favorites.storyboard */,
 				B21BDE032582B89A00430408 /* Search.storyboard */,
 				863232D2257D733C00514F5A /* Main.storyboard */,
@@ -656,6 +681,43 @@
 			path = HeartResponse;
 			sourceTree = "<group>";
 		};
+		B2DF04222597D89C00400F8F /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				B2DF042D2597D97500400F8F /* Reset Password */,
+				B2DF04242597D8B700400F8F /* Signup */,
+				B2DF04232597D8AC00400F8F /* Login */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		B2DF04232597D8AC00400F8F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B2DF04362597DAE300400F8F /* SignInVC.swift */,
+				B2DF042B2597D96300400F8F /* SignInView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		B2DF04242597D8B700400F8F /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				B2DF04342597DA8C00400F8F /* SignUpVC.swift */,
+				B2DF04272597D92700400F8F /* SignUpView.swift */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		B2DF042D2597D97500400F8F /* Reset Password */ = {
+			isa = PBXGroup;
+			children = (
+				B2DF04322597DA4800400F8F /* ResetPasswordVC.swift */,
+				B2DF04302597D9C800400F8F /* ResetPasswordView.swift */,
+			);
+			path = "Reset Password";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -723,6 +785,7 @@
 				863232D9257D733D00514F5A /* LaunchScreen.storyboard in Resources */,
 				86298359258437CB00546BB8 /* PT_Sans_Bold.ttf in Resources */,
 				8628D5C8258C0D8200CAB803 /* Favorites.storyboard in Resources */,
+				B2DF04212597D82F00400F8F /* Authentication.storyboard in Resources */,
 				86285231258084C30059122F /* Localizable.strings in Resources */,
 				86398BBB2582B0A500C284B3 /* Colors.txt in Resources */,
 				863232D6257D733D00514F5A /* Assets.xcassets in Resources */,
@@ -808,11 +871,14 @@
 				8628D5B8258C07FE00CAB803 /* FavoritesView.swift in Sources */,
 				861D5775258C290300EFED1D /* AppointmentsVC.swift in Sources */,
 				B21BDE112582C1A400430408 /* UITabBarController+Storyboard.swift in Sources */,
+				B2DF04332597DA4800400F8F /* ResetPasswordVC.swift in Sources */,
 				B21BDE2D2584060900430408 /* UILable+LatterSpacing.swift in Sources */,
+				B2DF043D2597E1AD00400F8F /* SignInViewModel.swift in Sources */,
 				863232FC257D82DB00514F5A /* Constants.swift in Sources */,
 				86285234258085010059122F /* Strings.swift in Sources */,
 				8628D5B9258C07FE00CAB803 /* FavoritesVC.swift in Sources */,
 				8628521525807B2A0059122F /* AssetsManager.swift in Sources */,
+				B2DF04352597DA8C00400F8F /* SignUpVC.swift in Sources */,
 				B2BE22142593A48A004BA737 /* SearchResultResponse.swift in Sources */,
 				863232F6257D7BB700514F5A /* APIManager.swift in Sources */,
 				863232FF257D835F00514F5A /* UserDefaultsManager.swift in Sources */,
@@ -820,12 +886,14 @@
 				863232F9257D7BE300514F5A /* APIRouter.swift in Sources */,
 				862851DD257FE6570059122F /* MainCategoriesReponse.swift in Sources */,
 				B26013922590CB98004E95B1 /* RequestBodyData.swift in Sources */,
+				B2DF04282597D92700400F8F /* SignUpView.swift in Sources */,
 				86398BC22582B4BE00C284B3 /* ColorsManager.swift in Sources */,
 				8628D5A8258C075B00CAB803 /* HospitalCellLabel.swift in Sources */,
 				862851C1257FC28D0059122F /* SearchViewModel.swift in Sources */,
 				8632AA23258904D100E4DB8D /* UIView+Loader.swift in Sources */,
 				8632AA02258901AD00E4DB8D /* HomeView.swift in Sources */,
 				86201AD02583EF26001D1C06 /* SetupFunction+UINavigationController.swift in Sources */,
+				B2DF04392597E16800400F8F /* ResetPasswordViewModel.swift in Sources */,
 				861D5779258C294E00EFED1D /* AppointmentsVM.swift in Sources */,
 				8628D5BF258C0ABD00CAB803 /* FavoritesVM.swift in Sources */,
 				862127D72581302A00C1A5DF /* FontsManager.swift in Sources */,
@@ -840,6 +908,7 @@
 				B21BDE1A2582C45700430408 /* ScheduleView.swift in Sources */,
 				B260139E25920A91004E95B1 /* SearchResultCell.swift in Sources */,
 				86215D08258D596C00022D86 /* ViewModelWithPagination.swift in Sources */,
+				B2DF043B2597E18700400F8F /* SignUpViewModel.swift in Sources */,
 				8628D5C5258C0B0700CAB803 /* Doctor.swift in Sources */,
 				8628D5B3258C07EE00CAB803 /* FavoritesCell.swift in Sources */,
 				B21BDE0F2582BEBF00430408 /* ScheduleVC.swift in Sources */,
@@ -866,12 +935,15 @@
 				B21BDE332584F2AD00430408 /* Specialties.swift in Sources */,
 				B26DB988258DE44700DDE8B8 /* NurseVC.swift in Sources */,
 				B260139A25913AB0004E95B1 /* SearchResultVC.swift in Sources */,
+				B2DF04372597DAE300400F8F /* SignInVC.swift in Sources */,
+				B2DF042C2597D96300400F8F /* SignInView.swift in Sources */,
 				8628D5A7258C075B00CAB803 /* DoctorImageView.swift in Sources */,
 				86323302257D83A400514F5A /* ValidatorManager.swift in Sources */,
 				86385A55258CA74F0060C564 /* AppoinmentCell.swift in Sources */,
 				8632AA20258904A100E4DB8D /* String+trimming.swift in Sources */,
 				8632AA06258901DF00E4DB8D /* HomeViewModel.swift in Sources */,
 				863232CD257D733C00514F5A /* AppDelegate.swift in Sources */,
+				B2DF04312597D9C800400F8F /* ResetPasswordView.swift in Sources */,
 				862851ED258061740059122F /* UIColor+FromHex.swift in Sources */,
 				8632AA142589043700E4DB8D /* UIViewController+Storyboard.swift in Sources */,
 				B26DB991258E665400DDE8B8 /* IDEAHopitalTextField.swift in Sources */,
