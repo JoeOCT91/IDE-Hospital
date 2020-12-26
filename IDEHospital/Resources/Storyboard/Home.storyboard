@@ -21,18 +21,14 @@
                                 <rect key="frame" x="-36" y="-15" width="103.33333333333331" height="168"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wwr-0J-YPo">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wwr-0J-YPo">
                                 <rect key="frame" x="20" y="153" width="335" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NqQ-Wm-u0E" userLabel="LogoImage">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NqQ-Wm-u0E" userLabel="LogoImage">
                                 <rect key="frame" x="145" y="57" width="85" height="85"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="0ii-cW-cab"/>
-                                    <constraint firstAttribute="width" secondItem="NqQ-Wm-u0E" secondAttribute="height" multiplier="1:1" id="ebg-Fu-KJT"/>
-                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UhL-Hp-o8h"/>
@@ -43,7 +39,6 @@
                             <constraint firstItem="wwr-0J-YPo" firstAttribute="top" secondItem="NqQ-Wm-u0E" secondAttribute="bottom" constant="11" id="EUs-t3-V7Y"/>
                             <constraint firstItem="wwr-0J-YPo" firstAttribute="leading" secondItem="UhL-Hp-o8h" secondAttribute="leading" constant="20" id="nVC-QQ-Y8S"/>
                             <constraint firstItem="NqQ-Wm-u0E" firstAttribute="centerX" secondItem="UhL-Hp-o8h" secondAttribute="centerX" id="tIY-gk-rPY"/>
-                            <constraint firstItem="UhL-Hp-o8h" firstAttribute="trailing" secondItem="NqQ-Wm-u0E" secondAttribute="trailing" constant="145" id="yuN-fw-Ulx"/>
                         </constraints>
                         <connections>
                             <outlet property="backgroundImage" destination="P1B-Oc-qSG" id="Kyi-Yj-9zA"/>

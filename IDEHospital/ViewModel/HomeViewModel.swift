@@ -12,10 +12,10 @@ protocol HomeVMProtocol: class {
     func getCategories()
     func getCategoriesCount() -> Int
     func getCellData(indexPath: IndexPath)
+    func determineWhichVCToOpen(tag:Int)
 }
 
 class HomeViewModel: HomeVMProtocol {
-    
     private weak var view: HomeVCProtocol?
     
     private var categories = [MainCategory]()
@@ -39,6 +39,15 @@ class HomeViewModel: HomeVMProtocol {
             }
         }
     }
+   internal func determineWhichVCToOpen(tag: Int) {
+        switch tag {
+        case 4:
+            view?.goToNurseScreen()
+        default:
+            view?.goChooseServicesScreen(celTag: tag)
+        }
+    }
+    
     
     internal func getCategoriesCount() -> Int {
         return categories.count

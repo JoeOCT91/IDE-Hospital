@@ -1,4 +1,3 @@
-//
 //  ViewController.swift
 //  IDEHospital
 //
@@ -13,6 +12,7 @@ protocol SearchVCProtocol: class {
     func addSelectedItem(tag:Int, item:String)
     func switchToCityTextField()
     func resetRegionTextFieldValue()
+    func getCurrentDoctorValue() -> String
 }
 class SearchVC: UIViewController {
 
@@ -22,7 +22,8 @@ class SearchVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.searchView.setUp()
-        self.navigationController?.setUpNavigationBar()
+        self.setupNavigationBar()
+        self.setViewControllerTitle(to: L10n.serviceSearch, fontColor: .white)
         self.setUpButtonsInNavigationBar()
         self.viewModel.callGetCategoriesAPI()
     }
@@ -33,8 +34,17 @@ class SearchVC: UIViewController {
         searchVC.viewModel = SearchViewModel(search: searchVC, categoryID: id)
         return searchVC
     }
+    
+    @IBAction func findDoctorButtonPressed(_ sender: Any) {
+        let searchResult = SearchResultVC.create(doctorsData: viewModel.getCurrentChoosenData())
+        self.navigationController?.pushViewController(searchResult, animated: true)
+    }
+    
 }
 extension SearchVC:SearchVCProtocol{
+    func getCurrentDoctorValue() -> String {
+        return self.searchView.textField5.text ?? ""
+    }
     // For Reset Reaion Value after Picking new City Value
     func resetRegionTextFieldValue() {
         searchView.textField3.text = ""
@@ -71,7 +81,6 @@ extension SearchVC:UIPickerViewDelegate,UIPickerViewDataSource, UITextFieldDeleg
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
        return 1
     }
-    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         viewModel.bringCountPickerValues(tag: pickerView.tag)
     }
