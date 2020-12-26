@@ -12,20 +12,20 @@ protocol SearchResultViewModelProtocol {
     func bringSortArrValues(row:Int) -> String
     func itemSelected(tag: Int, row: Int)
     func sendSearchResultRequestAPI()
-    func getDoctorsItemsArr() -> [ItemsInCell]?
+    func getDoctorsItemsArr() -> [DoctorResponse]?
     func putDoctorItemsInTableView(cell: SearchResultCell, indexPath:Int)  -> SearchResultCell
     func checkPagination(indexPath:Int)
     func callAddOrDeleteDoctorFromFavoriteListAPI(id:Int)
     func rsetTableViewValuee()
     func increasePageValue()
+    func changeIsFavoriteValue(id:Int)
 }
 class SearchResultViewModel{
     private weak var view:SearchResultVCProtocol!
     private let sortArr:[String] = [L10n.fees,L10n.rating]
     private var doctorsDataBody:SearchResultBody!
-    private var page:Int!
     private var total_Pages:Int!
-    private var doctorItems: [ItemsInCell] = []
+    private var doctorItems: [DoctorResponse] = []
     
     init(view:SearchResultVCProtocol, doctorsData:SearchResultBody) {
         self.view = view
@@ -34,8 +34,20 @@ class SearchResultViewModel{
     }
 }
 extension SearchResultViewModel:SearchResultViewModelProtocol{
-  
-    
+    //MARK:- to change IS_Favorite Value INTernally
+    func changeIsFavoriteValue(id: Int) {
+         for i in 0..<doctorItems.count {
+            if doctorItems[i].id == id {
+                if doctorItems[i].is_favorited{
+                    doctorItems[i].is_favorited = false
+                }
+                else{
+                    doctorItems[i].is_favorited = true
+                }
+            }
+        }
+    }
+    //MARK:- To Reset Table View Values
     func rsetTableViewValuee() {
         doctorsDataBody.page = 1
         self.doctorItems = []
@@ -52,10 +64,8 @@ extension SearchResultViewModel:SearchResultViewModelProtocol{
                 print(error.localizedDescription)
             case .success(let response):
                 if response.code == 202{
-                    print("Heart Changed Successfully")
-                   self.doctorsDataBody.page = 1
-                   self.doctorItems = []
-                   self.sendSearchResultRequestAPI()
+                print("Heart Changed Successfully")
+                self.changeIsFavoriteValue(id: id)
                 }
             }
         }
@@ -81,7 +91,7 @@ extension SearchResultViewModel:SearchResultViewModelProtocol{
         cell.configureCell(doctorID: doctorItems[indexPath].id, doctorName: doctorItems[indexPath].name, doctorImage: doctorItems[indexPath].image, rating: doctorItems[indexPath].rating, ratingViewCount: doctorItems[indexPath].reviews_count, doctorSpecilty: doctorItems[indexPath].specialty, secondBio: doctorItems[indexPath].second_bio, region: doctorItems[indexPath].region, address: doctorItems[indexPath].address, heartIamge: doctorItems[indexPath].is_favorited, watingTime: doctorItems[indexPath].waiting_time, fees: doctorItems[indexPath].fees)
         return cell
     }
-    func getDoctorsItemsArr() -> [ItemsInCell]? {
+    func getDoctorsItemsArr() -> [DoctorResponse]? {
         return self.doctorItems
     }
     // MARK:- Bring Search Reasult API
@@ -93,7 +103,6 @@ extension SearchResultViewModel:SearchResultViewModelProtocol{
                 print(error.localizedDescription)
             case .success(let doctorsData):
                 print("Current Page" + " = \(doctorsData.data.page)")
-                self.page = doctorsData.data.page
                 self.total_Pages = doctorsData.data.total_pages
                 self.doctorItems += doctorsData.data.items
                 self.view.reloadTableViewData()

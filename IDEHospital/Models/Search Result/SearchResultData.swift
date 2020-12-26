@@ -11,5 +11,5 @@ struct SearchResultData:Codable  {
     let page:Int
     let per_page:Int
     let total_pages:Int
-    let items:[ItemsInCell]
+    let items:[DoctorResponse]
 }

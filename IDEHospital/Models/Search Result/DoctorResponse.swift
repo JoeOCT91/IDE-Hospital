@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct ItemsInCell:Codable  {
+struct DoctorResponse:Codable  {
     let id:Int
     let rating:Double
     let reviews_count:Int
@@ -20,7 +20,7 @@ struct ItemsInCell:Codable  {
     let image:String
     let city:String
     let region:String
-    let is_favorited:Bool
+    var is_favorited:Bool
     let companies:[String]
     
 }

@@ -92,7 +92,7 @@ extension SearchResultVC: UITableViewDelegate, UITableViewDataSource , sendDocto
         guard let cell = self.searchResultView.searchResultTableView.dequeueReusableCell(withIdentifier: L10n.cellIdentifire, for: indexPath) as? SearchResultCell else {
             return UITableViewCell()
         }
-        self.viewModel.checkPagination(indexPath: indexPath.row)
+       
         cell.sendDoctorDelegate = self
         return viewModel.putDoctorItemsInTableView(cell: cell, indexPath: indexPath.row)
     }
@@ -103,7 +103,7 @@ extension SearchResultVC: UITableViewDelegate, UITableViewDataSource , sendDocto
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         // MARK:- to Send Current Row Number To Check Pagination
-        
+         self.viewModel.checkPagination(indexPath: indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
