@@ -22,7 +22,27 @@ class APIManager {
             completion(response)
         }
     }
+
+    // nurseRequest
+    class func sendNurseRequestAPI(body:RequsetBodyData ,completion: @escaping (Result<NurseResponse, Error>)-> ()){
+        request(APIRouter.nurseRequest(body)){ (response) in
+               completion(response)
+           }
+       }
+    // search Result Request
+    class func sendSearchResultRequestAPI(body:SearchResultBody ,completion: @escaping (Result<SearchResultResponse, Error>)-> ()){
+        request(APIRouter.searchResultRequest(body)){ (response) in
+                  completion(response)
+              }
+    }
     
+    // add or delete doctor from favorite list Request
+    class func addOrDeleteDoctorFromFavoriteListAPI(doctorID:Int ,completion: @escaping (Result<HeartResponse, Error>)-> ()){
+        request(APIRouter.addOrDeleteDoctorFromFavoriteList(doctorID)){ (response) in
+                    completion(response)
+            }
+      }
+
     class func getFavorites<Element>(page: Int, complation: @escaping (Result<BaseResponse<Element>, Error>) -> () ) {
         request(APIRouter.getFavories(page)) { (response) in
             complation(response)

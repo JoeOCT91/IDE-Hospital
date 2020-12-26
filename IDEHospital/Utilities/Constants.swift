@@ -13,6 +13,7 @@ struct Storyboards {
     static let search = "Search"
     static let main = "Main"
     static let home = "Home"
+    static let nurse = "Nurse"
     static let favorites = "Favorites"
     static let appointments = "Appointments"
 }
@@ -29,10 +30,14 @@ struct ViewControllers {
     
     static let homeVC   = "HomeVC"
     static let searchVC = "SearchVC"
+    static let searchResult = "SearchResultVC"
     static let favoritesVC = "FavoritesVC"
     static let scheduleVC = "ScheduleVC"
     static let tabBarVC = "TabBarVC"
+    static let nurseVC = "NurseVC"
+    static let searchResultCell = "SearchResultCell"
     static let appointmentsVC = "AppointmentsVC"
+
 }
 
 // Urls
@@ -40,15 +45,16 @@ struct URLs {
     static let base = "http://ide-hospital.ideaeg.co/api/"
     static let mainCategories = "main_categories"
     static let getCategories = "main_categories/"
+    static let nurseRequest = "nursing_requests"
     static let favorites = "favorites/doctors"
     static let appoitments = "user_appointments"
-
 }
 
 // Header Keys
 struct HeaderKeys {
     static let contentType = "Content-Type"
     static let authorization = "Authorization"
+    static let accept = "accept"
 
 }
 // Authorization Key
@@ -58,6 +64,20 @@ struct Authorization {
 
 // Parameters Keys
 struct ParameterKeys {
+    static let name = "name"
+    static let email = "email"
+    static let mobile = "mobile"
+    static let message = "message"
+    static let main_category_id = "main_category_id"
+    static var userToken = "userToken"
+    static var specialty_id = "specialty_id"
+    static var city_id = "city_id"
+    static var region_id = "region_id"
+    static var company_id = "company_id"
+    static var order_by = "order_by"
+    static var page = "page"
+    static var per_page = "per_page"
+    
     
 }
 

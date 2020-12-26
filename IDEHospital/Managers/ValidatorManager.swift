@@ -29,4 +29,9 @@ class ValidatorManager {
         let PasswordPred = NSPredicate(format: "SELF MATCHES %@", passwordRegEx)
         return PasswordPred.evaluate(with: Password)
     }
+    func isPhoneNumberValid(phoneNumber:String)->Bool{
+          let phoneNumberRegEx = "(010|011|012|015)[0-9]{8}$"
+          let phoneNumberPred = NSPredicate(format:"SELF MATCHES %@",  phoneNumberRegEx)
+          return phoneNumberPred.evaluate(with: phoneNumber)
+      }
 }

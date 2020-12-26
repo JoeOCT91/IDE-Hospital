@@ -81,14 +81,10 @@ class SearchView: UIView {
           imageView.frame = UIScreen.main.bounds
       }
     
-    private func setUpView(view:UIView, viewColor:UIColor) {
-        view.backgroundColor = viewColor
-    }
-      
     private func setUpLabel(label:UILabel, labelText:String, fontName:FontConvertible, fontSize:CGFloat, fontColor:UIColor, latterSpacing:CGFloat, changeLatterSpacing:Bool) {
         label.font = UIFont(font: fontName, size: fontSize)
         label.numberOfLines = 1
-        label.adjustsFontSizeToFitWidth = true
+       label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.8
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -135,5 +131,5 @@ class SearchView: UIView {
           button.setTitleColor(UIColor.white, for: .normal)
           button.setTitle(buttonTitle, for: .normal)
           button.titleLabel?.font = UIFont(font: FontName, size: fontSize)
-         }
+      }
 }
