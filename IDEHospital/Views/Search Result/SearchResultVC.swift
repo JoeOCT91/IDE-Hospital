@@ -30,7 +30,7 @@ class SearchResultVC: UIViewController {
           self.viewModel.sendSearchResultRequestAPI()
     }
     override func viewWillDisappear(_ animated: Bool) {
-        viewModel.rsetTableViewValuee()
+        viewModel.loadFirstPage()
     }
     // MARK:- Public Methods
     class func create(doctorsData:SearchResultBody) -> SearchResultVC {

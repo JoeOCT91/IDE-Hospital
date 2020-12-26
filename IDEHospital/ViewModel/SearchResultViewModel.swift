@@ -16,7 +16,7 @@ protocol SearchResultViewModelProtocol {
     func putDoctorItemsInTableView(cell: SearchResultCell, indexPath:Int)  -> SearchResultCell
     func checkPagination(indexPath:Int)
     func callAddOrDeleteDoctorFromFavoriteListAPI(id:Int)
-    func rsetTableViewValuee()
+    func loadFirstPage()
     func increasePageValue()
     func changeIsFavoriteValue(id:Int)
 }
@@ -48,7 +48,7 @@ extension SearchResultViewModel:SearchResultViewModelProtocol{
         }
     }
     //MARK:- To Reset Table View Values
-    func rsetTableViewValuee() {
+    func loadFirstPage() {
         doctorsDataBody.page = 1
         self.doctorItems = []
         self.view.reloadTableViewData()
