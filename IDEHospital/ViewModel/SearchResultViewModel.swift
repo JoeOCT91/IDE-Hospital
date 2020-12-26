@@ -17,6 +17,7 @@ protocol SearchResultViewModelProtocol {
     func putDoctorItemsInTableView(cell: SearchResultCell, indexPath:Int)  -> SearchResultCell
     func checkPagination(indexPath:Int)
     func callAddOrDeleteDoctorFromFavoriteListAPI(id:Int)
+    func rsetTableViewValuee()
 }
 class SearchResultViewModel{
     private weak var view:SearchResultVCProtocol!
@@ -24,13 +25,22 @@ class SearchResultViewModel{
     private var doctorsDataBody:SearchResultBody!
     private var doctorsSearchResultData:SearchResultData!
     private var doctorItems: [ItemsInCell] = []
+    private var hitsCount = 0
     
     init(view:SearchResultVCProtocol, doctorsData:SearchResultBody) {
         self.view = view
         self.doctorsDataBody = doctorsData
+        
     }
 }
 extension SearchResultViewModel:SearchResultViewModelProtocol{
+    func rsetTableViewValuee() {
+        doctorsDataBody.page = 1
+        self.doctorItems = []
+        self.view.reloadTableViewData()
+    }
+    
+    // MARK:- For Change Heart Value
     func callAddOrDeleteDoctorFromFavoriteListAPI(id: Int) {
         print("view Model ID" + " \(id)")
         APIManager.addOrDeleteDoctorFromFavoriteListAPI(doctorID: id){(response) in
@@ -40,24 +50,26 @@ extension SearchResultViewModel:SearchResultViewModelProtocol{
                 print(error.localizedDescription)
             case .success(let response):
                 if response.code == 202{
-                    print("Heart Changed Successfullu")
-                    self.sendSearchResultRequestAPI()
-                   // self.doctorItems = self.doctorsSearchResultData.items
-                    self.view.reloadTableViewData()
+                    print("Heart Changed Successfully")
                 }
             }
         }
     }
-    
+    // MARK:- it's For Checking The Pagination
     func checkPagination(indexPath: Int) {
-        print("\(indexPath)" + "row" + "\(doctorItems.count)")
         if indexPath == doctorItems.count - 1 {
+            print("\(indexPath)" + "row" + "\(doctorItems.count)")
             if doctorsDataBody.page + 1 <= doctorsSearchResultData.total_pages{
-                self.doctorsDataBody.page += 1
-                self.sendSearchResultRequestAPI()
+                if hitsCount > 0{
+                    print("Enterd The If Condition")
+                    self.doctorsDataBody.page += 1
+                    self.sendSearchResultRequestAPI()
+                }
+                hitsCount += 1
             }
         }
     }
+    // MARK:- Fill Doctors Values in Table View
     func putDoctorItemsInTableView(cell: SearchResultCell, indexPath:Int) -> SearchResultCell {
         cell.configureCell(doctorID: doctorItems[indexPath].id, doctorName: doctorItems[indexPath].name, doctorImage: doctorItems[indexPath].image, rating: doctorItems[indexPath].rating, ratingViewCount: doctorItems[indexPath].reviews_count, doctorSpecilty: doctorItems[indexPath].specialty, secondBio: doctorItems[indexPath].second_bio, region: doctorItems[indexPath].region, address: doctorItems[indexPath].address, heartIamge: doctorItems[indexPath].is_favorited, watingTime: doctorItems[indexPath].waiting_time, fees: doctorItems[indexPath].fees)
         return cell
@@ -69,15 +81,15 @@ extension SearchResultViewModel:SearchResultViewModelProtocol{
     func getDoctorsData() -> SearchResultData? {
         return self.doctorsSearchResultData
     }
-    
+    // MARK:- Bring Search Reasult API
     func sendSearchResultRequestAPI() {
+          self.view.showLoader()
         APIManager.sendSearchResultRequestAPI(body: doctorsDataBody){(response) in
-            self.view.showLoader()
             switch response{
             case .failure(let error):
                 print(error.localizedDescription)
             case .success(let doctorsData):
-                print(doctorsData.data.page)
+                print("Current Page" + " = \(doctorsData.data.page)")
                 self.doctorsSearchResultData = doctorsData.data
                 self.doctorItems += doctorsData.data.items
                 self.view.reloadTableViewData()

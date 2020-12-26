@@ -77,7 +77,7 @@ enum APIRouter:URLRequestConvertible {
         case .getCategory, .getCategories, .getFavories, .getAppointments:
             return nil
         case .searchResultRequest(let body):
-            return [ParameterKeys.page: body.page , ParameterKeys.per_page: body.per_page, ParameterKeys.specialty_id: body.specialty_id ?? "", ParameterKeys.city_id: body.city_id ?? "" ,ParameterKeys.region_id: body.region_id ?? "", ParameterKeys.name: body.name ?? "", ParameterKeys.company_id: body.company_id ?? "", ParameterKeys.order_by: body.order_by ?? "rating"]
+            return [ParameterKeys.page: body.page , ParameterKeys.per_page: body.per_page ?? 15, ParameterKeys.specialty_id: body.specialty_id ?? "", ParameterKeys.city_id: body.city_id ?? "" ,ParameterKeys.region_id: body.region_id ?? "", ParameterKeys.name: body.name ?? "", ParameterKeys.company_id: body.company_id ?? "", ParameterKeys.order_by: body.order_by ?? "rating"]
         default:
             return nil
         }

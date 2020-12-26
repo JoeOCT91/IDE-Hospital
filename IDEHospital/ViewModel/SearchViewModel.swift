@@ -34,11 +34,9 @@ class SearchViewModel{
 }
 extension SearchViewModel:SearchViewModelProtocol{
     func getCurrentChoosenData() -> SearchResultBody {
-         let currentChosenData = SearchResultBody(main_category_id: self.categoryID, userToken: nil, specialty_id: self.currentSpecialtiesID, city_id: self.currentCitiesID, region_id: self.currentRegionID, company_id: self.currentCompaniesID, name: self.view.getCurrentDoctorValue(), order_by: nil, page: 1, per_page: nil)
-        print("scsff")
-        print(self.categoryID)
-        print(self.currentSpecialtiesID)
-    
+         let currentChosenData = SearchResultBody(main_category_id: self.categoryID, userToken: nil, specialty_id: self.currentSpecialtiesID, city_id: self.currentCitiesID, region_id: self.currentRegionID, company_id: self.currentCompaniesID, name: self.view.getCurrentDoctorValue(), order_by: nil, page: 1, per_page: 15)
+        print("Current Category ID" + " = \(self.categoryID)")
+        print("Current Selected Speciality" + " = \(self.currentSpecialtiesID)")
          return currentChosenData
     }
 

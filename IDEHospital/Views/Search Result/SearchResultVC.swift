@@ -25,7 +25,12 @@ class SearchResultVC: UIViewController {
         self.setViewControllerTitle(to: L10n.searchResult, fontColor: .white)
         self.setUpButtonsInPushedNavigationBar()
         self.setUpSearchResultTable()
-        self.viewModel.sendSearchResultRequestAPI()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+          self.viewModel.sendSearchResultRequestAPI()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        viewModel.rsetTableViewValuee()
     }
     // MARK:- Public Methods
     class func create(doctorsData:SearchResultBody) -> SearchResultVC {
@@ -39,16 +44,23 @@ class SearchResultVC: UIViewController {
         self.searchResultView.searchResultTableView.delegate = self
         self.searchResultView.searchResultTableView.dataSource = self
     }
+    
+    @objc private func donePressed(_ sender:UIBarButtonItem){
+            viewModel.itemSelected(tag: sender.tag, row: searchResultView.pickerView.selectedRow(inComponent: 0))
+
+    }
 }
 extension SearchResultVC:SearchResultVCProtocol{
+    // MARK:- to SHow a label when there is no values in Table View
     func showEmptyDataLabel() {
         self.searchResultView.searchResultTableView.alpha = 0
         self.searchResultView.emptyDataLabel.alpha = 1
     }
-    
+    // MARK:- to Reload Table View Values
     func reloadTableViewData() {
         self.searchResultView.searchResultTableView.reloadData()
     }
+    // MARK:- to Add Value in Filter Picker
     func addSelectedItem(tag: Int, item: String) {
         let texFiled = self.searchResultView.viewWithTag(tag) as! UITextField
         texFiled.text = item
@@ -67,6 +79,7 @@ extension SearchResultVC:SearchResultVCProtocol{
 }
 
 extension SearchResultVC: UITableViewDelegate, UITableViewDataSource , sendDoctorIdDelegate{
+    // MARK:- Send doctor ID to Add or Delete Dorcor From Favorite List API
     func getDoctorID(id: Int) {
         self.viewModel.callAddOrDeleteDoctorFromFavoriteListAPI(id: id)
     }
@@ -79,6 +92,7 @@ extension SearchResultVC: UITableViewDelegate, UITableViewDataSource , sendDocto
         guard let cell = self.searchResultView.searchResultTableView.dequeueReusableCell(withIdentifier: L10n.cellIdentifire, for: indexPath) as? SearchResultCell else {
             return UITableViewCell()
         }
+        self.viewModel.checkPagination(indexPath: indexPath.row)
         cell.sendDoctorDelegate = self
         return viewModel.putDoctorItemsInTableView(cell: cell, indexPath: indexPath.row)
     }
@@ -88,20 +102,17 @@ extension SearchResultVC: UITableViewDelegate, UITableViewDataSource , sendDocto
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        self.viewModel.checkPagination(indexPath: indexPath.row)
+        // MARK:- to Send Current Row Number To Check Pagination
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 256.5
     }
-    
 }
 
-extension SearchResultVC:UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
-    @objc private func donePressed(_ sender:UIBarButtonItem){
-          viewModel.itemSelected(tag: sender.tag, row: searchResultView.pickerView.selectedRow(inComponent: 0))
-
-      }
+extension SearchResultVC:UIPickerViewDelegate, UIPickerViewDataSource{
+  
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -111,11 +122,13 @@ extension SearchResultVC:UITextFieldDelegate, UIPickerViewDelegate, UIPickerView
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return viewModel.bringSortArrValues(row: row)
     }
-    
+}
+
+extension SearchResultVC:UITextFieldDelegate{
     func textFieldDidBeginEditing(_ textField: UITextField) {
-          self.searchResultView.pickerView.delegate = self
-          self.searchResultView.pickerView.dataSource = self
-          self.searchResultView.pickerView.tag = textField.tag
-          textField.keyboardToolbar.doneBarButton.setTarget(self, action: #selector(donePressed(_:)))
-    }
+             self.searchResultView.pickerView.delegate = self
+             self.searchResultView.pickerView.dataSource = self
+             self.searchResultView.pickerView.tag = textField.tag
+             textField.keyboardToolbar.doneBarButton.setTarget(self, action: #selector(donePressed(_:)))
+       }
 }
