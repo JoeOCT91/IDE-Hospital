@@ -43,4 +43,17 @@
 "schedule" = "Schedule";
 "myFavorites" = "My Favorites";
 "myAppointment" = "My Appointments";
-
+"signUp" = "SIGN UP";
+"login" = "LOGIN";
+"resetPassword" = "RESET PASSWORD";
+"choosePasswordPlaceholder" = "Choose Password";
+"enterPasswordPlaceholder" = "Enter Password";
+"confirm PasswordPlaceholder" = "Confirm Password";
+"don't_HavePassword" = "Don't Have account?";
+"setNewPassword" = "Set New Password";
+"loginButton" = "Login";
+"signUpButton" = "Sign Up";
+"setNewPassword" = "Set New Password";
+"instructions" = "By clicking sign up, you agree to our";
+"terms" = "Terms & Conditions";
+"forgot" = "Forgot Password?";

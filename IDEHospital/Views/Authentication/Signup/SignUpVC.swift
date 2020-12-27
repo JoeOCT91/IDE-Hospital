@@ -12,10 +12,14 @@ protocol SignUpVCProtocol: class {
 class SignUpVC: UIViewController {
 
     private var viewModel:SignUpViewModelProtocol!
+    
+    @IBOutlet var signUpView: SignUpView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        signUpView.setUp()
+        self.setupNavigationBar()
+        self.setViewControllerTitle(to: L10n.signUp, fontColor: .white)
+        self.setUpButtonsInPushedNavigationBar()
     }
     
     // MARK:- Public Methods

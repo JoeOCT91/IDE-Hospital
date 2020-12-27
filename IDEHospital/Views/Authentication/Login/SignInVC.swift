@@ -12,11 +12,14 @@ protocol SignInVCProtocol:class {
 }
 class SignInVC: UIViewController {
 
+    @IBOutlet var signInView: SignInView!
     private var viewModel:SignInViewModelProtocol!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+         signInView.setUp()
+         self.setupNavigationBar()
+        self.setViewControllerTitle(to: L10n.login, fontColor: .white)
+         self.setUpButtonsInPushedNavigationBar()
     }
     // MARK:- Public Methods
      class func create() -> SignInVC {

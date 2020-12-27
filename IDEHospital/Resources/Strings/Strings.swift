@@ -16,16 +16,22 @@ internal enum L10n {
   internal static let chooseCity = L10n.tr("Localizable", "chooseCity")
   /// Choose Companies
   internal static let chooseCompanies = L10n.tr("Localizable", "chooseCompanies")
+  /// Choose Password
+  internal static let choosePasswordPlaceholder = L10n.tr("Localizable", "choosePasswordPlaceholder")
   /// Choose Region
   internal static let chooseRegion = L10n.tr("Localizable", "chooseRegion")
   /// Choose Services
   internal static let chooseServices = L10n.tr("Localizable", "chooseServices")
   /// Choose Specialists
   internal static let chooseSpecialists = L10n.tr("Localizable", "chooseSpecialists")
+  /// Confirm Password
+  internal static let confirmPasswordPlaceholder = L10n.tr("Localizable", "confirm PasswordPlaceholder")
   /// Data Not Found
   internal static let dataNotFound = L10n.tr("Localizable", "dataNotFound")
   /// Doctor Name
   internal static let doctorName = L10n.tr("Localizable", "DoctorName")
+  /// Don't Have account?
+  internal static let donTHavePassword = L10n.tr("Localizable", "don't_HavePassword")
   /// done
   internal static let done = L10n.tr("Localizable", "done")
   ///  LE
@@ -34,6 +40,8 @@ internal enum L10n {
   internal static let emailTextFieldPlaceholder = L10n.tr("Localizable", "emailTextFieldPlaceholder")
   /// Enter Details
   internal static let enterDetails = L10n.tr("Localizable", "enterDetails")
+  /// Enter Password
+  internal static let enterPasswordPlaceholder = L10n.tr("Localizable", "enterPasswordPlaceholder")
   /// Examination Fees: 
   internal static let examinationFess = L10n.tr("Localizable", "examinationFess")
   /// Favorite
@@ -42,6 +50,8 @@ internal enum L10n {
   internal static let fees = L10n.tr("Localizable", "fees")
   /// Find a doctor
   internal static let findDoctor = L10n.tr("Localizable", "findDoctor")
+  /// Forgot Password?
+  internal static let forgot = L10n.tr("Localizable", "forgot")
   /// IDEA EG HOSPITAL THE BEST CHOICE
   internal static let homeDescription = L10n.tr("Localizable", "homeDescription")
   /// Home Nurse
@@ -50,8 +60,14 @@ internal enum L10n {
   internal static let ideaEgHospitalTheBestChoice = L10n.tr("Localizable", "ideaEgHospitalTheBestChoice")
   /// IDEA EG HOSPITAL
   internal static let ideaHospital = L10n.tr("Localizable", "ideaHospital")
+  /// By clicking sign up, you agree to our
+  internal static let instructions = L10n.tr("Localizable", "instructions")
   /// Invalid E-mail Format
   internal static let invalidEMailFormat = L10n.tr("Localizable", "invalidE-mailFormat")
+  /// LOGIN
+  internal static let login = L10n.tr("Localizable", "login")
+  /// Login
+  internal static let loginButton = L10n.tr("Localizable", "loginButton")
   ///  minutes
   internal static let minutes = L10n.tr("Localizable", "minutes")
   /// My Appointments
@@ -78,6 +94,8 @@ internal enum L10n {
   internal static let pleaseEnterPhoneNumber = L10n.tr("Localizable", "pleaseEnterPhoneNumber")
   /// Rating
   internal static let rating = L10n.tr("Localizable", "rating")
+  /// RESET PASSWORD
+  internal static let resetPassword = L10n.tr("Localizable", "resetPassword")
   ///  Review
   internal static let review = L10n.tr("Localizable", "review")
   /// The Entered Number Doesn't Start with 010,011,012 or 015 with Max 11 Numbers at All
@@ -92,12 +110,20 @@ internal enum L10n {
   internal static let sendRequest = L10n.tr("Localizable", "sendRequest")
   /// Service Search
   internal static let serviceSearch = L10n.tr("Localizable", "serviceSearch")
+  /// Set New Password
+  internal static let setNewPassword = L10n.tr("Localizable", "setNewPassword")
+  /// SIGN UP
+  internal static let signUp = L10n.tr("Localizable", "signUp")
+  /// Sign Up
+  internal static let signUpButton = L10n.tr("Localizable", "signUpButton")
   /// Sorry
   internal static let sorry = L10n.tr("Localizable", "sorry")
   /// Sort By
   internal static let sortBy = L10n.tr("Localizable", "sortBy")
   /// Successful Request
   internal static let successfulRequest = L10n.tr("Localizable", "successfulRequest")
+  /// Terms & Conditions
+  internal static let terms = L10n.tr("Localizable", "terms")
   /// Wating Time: 
   internal static let watingTime = L10n.tr("Localizable", "watingTime")
 }
