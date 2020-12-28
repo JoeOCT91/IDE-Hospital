@@ -92,6 +92,22 @@ internal enum L10n {
   internal static let sendRequest = L10n.tr("Localizable", "sendRequest")
   /// Service Search
   internal static let serviceSearch = L10n.tr("Localizable", "serviceSearch")
+  /// About Us
+  internal static let sideMenuAboutUs = L10n.tr("Localizable", "sideMenuAboutUs ")
+  /// Booked Appointments
+  internal static let sideMenuBookedAppointments = L10n.tr("Localizable", "sideMenuBookedAppointments")
+  /// Contact Us
+  internal static let sideMenuContactUs = L10n.tr("Localizable", "sideMenuContactUs")
+  /// Edit Profile
+  internal static let sideMenuEditProfile = L10n.tr("Localizable", "sideMenuEditProfile")
+  /// Favourites
+  internal static let sideMenuFavourites = L10n.tr("Localizable", "sideMenuFavourites")
+  /// Logouts
+  internal static let sideMenuLogouts = L10n.tr("Localizable", "sideMenuLogouts")
+  /// Share
+  internal static let sideMenuShare = L10n.tr("Localizable", "sideMenuShare")
+  /// Terms & Conditions
+  internal static let sideMenuTermsConditions = L10n.tr("Localizable", "sideMenuTerms&Conditions")
   /// Sorry
   internal static let sorry = L10n.tr("Localizable", "sorry")
   /// Sort By

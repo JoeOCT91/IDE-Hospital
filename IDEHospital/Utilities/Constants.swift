@@ -16,6 +16,7 @@ struct Storyboards {
     static let nurse = "Nurse"
     static let favorites = "Favorites"
     static let appointments = "Appointments"
+    static let sideMenu = "SideMenu"
 }
 
 // Cells
@@ -23,11 +24,11 @@ struct Cells {
     static let category = "Category"
     static let favorites = "Favorites"
     static let appointment = "Appointment"
+    static let sideMenu = "SideMenu"
 }
 
 // View Controllers
 struct ViewControllers {
-    
     static let homeVC   = "HomeVC"
     static let searchVC = "SearchVC"
     static let searchResult = "SearchResultVC"
@@ -37,7 +38,7 @@ struct ViewControllers {
     static let nurseVC = "NurseVC"
     static let searchResultCell = "SearchResultCell"
     static let appointmentsVC = "AppointmentsVC"
-
+    static let sideMenu = "SideMenuVC"
 }
 
 // Urls
@@ -77,8 +78,6 @@ struct ParameterKeys {
     static var order_by = "order_by"
     static var page = "page"
     static var per_page = "per_page"
-    
-    
 }
 
 // UserDefaultsKeys

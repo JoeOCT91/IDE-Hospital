@@ -43,4 +43,13 @@
 "schedule" = "Schedule";
 "myFavorites" = "My Favorites";
 "myAppointment" = "My Appointments";
+//SideMenu
+"sideMenuEditProfile" = "Edit Profile";
+"sideMenuFavourites" = "Favourites";
+"sideMenuBookedAppointments" = "Booked Appointments";
+"sideMenuAboutUs " = "About Us";
+"sideMenuContactUs" = "Contact Us";
+"sideMenuShare" = "Share";
+"sideMenuTerms&Conditions" = "Terms & Conditions";
+"sideMenuLogouts" = "Logouts";
 
