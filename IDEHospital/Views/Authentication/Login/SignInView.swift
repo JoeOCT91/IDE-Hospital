@@ -15,10 +15,10 @@ class SignInView:UIView{
 // Buttons
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var forgotPasswordButton: UIButton!
-    @IBOutlet weak var dontHavePasswordButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
-    
-     public func setUp() {
+// Label
+    @IBOutlet weak var dontHaveAccountLabel: UILabel!
+    public func setUp() {
        self.layoutIfNeeded()
 // setBackGroundImage
        self.setupBackground()
@@ -28,10 +28,13 @@ class SignInView:UIView{
         // Setup SignUp Button
         setUpButton(button: loginButton, buttonTitle: L10n.loginButton, backgroundImageName: Asset.buttonBar.image, FontName: FontFamily.PTSans.bold, fontSize: 20)
         setUpButton(button: forgotPasswordButton, buttonTitle: L10n.forgot, backgroundImageName: UIImage(), FontName: FontFamily.PTSans.bold, fontSize: 15)
-        setUpButton(button: dontHavePasswordButton, buttonTitle: L10n.donTHavePassword, backgroundImageName: UIImage(), FontName: FontFamily.PTSans.regular, fontSize: 12)
         setUpButton(button: signUpButton, buttonTitle: L10n.signUpButton, backgroundImageName: Asset.greyButtonBar.image, FontName: FontFamily.PTSans.bold, fontSize: 20)
+        //setLable
+        setUpLabel(label: dontHaveAccountLabel, labelText:  L10n.donTHavePassword , fontName: FontFamily.PTSans.regular, fontSize: 12, fontColor: .white)
+                   
           }
-            
+    
+        
         private func setUpTextFiled(textFiled:IDEAHopitalTextField,textValue:String, placeholder:String, imageName:UIImage, numbersPad:Bool, emailPad:Bool, isSecured:Bool) {
               self.layoutIfNeeded()
               textFiled.setup(leftImage: imageName, placeholder: placeholder)
@@ -45,11 +48,23 @@ class SignInView:UIView{
                   textFiled.keyboardType = .emailAddress
               }
             }
+    
+         private func setUpLabel(label:UILabel, labelText:String, fontName:FontConvertible, fontSize:CGFloat, fontColor:UIColor) {
+           label.font = UIFont(font: fontName, size: fontSize)
+           label.numberOfLines = 2
+           label.adjustsFontSizeToFitWidth = true
+           label.minimumScaleFactor = 0.5
+           label.textAlignment = .center
+           label.translatesAutoresizingMaskIntoConstraints = false
+           label.text = labelText
+           label.textColor = fontColor
+         }
 
           private func setUpButton(button:UIButton, buttonTitle:String, backgroundImageName:UIImage, FontName:FontConvertible, fontSize:CGFloat){
               button.setBackgroundImage(backgroundImageName, for: .normal)
               button.setTitleColor(UIColor.white, for: .normal)
-              button.setTitle(buttonTitle, for: .normal)
               button.titleLabel?.font = UIFont(font: FontName, size: fontSize)
+              button.setTitle(buttonTitle, for: .normal)
+              
              }
 }

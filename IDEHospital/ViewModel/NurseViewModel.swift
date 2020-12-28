@@ -26,7 +26,7 @@ class NurseViewModel {
                case .success(let result):
                 print(result.code)
                 if result.code == 202 {
-                    self.view.presentSuccessAlert(title: L10n.successfulRequest, message: L10n.nurseSuccessRequestMessage)
+                    self.view.presentSuccessAlert(title: L10n.successfulRequest, message: L10n.successRequestMessage)
                 }
              }
                self.view.hideLoader()

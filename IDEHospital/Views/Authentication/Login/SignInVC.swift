@@ -8,7 +8,10 @@
 import UIKit
 
 protocol SignInVCProtocol:class {
-    
+    func presentSuccessAlert(title:String, message:String)
+     func presentError(title:String,message: String)
+     func showLoader()
+     func hideLoader()
 }
 class SignInVC: UIViewController {
 
@@ -27,8 +30,36 @@ class SignInVC: UIViewController {
             signInVC.viewModel = SignInViewModel(view: signInVC)
                 return signInVC
     }
-
+    
+    @IBAction func loginButtonPressed(_ sender: Any) {
+        self.viewModel.loginRequest(email: signInView.emailTextField.text, password: signInView.passwordTextField.text)
+    }
+    
+    @IBAction func forgotPasswordButtonPressed(_ sender: Any) {
+        let resetPasswordVC = ResetPasswordVC.create()
+        resetPasswordVC.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(resetPasswordVC, animated: true)
+    }
+    
+    @IBAction func signUpButtonPressed(_ sender: Any) {
+        let signUpVC = SignUpVC.create()
+            signUpVC.modalPresentationStyle = .fullScreen
+           self.navigationController?.pushViewController(signUpVC, animated: true)
+    }
+    
+    
 }
 extension SignInVC:SignInVCProtocol{
-    
+    func presentSuccessAlert(title: String, message: String) {
+             self.showSuccessfulAlert(title: title, message: message)
+         }
+         func presentError(title:String,message: String) {
+                self.showAlert(title: title, message: message)
+         }
+         func showLoader() {
+                self.view.showLoader()
+         }
+         func hideLoader() {
+                self.view.hideLoader()
+         }
 }

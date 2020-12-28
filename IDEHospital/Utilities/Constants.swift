@@ -51,6 +51,9 @@ struct URLs {
     static let nurseRequest = "nursing_requests"
     static let favorites = "favorites/doctors"
     static let appoitments = "user_appointments"
+    static let forgetPassword = "forget_password"
+    static let register = "register"
+    static let login = "login"
 }
 
 // Header Keys

@@ -7,7 +7,10 @@
 
 import UIKit
 protocol ResetPasswordVCProtocol: class {
-    
+    func presentSuccessAlert(title:String, message:String)
+        func presentError(title:String,message: String)
+        func showLoader()
+        func hideLoader()
 }
 class ResetPasswordVC: UIViewController {
     @IBOutlet var resetPasswordView: ResetPasswordView!
@@ -27,7 +30,23 @@ class ResetPasswordVC: UIViewController {
              resetPasswordVC.viewModel = RestPasswordViewModel(view: resetPasswordVC)
              return resetPasswordVC
       }
+    
+    @IBAction func setNewPasswordButtonPressed(_ sender: Any) {
+        self.viewModel.resetPasswordRequest(email: resetPasswordView.emailTextField.text)
+    }
+    
 }
 extension ResetPasswordVC:ResetPasswordVCProtocol{
-    
+    func presentSuccessAlert(title: String, message: String) {
+                self.showSuccessfulAlert(title: title, message: message)
+            }
+            func presentError(title:String,message: String) {
+                   self.showAlert(title: title, message: message)
+            }
+            func showLoader() {
+                   self.view.showLoader()
+            }
+            func hideLoader() {
+                   self.view.hideLoader()
+            }
 }

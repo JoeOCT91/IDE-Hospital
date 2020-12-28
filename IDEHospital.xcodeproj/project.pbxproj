@@ -82,6 +82,12 @@
 		B260139E25920A91004E95B1 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B260139C25920A91004E95B1 /* SearchResultCell.swift */; };
 		B260139F25920A91004E95B1 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B260139D25920A91004E95B1 /* SearchResultCell.xib */; };
 		B26013A325921402004E95B1 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26013A225921402004E95B1 /* SearchResultView.swift */; };
+		B2660575259A5AB600F1A8BA /* AuthBodyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2660574259A5AB600F1A8BA /* AuthBodyData.swift */; };
+		B2660577259A5AC600F1A8BA /* SignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2660576259A5AC600F1A8BA /* SignUpResponse.swift */; };
+		B2660579259A5B9100F1A8BA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2660578259A5B9100F1A8BA /* User.swift */; };
+		B266057B259A5BB700F1A8BA /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266057A259A5BB700F1A8BA /* LoginResponse.swift */; };
+		B266057D259A5BD400F1A8BA /* ResetPasswordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266057C259A5BD400F1A8BA /* ResetPasswordResponse.swift */; };
+		B266057F259A711500F1A8BA /* AutError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B266057E259A711500F1A8BA /* AutError.swift */; };
 		B26DB985258BCBE800DDE8B8 /*  UIView+BackgroundExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26DB984258BCBE800DDE8B8 /*  UIView+BackgroundExtension.swift */; };
 		B26DB988258DE44700DDE8B8 /* NurseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26DB987258DE44700DDE8B8 /* NurseVC.swift */; };
 		B26DB98A258DE45700DDE8B8 /* NurseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26DB989258DE45700DDE8B8 /* NurseView.swift */; };
@@ -187,6 +193,12 @@
 		B260139C25920A91004E95B1 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		B260139D25920A91004E95B1 /* SearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		B26013A225921402004E95B1 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
+		B2660574259A5AB600F1A8BA /* AuthBodyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthBodyData.swift; sourceTree = "<group>"; };
+		B2660576259A5AC600F1A8BA /* SignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponse.swift; sourceTree = "<group>"; };
+		B2660578259A5B9100F1A8BA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B266057A259A5BB700F1A8BA /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		B266057C259A5BD400F1A8BA /* ResetPasswordResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordResponse.swift; sourceTree = "<group>"; };
+		B266057E259A711500F1A8BA /* AutError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutError.swift; sourceTree = "<group>"; };
 		B26DB984258BCBE800DDE8B8 /*  UIView+BackgroundExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " UIView+BackgroundExtension.swift"; sourceTree = "<group>"; };
 		B26DB987258DE44700DDE8B8 /* NurseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NurseVC.swift; sourceTree = "<group>"; };
 		B26DB989258DE45700DDE8B8 /* NurseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NurseView.swift; sourceTree = "<group>"; };
@@ -382,6 +394,7 @@
 		863232E6257D73DF00514F5A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B2660570259A5A5100F1A8BA /* Authentication */,
 				B2BE22122593A46A004BA737 /* Search Result */,
 				B260138E2590C7E5004E95B1 /* Nurse */,
 				86385A57258CB2180060C564 /* Appointments */,
@@ -644,6 +657,43 @@
 			path = SearchResultVcTableView;
 			sourceTree = "<group>";
 		};
+		B2660570259A5A5100F1A8BA /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				B2660578259A5B9100F1A8BA /* User.swift */,
+				B2660574259A5AB600F1A8BA /* AuthBodyData.swift */,
+				B266057E259A711500F1A8BA /* AutError.swift */,
+				B2660573259A5A8E00F1A8BA /* ResetPassword */,
+				B2660572259A5A8200F1A8BA /* Login */,
+				B2660571259A5A7800F1A8BA /* SignUp */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		B2660571259A5A7800F1A8BA /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				B2660576259A5AC600F1A8BA /* SignUpResponse.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		B2660572259A5A8200F1A8BA /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B266057A259A5BB700F1A8BA /* LoginResponse.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		B2660573259A5A8E00F1A8BA /* ResetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				B266057C259A5BD400F1A8BA /* ResetPasswordResponse.swift */,
+			);
+			path = ResetPassword;
+			sourceTree = "<group>";
+		};
 		B26DB986258DE42A00DDE8B8 /* Nurse */ = {
 			isa = PBXGroup;
 			children = (
@@ -872,6 +922,7 @@
 				861D5775258C290300EFED1D /* AppointmentsVC.swift in Sources */,
 				B21BDE112582C1A400430408 /* UITabBarController+Storyboard.swift in Sources */,
 				B2DF04332597DA4800400F8F /* ResetPasswordVC.swift in Sources */,
+				B266057F259A711500F1A8BA /* AutError.swift in Sources */,
 				B21BDE2D2584060900430408 /* UILable+LatterSpacing.swift in Sources */,
 				B2DF043D2597E1AD00400F8F /* SignInViewModel.swift in Sources */,
 				863232FC257D82DB00514F5A /* Constants.swift in Sources */,
@@ -883,6 +934,7 @@
 				863232F6257D7BB700514F5A /* APIManager.swift in Sources */,
 				863232FF257D835F00514F5A /* UserDefaultsManager.swift in Sources */,
 				8628D5AA258C075B00CAB803 /* HospitalButton.swift in Sources */,
+				B2660577259A5AC600F1A8BA /* SignUpResponse.swift in Sources */,
 				863232F9257D7BE300514F5A /* APIRouter.swift in Sources */,
 				862851DD257FE6570059122F /* MainCategoriesReponse.swift in Sources */,
 				B26013922590CB98004E95B1 /* RequestBodyData.swift in Sources */,
@@ -893,16 +945,19 @@
 				8632AA23258904D100E4DB8D /* UIView+Loader.swift in Sources */,
 				8632AA02258901AD00E4DB8D /* HomeView.swift in Sources */,
 				86201AD02583EF26001D1C06 /* SetupFunction+UINavigationController.swift in Sources */,
+				B266057D259A5BD400F1A8BA /* ResetPasswordResponse.swift in Sources */,
 				B2DF04392597E16800400F8F /* ResetPasswordViewModel.swift in Sources */,
 				861D5779258C294E00EFED1D /* AppointmentsVM.swift in Sources */,
 				8628D5BF258C0ABD00CAB803 /* FavoritesVM.swift in Sources */,
 				862127D72581302A00C1A5DF /* FontsManager.swift in Sources */,
 				B2DF041F25967A9600400F8F /* HeartResponse.swift in Sources */,
+				B266057B259A5BB700F1A8BA /* LoginResponse.swift in Sources */,
 				862851E1257FE68C0059122F /* MainCategory.swift in Sources */,
 				86385A5F258CB2D00060C564 /* Appointment.swift in Sources */,
 				86385A5C258CB2870060C564 /* AppointmentsResponse.swift in Sources */,
 				8632AA03258901AD00E4DB8D /* HomeVC.swift in Sources */,
 				B21BDE352584F2C800430408 /* Cities.swift in Sources */,
+				B2660575259A5AB600F1A8BA /* AuthBodyData.swift in Sources */,
 				B26DB98A258DE45700DDE8B8 /* NurseView.swift in Sources */,
 				8632AA182589045800E4DB8D /* UIViewController+Alert.swift in Sources */,
 				B21BDE1A2582C45700430408 /* ScheduleView.swift in Sources */,
@@ -923,6 +978,7 @@
 				86385A59258CB25E0060C564 /* AppointmentsMainResponse.swift in Sources */,
 				B26DB985258BCBE800DDE8B8 /*  UIView+BackgroundExtension.swift in Sources */,
 				8632A9FD2589019E00E4DB8D /* CategoryCell.swift in Sources */,
+				B2660579259A5B9100F1A8BA /* User.swift in Sources */,
 				B21BDE312584F29300430408 /* CategoriesData.swift in Sources */,
 				B26013902590C80F004E95B1 /* NurseResponse.swift in Sources */,
 				862851C1257FC28D0059122F /* SearchViewModel.swift in Sources */,
