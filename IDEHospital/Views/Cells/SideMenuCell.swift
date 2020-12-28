@@ -26,18 +26,37 @@ class SideMenuCell: UITableViewCell {
     override func layoutSubviews() {
         self.selectedBackgroundView?.frame = CGRect.zero
     }
+    
+    //MARK:- Public Methods
     func setupCell(item: SideMenuItem){
+        configureCell()
         itemTitle.text = item.title
         itemImageIcon.image = UIImage(named: item.image)
     }
+    
+    //MARK:- Private Methods
     private func configureCell(){
         contentView.addSubview(itemTitle)
         contentView.addSubview(itemImageIcon)
         contentView.addSubview(arrowImageView)
+        configureCellViews()
     }
-    
-
-
-    
-
+    private func configureCellViews(){
+        contentView.backgroundColor = .clear
+        itemImageIcon.contentMode = .scaleToFill
+        itemTitle.font = UIFont(name: FontFamily.PTSans.regular.name, size: 20)
+        itemTitle.font = itemTitle.font.withSize(20)
+        itemTitle.textColor = UIColor(named: ColorName.darkRoyalBlue)
+        itemTitle.translatesAutoresizingMaskIntoConstraints = false
+        itemImageIcon.translatesAutoresizingMaskIntoConstraints = false
+        arrowImageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            itemImageIcon.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 21),
+            itemImageIcon.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            itemTitle.leadingAnchor.constraint(equalTo: itemImageIcon.trailingAnchor, constant: 15),
+            itemTitle.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            arrowImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
+            arrowImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+        ])
+    }
 }

@@ -23,7 +23,7 @@ class SideMenuVC: UIViewController {
     
     // Public Methods
     class func create() -> SideMenuVC {
-        let sideMenuVC: SideMenuVC = UIViewController.create(storyboardName: Storyboards.appointments, identifier: ViewControllers.appointmentsVC)
+        let sideMenuVC: SideMenuVC = UIViewController.create(storyboardName: Storyboards.sideMenu, identifier: ViewControllers.sideMenu)
         let viewModel = SideMenuVM(view: sideMenuVC)
         sideMenuVC.viewModel = viewModel
         return sideMenuVC
@@ -41,7 +41,13 @@ extension SideMenuVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Cells.sideMenu, for: indexPath) as! SideMenuCell
         cell.setupCell(item: viewModel.getMenuItem(index: indexPath.row))
+        cell.tag = indexPath.row
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! SideMenuCell
+        let sideMenuViewController = UIViewController()
+        navigationController?.pushViewController(sideMenuViewController, animated: true)
+    }
 }
