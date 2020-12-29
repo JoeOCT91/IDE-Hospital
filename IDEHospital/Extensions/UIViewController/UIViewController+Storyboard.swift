@@ -43,7 +43,8 @@ extension UIViewController {
        navigationItem.rightBarButtonItem?.setBackgroundImage(Asset.settings.image, for: .normal, barMetrics: .default)
        }
       @objc private func settingsButton(_ sender:UIBarButtonItem){
-          print("Settings Button")
+        let sideMenuVC = SideMenuVC.create()
+        navigationController?.pushViewController(sideMenuVC, animated: true)
        }
        private func createLeftButtonInNavigationBar() {
        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(goBackButton))

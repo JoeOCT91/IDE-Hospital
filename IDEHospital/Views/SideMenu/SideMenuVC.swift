@@ -7,7 +7,9 @@
 
 import UIKit
 protocol SideMenuVCProtocol: class {
-    
+    func editProfilePressed()
+    func termsAndConditionsPressed()
+    func favoritesPressed()
 }
 
 class SideMenuVC: UIViewController {
@@ -30,6 +32,21 @@ class SideMenuVC: UIViewController {
     }
 }
 extension SideMenuVC: SideMenuVCProtocol {
+    func editProfilePressed() {
+        
+    }
+    func favoritesPressed() {
+        print("favoritesPressed")
+        self.tabBarController?.selectedIndex = 1
+    }
+    
+    func bookedAppointmentsPressed() {
+        
+    }
+    func termsAndConditionsPressed(){
+        let termsAndConditionsVC = TermsAndConditionsVC.create()
+        navigationController?.pushViewController(termsAndConditionsVC, animated: true)
+    }
     
 }
 
@@ -47,7 +64,7 @@ extension SideMenuVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! SideMenuCell
-        let sideMenuViewController = viewModel.getController()
-        navigationController?.pushViewController(sideMenuViewController, animated: true)
+        print( cell.tag)
+        viewModel.navigateTo(index: cell.tag)
     }
 }

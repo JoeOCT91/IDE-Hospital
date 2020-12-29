@@ -9,19 +9,11 @@ import UIKit
 protocol SideMenuVMProtocol: class {
     func getMenuItemsCount() -> Int
     func getMenuItem(index: Int) -> SideMenuItem
-    func getController() -> UIViewController
+    func navigateTo(index: Int)
 }
 
 class SideMenuVM: SideMenuVMProtocol {
-
-    
-    
     private weak var view: SideMenuVCProtocol?
-    
-    private lazy var authControlloersArr = [
-        
-        TermsAndConditionsVC.create()
-    ]
     
     init(view: SideMenuVCProtocol) {
         self.view = view
@@ -41,11 +33,35 @@ class SideMenuVM: SideMenuVMProtocol {
         return SidemenuItems.shared.getCount()
     }
     
-    func getController() -> UIViewController {
+    func navigateTo(index: Int){
         if UserDefaultsManager.shared().token == nil {
-            return authControlloersArr[0]
+            navigateToWhenMain(index: index)
         } else {
-            return authControlloersArr[0]
+            navigateToWhenAuth(index: index)
+        }
+    }
+    
+    private func navigateToWhenAuth(index: Int){
+        switch index {
+        case 0:
+            view?.editProfilePressed()
+        case 6:
+            view?.termsAndConditionsPressed()
+        default:
+            return
+        }
+    }
+    
+    private func navigateToWhenMain(index: Int){
+        switch index {
+        case 0:
+            view?.editProfilePressed()
+        case 1:
+            view?.favoritesPressed()
+        case 6:
+            view?.termsAndConditionsPressed()
+        default:
+            return
         }
     }
 }
