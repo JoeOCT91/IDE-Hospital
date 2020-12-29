@@ -40,7 +40,7 @@ class SignUpView:UIView{
           label.font = UIFont(font: fontName, size: fontSize)
           label.numberOfLines = 1
           label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 2
+          label.minimumScaleFactor = 0.5
           label.textAlignment = .left
           label.translatesAutoresizingMaskIntoConstraints = false
           label.text = labelText

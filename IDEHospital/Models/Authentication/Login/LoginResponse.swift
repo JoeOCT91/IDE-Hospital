@@ -7,8 +7,8 @@
 
 import Foundation
 struct LoginResponse:Codable {
-    let success:Bool
-    let code:Int
-    let data:User
+    let success:Bool?
+    let code:Int?
+    let data:User?
     let message:String?
 }

@@ -7,8 +7,8 @@
 
 import Foundation
 struct SignUpResponse:Codable {
-    let success:Bool
-    let code:Int
-    let data:User
+    let success:Bool?
+    let code:Int?
+    let data:User?
     let errors: AuthError?
 }

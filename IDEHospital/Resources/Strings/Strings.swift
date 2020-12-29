@@ -62,7 +62,7 @@ internal enum L10n {
   internal static let ideaEgHospitalTheBestChoice = L10n.tr("Localizable", "ideaEgHospitalTheBestChoice")
   /// IDEA EG HOSPITAL
   internal static let ideaHospital = L10n.tr("Localizable", "ideaHospital")
-  /// By clicking sign up, you agree to our
+  /// By clicking sign up, you agree to our 
   internal static let instructions = L10n.tr("Localizable", "instructions")
   /// Invalid E-mail Format
   internal static let invalidEMailFormat = L10n.tr("Localizable", "invalidE-mailFormat")

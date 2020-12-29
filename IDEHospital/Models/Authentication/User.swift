@@ -7,9 +7,9 @@
 
 import Foundation
 struct User:Codable {
-    let id:Int
-    let email:String
-    let name:String
-    let mobile:String
-    let access_token:String
+    let id:Int?
+    let email:String?
+    let name:String?
+    let mobile:String?
+    let access_token:String?
 }

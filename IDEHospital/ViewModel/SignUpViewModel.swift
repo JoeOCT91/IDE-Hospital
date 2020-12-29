@@ -23,17 +23,18 @@ class SignUpViewModel {
             APIManager.sendRegisterRequestAPI(body: body){(response) in
                   switch response{
                   case .failure(let error):
-                    print("jfjvjdfjjfjf")
+                    print("no non")
                     print(error.localizedDescription)
                     self.view.presentError(title: L10n.sorry, message: error.localizedDescription)
                    case .success(let result):
-                    if result.code == 202{
+                    if result.code == 201{
                         print(result.data)
                         //UserDefaultsManager.shared().token = result.data.access_token
                         self.view.presentSuccessAlert(title: L10n.successfulRequest, message: L10n.successRequestMessage)
+                        print("yes yes")
                     }
                     else{
-                        //print("jfjvjdfjjfjf")
+                        print("Nn email")
                         self.view.presentError(title: L10n.sorry, message: result.errors?.email?[0] ?? "")
                     }
                  }

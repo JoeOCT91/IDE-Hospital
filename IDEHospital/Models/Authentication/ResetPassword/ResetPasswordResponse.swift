@@ -7,7 +7,7 @@
 
 import Foundation
 struct ResetPasswordResponse:Codable {
-     let success:Bool
-     let code:Int
+     let success:Bool?
+     let code:Int?
      let errors: AuthError?
 }

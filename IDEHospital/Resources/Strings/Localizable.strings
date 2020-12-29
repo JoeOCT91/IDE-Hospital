@@ -59,6 +59,6 @@
 "loginButton" = "Login";
 "signUpButton" = "Sign Up";
 "setNewPassword" = "Set New Password";
-"instructions" = "By clicking sign up, you agree to our";
+"instructions" = "By clicking sign up, you agree to our ";
 "terms" = "Terms & Conditions";
 "forgot" = "Forgot Password?";
