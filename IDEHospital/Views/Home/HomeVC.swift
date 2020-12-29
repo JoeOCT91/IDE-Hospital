@@ -14,6 +14,7 @@ protocol HomeVCProtocol: class {
     func setCellData(title: String, color: String, image: Data, ID:Int,indexPath: IndexPath)
     func goToNurseScreen()
     func goChooseServicesScreen(celTag:Int)
+    func goTest()
 }
 
 class HomeVC: UIViewController {
@@ -53,17 +54,29 @@ class HomeVC: UIViewController {
 }
 
 extension HomeVC: HomeVCProtocol {
+    func goTest() {
+        let resetPass = ResetPasswordVC.create()
+         resetPass.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(resetPass, animated: true)
+    }
+    
     
     func goChooseServicesScreen(celTag:Int) {
-        let tabBarController = SupplierTabBarVC()
-        tabBarController.modalPresentationStyle = .fullScreen
-        tabBarController.categoryID = celTag
-        self.present(tabBarController, animated: true)
+//        let tabBarController = SupplierTabBarVC()
+//        tabBarController.modalPresentationStyle = .fullScreen
+//        tabBarController.categoryID = celTag
+//        self.present(tabBarController, animated: true)
+        let signUP = SignUpVC.create()
+                signUP.modalPresentationStyle = .fullScreen
+               self.navigationController?.pushViewController(signUP, animated: true)
     }
     func goToNurseScreen() {
-      let nurseVC = NurseVC.create()
-      nurseVC.modalPresentationStyle = .fullScreen
-      self.navigationController?.pushViewController(nurseVC, animated: true)
+//      let nurseVC = NurseVC.create()
+//      nurseVC.modalPresentationStyle = .fullScreen
+//      self.navigationController?.pushViewController(nurseVC, animated: true)
+        let signIn = SignInVC.create()
+        signIn.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(signIn, animated: true)
     }
     
     internal func reloadData() {

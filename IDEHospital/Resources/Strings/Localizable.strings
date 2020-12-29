@@ -20,13 +20,18 @@
 "enterDetails" = "Enter Details";
 "sendRequest" = "Send Request";
 "pleaseEnterName" = "Name Field is Empty, Please Re-Enter your Name";
+"nameFieldCountIsSmall" = "The name must be at least 3 characters";
 "pleaseEnterEmail" = "Email Field is Empty, Please Re-Enter your Email";
-"pleaseEnterPhoneNumber" = "Phone Number Field is Empty, Please Re-Enter your Phone Number";
+"pleaseEnterPhoneNumber" = "Mobile Number Field is Empty, Please Re-Enter your Phone Number";
+"pleaseEnterPassword" = "Password Field is Empty, Please Re-Enter your Password";
+"pleaseConfirmPassword" = "Confirm Password Field is Empty, Please Confirm your Password";
+"rightPasswordFormatDescription" = "Password Filed is Empty or Doesn't Contain at least 1 Alphabet, 1 Number and 1 Special Character and Minimum 8 characters.";
+"disMatchedPassword" = "Password field isn't Match";
 "invalidE-mailFormat" = "Invalid E-mail Format";
 "rightPhoneNumberFormatDescription" = "The Entered Number Doesn't Start with 010,011,012 or 015 with Max 11 Numbers at All";
 "pleaseEnterDetails" = "Details Field is Empty, Please Write your Details";
 "successfulRequest" = "Successful Request";
-"nurseSuccessRequestMessage" = "Your Request has been Sent Successfully";
+"successRequestMessage" = "Your Request has been Sent Successfully";
 "searchResult" = "Search Result";
 "sortBy" = "Sort By";
 "noSearchResult" = "No Search Result Found";
@@ -52,4 +57,19 @@
 "sideMenuShare" = "Share";
 "sideMenuTerms&Conditions" = "Terms & Conditions";
 "sideMenuLogouts" = "Logouts";
+//Auth
+"signUp" = "SIGN UP";
+"login" = "LOGIN";
+"resetPassword" = "RESET PASSWORD";
+"choosePasswordPlaceholder" = "Choose Password";
+"enterPasswordPlaceholder" = "Enter Password";
+"confirm PasswordPlaceholder" = "Confirm Password";
+"don't_HavePassword" = "Don't Have account?";
+"setNewPassword" = "Set New Password";
+"loginButton" = "Login";
+"signUpButton" = "Sign Up";
+"setNewPassword" = "Set New Password";
+"instructions" = "By clicking sign up, you agree to our ";
+"terms" = "Terms & Conditions";
+"forgot" = "Forgot Password?";
 

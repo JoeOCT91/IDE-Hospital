@@ -20,12 +20,14 @@ enum APIRouter:URLRequestConvertible {
     case nurseRequest(_ body:RequsetBodyData)
     case searchResultRequest(_ body:SearchResultBody)
     case addOrDeleteDoctorFromFavoriteList(_ doctorID:Int)
-    case login
+    case login(_ body:AuthBodyData)
+    case signUp(_ body:AuthBodyData)
+    case ResetPassword(_ body:AuthBodyData)
     
     //Mark:- HTTP Methods
     private var method: HTTPMethod {
         switch self {
-        case .login, .getCategories, .getFavories, .getCategory, .getAppointments,.searchResultRequest:
+        case .getCategories, .getFavories, .getCategory, .getAppointments,.searchResultRequest:
             return .get
         case .removeAppointment:
             return .delete
@@ -55,6 +57,12 @@ enum APIRouter:URLRequestConvertible {
             return URLs.appoitments + "/\(appointmentID)"
         case .addOrDeleteDoctorFromFavoriteList(let id):
             return URLs.favorites + "/\(id)" + "/add_remove"
+        case .login:
+            return URLs.login
+        case .signUp:
+            return URLs.register
+        case .ResetPassword:
+            return URLs.forgetPassword
         default:
             return ""
         }
@@ -108,6 +116,12 @@ enum APIRouter:URLRequestConvertible {
         let httpBody: Data? = {
             switch self {
             case.nurseRequest(let body):
+                return encodeToJSON(body)
+            case.login(let body):
+                return encodeToJSON(body)
+            case.signUp(let body):
+                return encodeToJSON(body)
+            case.ResetPassword(let body):
                 return encodeToJSON(body)
             default:
                 return nil
