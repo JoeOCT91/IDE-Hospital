@@ -10,6 +10,9 @@ protocol SideMenuVCProtocol: class {
     func editProfilePressed()
     func termsAndConditionsPressed()
     func favoritesPressed()
+    func logoutPressed()
+    func logoutSuccess()
+    func loginPressed()
 }
 
 class SideMenuVC: UIViewController {
@@ -21,6 +24,11 @@ class SideMenuVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         sideMenuView.setupTableView(delgate: self, dataSource: self)
+        configureNavigationBar()
+    }
+    private func configureNavigationBar(){
+        setupNavigationBar(backgroundColor: ColorName.darkRoyalBlue.color)
+        setViewControllerTitle(to: "SETTING", fontColor: ColorName.white.color)
     }
     
     // Public Methods
@@ -33,19 +41,37 @@ class SideMenuVC: UIViewController {
 }
 extension SideMenuVC: SideMenuVCProtocol {
     func editProfilePressed() {
-        
+        let alert = AlertVC()
+        presentAlertOnMainThread(alertVC: alert)
     }
+    
     func favoritesPressed() {
-        print("favoritesPressed")
         self.tabBarController?.selectedIndex = 1
+        self.navigationController?.popViewController(animated: false)
     }
     
     func bookedAppointmentsPressed() {
-        
+        let appointmentsVC = AppointmentsVC.create()
+        navigationController?.pushViewController(appointmentsVC, animated: true)
     }
+    
     func termsAndConditionsPressed(){
         let termsAndConditionsVC = TermsAndConditionsVC.create()
         navigationController?.pushViewController(termsAndConditionsVC, animated: true)
+    }
+    func logoutPressed(){
+        let alert = ConfirmationAlert(id: 0, message: "Are you sure to logout!")
+        alert.delgate = self
+        presentAlertOnMainThread(alertVC: alert)
+    }
+    
+    func logoutSuccess(){
+        self.dismiss(animated: true)
+    }
+    
+    func loginPressed(){
+        let signinVC = SignInVC.create()
+        navigationController?.pushViewController(signinVC, animated: true)
     }
     
 }
@@ -67,4 +93,12 @@ extension SideMenuVC: UITableViewDelegate, UITableViewDataSource {
         print( cell.tag)
         viewModel.navigateTo(index: cell.tag)
     }
+}
+
+extension SideMenuVC: ConfirmationAlertDelgate {
+    func confirmPressed(id: Int) {
+        viewModel.logout()
+    }
+    
+    
 }

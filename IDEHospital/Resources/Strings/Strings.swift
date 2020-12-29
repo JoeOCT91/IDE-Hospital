@@ -130,6 +130,8 @@ internal enum L10n {
   internal static let sideMenuEditProfile = L10n.tr("Localizable", "sideMenuEditProfile")
   /// Favourites
   internal static let sideMenuFavourites = L10n.tr("Localizable", "sideMenuFavourites")
+  /// Login
+  internal static let sideMenuLogin = L10n.tr("Localizable", "sideMenuLogin")
   /// Logouts
   internal static let sideMenuLogouts = L10n.tr("Localizable", "sideMenuLogouts")
   /// Share

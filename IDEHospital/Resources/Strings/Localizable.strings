@@ -57,6 +57,7 @@
 "sideMenuShare" = "Share";
 "sideMenuTerms&Conditions" = "Terms & Conditions";
 "sideMenuLogouts" = "Logouts";
+"sideMenuLogin" = "Login";
 //Auth
 "signUp" = "SIGN UP";
 "login" = "LOGIN";

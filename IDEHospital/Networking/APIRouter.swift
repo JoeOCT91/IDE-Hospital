@@ -23,11 +23,12 @@ enum APIRouter:URLRequestConvertible {
     case login(_ body:AuthBodyData)
     case signUp(_ body:AuthBodyData)
     case ResetPassword(_ body:AuthBodyData)
+    case logout
     
     //Mark:- HTTP Methods
     private var method: HTTPMethod {
         switch self {
-        case .getCategories, .getFavories, .getCategory, .getAppointments,.searchResultRequest:
+        case .getCategories, .getFavories, .getCategory, .getAppointments, .searchResultRequest:
             return .get
         case .removeAppointment:
             return .delete
@@ -63,6 +64,8 @@ enum APIRouter:URLRequestConvertible {
             return URLs.register
         case .ResetPassword:
             return URLs.forgetPassword
+        case .logout:
+            return URLs.logout
         default:
             return ""
         }
@@ -104,6 +107,8 @@ enum APIRouter:URLRequestConvertible {
         //Http Headers
         switch self {
         case .getFavories, .getAppointments, .removeFavorite, .removeAppointment,.searchResultRequest(_),.addOrDeleteDoctorFromFavoriteList:
+            urlRequest.setValue(UserDefaultsManager.shared().token, forHTTPHeaderField: HeaderKeys.authorization)
+        case .logout:
             urlRequest.setValue(UserDefaultsManager.shared().token, forHTTPHeaderField: HeaderKeys.authorization)
         default:
             break

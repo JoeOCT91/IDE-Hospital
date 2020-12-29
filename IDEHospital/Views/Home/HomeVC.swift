@@ -35,12 +35,14 @@ class HomeVC: UIViewController {
         homeView.setupCollectionView(delgate: self, dataSource: self)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        configureNavigationBar()
+    }
+    
     //MARK:- Private Methods
     private func configureNavigationBar() {
-        //navigationController?.setViewControllerTitle(to: L10n.chooseServices, fontColor: UIColor(named: ColorName.white))
         self.setupNavigationBar()
         self.setViewControllerTitle(to: L10n.chooseServices, fontColor: .white)
-        
     }
     
     // MARK:- Public Methods
@@ -62,21 +64,16 @@ extension HomeVC: HomeVCProtocol {
     
     
     func goChooseServicesScreen(celTag:Int) {
-//        let tabBarController = SupplierTabBarVC()
-//        tabBarController.modalPresentationStyle = .fullScreen
-//        tabBarController.categoryID = celTag
-//        self.present(tabBarController, animated: true)
-        let signUP = SignUpVC.create()
-                signUP.modalPresentationStyle = .fullScreen
-               self.navigationController?.pushViewController(signUP, animated: true)
+        let tabBarController = SupplierTabBarVC()
+        tabBarController.modalPresentationStyle = .fullScreen
+        tabBarController.categoryID = celTag
+        self.present(tabBarController, animated: true)
     }
+    
     func goToNurseScreen() {
-//      let nurseVC = NurseVC.create()
-//      nurseVC.modalPresentationStyle = .fullScreen
-//      self.navigationController?.pushViewController(nurseVC, animated: true)
-        let signIn = SignInVC.create()
-        signIn.modalPresentationStyle = .fullScreen
-        self.navigationController?.pushViewController(signIn, animated: true)
+      let nurseVC = NurseVC.create()
+      nurseVC.modalPresentationStyle = .fullScreen
+      self.navigationController?.pushViewController(nurseVC, animated: true)
     }
     
     internal func reloadData() {

@@ -58,6 +58,7 @@ struct URLs {
     static let forgetPassword = "forget_password"
     static let register = "register"
     static let login = "login"
+    static let logout = "logout"
 }
 
 // Header Keys

@@ -10,6 +10,7 @@ protocol SideMenuVMProtocol: class {
     func getMenuItemsCount() -> Int
     func getMenuItem(index: Int) -> SideMenuItem
     func navigateTo(index: Int)
+    func logout()
 }
 
 class SideMenuVM: SideMenuVMProtocol {
@@ -34,8 +35,10 @@ class SideMenuVM: SideMenuVMProtocol {
     }
     
     func navigateTo(index: Int){
+        print(UserDefaultsManager.shared().token)
         if UserDefaultsManager.shared().token == nil {
             navigateToWhenMain(index: index)
+            print("here")
         } else {
             navigateToWhenAuth(index: index)
         }
@@ -45,8 +48,12 @@ class SideMenuVM: SideMenuVMProtocol {
         switch index {
         case 0:
             view?.editProfilePressed()
+        case 1:
+            view?.favoritesPressed()
         case 6:
             view?.termsAndConditionsPressed()
+        case 7:
+            view?.logoutPressed()
         default:
             return
         }
@@ -55,13 +62,32 @@ class SideMenuVM: SideMenuVMProtocol {
     private func navigateToWhenMain(index: Int){
         switch index {
         case 0:
-            view?.editProfilePressed()
+            view?.loginPressed()
         case 1:
+            view?.editProfilePressed()
+        case 2:
+            view?.editProfilePressed()
+        case 3:
             view?.favoritesPressed()
-        case 6:
+        case 4:
             view?.termsAndConditionsPressed()
         default:
             return
+        }
+    }
+    
+    func logout(){
+        if UserDefaultsManager.shared().token == nil { return }
+        APIManager.logoutRequest { [weak self] (result) in
+            guard let self = self else { return }
+            switch result {
+            case.success:
+                UserDefaultsManager.shared().token = nil
+                Authorization.authValue = ""
+                self.view?.logoutSuccess()
+            case .failure(let error):
+                print(error)
+            }
         }
     }
 }
