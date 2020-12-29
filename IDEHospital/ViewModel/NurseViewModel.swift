@@ -17,25 +17,25 @@ class NurseViewModel {
     }
     // MARK:- Private Functions
     private func sendNurseRequestAPI(body:RequsetBodyData){
-           self.view.showLoader()
+        self.view.showLoader()
         APIManager.sendNurseRequestAPI(body: body){(response) in
-              switch response{
-              case .failure(let error):
+            switch response{
+            case .failure(let error):
                 self.view.presentError(title: L10n.sorry, message: error.localizedDescription)
-                  print(error.localizedDescription)
-               case .success(let result):
+                print(error.localizedDescription)
+            case .success(let result):
                 print(result.code)
                 if result.code == 202 {
                     self.view.presentSuccessAlert(title: L10n.successfulRequest, message: L10n.successRequestMessage)
                 }
-             }
-               self.view.hideLoader()
-          }
-     }
+            }
+            self.view.hideLoader()
+        }
+    }
 }
 extension NurseViewModel:NurseViewModelProtocol{
     
-       func nurseRequest(name:String?, email:String?, phoneNumber:String?, details:String?){
+    func nurseRequest(name:String?, email:String?, phoneNumber:String?, details:String?){
         guard !name!.isEmpty else{
             self.view.presentError(title: L10n.sorry, message: L10n.pleaseEnterName)
             return
