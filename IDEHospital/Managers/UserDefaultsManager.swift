@@ -20,7 +20,7 @@ class UserDefaultsManager {
     // MARK:- Properties
     var token: String? {
         set {
-            UserDefaults.standard.set(newValue, forKey: UserDefaultsKeys.token)
+            UserDefaults.standard.set("Bearer \(newValue)", forKey: UserDefaultsKeys.token)
         }
         get {
             guard UserDefaults.standard.object(forKey: UserDefaultsKeys.token) != nil else {

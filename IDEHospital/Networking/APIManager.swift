@@ -108,7 +108,7 @@ extension APIManager{
 //                print(str)
             }
         }.responseJSON { response in
-            //print(response)
+            print(response)
         }
     }
 }

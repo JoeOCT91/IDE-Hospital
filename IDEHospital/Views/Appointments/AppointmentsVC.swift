@@ -21,7 +21,7 @@ class AppointmentsVC: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(UserDefaultsManager.shared().token)
         appointmentsView.setup()
         self.setupNavigationBar()
         self.setViewControllerTitle(to: L10n.myAppointment, fontColor: .white)

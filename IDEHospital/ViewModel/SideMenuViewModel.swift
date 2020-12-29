@@ -81,7 +81,8 @@ class SideMenuVM: SideMenuVMProtocol {
         APIManager.logoutRequest { [weak self] (result) in
             guard let self = self else { return }
             switch result {
-            case.success:
+            case.success(let result):
+                print(result)
                 UserDefaultsManager.shared().token = nil
                 Authorization.authValue = ""
                 self.view?.logoutSuccess()

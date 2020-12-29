@@ -148,7 +148,7 @@ enum APIRouter:URLRequestConvertible {
         // Encoding
         //let encoding: ParameterEncoding = JSONEncoding.default
         
-        //print(try encoding.encode(urlRequest, with: parameters))
+        print(try encoding.encode(urlRequest, with: parameters))
         return try encoding.encode(urlRequest, with: parameters)
     }
 }

@@ -23,9 +23,15 @@ class SideMenuVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(UserDefaultsManager.shared().token)
         sideMenuView.setupTableView(delgate: self, dataSource: self)
         configureNavigationBar()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        sideMenuView.sideMenuTableView.reloadData()
+    }
+    
     private func configureNavigationBar(){
         setupNavigationBar(backgroundColor: ColorName.darkRoyalBlue.color)
         setViewControllerTitle(to: "SETTING", fontColor: ColorName.white.color)
