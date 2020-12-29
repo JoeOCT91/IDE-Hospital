@@ -38,7 +38,7 @@ class SignUpVC: UIViewController {
     }
     
     @IBAction func termsAndConditionsButtonPressed(_ sender: Any) {
-        //MARK:- Open Terms&Conditions VC
+        //TODO:- Open Terms&Conditions VC
     }
     
 }

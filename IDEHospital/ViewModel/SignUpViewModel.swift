@@ -17,37 +17,34 @@ class SignUpViewModel {
     }
     
     
-     // MARK:- Private Functions
-        private func sendRegisterRequestAPI(body:AuthBodyData){
-               self.view.showLoader()
-            APIManager.sendRegisterRequestAPI(body: body){(response) in
-                  switch response{
-                  case .failure(let error):
-                    print("no non")
-                    print(error.localizedDescription)
-                    self.view.presentError(title: L10n.sorry, message: error.localizedDescription)
-                   case .success(let result):
-                    if result.code == 201{
-                        print(result.data)
-                        //UserDefaultsManager.shared().token = result.data.access_token
-                        self.view.presentSuccessAlert(title: L10n.successfulRequest, message: L10n.successRequestMessage)
-                        print("yes yes")
-                    }
-                    else{
-                        print("Nn email")
-                        self.view.presentError(title: L10n.sorry, message: result.errors?.email?[0] ?? "")
-                    }
-                 }
-                   self.view.hideLoader()
-              }
-         }
+    // MARK:- Private Functions
+    private func sendRegisterRequestAPI(body:AuthBodyData){
+        self.view.showLoader()
+        APIManager.sendRegisterRequestAPI(body: body){(response) in
+            switch response{
+            case .failure(let error):
+                print(error.localizedDescription)
+                self.view.presentError(title: L10n.sorry, message: error.localizedDescription)
+            case .success(let result):
+                if result.code == 201{
+                    print(result.data)
+                    UserDefaultsManager.shared().token = result.data?.access_token
+                    self.view.presentSuccessAlert(title: L10n.successfulRequest, message: L10n.successRequestMessage)
+                }
+                else{
+                    self.view.presentError(title: L10n.sorry, message: result.errors?.email?[0] ?? "")
+                }
+            }
+            self.view.hideLoader()
+        }
+    }
 }
 extension SignUpViewModel:SignUpViewModelProtocol{
     func signUpRequest(name: String?, email: String?, mobile: String?, password: String?, confirmPassword: String?) {
         
         guard !name!.isEmpty else{
-             self.view.presentError(title: L10n.sorry, message: L10n.pleaseEnterName)
-             return
+            self.view.presentError(title: L10n.sorry, message: L10n.pleaseEnterName)
+            return
         }
         guard name!.count > 3 else{
             self.view.presentError(title: L10n.sorry, message: L10n.nameFieldCountIsSmall)
