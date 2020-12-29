@@ -13,7 +13,7 @@ protocol ResetPasswordVCProtocol: class {
         func hideLoader()
 }
 class ResetPasswordVC: UIViewController {
-    @IBOutlet var resetPasswordView: ResetPasswordView!
+    @IBOutlet weak var resetPasswordView: ResetPasswordView!
     
     private var viewModel:ResetPasswordViewModelProtocol!
     override func viewDidLoad() {

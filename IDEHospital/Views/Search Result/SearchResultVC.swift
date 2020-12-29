@@ -16,7 +16,7 @@ protocol SearchResultVCProtocol: class {
 }
 class SearchResultVC: UIViewController {
 
-    @IBOutlet var searchResultView: SearchResultView!
+    @IBOutlet weak var searchResultView: SearchResultView!
     private var viewModel:SearchResultViewModelProtocol!
     override func viewDidLoad() {
         super.viewDidLoad()

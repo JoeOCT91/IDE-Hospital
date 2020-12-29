@@ -15,7 +15,7 @@ protocol NurseVCProtocol: class {
 
 class NurseVC: UIViewController {
 
-    @IBOutlet var nurseView: NurseView!
+    @IBOutlet weak var nurseView: NurseView!
     private var viewModel:NurseViewModelProtocol!
     override func viewDidLoad() {
         super.viewDidLoad()

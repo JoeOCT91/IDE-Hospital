@@ -15,7 +15,7 @@ protocol SignUpVCProtocol: class {
 class SignUpVC: UIViewController {
 
     private var viewModel:SignUpViewModelProtocol!
-    @IBOutlet var signUpView: SignUpView!
+    @IBOutlet weak var signUpView: SignUpView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
