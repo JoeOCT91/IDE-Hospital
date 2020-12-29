@@ -14,8 +14,8 @@ protocol NurseVCProtocol: class {
 }
 
 class NurseVC: UIViewController {
-
-    @IBOutlet var nurseView: NurseView!
+    
+    @IBOutlet weak var nurseView: NurseView!
     private var viewModel:NurseViewModelProtocol!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,7 @@ class NurseVC: UIViewController {
         self.setViewControllerTitle(to: L10n.homeNurse, fontColor: .white)
         self.setUpButtonsInPushedNavigationBar()
     }
-
+    
     // MARK:- Public Methods
     class func create() -> NurseVC {
         let nurseVC: NurseVC = UIViewController.create(storyboardName: Storyboards.nurse, identifier: ViewControllers.nurseVC)
@@ -42,12 +42,12 @@ extension NurseVC:NurseVCProtocol{
         self.showSuccessfulAlert(title: title, message: message)
     }
     func presentError(title:String,message: String) {
-           self.showAlert(title: title, message: message)
+        self.showAlert(title: title, message: message)
     }
     func showLoader() {
-           self.view.showLoader()
+        self.view.showLoader()
     }
     func hideLoader() {
-           self.view.hideLoader()
+        self.view.hideLoader()
     }
 }

@@ -67,6 +67,26 @@ class APIManager {
         }
     }
     
+    // Login Request
+    class func sendLoginRequestAPI(body:AuthBodyData , completion:@escaping (Result<LoginResponse,Error>)-> ()){
+        request(APIRouter.login(body)){ (response) in
+               completion(response)
+           }
+       }
+    // Register Request
+    class func sendRegisterRequestAPI(body:AuthBodyData ,completion: @escaping (Result<SignUpResponse, Error>)-> ()){
+        request(APIRouter.signUp(body)){ (response) in
+               completion(response)
+           }
+       }
+    
+    // Reset Password Request
+    class func sendResetPasswordRequestAPI(body:AuthBodyData ,completion: @escaping (Result<ResetPasswordResponse, Error>)-> ()){
+        request(APIRouter.ResetPassword(body)){ (response) in
+               completion(response)
+           }
+       }
+    
 }
 extension APIManager{
     // MARK:- The request function to get results in a closure
