@@ -9,26 +9,26 @@ import UIKit
 
 protocol SignInVCProtocol:class {
     func presentSuccessAlert(title:String, message:String)
-     func presentError(title:String,message: String)
-     func showLoader()
-     func hideLoader()
+    func presentError(title:String,message: String)
+    func showLoader()
+    func hideLoader()
 }
 class SignInVC: UIViewController {
-
+    
     @IBOutlet weak var signInView: SignInView!
     private var viewModel:SignInViewModelProtocol!
     override func viewDidLoad() {
         super.viewDidLoad()
-         signInView.setUp()
-         self.setupNavigationBar()
+        signInView.setUp()
+        self.setupNavigationBar()
         self.setViewControllerTitle(to: L10n.login, fontColor: .white)
-         self.setUpButtonsInPushedNavigationBar()
+        self.setUpButtonsInPushedNavigationBar()
     }
     // MARK:- Public Methods
-     class func create() -> SignInVC {
+    class func create() -> SignInVC {
         let signInVC: SignInVC = UIViewController.create(storyboardName: Storyboards.authentication, identifier: ViewControllers.signInVC)
-            signInVC.viewModel = SignInViewModel(view: signInVC)
-                return signInVC
+        signInVC.viewModel = SignInViewModel(view: signInVC)
+        return signInVC
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
@@ -43,23 +43,21 @@ class SignInVC: UIViewController {
     
     @IBAction func signUpButtonPressed(_ sender: Any) {
         let signUpVC = SignUpVC.create()
-            signUpVC.modalPresentationStyle = .fullScreen
-           self.navigationController?.pushViewController(signUpVC, animated: true)
+        signUpVC.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(signUpVC, animated: true)
     }
-    
-    
 }
 extension SignInVC:SignInVCProtocol{
     func presentSuccessAlert(title: String, message: String) {
-             self.showSuccessfulAlert(title: title, message: message)
-         }
-         func presentError(title:String,message: String) {
-                self.showAlert(title: title, message: message)
-         }
-         func showLoader() {
-                self.view.showLoader()
-         }
-         func hideLoader() {
-                self.view.hideLoader()
-         }
+        self.showSuccessfulAlert(title: title, message: message)
+    }
+    func presentError(title:String,message: String) {
+        self.showAlert(title: title, message: message)
+    }
+    func showLoader() {
+        self.view.showLoader()
+    }
+    func hideLoader() {
+        self.view.hideLoader()
+    }
 }

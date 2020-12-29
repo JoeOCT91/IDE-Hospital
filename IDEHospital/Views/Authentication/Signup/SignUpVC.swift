@@ -8,12 +8,12 @@
 import UIKit
 protocol SignUpVCProtocol: class {
     func presentSuccessAlert(title:String, message:String)
-     func presentError(title:String,message: String)
-     func showLoader()
-     func hideLoader()
+    func presentError(title:String,message: String)
+    func showLoader()
+    func hideLoader()
 }
 class SignUpVC: UIViewController {
-
+    
     private var viewModel:SignUpViewModelProtocol!
     @IBOutlet weak var signUpView: SignUpView!
     
@@ -26,11 +26,11 @@ class SignUpVC: UIViewController {
     }
     
     // MARK:- Public Methods
-      class func create() -> SignUpVC {
+    class func create() -> SignUpVC {
         let signUpVC: SignUpVC = UIViewController.create(storyboardName: Storyboards.authentication, identifier: ViewControllers.signUpVC)
-            signUpVC.viewModel = SignUpViewModel(view: signUpVC)
-             return signUpVC
-      }
+        signUpVC.viewModel = SignUpViewModel(view: signUpVC)
+        return signUpVC
+    }
     
     // MARK:- To SignUp
     @IBAction func signUpButtonPressed(_ sender: Any) {
@@ -44,16 +44,16 @@ class SignUpVC: UIViewController {
 }
 extension SignUpVC:SignUpVCProtocol{
     
-      func presentSuccessAlert(title: String, message: String) {
-          self.showSuccessfulAlert(title: title, message: message)
-      }
-      func presentError(title:String,message: String) {
-             self.showAlert(title: title, message: message)
-      }
-      func showLoader() {
-             self.view.showLoader()
-      }
-      func hideLoader() {
-             self.view.hideLoader()
-      }
+    func presentSuccessAlert(title: String, message: String) {
+        self.showSuccessfulAlert(title: title, message: message)
+    }
+    func presentError(title:String,message: String) {
+        self.showAlert(title: title, message: message)
+    }
+    func showLoader() {
+        self.view.showLoader()
+    }
+    func hideLoader() {
+        self.view.hideLoader()
+    }
 }
