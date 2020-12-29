@@ -47,7 +47,7 @@ extension SideMenuVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! SideMenuCell
-        let sideMenuViewController = UIViewController()
+        let sideMenuViewController = viewModel.getController()
         navigationController?.pushViewController(sideMenuViewController, animated: true)
     }
 }

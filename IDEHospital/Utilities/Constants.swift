@@ -39,6 +39,7 @@ struct ViewControllers {
     static let searchResultCell = "SearchResultCell"
     static let appointmentsVC = "AppointmentsVC"
     static let sideMenu = "SideMenuVC"
+    static let termsAndConditionsVC = "TermsAndConditionsVC"
 }
 
 // Urls
