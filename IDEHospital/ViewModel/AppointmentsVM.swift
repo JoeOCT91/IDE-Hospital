@@ -35,23 +35,25 @@ class AppointmentsVM<T: AppointmentsVCProtocol>: ViewModelWithPagination<T>, App
     }
     
     func getData(){
-        view?.showLoader()
-        APIManager.getAppointments(page: page) { [weak self] (result) in
-            guard let self = self else { return }
-            switch result {
-            case .success(let appoinmentsData):
-                self.dataList.append(contentsOf: appoinmentsData.data.appointments)
-                self.page += 1
-                self.isHasMorePages(pagesCount: appoinmentsData.data.page)
-                self.view?.reloadTableview()
-                self.view?.hideLoader()
-                print(self.dataList.count)
-            case .failure(let error):
-                self.view?.hideLoader()
-                print(error)
+        if UserDefaultsManager.shared().token != nil {
+            view?.showLoader()
+            APIManager.getAppointments(page: page) { [weak self] (result) in
+                guard let self = self else { return }
+                switch result {
+                case .success(let appoinmentsData):
+                    self.dataList.append(contentsOf: appoinmentsData.data.appointments)
+                    self.page += 1
+                    self.isHasMorePages(pagesCount: appoinmentsData.data.page)
+                    self.view?.reloadTableview()
+                    self.view?.hideLoader()
+                    print(self.dataList.count)
+                case .failure(let error):
+                    self.view?.hideLoader()
+                    print(error)
+                }
             }
         }
-    }
+}
     
     func getDoctorImage(indexPath: IndexPath){
         guard let urlString = (dataList[indexPath.row] as? Appointment )?.doctor.image else { return }

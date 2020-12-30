@@ -14,6 +14,7 @@ protocol HomeVCProtocol: class {
     func setCellData(title: String, color: String, image: Data, ID:Int,indexPath: IndexPath)
     func goToNurseScreen()
     func goChooseServicesScreen(celTag:Int)
+    func goTest()
 }
 
 class HomeVC: UIViewController {
@@ -34,12 +35,14 @@ class HomeVC: UIViewController {
         homeView.setupCollectionView(delgate: self, dataSource: self)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        configureNavigationBar()
+    }
+    
     //MARK:- Private Methods
     private func configureNavigationBar() {
-        //navigationController?.setViewControllerTitle(to: L10n.chooseServices, fontColor: UIColor(named: ColorName.white))
         self.setupNavigationBar()
         self.setViewControllerTitle(to: L10n.chooseServices, fontColor: .white)
-        
     }
     
     // MARK:- Public Methods
@@ -49,27 +52,46 @@ class HomeVC: UIViewController {
         homeVC.viewModel = viewModel
         return homeVC
     }
-
+    
 }
 
 extension HomeVC: HomeVCProtocol {
+    func goTest() {
+        //        let resetPass = ResetPasswordVC.create()
+        //         resetPass.modalPresentationStyle = .fullScreen
+        //        self.navigationController?.pushViewController(resetPass, animated: true)
+        let contactUsVC = ContactUsVC.create()
+        contactUsVC.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(contactUsVC, animated: true)
+        
+    }
+    
     
     func goChooseServicesScreen(celTag:Int) {
-        let tabBarController = SupplierTabBarVC()
-        tabBarController.modalPresentationStyle = .fullScreen
-        tabBarController.categoryID = celTag
-        self.present(tabBarController, animated: true)
+        //        let tabBarController = SupplierTabBarVC()
+        //        tabBarController.modalPresentationStyle = .fullScreen
+        //        tabBarController.categoryID = celTag
+        //        self.present(tabBarController, animated: true)
+        let aboutVC = AboutVC.create()
+        aboutVC.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(aboutVC, animated: true)
+        
     }
+    
     func goToNurseScreen() {
-      let nurseVC = NurseVC.create()
-      nurseVC.modalPresentationStyle = .fullScreen
-      self.navigationController?.pushViewController(nurseVC, animated: true)
+        //      let nurseVC = NurseVC.create()
+        //      nurseVC.modalPresentationStyle = .fullScreen
+        //      self.navigationController?.pushViewController(nurseVC, animated: true)
+        let termsVC = TermsAndConditionsVC.create()
+        termsVC.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(termsVC, animated: true)
+        
     }
     
     internal func reloadData() {
         homeView.collectionView.reloadData()
     }
-
+    
     internal func showLoader() {
         view.showLoader()
     }
@@ -94,7 +116,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! CategoryCell
         //Cell tag hold category ID to use when navigate to others controllers
-         print(cell.tag)
+        print(cell.tag)
         viewModel.determineWhichVCToOpen(tag: cell.tag)
     }
     
@@ -104,5 +126,5 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.tag = ID
         cell.setupCell(title: title, color: color , image: image)
     }
-  
+    
 }

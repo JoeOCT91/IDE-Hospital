@@ -67,6 +67,49 @@ class APIManager {
         }
     }
     
+    // Login Request
+    class func sendLoginRequestAPI(body:AuthBodyData , completion:@escaping (Result<LoginResponse,Error>)-> ()){
+        request(APIRouter.login(body)){ (response) in
+               completion(response)
+           }
+       }
+    // Register Request
+    class func sendRegisterRequestAPI(body:AuthBodyData ,completion: @escaping (Result<SignUpResponse, Error>)-> ()){
+        request(APIRouter.signUp(body)){ (response) in
+               completion(response)
+           }
+       }
+    
+    // Reset Password Request
+    class func sendResetPasswordRequestAPI(body:AuthBodyData ,completion: @escaping (Result<ResetPasswordResponse, Error>)-> ()){
+        request(APIRouter.ResetPassword(body)){ (response) in
+               completion(response)
+           }
+       }
+    // Logout request
+    class func logoutRequest(complation: @escaping (Result<DeleteResponse, Error>) -> () ) {
+        request(APIRouter.logout) { (response) in
+            complation(response)
+        }
+    }
+    // ContactUs Request
+       class func sendContactUsRequestAPI(body:RequsetBodyData ,completion: @escaping (Result<ContactUsResponse, Error>)-> ()){
+        request(APIRouter.contacutUsRequest(body)){ (response) in
+                  completion(response)
+              }
+          }
+    // About Request
+          class func sendAboutRequestAPI(completion: @escaping (Result<AboutResponse, Error>)-> ()){
+            request(APIRouter.getAbout){ (response) in
+                     completion(response)
+                 }
+             }
+    // Terms Request
+          class func sendTermsRequestAPI(completion: @escaping (Result<TermsResponse, Error>)-> ()){
+            request(APIRouter.getTerms){ (response) in
+                     completion(response)
+                 }
+             }
 }
 extension APIManager{
     // MARK:- The request function to get results in a closure
@@ -82,7 +125,7 @@ extension APIManager{
 //                print(str)
             }
         }.responseJSON { response in
-            //print(response)
+            print(response)
         }
     }
 }

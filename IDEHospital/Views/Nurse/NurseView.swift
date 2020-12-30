@@ -33,6 +33,9 @@ class NurseView: UIView {
         // Last Button in View
         setUpButton(button: sendRequestButton, buttonTitle: L10n.sendRequest, backgroundImageName: Asset.buttonBar.image, FontName: FontFamily.PTSans.bold, fontSize: 20)
     }
+    
+}
+extension NurseView{
     private func setUpLabel(label:UILabel, labelText:String, fontName:FontConvertible, fontSize:CGFloat, fontColor:UIColor) {
         label.font = UIFont(font: fontName, size: fontSize)
         label.numberOfLines = 2
@@ -42,23 +45,23 @@ class NurseView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = labelText
         label.textColor = fontColor
-      }
-      
+    }
+    
     private func setUpTextFiled(textFiled:IDEAHopitalTextField,textValue:String, placeholder:String, imageName:UIImage, numbersPad:Bool, emailPad:Bool) {
         self.layoutIfNeeded()
         textFiled.setup(leftImage: imageName, placeholder: placeholder)
         textFiled.text = textValue
-       textFiled.createBottomLine()
+        textFiled.createBottomLine()
         if numbersPad{
             textFiled.keyboardType = .phonePad
         }
         if emailPad{
             textFiled.keyboardType = .emailAddress
         }
-      }
+    }
     
     private func setUpTextArea(textView:UITextView,textValue:String) {
-
+        
         textView.text = textValue
         textView.font = UIFont(font: FontFamily.PTSans.bold, size: 15)
         textView.textColor = .white
@@ -74,5 +77,5 @@ class NurseView: UIView {
         button.setTitleColor(UIColor.white, for: .normal)
         button.setTitle(buttonTitle, for: .normal)
         button.titleLabel?.font = UIFont(font: FontName, size: fontSize)
-       }
+    }
 }

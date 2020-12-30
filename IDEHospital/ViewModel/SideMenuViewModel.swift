@@ -4,65 +4,16 @@
 //
 //  Created by Yousef Mohamed on 28/12/2020.
 //
+import UIKit
 
-struct SideMenuItem {
-    var title: String
-    var image: String
-}
-
-struct SidemenuItems {
-    
-    static var shared = SidemenuItems()
-    
-    private init(){}
-    
-    enum SideMenuErrors: String, Error {
-        case outOfRange = "Index is Out of Range"
-        case isEmpty = "There is no data to be showen"
-    }
-    
-    private var authArr = [
-        SideMenuItem(title: L10n.sideMenuEditProfile, image: Asset.sideMenuUser.name),
-        SideMenuItem(title: L10n.sideMenuFavourites, image: Asset.sideMenuHeart.name),
-        SideMenuItem(title: L10n.sideMenuBookedAppointments, image: Asset.sideMenuCalendar.name),
-        SideMenuItem(title: L10n.sideMenuAboutUs, image: Asset.sideMenuAbout.name),
-        SideMenuItem(title: L10n.sideMenuContactUs, image: Asset.sideMenuContact.name),
-        SideMenuItem(title: L10n.sideMenuShare, image: Asset.sideMenuShare.name),
-        SideMenuItem(title: L10n.sideMenuTermsConditions, image: Asset.sideMenuSheet.name),
-        SideMenuItem(title: L10n.sideMenuLogouts, image: Asset.sideMenuLogin.name)]
-    
-    private var normallArr = [SideMenuItem]()
-    
-    func getMenuItem(index: Int) throws -> SideMenuItem {
-        if UserDefaultsManager.shared().token == nil {
-            if normallArr.isEmpty { throw SideMenuErrors.isEmpty}
-            if normallArr.count < index { throw SideMenuErrors.outOfRange }
-            return normallArr[index]
-        } else {
-            if authArr.isEmpty { throw SideMenuErrors.isEmpty}
-            if authArr.count < index { throw SideMenuErrors.outOfRange }
-            return authArr[index]
-        }
-    }
-    
-    func getCount() -> Int {
-        if UserDefaultsManager.shared().token == nil {
-            return normallArr.count
-        } else {
-            return authArr.count
-        }
-    }
-
-}
-
-import Foundation
 protocol SideMenuVMProtocol: class {
     func getMenuItemsCount() -> Int
     func getMenuItem(index: Int) -> SideMenuItem
+    func navigateTo(index: Int)
+    func logout()
 }
 
 class SideMenuVM: SideMenuVMProtocol {
-    
     private weak var view: SideMenuVCProtocol?
     
     init(view: SideMenuVCProtocol) {
@@ -83,5 +34,61 @@ class SideMenuVM: SideMenuVMProtocol {
         return SidemenuItems.shared.getCount()
     }
     
+    func navigateTo(index: Int){
+        print(UserDefaultsManager.shared().token)
+        if UserDefaultsManager.shared().token == nil {
+            navigateToWhenMain(index: index)
+            print("here")
+        } else {
+            navigateToWhenAuth(index: index)
+        }
+    }
     
+    private func navigateToWhenAuth(index: Int){
+        switch index {
+        case 0:
+            view?.editProfilePressed()
+        case 1:
+            view?.favoritesPressed()
+        case 6:
+            view?.termsAndConditionsPressed()
+        case 7:
+            view?.logoutPressed()
+        default:
+            return
+        }
+    }
+    
+    private func navigateToWhenMain(index: Int){
+        switch index {
+        case 0:
+            view?.loginPressed()
+        case 1:
+            view?.editProfilePressed()
+        case 2:
+            view?.editProfilePressed()
+        case 3:
+            view?.favoritesPressed()
+        case 4:
+            view?.termsAndConditionsPressed()
+        default:
+            return
+        }
+    }
+    
+    func logout(){
+        if UserDefaultsManager.shared().token == nil { return }
+        APIManager.logoutRequest { [weak self] (result) in
+            guard let self = self else { return }
+            switch result {
+            case.success(let result):
+                print(result)
+                UserDefaultsManager.shared().token = nil
+                Authorization.authValue = ""
+                self.view?.logoutSuccess()
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }

@@ -15,8 +15,8 @@ protocol SearchResultVCProtocol: class {
     func showEmptyDataLabel()
 }
 class SearchResultVC: UIViewController {
-
-    @IBOutlet var searchResultView: SearchResultView!
+    
+    @IBOutlet weak var searchResultView: SearchResultView!
     private var viewModel:SearchResultViewModelProtocol!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ class SearchResultVC: UIViewController {
         self.setUpSearchResultTable()
     }
     override func viewWillAppear(_ animated: Bool) {
-          self.viewModel.sendSearchResultRequestAPI()
+        self.viewModel.sendSearchResultRequestAPI()
     }
     override func viewWillDisappear(_ animated: Bool) {
         viewModel.loadFirstPage()
@@ -36,7 +36,7 @@ class SearchResultVC: UIViewController {
     class func create(doctorsData:SearchResultBody) -> SearchResultVC {
         let searchResultVC: SearchResultVC = UIViewController.create(storyboardName: Storyboards.search, identifier: ViewControllers.searchResult)
         searchResultVC.viewModel = SearchResultViewModel(view: searchResultVC, doctorsData: doctorsData)
-           return searchResultVC
+        return searchResultVC
     }
     // MARK:- Private Methods
     private func setUpSearchResultTable() {
@@ -46,8 +46,8 @@ class SearchResultVC: UIViewController {
     }
     
     @objc private func donePressed(_ sender:UIBarButtonItem){
-            viewModel.itemSelected(tag: sender.tag, row: searchResultView.pickerView.selectedRow(inComponent: 0))
-
+        viewModel.itemSelected(tag: sender.tag, row: searchResultView.pickerView.selectedRow(inComponent: 0))
+        
     }
 }
 extension SearchResultVC:SearchResultVCProtocol{
@@ -92,7 +92,7 @@ extension SearchResultVC: UITableViewDelegate, UITableViewDataSource , sendDocto
         guard let cell = self.searchResultView.searchResultTableView.dequeueReusableCell(withIdentifier: L10n.cellIdentifire, for: indexPath) as? SearchResultCell else {
             return UITableViewCell()
         }
-       
+        
         cell.sendDoctorDelegate = self
         return viewModel.putDoctorItemsInTableView(cell: cell, indexPath: indexPath.row)
     }
@@ -103,7 +103,7 @@ extension SearchResultVC: UITableViewDelegate, UITableViewDataSource , sendDocto
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         // MARK:- to Send Current Row Number To Check Pagination
-         self.viewModel.checkPagination(indexPath: indexPath.row)
+        self.viewModel.checkPagination(indexPath: indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -112,7 +112,7 @@ extension SearchResultVC: UITableViewDelegate, UITableViewDataSource , sendDocto
 }
 
 extension SearchResultVC:UIPickerViewDelegate, UIPickerViewDataSource{
-  
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -126,9 +126,9 @@ extension SearchResultVC:UIPickerViewDelegate, UIPickerViewDataSource{
 
 extension SearchResultVC:UITextFieldDelegate{
     func textFieldDidBeginEditing(_ textField: UITextField) {
-             self.searchResultView.pickerView.delegate = self
-             self.searchResultView.pickerView.dataSource = self
-             self.searchResultView.pickerView.tag = textField.tag
-             textField.keyboardToolbar.doneBarButton.setTarget(self, action: #selector(donePressed(_:)))
-       }
+        self.searchResultView.pickerView.delegate = self
+        self.searchResultView.pickerView.dataSource = self
+        self.searchResultView.pickerView.tag = textField.tag
+        textField.keyboardToolbar.doneBarButton.setTarget(self, action: #selector(donePressed(_:)))
+    }
 }
