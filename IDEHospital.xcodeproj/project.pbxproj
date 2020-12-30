@@ -67,7 +67,6 @@
 		86398BC22582B4BE00C284B3 /* ColorsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86398BC12582B4BE00C284B3 /* ColorsManager.swift */; };
 		869D1FDC259A1CE900067BBC /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869D1FDB259A1CE900067BBC /* SideMenuVC.swift */; };
 		869D1FDF259A22CE00067BBC /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869D1FDE259A22CE00067BBC /* SideMenuView.swift */; };
-		869D1FE2259A231500067BBC /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 869D1FE1259A231500067BBC /* SideMenu.storyboard */; };
 		869D1FE5259A236C00067BBC /* SideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869D1FE4259A236C00067BBC /* SideMenuViewModel.swift */; };
 		869D1FF6259A561000067BBC /* SideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869D1FF5259A561000067BBC /* SideMenuCell.swift */; };
 		869D1FF9259A600000067BBC /* Anchor+Constrains.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869D1FF8259A600000067BBC /* Anchor+Constrains.swift */; };
@@ -123,6 +122,8 @@
 		B2D29555259CED570092C3E0 /* TermsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D29554259CED570092C3E0 /* TermsResponse.swift */; };
 		B2D29557259CEE2B0092C3E0 /* TermsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D29556259CEE2B0092C3E0 /* TermsData.swift */; };
 		B2D29559259CEEF00092C3E0 /* AboutData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D29558259CEEF00092C3E0 /* AboutData.swift */; };
+		B2D2955D259D06EE0092C3E0 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2D2955C259D06ED0092C3E0 /* Authentication.storyboard */; };
+		B2D2955F259D073D0092C3E0 /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2D2955E259D073C0092C3E0 /* SideMenu.storyboard */; };
 		B2DF041F25967A9600400F8F /* HeartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DF041E25967A9600400F8F /* HeartResponse.swift */; };
 		B2DF04282597D92700400F8F /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DF04272597D92700400F8F /* SignUpView.swift */; };
 		B2DF042C2597D96300400F8F /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DF042B2597D96300400F8F /* SignInView.swift */; };
@@ -200,7 +201,6 @@
 		86398BC12582B4BE00C284B3 /* ColorsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsManager.swift; sourceTree = "<group>"; };
 		869D1FDB259A1CE900067BBC /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
 		869D1FDE259A22CE00067BBC /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
-		869D1FE1259A231500067BBC /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
 		869D1FE4259A236C00067BBC /* SideMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewModel.swift; sourceTree = "<group>"; };
 		869D1FF5259A561000067BBC /* SideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCell.swift; sourceTree = "<group>"; };
 		869D1FF8259A600000067BBC /* Anchor+Constrains.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Anchor+Constrains.swift"; sourceTree = "<group>"; };
@@ -257,6 +257,8 @@
 		B2D29554259CED570092C3E0 /* TermsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsResponse.swift; sourceTree = "<group>"; };
 		B2D29556259CEE2B0092C3E0 /* TermsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsData.swift; sourceTree = "<group>"; };
 		B2D29558259CEEF00092C3E0 /* AboutData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutData.swift; sourceTree = "<group>"; };
+		B2D2955C259D06ED0092C3E0 /* Authentication.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
+		B2D2955E259D073C0092C3E0 /* SideMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
 		B2DF041E25967A9600400F8F /* HeartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartResponse.swift; sourceTree = "<group>"; };
 		B2DF04272597D92700400F8F /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		B2DF042B2597D96300400F8F /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
@@ -540,6 +542,7 @@
 		863232EC257D75E100514F5A /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				B2D2955C259D06ED0092C3E0 /* Authentication.storyboard */,
 				8628D5C7258C0D8200CAB803 /* Favorites.storyboard */,
 				B21BDE032582B89A00430408 /* Search.storyboard */,
 				863232D2257D733C00514F5A /* Main.storyboard */,
@@ -547,7 +550,7 @@
 				863232D7257D733D00514F5A /* LaunchScreen.storyboard */,
 				B26DB98D258DE66D00DDE8B8 /* Nurse.storyboard */,
 				861D577B258C2A9F00EFED1D /* Appointments.storyboard */,
-				869D1FE1259A231500067BBC /* SideMenu.storyboard */,
+				B2D2955E259D073C0092C3E0 /* SideMenu.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -996,10 +999,11 @@
 				86398BBB2582B0A500C284B3 /* Colors.txt in Resources */,
 				863232D6257D733D00514F5A /* Assets.xcassets in Resources */,
 				863232D4257D733C00514F5A /* Main.storyboard in Resources */,
+				B2D2955D259D06EE0092C3E0 /* Authentication.storyboard in Resources */,
 				B26DB98E258DE66D00DDE8B8 /* Nurse.storyboard in Resources */,
 				862851D0257FCE120059122F /* Home.storyboard in Resources */,
-				869D1FE2259A231500067BBC /* SideMenu.storyboard in Resources */,
 				B21BDE2825834D4E00430408 /* PT Sans Regular.ttf in Resources */,
+				B2D2955F259D073D0092C3E0 /* SideMenu.storyboard in Resources */,
 				863232D6257D733D00514F5A /* Assets.xcassets in Resources */,
 				863232D4257D733C00514F5A /* Main.storyboard in Resources */,
 				B21BDE042582B89A00430408 /* Search.storyboard in Resources */,
