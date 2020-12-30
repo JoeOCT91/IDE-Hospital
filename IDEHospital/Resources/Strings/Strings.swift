@@ -10,6 +10,8 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
+  /// ABOUT
+  internal static let about = L10n.tr("Localizable", "about")
   /// SearchResultTableViewCell
   internal static let cellIdentifire = L10n.tr("Localizable", "cellIdentifire")
   /// Choose City
@@ -26,6 +28,10 @@ internal enum L10n {
   internal static let chooseSpecialists = L10n.tr("Localizable", "chooseSpecialists")
   /// Confirm Password
   internal static let confirmPasswordPlaceholder = L10n.tr("Localizable", "confirm PasswordPlaceholder")
+  /// If you would like further information about how we can help you andyour health it would be great to hear from you.
+  internal static let contactUsMainLabel = L10n.tr("Localizable", "contactUsMainLabel")
+  /// For More information call: 19199
+  internal static let contactUsSmallLabel = L10n.tr("Localizable", "contactUsSmallLabel")
   /// Data Not Found
   internal static let dataNotFound = L10n.tr("Localizable", "dataNotFound")
   /// Password field isn't Match
@@ -42,6 +48,8 @@ internal enum L10n {
   internal static let emailTextFieldPlaceholder = L10n.tr("Localizable", "emailTextFieldPlaceholder")
   /// Enter Details
   internal static let enterDetails = L10n.tr("Localizable", "enterDetails")
+  /// Enter Message
+  internal static let enterMessage = L10n.tr("Localizable", "enterMessage")
   /// Enter Password
   internal static let enterPasswordPlaceholder = L10n.tr("Localizable", "enterPasswordPlaceholder")
   /// Examination Fees: 
@@ -114,6 +122,8 @@ internal enum L10n {
   internal static let search = L10n.tr("Localizable", "search")
   /// Search Result
   internal static let searchResult = L10n.tr("Localizable", "searchResult")
+  /// Send
+  internal static let send = L10n.tr("Localizable", "send")
   /// Send Request
   internal static let sendRequest = L10n.tr("Localizable", "sendRequest")
   /// Service Search
@@ -154,6 +164,8 @@ internal enum L10n {
   internal static let terms = L10n.tr("Localizable", "terms")
   /// Wating Time: 
   internal static let watingTime = L10n.tr("Localizable", "watingTime")
+  /// Your Message
+  internal static let yourMessage = L10n.tr("Localizable", "yourMessage")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

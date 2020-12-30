@@ -73,4 +73,13 @@
 "instructions" = "By clicking sign up, you agree to our ";
 "terms" = "Terms & Conditions";
 "forgot" = "Forgot Password?";
+//contactUs
+"contactUsMainLabel" = "If you would like further information about how we can help you andyour health it would be great to hear from you.";
+"contactUsSmallLabel" = "For More information call: 19199";
+"yourMessage" = "Your Message";
+"send" = "Send";
+"enterMessage" = "Enter Message";
+//About
+"about" = "ABOUT";
+//terms and conditions
 

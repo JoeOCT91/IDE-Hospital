@@ -92,6 +92,7 @@ class APIManager {
             complation(response)
         }
     }
+<<<<<<< HEAD
     
     //Get terms and conditions
     class func getTermsAndConditions(complation: @escaping (Result<TermsAndCondition, Error>) -> ()) {
@@ -101,6 +102,28 @@ class APIManager {
     }
     
 }
+=======
+
+    // ContactUs Request
+       class func sendContactUsRequestAPI(body:RequsetBodyData ,completion: @escaping (Result<ContactUsResponse, Error>)-> ()){
+        request(APIRouter.contacutUsRequest(body)){ (response) in
+                  completion(response)
+              }
+          }
+    // About Request
+          class func sendAboutRequestAPI(completion: @escaping (Result<AboutResponse, Error>)-> ()){
+            request(APIRouter.getAbout){ (response) in
+                     completion(response)
+                 }
+             }
+    // Terms Request
+          class func sendTermsRequestAPI(completion: @escaping (Result<TermsResponse, Error>)-> ()){
+            request(APIRouter.getTerms){ (response) in
+                     completion(response)
+                 }
+             }
+
+>>>>>>> 243b691b1e31f446862c8a83aca48f7dca74fa0c
 extension APIManager{
     // MARK:- The request function to get results in a closure
     private static func request<T: Decodable>(_ urlConvertible: URLRequestConvertible, completion:  @escaping (Result<T, Error>) -> ()) {

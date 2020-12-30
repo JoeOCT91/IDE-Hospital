@@ -32,25 +32,28 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ycg-k4-Usb" customClass="IDEAHopitalTextField" customModule="IDEHospital" customModuleProvider="target">
-                                                <rect key="frame" x="30.5" y="171" width="321" height="36"/>
+                                                <rect key="frame" x="30.5" y="136" width="321" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="wQC-J0-yNT"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="nameTextField:" destination="1Nc-iN-izt" eventType="editingDidEnd" id="BlQ-ka-6PS"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U1D-2g-Qhw" customClass="IDEAHopitalTextField" customModule="IDEHospital" customModuleProvider="target">
-                                                <rect key="frame" x="30.5" y="268" width="321" height="36"/>
+                                                <rect key="frame" x="30.5" y="197" width="321" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Quj-Lb-skY" customClass="IDEAHopitalTextField" customModule="IDEHospital" customModuleProvider="target">
-                                                <rect key="frame" x="30.5" y="365" width="321" height="36"/>
+                                                <rect key="frame" x="30.5" y="258" width="321" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="p8w-Mm-fsx">
-                                                <rect key="frame" x="30.5" y="446" width="321" height="119"/>
+                                                <rect key="frame" x="30.5" y="317" width="321" height="119"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="119" id="QD1-c1-MFE"/>
@@ -60,7 +63,7 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFb-Zb-KlZ">
-                                                <rect key="frame" x="30.5" y="582" width="321" height="45"/>
+                                                <rect key="frame" x="30.5" y="453" width="321" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="pFC-Hg-Y9k"/>
                                                 </constraints>
@@ -73,9 +76,8 @@
                                         <constraints>
                                             <constraint firstItem="vXI-7P-fP3" firstAttribute="top" secondItem="9Pk-88-YlJ" secondAttribute="top" constant="56" id="09e-F1-UUN"/>
                                             <constraint firstItem="p8w-Mm-fsx" firstAttribute="width" secondItem="Quj-Lb-skY" secondAttribute="width" id="0rr-mo-Opl"/>
-                                            <constraint firstItem="U1D-2g-Qhw" firstAttribute="top" secondItem="ycg-k4-Usb" secondAttribute="bottom" constant="61" id="3YO-gu-feo"/>
+                                            <constraint firstItem="U1D-2g-Qhw" firstAttribute="top" secondItem="ycg-k4-Usb" secondAttribute="bottom" constant="25" id="3YO-gu-feo"/>
                                             <constraint firstAttribute="trailing" secondItem="vXI-7P-fP3" secondAttribute="trailing" constant="26" id="4Ee-3r-7La"/>
-                                            <constraint firstAttribute="bottom" secondItem="zFb-Zb-KlZ" secondAttribute="bottom" constant="40" id="4J9-Cl-ayc"/>
                                             <constraint firstAttribute="trailing" secondItem="ycg-k4-Usb" secondAttribute="trailing" constant="23.5" id="56K-M2-TQq"/>
                                             <constraint firstItem="zFb-Zb-KlZ" firstAttribute="top" secondItem="p8w-Mm-fsx" secondAttribute="bottom" constant="17" id="5bd-FC-6nz"/>
                                             <constraint firstItem="zFb-Zb-KlZ" firstAttribute="leading" secondItem="p8w-Mm-fsx" secondAttribute="leading" id="9Pt-hB-NlZ"/>
@@ -83,13 +85,14 @@
                                             <constraint firstItem="U1D-2g-Qhw" firstAttribute="height" secondItem="ycg-k4-Usb" secondAttribute="height" id="KdL-ZF-gQ9"/>
                                             <constraint firstItem="Quj-Lb-skY" firstAttribute="width" secondItem="U1D-2g-Qhw" secondAttribute="width" id="VdI-On-PUZ"/>
                                             <constraint firstItem="vXI-7P-fP3" firstAttribute="leading" secondItem="9Pk-88-YlJ" secondAttribute="leading" constant="27" id="a99-nC-Ybu"/>
-                                            <constraint firstItem="Quj-Lb-skY" firstAttribute="top" secondItem="U1D-2g-Qhw" secondAttribute="bottom" constant="61" id="es4-L7-YwX"/>
+                                            <constraint firstAttribute="bottom" secondItem="zFb-Zb-KlZ" secondAttribute="bottom" constant="169" id="aX9-KY-C9D"/>
+                                            <constraint firstItem="Quj-Lb-skY" firstAttribute="top" secondItem="U1D-2g-Qhw" secondAttribute="bottom" constant="25" id="es4-L7-YwX"/>
                                             <constraint firstItem="Quj-Lb-skY" firstAttribute="leading" secondItem="U1D-2g-Qhw" secondAttribute="leading" id="jrs-BU-KhK"/>
                                             <constraint firstItem="zFb-Zb-KlZ" firstAttribute="width" secondItem="p8w-Mm-fsx" secondAttribute="width" id="k2f-dp-UJF"/>
-                                            <constraint firstItem="ycg-k4-Usb" firstAttribute="top" secondItem="vXI-7P-fP3" secondAttribute="bottom" constant="81" id="kKF-Ni-elh"/>
+                                            <constraint firstItem="ycg-k4-Usb" firstAttribute="top" secondItem="vXI-7P-fP3" secondAttribute="bottom" constant="46" id="kKF-Ni-elh"/>
                                             <constraint firstItem="p8w-Mm-fsx" firstAttribute="leading" secondItem="Quj-Lb-skY" secondAttribute="leading" id="rn6-cq-hDD"/>
                                             <constraint firstItem="Quj-Lb-skY" firstAttribute="height" secondItem="U1D-2g-Qhw" secondAttribute="height" id="sb8-Xe-9gi"/>
-                                            <constraint firstItem="p8w-Mm-fsx" firstAttribute="top" secondItem="Quj-Lb-skY" secondAttribute="bottom" constant="45" id="uSp-wv-Vc5"/>
+                                            <constraint firstItem="p8w-Mm-fsx" firstAttribute="top" secondItem="Quj-Lb-skY" secondAttribute="bottom" constant="23" id="uSp-wv-Vc5"/>
                                             <constraint firstItem="U1D-2g-Qhw" firstAttribute="leading" secondItem="ycg-k4-Usb" secondAttribute="leading" id="wje-jz-fcu"/>
                                             <constraint firstItem="ycg-k4-Usb" firstAttribute="leading" secondItem="9Pk-88-YlJ" secondAttribute="leading" constant="30.5" id="zG5-Zp-Pf9"/>
                                         </constraints>
@@ -129,6 +132,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p5O-v7-Bst" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="1Nc-iN-izt" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="76.811594202898561" y="132.58928571428572"/>
         </scene>

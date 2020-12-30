@@ -52,11 +52,18 @@ class HomeVC: UIViewController {
         homeVC.viewModel = viewModel
         return homeVC
     }
-
+    
 }
 
 extension HomeVC: HomeVCProtocol {
     func goTest() {
+        //        let resetPass = ResetPasswordVC.create()
+        //         resetPass.modalPresentationStyle = .fullScreen
+        //        self.navigationController?.pushViewController(resetPass, animated: true)
+        let contactUsVC = ContactUsVC.create()
+        contactUsVC.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(contactUsVC, animated: true)
+        
         let resetPass = ResetPasswordVC.create()
          resetPass.modalPresentationStyle = .fullScreen
         self.navigationController?.pushViewController(resetPass, animated: true)
@@ -64,22 +71,29 @@ extension HomeVC: HomeVCProtocol {
     
     
     func goChooseServicesScreen(celTag:Int) {
-        let tabBarController = SupplierTabBarVC()
-        tabBarController.modalPresentationStyle = .fullScreen
-        tabBarController.categoryID = celTag
-        self.present(tabBarController, animated: true)
+        //        let tabBarController = SupplierTabBarVC()
+        //        tabBarController.modalPresentationStyle = .fullScreen
+        //        tabBarController.categoryID = celTag
+        //        self.present(tabBarController, animated: true)
+        let aboutVC = AboutVC.create()
+        aboutVC.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(aboutVC, animated: true)
+        
     }
     
     func goToNurseScreen() {
-      let nurseVC = NurseVC.create()
-      nurseVC.modalPresentationStyle = .fullScreen
-      self.navigationController?.pushViewController(nurseVC, animated: true)
+        //      let nurseVC = NurseVC.create()
+        //      nurseVC.modalPresentationStyle = .fullScreen
+        //      self.navigationController?.pushViewController(nurseVC, animated: true)
+        let termsVC = TermsAndConditionsVC.create()
+        termsVC.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(termsVC, animated: true)
     }
     
     internal func reloadData() {
         homeView.collectionView.reloadData()
     }
-
+    
     internal func showLoader() {
         view.showLoader()
     }
@@ -104,7 +118,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! CategoryCell
         //Cell tag hold category ID to use when navigate to others controllers
-         print(cell.tag)
+        print(cell.tag)
         viewModel.determineWhichVCToOpen(tag: cell.tag)
     }
     
@@ -114,5 +128,5 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.tag = ID
         cell.setupCell(title: title, color: color , image: image)
     }
-  
+    
 }
