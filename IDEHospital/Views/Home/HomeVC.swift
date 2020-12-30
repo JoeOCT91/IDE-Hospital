@@ -64,6 +64,9 @@ extension HomeVC: HomeVCProtocol {
         contactUsVC.modalPresentationStyle = .fullScreen
         self.navigationController?.pushViewController(contactUsVC, animated: true)
         
+        let resetPass = ResetPasswordVC.create()
+         resetPass.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(resetPass, animated: true)
     }
     
     
@@ -85,7 +88,6 @@ extension HomeVC: HomeVCProtocol {
         let termsVC = TermsAndConditionsVC.create()
         termsVC.modalPresentationStyle = .fullScreen
         self.navigationController?.pushViewController(termsVC, animated: true)
-        
     }
     
     internal func reloadData() {

@@ -18,8 +18,11 @@ struct Storyboards {
     static let appointments = "Appointments"
     static let sideMenu = "SideMenu"
     static let authentication = "Authentication"
+<<<<<<< HEAD
     static let contactUs = "ContactUs"
     static let staticContent = "StaticContent"
+=======
+>>>>>>> cf3e8dbde7cad811778cce55d25d215ace12ba17
 }
 
 // Cells
@@ -47,9 +50,12 @@ struct ViewControllers {
     static let resetPasswordVC = "ResetPasswordVC"
     static let signUpVC = "SignUpVC"
     static let signInVC = "SignInVC"
+<<<<<<< HEAD
     static let contactUsVC = "ContactUsVC"
     static let aboutVC = "AboutVC"
 
+=======
+>>>>>>> cf3e8dbde7cad811778cce55d25d215ace12ba17
 }
 
 // Urls

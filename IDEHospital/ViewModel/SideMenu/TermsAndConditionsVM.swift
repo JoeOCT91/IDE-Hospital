@@ -11,10 +11,9 @@ protocol TermsAndConditionsVMProtocol: class {
     func callTermsAPI()
 }
 
-class TermsAndConditionsVM{
-    
-    private weak var view: TermsAndConditionsVCProtocol!
-    
+class TermsAndConditionsVM {
+
+    private weak var view: TermsAndConditionsVCProtocol?
     required init(view: TermsAndConditionsVCProtocol) {
         self.view = view
     }
@@ -38,3 +37,4 @@ extension TermsAndConditionsVM:TermsAndConditionsVMProtocol{
         }
     }
 }
+

@@ -92,6 +92,7 @@ class APIManager {
             complation(response)
         }
     }
+
     // ContactUs Request
        class func sendContactUsRequestAPI(body:RequsetBodyData ,completion: @escaping (Result<ContactUsResponse, Error>)-> ()){
         request(APIRouter.contacutUsRequest(body)){ (response) in
@@ -110,7 +111,7 @@ class APIManager {
                      completion(response)
                  }
              }
-}
+
 extension APIManager{
     // MARK:- The request function to get results in a closure
     private static func request<T: Decodable>(_ urlConvertible: URLRequestConvertible, completion:  @escaping (Result<T, Error>) -> ()) {

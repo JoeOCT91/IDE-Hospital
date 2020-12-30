@@ -27,11 +27,13 @@ enum APIRouter:URLRequestConvertible {
     case logout
     case getTerms
     case getAbout
+
     
     //Mark:- HTTP Methods
     private var method: HTTPMethod {
         switch self {
         case .getCategories, .getFavories, .getCategory, .getAppointments, .searchResultRequest,.getAbout,.getTerms:
+        case .getCategories, .getFavories, .getCategory, .getAppointments, .searchResultRequest:
             return .get
         case .removeAppointment:
             return .delete

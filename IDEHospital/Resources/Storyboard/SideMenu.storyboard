@@ -41,6 +41,7 @@
             </objects>
             <point key="canvasLocation" x="-1507" y="-10"/>
         </scene>
+<<<<<<< HEAD
         <!--AboutVC-->
         <scene sceneID="qJV-QI-55a">
             <objects>
@@ -216,6 +217,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SHh-Id-iae" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="579.71014492753625" y="-3.3482142857142856"/>
+=======
+        <!--Terms And ConditionsVC-->
+        <scene sceneID="aDn-PC-B2v">
+            <objects>
+                <viewController storyboardIdentifier="TermsAndConditionsVC" id="SNj-FJ-qSw" customClass="TermsAndConditionsVC" customModule="IDEHospital" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hPj-54-zcd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Nni-dD-9AK"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Cm-92-w3S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-532" y="65"/>
+>>>>>>> cf3e8dbde7cad811778cce55d25d215ace12ba17
         </scene>
     </scenes>
 </document>

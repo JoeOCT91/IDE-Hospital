@@ -485,6 +485,9 @@
 			children = (
 				B207B4C525894CA2002603EA /* Custom Views */,
 				869D1FDA259A1CB700067BBC /* SideMenu */,
+				869D1FFC259A6F3300067BBC /* TermsAndConditions */,
+				869D1FDA259A1CB700067BBC /* SideMenu */,
+				B207B4C525894CA2002603EA /* Custom Views */,
 				B2DF04222597D89C00400F8F /* Authentication */,
 				B260139825913A98004E95B1 /* Search Result */,
 				B26DB986258DE42A00DDE8B8 /* Nurse */,
@@ -631,6 +634,22 @@
 				869D2002259A70EF00067BBC /* TermsAndConditionsVM.swift */,
 				B2567358259BD7140019925B /* ContactUsViewModel.swift */,
 				B2D2954D259CD14F0092C3E0 /* AboutViewModel.swift */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		869D1FFC259A6F3300067BBC /* TermsAndConditions */ = {
+			isa = PBXGroup;
+			children = (
+				869D1FFD259A704F00067BBC /* TermsAndConditionsVC.swift */,
+			);
+			path = TermsAndConditions;
+			sourceTree = "<group>";
+		};
+		869D2001259A70DB00067BBC /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				869D2002259A70EF00067BBC /* TermsAndConditionsVM.swift */,
 			);
 			path = SideMenu;
 			sourceTree = "<group>";
@@ -1159,6 +1178,10 @@
 				B2D29546259CD0E20092C3E0 /* AboutVC.swift in Sources */,
 				869D1FFE259A704F00067BBC /* TermsAndConditionsVC.swift in Sources */,
 				B2D29553259CED3F0092C3E0 /* AboutResponse.swift in Sources */,
+				862851ED258061740059122F /* UIColor+FromHex.swift in Sources */,
+				8632AA142589043700E4DB8D /* UIViewController+Storyboard.swift in Sources */,
+				B26DB991258E665400DDE8B8 /* IDEAHopitalTextField.swift in Sources */,
+				869D1FFE259A704F00067BBC /* TermsAndConditionsVC.swift in Sources */,
 				B26DB98C258DE47C00DDE8B8 /* NurseViewModel.swift in Sources */,
 				B2D29559259CEEF00092C3E0 /* AboutData.swift in Sources */,
 				B2BE22182593A65C004BA737 /* DoctorResponse.swift in Sources */,
