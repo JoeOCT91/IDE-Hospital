@@ -5,18 +5,22 @@
 //  Created by Mostafa Saleh on 12/30/20.
 //
 
-import Foundation
 import UIKit
+
 class AboutView: UIView {
     
+    @IBOutlet weak var aboutUsTextView: UITextView!
+    
     public func setUp() {
-        self.layoutIfNeeded()
-        // setBackGroundImage
         self.setupBackground()
-        //        //setLable
-        
+        aboutUsTextView.textColor = ColorName.white.color
     }
-}
-extension AboutView{
+    
+    func setAboutUs(termsAndConditions: NSAttributedString) {
+        aboutUsTextView.attributedText = termsAndConditions
+        aboutUsTextView.textColor = ColorName.white.color
+    }
     
 }
+
+

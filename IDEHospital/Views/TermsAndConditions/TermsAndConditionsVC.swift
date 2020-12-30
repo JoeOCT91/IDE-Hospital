@@ -19,7 +19,6 @@ class TermsAndConditionsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: nil)
         termsAndConditionsView.setup()
         viewModel.getTermsAndConditions()
     }

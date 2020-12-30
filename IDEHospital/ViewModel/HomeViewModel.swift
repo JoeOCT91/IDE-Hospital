@@ -43,8 +43,6 @@ class HomeViewModel: HomeVMProtocol {
         switch tag {
         case 4:
             view?.goToNurseScreen()
-        case 2:
-            view?.goTest()
         default:
             view?.goChooseServicesScreen(celTag: tag)
         }

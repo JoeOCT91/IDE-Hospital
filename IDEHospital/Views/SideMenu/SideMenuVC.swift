@@ -29,8 +29,6 @@ class SideMenuVC: UIViewController {
         super.viewDidLoad()
         sideMenuView.setupTableView(delgate: self, dataSource: self)
         configureNavigationBar()
-        
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,6 +49,7 @@ class SideMenuVC: UIViewController {
         return sideMenuVC
     }
 }
+
 extension SideMenuVC: SideMenuVCProtocol {
     func editProfilePressed() {
         let alert = AlertVC()
@@ -59,29 +58,32 @@ extension SideMenuVC: SideMenuVCProtocol {
     
     func favoritesPressed() {
         let favoritesVC = FavoritesVC.create()
-        self.navigationController?.pushViewController(favoritesVC, animated: true)
+        pushToNavigation(VC: favoritesVC)
     }
     
     func bookedAppointmentsPressed() {
         let appointmentsVC = AppointmentsVC.create()
-        self.navigationController?.pushViewController(appointmentsVC, animated: true)
+        pushToNavigation(VC: appointmentsVC)
     }
     
     func aboutUsPressed() {
-        print("About US")
+        let aboutUs = AboutVC.create()
+        pushToNavigation(VC: aboutUs)
     }
     
     func contactUsPressed() {
-        print("Contact US")
+        let contactUs = ContactUsVC.create()
+        pushToNavigation(VC: contactUs)
     }
     
     func sharePressed() {
-        print("share pressed")
+        let alert = AlertVC()
+        presentAlertOnMainThread(alertVC: alert)
     }
     
     func termsAndConditionsPressed(){
         let termsAndConditionsVC = TermsAndConditionsVC.create()
-        navigationController?.pushViewController(termsAndConditionsVC, animated: true)
+        pushToNavigation(VC: termsAndConditionsVC)
     }
     
     func logoutPressed(){
@@ -96,7 +98,11 @@ extension SideMenuVC: SideMenuVCProtocol {
     
     func loginPressed(){
         let signinVC = SignInVC.create()
-        navigationController?.pushViewController(signinVC, animated: true)
+        pushToNavigation(VC: signinVC)
+    }
+    
+    private func pushToNavigation(VC: UIViewController){
+        self.navigationController?.pushViewController(VC, animated: true)
     }
     
 }
@@ -115,7 +121,6 @@ extension SideMenuVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! SideMenuCell
-        print( cell.tag)
         viewModel.navigateTo(index: cell.tag)
     }
 }
@@ -124,6 +129,4 @@ extension SideMenuVC: ConfirmationAlertDelgate {
     func confirmPressed(id: Int) {
         viewModel.logout()
     }
-    
-    
 }

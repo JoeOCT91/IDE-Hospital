@@ -12,18 +12,19 @@ protocol ContactUsVCProtocol: class {
        func showLoader()
        func hideLoader()
 }
+
 class ContactUsVC: UIViewController {
 
     @IBOutlet weak var contactUsView: ContactUsView!
     
     private var viewModel:ContactUsViewModelProtocol!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.contactUsView.setUp()
         self.setupNavigationBar()
         self.setViewControllerTitle(to: L10n.sideMenuContactUs.uppercased(), fontColor: .white)
         self.setUpButtonsInPushedNavigationBar()
-
     }
     
   
@@ -42,10 +43,12 @@ class ContactUsVC: UIViewController {
 }
 extension ContactUsVC:ContactUsVCProtocol{
     func presentSuccessAlert(title: String, message: String) {
-          self.showSuccessfulAlert(title: title, message: message)
+        self.showSuccessfulAlert(title: title, message: message)
       }
       func presentError(title:String,message: String) {
-          self.showAlert(title: title, message: message)
+        let alert = AlertVC()
+        presentAlertOnMainThread(alertVC: alert)
+          //self.showAlert(title: title, message: message)
       }
       func showLoader() {
           self.view.showLoader()

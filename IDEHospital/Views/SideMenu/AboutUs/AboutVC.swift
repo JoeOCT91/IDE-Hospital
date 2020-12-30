@@ -6,11 +6,13 @@
 //
 
 import UIKit
+
 protocol AboutVCProtocol:class {
     func presentSuccessAlert(title:String, message:String)
-          func presentError(title:String,message: String)
-          func showLoader()
-          func hideLoader()
+    func presentError(title:String,message: String)
+    func setAboutUs(aboutUs: NSAttributedString)
+    func showLoader()
+    func hideLoader()
 }
 class AboutVC: UIViewController {
     @IBOutlet weak var aboutView: AboutView!
@@ -31,21 +33,24 @@ class AboutVC: UIViewController {
     // MARK:- Public Methods
     class func create() -> AboutVC {
         let aboutVC: AboutVC = UIViewController.create(storyboardName: Storyboards.sideMenu, identifier: ViewControllers.aboutVC)
-        aboutVC.viewModel = AboutViewModel(view: aboutVC)
+        aboutVC.viewModel = AboutUsVM(view: aboutVC)
         return aboutVC
     }
 }
 extension AboutVC:AboutVCProtocol{
     func presentSuccessAlert(title: String, message: String) {
-             self.showSuccessfulAlert(title: title, message: message)
-         }
-         func presentError(title:String,message: String) {
-             self.showAlert(title: title, message: message)
-         }
-         func showLoader() {
-             self.view.showLoader()
-         }
-         func hideLoader() {
-             self.view.hideLoader()
-         }
+        self.showSuccessfulAlert(title: title, message: message)
+    }
+    func presentError(title:String,message: String) {
+        self.showAlert(title: title, message: message)
+    }
+    func showLoader() {
+        self.view.showLoader()
+    }
+    func hideLoader() {
+        self.view.hideLoader()
+    }
+    func setAboutUs(aboutUs: NSAttributedString){
+        aboutView.setAboutUs(termsAndConditions: aboutUs)
+    }
 }

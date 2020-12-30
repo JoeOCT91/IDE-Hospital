@@ -14,7 +14,6 @@ protocol HomeVCProtocol: class {
     func setCellData(title: String, color: String, image: Data, ID:Int,indexPath: IndexPath)
     func goToNurseScreen()
     func goChooseServicesScreen(celTag:Int)
-    func goTest()
 }
 
 class HomeVC: UIViewController {
@@ -56,38 +55,18 @@ class HomeVC: UIViewController {
 }
 
 extension HomeVC: HomeVCProtocol {
-    func goTest() {
-        //        let resetPass = ResetPasswordVC.create()
-        //         resetPass.modalPresentationStyle = .fullScreen
-        //        self.navigationController?.pushViewController(resetPass, animated: true)
-        let contactUsVC = ContactUsVC.create()
-        contactUsVC.modalPresentationStyle = .fullScreen
-        self.navigationController?.pushViewController(contactUsVC, animated: true)
         
-        let resetPass = ResetPasswordVC.create()
-         resetPass.modalPresentationStyle = .fullScreen
-        self.navigationController?.pushViewController(resetPass, animated: true)
+    internal func goChooseServicesScreen(celTag:Int) {
+        let tabBarController = SupplierTabBarVC()
+        tabBarController.modalPresentationStyle = .fullScreen
+        tabBarController.categoryID = celTag
+        self.present(tabBarController, animated: true)
     }
     
-    
-    func goChooseServicesScreen(celTag:Int) {
-        //        let tabBarController = SupplierTabBarVC()
-        //        tabBarController.modalPresentationStyle = .fullScreen
-        //        tabBarController.categoryID = celTag
-        //        self.present(tabBarController, animated: true)
-        let aboutVC = AboutVC.create()
-        aboutVC.modalPresentationStyle = .fullScreen
-        self.navigationController?.pushViewController(aboutVC, animated: true)
-        
-    }
-    
-    func goToNurseScreen() {
-        //      let nurseVC = NurseVC.create()
-        //      nurseVC.modalPresentationStyle = .fullScreen
-        //      self.navigationController?.pushViewController(nurseVC, animated: true)
-        let termsVC = TermsAndConditionsVC.create()
-        termsVC.modalPresentationStyle = .fullScreen
-        self.navigationController?.pushViewController(termsVC, animated: true)
+    internal func goToNurseScreen() {
+              let nurseVC = NurseVC.create()
+              nurseVC.modalPresentationStyle = .fullScreen
+              self.navigationController?.pushViewController(nurseVC, animated: true)
     }
     
     internal func reloadData() {

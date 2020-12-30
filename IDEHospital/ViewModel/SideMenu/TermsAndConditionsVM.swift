@@ -9,12 +9,12 @@ import Foundation
 
 protocol TermsAndConditionsVMProtocol: class {
     func getTermsAndConditions()
-
 }
 
-class TermsAndConditionsVM {
+class TermsAndConditionsVM: TermsAndConditionsVMProtocol {
 
     private weak var view: TermsAndConditionsVCProtocol?
+    
     required init(view: TermsAndConditionsVCProtocol) {
         self.view = view
     }

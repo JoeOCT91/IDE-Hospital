@@ -13,11 +13,12 @@ class TermsAndConditionsView: UIView {
     
     func setup(){
         self.setupBackground()
+        termsAndConditionsLabel.textColor = ColorName.white.color
     }
     
     func setTermsAndConditions(termsAndConditions: NSAttributedString) {
-        termsAndConditionsLabel.textColor = ColorName.white.color
         termsAndConditionsLabel.attributedText = termsAndConditions
+        termsAndConditionsLabel.textColor = ColorName.white.color
     }
 
 }
