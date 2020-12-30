@@ -10,7 +10,7 @@ import UIKit
 protocol SignInVCProtocol:class {
     func presentSuccessAlert(title:String, message:String)
     func presentError(title:String,message: String)
-    func SucssesfulLogin()
+    func sucssesfulLogin()
     func showLoader()
     func hideLoader()
 }
@@ -49,9 +49,8 @@ class SignInVC: UIViewController {
     }
 }
 extension SignInVC:SignInVCProtocol{
-    func SucssesfulLogin() {
-        //let homeVC = HomeVC.create()
-        navigationController?.dismiss(animated: true)
+    func sucssesfulLogin() {
+        self.view.window?.rootViewController?.dismiss(animated: false)
     }
     func presentSuccessAlert(title: String, message: String) {
         self.showSuccessfulAlert(title: title, message: message)

@@ -13,6 +13,10 @@ protocol SideMenuVCProtocol: class {
     func logoutPressed()
     func logoutSuccess()
     func loginPressed()
+    func bookedAppointmentsPressed()
+    func aboutUsPressed()
+    func contactUsPressed()
+    func sharePressed()
 }
 
 class SideMenuVC: UIViewController {
@@ -23,12 +27,12 @@ class SideMenuVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(UserDefaultsManager.shared().token)
         sideMenuView.setupTableView(delgate: self, dataSource: self)
         configureNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        configureNavigationBar()
         sideMenuView.sideMenuTableView.reloadData()
     }
     
@@ -52,19 +56,32 @@ extension SideMenuVC: SideMenuVCProtocol {
     }
     
     func favoritesPressed() {
-        self.tabBarController?.selectedIndex = 1
-        self.navigationController?.popViewController(animated: false)
+        let favoritesVC = FavoritesVC.create()
+        self.navigationController?.pushViewController(favoritesVC, animated: true)
     }
     
     func bookedAppointmentsPressed() {
         let appointmentsVC = AppointmentsVC.create()
-        navigationController?.pushViewController(appointmentsVC, animated: true)
+        self.navigationController?.pushViewController(appointmentsVC, animated: true)
+    }
+    
+    func aboutUsPressed() {
+        print("About US")
+    }
+    
+    func contactUsPressed() {
+        print("Contact US")
+    }
+    
+    func sharePressed() {
+        print("share pressed")
     }
     
     func termsAndConditionsPressed(){
         let termsAndConditionsVC = TermsAndConditionsVC.create()
         navigationController?.pushViewController(termsAndConditionsVC, animated: true)
     }
+    
     func logoutPressed(){
         let alert = ConfirmationAlert(id: 0, message: "Are you sure to logout!")
         alert.delgate = self
@@ -72,7 +89,7 @@ extension SideMenuVC: SideMenuVCProtocol {
     }
     
     func logoutSuccess(){
-        self.dismiss(animated: true)
+        self.view.window?.rootViewController?.dismiss(animated: true)
     }
     
     func loginPressed(){

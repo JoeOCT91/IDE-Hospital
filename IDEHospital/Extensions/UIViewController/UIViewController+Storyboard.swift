@@ -31,10 +31,12 @@ extension UIViewController {
         titleLabel.textColor = fontColor
         self.navigationItem.titleView = titleLabel
     }
+    
     func setUpButtonsInNavigationBar() {
         self.createRightButtonInNavigationBar()
         self.createLeftButtonInNavigationBar()
     }
+    
     func setUpButtonsInPushedNavigationBar() {
         self.createRightButtonInNavigationBar()
         self.createBackButtonInNavigationBar()
@@ -43,22 +45,26 @@ extension UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(settingsButton))
         navigationItem.rightBarButtonItem?.setBackgroundImage(Asset.settings.image, for: .normal, barMetrics: .default)
     }
+    
     //Control setting button pressed
     @objc private func settingsButton(_ sender:UIBarButtonItem){
         let sideMenuVC = SideMenuVC.create()
         let settingNavigation = UINavigationController(rootViewController: sideMenuVC)
         settingNavigation.modalPresentationStyle = .overFullScreen
-        settingNavigation.modalTransitionStyle = .crossDissolve
+        //settingNavigation.modalTransitionStyle = .crossDissolve
         present(settingNavigation, animated: true)
     }
+    
     private func createLeftButtonInNavigationBar() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(goBackButton))
         navigationItem.leftBarButtonItem?.setBackgroundImage(Asset.back2.image, for: .normal, barMetrics: .default)
     }
+    
     @objc private func goBackButton(_ sender:UIBarButtonItem){
         print("dkfk")
         self.dismiss(animated: true)
     }
+    
     private func createBackButtonInNavigationBar() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backButton))
         navigationItem.leftBarButtonItem?.setBackgroundImage(Asset.back2.image, for: .normal, barMetrics: .default)

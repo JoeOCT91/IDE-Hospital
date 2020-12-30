@@ -35,10 +35,8 @@ class SideMenuVM: SideMenuVMProtocol {
     }
     
     func navigateTo(index: Int){
-        print(UserDefaultsManager.shared().token)
         if UserDefaultsManager.shared().token == nil {
             navigateToWhenMain(index: index)
-            print("here")
         } else {
             navigateToWhenAuth(index: index)
         }
@@ -50,6 +48,14 @@ class SideMenuVM: SideMenuVMProtocol {
             view?.editProfilePressed()
         case 1:
             view?.favoritesPressed()
+        case 2:
+            view?.bookedAppointmentsPressed()
+        case 3:
+            view?.aboutUsPressed()
+        case 4:
+            view?.contactUsPressed()
+        case 4:
+            view?.sharePressed()
         case 6:
             view?.termsAndConditionsPressed()
         case 7:
