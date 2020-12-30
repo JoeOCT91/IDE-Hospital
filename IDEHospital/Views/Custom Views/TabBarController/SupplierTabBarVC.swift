@@ -14,6 +14,7 @@ class SupplierTabBarVC: UITabBarController {
     let searchNavigation = UINavigationController()
     let favoriteNavigation = UINavigationController()
     let scheduleNavigation = UINavigationController()
+    
     var categoryID:Int = 0{
           didSet(newValue){
             self.setViewControllers()

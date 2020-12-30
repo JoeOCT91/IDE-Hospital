@@ -30,6 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let navigationController = UINavigationController(rootViewController: favoritesVC)
 //        window?.rootViewController = navigationController
         
+//        let sideMenu = SideMenuVC.create()
+//        let navigationController = UINavigationController(rootViewController: sideMenu)
+//        window?.rootViewController = navigationController
+
+        
         return true
     }
 }

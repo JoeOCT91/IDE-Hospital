@@ -15,10 +15,10 @@ protocol SearchVCProtocol: class {
     func getCurrentDoctorValue() -> String
 }
 class SearchVC: UIViewController {
-
-    @IBOutlet var searchView: SearchView!
+    
+    @IBOutlet weak var searchView: SearchView!
     private var viewModel:SearchViewModelProtocol!
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.searchView.setUp()
@@ -71,7 +71,7 @@ extension SearchVC:SearchVCProtocol{
     }
 }
 extension SearchVC {
-
+    
     @objc private func donePressed(_ sender:UIBarButtonItem){
         viewModel.itemSelected(tag: sender.tag, row: searchView.pickerView.selectedRow(inComponent: 0))
         viewModel.checkResistingRegionValueOrNot(tag: sender.tag)
@@ -79,7 +79,7 @@ extension SearchVC {
 }
 extension SearchVC:UIPickerViewDelegate,UIPickerViewDataSource, UITextFieldDelegate{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-       return 1
+        return 1
     }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         viewModel.bringCountPickerValues(tag: pickerView.tag)

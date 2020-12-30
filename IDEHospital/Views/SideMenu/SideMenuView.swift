@@ -17,7 +17,7 @@ class SideMenuView: UIView {
     
     func setupTableView(delgate: UITableViewDelegate, dataSource: UITableViewDataSource){
         sideMenuTableView.separatorStyle = .none
-        sideMenuTableView.register(AppoinmentCell.self, forCellReuseIdentifier: Cells.appointment)
+        sideMenuTableView.register(SideMenuCell.self, forCellReuseIdentifier: Cells.sideMenu)
         sideMenuTableView.delegate = delgate
         sideMenuTableView.dataSource = dataSource
     }

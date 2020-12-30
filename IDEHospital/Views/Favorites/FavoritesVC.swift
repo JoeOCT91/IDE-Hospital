@@ -27,17 +27,22 @@ class FavoritesVC: UIViewController {
         super.viewDidLoad()
         favoritesView.setup()
         favoritesView.setupTableView(delgate: self, dataSource: self)
-        self.setupNavigationBar()
-        self.setViewControllerTitle(to: L10n.myFavorites, fontColor: .white)
+        configureNavigationBar()
         self.setUpButtonsInNavigationBar()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         viewModel.getData()
+        configureNavigationBar()
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         viewModel.clearData()
+    }
+    
+    private func configureNavigationBar() {
+        self.setupNavigationBar()
+        self.setViewControllerTitle(to: L10n.myFavorites, fontColor: .white)
     }
     
     // Public Methods

@@ -36,7 +36,7 @@ class SearchResultViewModel{
 extension SearchResultViewModel:SearchResultViewModelProtocol{
     //MARK:- to change IS_Favorite Value INTernally
     func changeIsFavoriteValue(id: Int) {
-         for i in 0..<doctorItems.count {
+        for i in 0..<doctorItems.count {
             if doctorItems[i].id == id {
                 if doctorItems[i].is_favorited{
                     doctorItems[i].is_favorited = false
@@ -64,8 +64,8 @@ extension SearchResultViewModel:SearchResultViewModelProtocol{
                 print(error.localizedDescription)
             case .success(let response):
                 if response.code == 202{
-                print("Heart Changed Successfully")
-                self.changeIsFavoriteValue(id: id)
+                    print("Heart Changed Successfully")
+                    self.changeIsFavoriteValue(id: id)
                 }
             }
         }
@@ -78,13 +78,13 @@ extension SearchResultViewModel:SearchResultViewModelProtocol{
         }
     }
     
-     func increasePageValue() {
+    func increasePageValue() {
         if  doctorsDataBody.page + 1 <= total_Pages {
             print("Enterd The If Condition")
             self.sendSearchResultRequestAPI()
         }
         self.doctorsDataBody.page += 1
-      }
+    }
     
     // MARK:- Fill Doctors Values in Table View
     func putDoctorItemsInTableView(cell: SearchResultCell, indexPath:Int) -> SearchResultCell {
@@ -96,7 +96,7 @@ extension SearchResultViewModel:SearchResultViewModelProtocol{
     }
     // MARK:- Bring Search Reasult API
     func sendSearchResultRequestAPI() {
-          self.view.showLoader()
+        self.view.showLoader()
         APIManager.sendSearchResultRequestAPI(body: doctorsDataBody){(response) in
             switch response{
             case .failure(let error):
