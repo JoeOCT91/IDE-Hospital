@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -54,15 +55,15 @@
                                             </textField>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="p8w-Mm-fsx">
                                                 <rect key="frame" x="30.5" y="317" width="321" height="119"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="119" id="QD1-c1-MFE"/>
                                                 </constraints>
-                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFb-Zb-KlZ">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFb-Zb-KlZ">
                                                 <rect key="frame" x="30.5" y="453" width="321" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="pFC-Hg-Y9k"/>
@@ -110,14 +111,14 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="hXa-dc-W7V"/>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="SFX-7a-F5o"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="GMD-pn-dml" firstAttribute="leading" secondItem="SFX-7a-F5o" secondAttribute="leading" id="4Vo-Bb-f8k"/>
                             <constraint firstItem="SFX-7a-F5o" firstAttribute="trailing" secondItem="GMD-pn-dml" secondAttribute="trailing" id="73D-c3-90r"/>
                             <constraint firstItem="SFX-7a-F5o" firstAttribute="bottom" secondItem="GMD-pn-dml" secondAttribute="bottom" id="TI7-rG-6EI"/>
                             <constraint firstItem="GMD-pn-dml" firstAttribute="top" secondItem="SFX-7a-F5o" secondAttribute="top" id="ooD-1D-CIL"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="SFX-7a-F5o"/>
                         <connections>
                             <outlet property="detailsTextView" destination="p8w-Mm-fsx" id="qnI-YH-tXC"/>
                             <outlet property="emailTextField" destination="U1D-2g-Qhw" id="egr-YK-Avi"/>
@@ -137,4 +138,23 @@
             <point key="canvasLocation" x="76.811594202898561" y="132.58928571428572"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="Quj-Lb-skY">
+            <size key="intrinsicContentSize" width="32" height="34"/>
+        </designable>
+        <designable name="U1D-2g-Qhw">
+            <size key="intrinsicContentSize" width="32" height="34"/>
+        </designable>
+        <designable name="ycg-k4-Usb">
+            <size key="intrinsicContentSize" width="32" height="34"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
