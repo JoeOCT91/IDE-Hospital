@@ -29,6 +29,8 @@ class SideMenuVC: UIViewController {
         super.viewDidLoad()
         sideMenuView.setupTableView(delgate: self, dataSource: self)
         configureNavigationBar()
+        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {

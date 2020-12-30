@@ -24,11 +24,14 @@ enum APIRouter:URLRequestConvertible {
     case signUp(_ body:AuthBodyData)
     case ResetPassword(_ body:AuthBodyData)
     case logout
+    case termsAndConditions
     
     //Mark:- HTTP Methods
     private var method: HTTPMethod {
         switch self {
         case .getCategories, .getFavories, .getCategory, .getAppointments, .searchResultRequest:
+            return .get
+        case .termsAndConditions:
             return .get
         case .removeAppointment:
             return .delete
@@ -66,6 +69,8 @@ enum APIRouter:URLRequestConvertible {
             return URLs.forgetPassword
         case .logout:
             return URLs.logout
+        case .termsAndConditions:
+            return URLs.termsAndConditions
         default:
             return ""
         }
@@ -80,7 +85,6 @@ enum APIRouter:URLRequestConvertible {
             return nil
         }
     }
-    
     
     //MARK:- Parameters
     private var parameters: Parameters? {
@@ -144,11 +148,8 @@ enum APIRouter:URLRequestConvertible {
             return JSONEncoding.default
           }
         }()
-        
-        // Encoding
-        //let encoding: ParameterEncoding = JSONEncoding.default
-        
-        print(try encoding.encode(urlRequest, with: parameters))
+    
+        //print(try encoding.encode(urlRequest, with: parameters))
         return try encoding.encode(urlRequest, with: parameters)
     }
 }

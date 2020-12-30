@@ -93,6 +93,13 @@ class APIManager {
         }
     }
     
+    //Get terms and conditions
+    class func getTermsAndConditions(complation: @escaping (Result<TermsAndCondition, Error>) -> ()) {
+        request(APIRouter.termsAndConditions){ respons in
+            complation(respons)
+        }
+    }
+    
 }
 extension APIManager{
     // MARK:- The request function to get results in a closure

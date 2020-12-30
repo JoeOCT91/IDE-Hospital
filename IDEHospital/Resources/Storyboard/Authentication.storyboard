@@ -71,16 +71,16 @@
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pTK-3r-vMN">
-                                                <rect key="frame" x="120.5" y="478" width="134.5" height="14"/>
+                                                <rect key="frame" x="123" y="478" width="129" height="14"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="wCv-II-UqS">
-                                                        <rect key="frame" x="0.0" y="0.0" width="29.5" height="14"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="28" height="14"/>
                                                         <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gyt-n1-mWx">
-                                                        <rect key="frame" x="29.5" y="0.0" width="105" height="14"/>
+                                                        <rect key="frame" x="28" y="0.0" width="101" height="14"/>
                                                         <state key="normal">
                                                             <attributedString key="attributedTitle">
                                                                 <fragment content="Terms &amp; Conditions">
@@ -369,28 +369,28 @@
     </scenes>
     <designables>
         <designable name="20y-1X-rm6">
-            <size key="intrinsicContentSize" width="71" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="3xZ-vk-DEd">
-            <size key="intrinsicContentSize" width="71" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="EBz-1f-ib3">
-            <size key="intrinsicContentSize" width="71" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="EYX-kx-daO">
-            <size key="intrinsicContentSize" width="71" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="JJK-Ya-EeG">
-            <size key="intrinsicContentSize" width="71" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="cHD-FO-n57">
-            <size key="intrinsicContentSize" width="71" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="lth-bi-3CT">
-            <size key="intrinsicContentSize" width="71" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="vOZ-c3-Yvk">
-            <size key="intrinsicContentSize" width="71" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
     </designables>
     <resources>

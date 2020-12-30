@@ -7,17 +7,21 @@
 
 import UIKit
 protocol TermsAndConditionsVCProtocol: class {
-    
+    func showLoader()
+    func hideLoader()
+    func setTermsAndCoditions(termsAndCondtions: NSAttributedString)
 }
 
 class TermsAndConditionsVC: UIViewController {
     
+    @IBOutlet var termsAndConditionsView: TermsAndConditionsView!
     private var viewModel: TermsAndConditionsVMProtocol!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: nil)
-        // Do any additional setup after loading the view.
+        termsAndConditionsView.setup()
+        viewModel.getTermsAndConditions()
     }
     
     
@@ -31,5 +35,16 @@ class TermsAndConditionsVC: UIViewController {
 
 }
 extension TermsAndConditionsVC: TermsAndConditionsVCProtocol {
+    func showLoader() {
+        view.showLoader()
+    }
+    
+    func hideLoader() {
+        view.hideLoader()
+    }
+    
+    func setTermsAndCoditions(termsAndCondtions: NSAttributedString){
+        termsAndConditionsView.setTermsAndConditions(termsAndConditions: termsAndCondtions)
+    }
     
 }

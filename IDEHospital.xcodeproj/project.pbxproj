@@ -14,6 +14,9 @@
 		86201AD02583EF26001D1C06 /* SetupFunction+UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86201ACF2583EF26001D1C06 /* SetupFunction+UINavigationController.swift */; };
 		862127D72581302A00C1A5DF /* FontsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862127D62581302A00C1A5DF /* FontsManager.swift */; };
 		86215D08258D596C00022D86 /* ViewModelWithPagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86215D07258D596C00022D86 /* ViewModelWithPagination.swift */; };
+		86241F6E259CEC5C0063CD57 /* TermsAndConditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86241F6D259CEC5C0063CD57 /* TermsAndConditions.swift */; };
+		86241F71259CEEED0063CD57 /* TermsAndConditionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86241F70259CEEED0063CD57 /* TermsAndConditionsView.swift */; };
+		86241F75259CF0C10063CD57 /* String+ToHTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86241F74259CF0C10063CD57 /* String+ToHTML.swift */; };
 		862851C1257FC28D0059122F /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862851C0257FC28D0059122F /* SearchViewModel.swift */; };
 		862851D0257FCE120059122F /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 862851CF257FCE120059122F /* Home.storyboard */; };
 		862851DD257FE6570059122F /* MainCategoriesReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862851DC257FE6570059122F /* MainCategoriesReponse.swift */; };
@@ -133,6 +136,9 @@
 		86201AD32583F029001D1C06 /* PT_Sans_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = PT_Sans_Regular.ttf; path = PT_Sans/PT_Sans_Regular.ttf; sourceTree = "<group>"; };
 		862127D62581302A00C1A5DF /* FontsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontsManager.swift; sourceTree = "<group>"; };
 		86215D07258D596C00022D86 /* ViewModelWithPagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelWithPagination.swift; sourceTree = "<group>"; };
+		86241F6D259CEC5C0063CD57 /* TermsAndConditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditions.swift; sourceTree = "<group>"; };
+		86241F70259CEEED0063CD57 /* TermsAndConditionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsView.swift; sourceTree = "<group>"; };
+		86241F74259CF0C10063CD57 /* String+ToHTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ToHTML.swift"; sourceTree = "<group>"; };
 		862851C0257FC28D0059122F /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		862851CF257FCE120059122F /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		862851DC257FE6570059122F /* MainCategoriesReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoriesReponse.swift; sourceTree = "<group>"; };
@@ -309,6 +315,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		86241F6C259CEC3C0063CD57 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				86241F6D259CEC5C0063CD57 /* TermsAndConditions.swift */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
 		862851DB257FE6410059122F /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -412,6 +426,7 @@
 		863232E6257D73DF00514F5A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				86241F6C259CEC3C0063CD57 /* SideMenu */,
 				B2660570259A5A5100F1A8BA /* Authentication */,
 				B2BE22122593A46A004BA737 /* Search Result */,
 				B260138E2590C7E5004E95B1 /* Nurse */,
@@ -438,7 +453,6 @@
 		863232E8257D742200514F5A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				869D2001259A70DB00067BBC /* SideMenu */,
 				8628D5BE258C0ABD00CAB803 /* FavoritesVM.swift */,
 				861D5778258C294E00EFED1D /* AppointmentsVM.swift */,
 				8632AA05258901DF00E4DB8D /* HomeViewModel.swift */,
@@ -450,6 +464,7 @@
 				B2DF04382597E16800400F8F /* ResetPasswordViewModel.swift */,
 				B2DF043A2597E18700400F8F /* SignUpViewModel.swift */,
 				B2DF043C2597E1AD00400F8F /* SignInViewModel.swift */,
+				869D2001259A70DB00067BBC /* SideMenu */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -566,6 +581,7 @@
 			isa = PBXGroup;
 			children = (
 				8632AA1F258904A000E4DB8D /* String+trimming.swift */,
+				86241F74259CF0C10063CD57 /* String+ToHTML.swift */,
 			);
 			path = String;
 			sourceTree = "<group>";
@@ -592,6 +608,7 @@
 			isa = PBXGroup;
 			children = (
 				869D1FFD259A704F00067BBC /* TermsAndConditionsVC.swift */,
+				86241F70259CEEED0063CD57 /* TermsAndConditionsView.swift */,
 			);
 			path = TermsAndConditions;
 			sourceTree = "<group>";
@@ -971,6 +988,7 @@
 			files = (
 				8628D5C4258C0B0700CAB803 /* FavoritesReponse.swift in Sources */,
 				8628D5B8258C07FE00CAB803 /* FavoritesView.swift in Sources */,
+				86241F71259CEEED0063CD57 /* TermsAndConditionsView.swift in Sources */,
 				861D5775258C290300EFED1D /* AppointmentsVC.swift in Sources */,
 				B21BDE112582C1A400430408 /* UITabBarController+Storyboard.swift in Sources */,
 				869D1FDC259A1CE900067BBC /* SideMenuVC.swift in Sources */,
@@ -1028,6 +1046,7 @@
 				B21BDE372584F2E000430408 /* Regions.swift in Sources */,
 				B21BDE392584F2F700430408 /* Companies.swift in Sources */,
 				B2BE221A2593AAC1004BA737 /* SearchResultBody.swift in Sources */,
+				86241F6E259CEC5C0063CD57 /* TermsAndConditions.swift in Sources */,
 				B2BE22162593A49E004BA737 /* SearchResultData.swift in Sources */,
 				B21BDE162582C42A00430408 /* SearchView.swift in Sources */,
 				8628D5A9258C075B00CAB803 /* AlertVC.swift in Sources */,
@@ -1059,6 +1078,7 @@
 				8632AA20258904A100E4DB8D /* String+trimming.swift in Sources */,
 				8632AA06258901DF00E4DB8D /* HomeViewModel.swift in Sources */,
 				863232CD257D733C00514F5A /* AppDelegate.swift in Sources */,
+				86241F75259CF0C10063CD57 /* String+ToHTML.swift in Sources */,
 				B2DF04312597D9C800400F8F /* ResetPasswordView.swift in Sources */,
 				862851ED258061740059122F /* UIColor+FromHex.swift in Sources */,
 				8632AA142589043700E4DB8D /* UIViewController+Storyboard.swift in Sources */,

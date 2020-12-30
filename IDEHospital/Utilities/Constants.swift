@@ -59,6 +59,7 @@ struct URLs {
     static let register = "register"
     static let login = "login"
     static let logout = "logout"
+    static let termsAndConditions = "terms_and_conditions"
 }
 
 // Header Keys
