@@ -41,7 +41,6 @@
             </objects>
             <point key="canvasLocation" x="-1507" y="-10"/>
         </scene>
-<<<<<<< HEAD
         <!--AboutVC-->
         <scene sceneID="qJV-QI-55a">
             <objects>
@@ -217,57 +216,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SHh-Id-iae" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="579.71014492753625" y="-3.3482142857142856"/>
-=======
-        <!--Terms And ConditionsVC-->
-        <scene sceneID="aDn-PC-B2v">
-            <objects>
-                <viewController storyboardIdentifier="TermsAndConditionsVC" id="SNj-FJ-qSw" customClass="TermsAndConditionsVC" customModule="IDEHospital" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hPj-54-zcd" customClass="TermsAndConditionsView" customModule="IDEHospital" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PNf-Es-EfP">
-                                <rect key="frame" x="26" y="59" width="362" height="803"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="Nni-dD-9AK"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Nni-dD-9AK" firstAttribute="trailing" secondItem="PNf-Es-EfP" secondAttribute="trailing" constant="26" id="47h-ie-oGF"/>
-                            <constraint firstItem="PNf-Es-EfP" firstAttribute="leading" secondItem="Nni-dD-9AK" secondAttribute="leading" constant="26" id="OtW-xd-QjZ"/>
-                            <constraint firstItem="PNf-Es-EfP" firstAttribute="top" secondItem="Nni-dD-9AK" secondAttribute="top" constant="15" id="fgz-Az-fWN"/>
-                            <constraint firstItem="Nni-dD-9AK" firstAttribute="bottom" secondItem="PNf-Es-EfP" secondAttribute="bottom" id="t5H-Zh-GOa"/>
-                        </constraints>
-                        <connections>
-                            <outlet property="termsAndConditionsLabel" destination="PNf-Es-EfP" id="neR-wx-iqm"/>
-                        </connections>
-                    </view>
-                    <connections>
-                        <outlet property="termsAndConditionsView" destination="hPj-54-zcd" id="rRO-KY-V4q"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7Cm-92-w3S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-<<<<<<< HEAD
-            <point key="canvasLocation" x="-804" y="-10"/>
         </scene>
     </scenes>
-    <resources>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
-=======
-            <point key="canvasLocation" x="-532" y="65"/>
->>>>>>> cf3e8dbde7cad811778cce55d25d215ace12ba17
-        </scene>
-    </scenes>
->>>>>>> 243b691b1e31f446862c8a83aca48f7dca74fa0c
 </document>
