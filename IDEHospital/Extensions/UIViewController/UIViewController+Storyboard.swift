@@ -14,19 +14,12 @@ extension UIViewController {
     }
     
     func setupNavigationBar(backgroundColor: UIColor = UIColor(named: ColorName.veryLightPink)) {
-        // NavBar Appearance
-        navigationController?.navigationBar.tintColor = .clear
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
-        // Remove shadow
-        navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.backgroundColor = backgroundColor
+        navigationController?.setNavigationBar(backgroundColor: backgroundColor)
     }
     
     func setViewControllerTitle(to title:String, fontColor: UIColor = .white) {
-        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 75, height: 25))
+        let titleLabel = UILabel()
         titleLabel.font = FontFamily.PTSans.bold.font(size: 20)
-        titleLabel.textAlignment = .center
         titleLabel.text = title
         titleLabel.textColor = fontColor
         self.navigationItem.titleView = titleLabel
@@ -41,7 +34,36 @@ extension UIViewController {
         self.createRightButtonInNavigationBar()
         self.createBackButtonInNavigationBar()
     }
-    private func createRightButtonInNavigationBar() {
+    
+    internal func setupSettingButton(){
+        var settingIcon = UIImage(asset: Asset.settings)
+        settingIcon = settingIcon?.withRenderingMode(.alwaysOriginal)
+        let settingButton = UIBarButtonItem(image: settingIcon, style: .plain, target: self, action: #selector(settingsButton))
+        navigationItem.rightBarButtonItem = settingButton
+    }
+    
+    internal func setupBackWithDismiss() {
+        var backIcon = UIImage(asset: Asset.back2)
+        backIcon = backIcon?.withRenderingMode(.alwaysOriginal)
+        let backButton = UIBarButtonItem(image: backIcon, style: .plain, target: self, action: #selector(dismissAction))
+        navigationItem.leftBarButtonItem = backButton
+    }
+    
+    @objc private func dismissAction() {
+        self.dismiss(animated: true)
+    }
+    
+    internal func setupBackWithPopup() {
+        var backIcon = UIImage(asset: Asset.back2)
+        backIcon = backIcon?.withRenderingMode(.alwaysOriginal)
+        let backButton = UIBarButtonItem(image: backIcon, style: .plain, target: self, action: #selector(popUpAction))
+        navigationItem.leftBarButtonItem = backButton
+    }
+    @objc private func popUpAction() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    internal func createRightButtonInNavigationBar() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(settingsButton))
         navigationItem.rightBarButtonItem?.setBackgroundImage(Asset.settings.image, for: .normal, barMetrics: .default)
     }

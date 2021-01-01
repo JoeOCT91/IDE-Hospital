@@ -21,13 +21,15 @@ class AppointmentsVC: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(UserDefaultsManager.shared().token)
         appointmentsView.setup()
         self.setupNavigationBar()
-        self.setViewControllerTitle(to: L10n.myAppointment, fontColor: .white)
-       self.setUpButtonsInNavigationBar()
+        //self.setUpButtonsInNavigationBar()
         appointmentsView.setupTableView(delgate: self, dataSource: self)
         viewModel.getData()
+    }
+    
+    func configureNavigationBar() {
+        self.setViewControllerTitle(to: L10n.myAppointment)
     }
     
     // Public Methods

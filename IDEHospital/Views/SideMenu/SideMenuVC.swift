@@ -29,16 +29,21 @@ class SideMenuVC: UIViewController {
         super.viewDidLoad()
         sideMenuView.setupTableView(delgate: self, dataSource: self)
         configureNavigationBar()
+        
+
+ 
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        configureNavigationBar()
+        //configureNavigationBar()
         sideMenuView.sideMenuTableView.reloadData()
     }
     
     private func configureNavigationBar(){
         setupNavigationBar(backgroundColor: ColorName.darkRoyalBlue.color)
         setViewControllerTitle(to: "SETTING", fontColor: ColorName.white.color)
+        setupSettingButton()
     }
     
     // Public Methods
@@ -63,6 +68,7 @@ extension SideMenuVC: SideMenuVCProtocol {
     
     func bookedAppointmentsPressed() {
         let appointmentsVC = AppointmentsVC.create()
+        appointmentsVC.setupBackWithPopup()
         pushToNavigation(VC: appointmentsVC)
     }
     
