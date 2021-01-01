@@ -36,6 +36,7 @@ class HomeVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         configureNavigationBar()
+        setupSettingButton()
     }
     
     //MARK:- Private Methods
