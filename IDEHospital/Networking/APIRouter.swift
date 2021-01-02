@@ -18,16 +18,22 @@ enum APIRouter:URLRequestConvertible {
     case removeAppointment(appointmentID: Int)
     case getCategory(_ ID: Int)
     case nurseRequest(_ body:RequsetBodyData)
+    case contacutUsRequest(_ body:RequsetBodyData)
     case searchResultRequest(_ body:SearchResultBody)
     case addOrDeleteDoctorFromFavoriteList(_ doctorID:Int)
     case login(_ body:AuthBodyData)
     case signUp(_ body:AuthBodyData)
     case ResetPassword(_ body:AuthBodyData)
-    
+    case logout
+    case termsAndConditions
+    case getAbout
+
     //Mark:- HTTP Methods
     private var method: HTTPMethod {
         switch self {
-        case .getCategories, .getFavories, .getCategory, .getAppointments,.searchResultRequest:
+        case .getCategories, .getFavories, .getCategory, .getAppointments, .getAbout, .searchResultRequest:
+            return .get
+        case .termsAndConditions:
             return .get
         case .removeAppointment:
             return .delete
@@ -63,6 +69,14 @@ enum APIRouter:URLRequestConvertible {
             return URLs.register
         case .ResetPassword:
             return URLs.forgetPassword
+        case .logout:
+            return URLs.logout
+        case .termsAndConditions:
+            return URLs.termsAndConditions
+        case .contacutUsRequest:
+            return URLs.contactUs
+        case .getAbout:
+            return URLs.about
         default:
             return ""
         }
@@ -77,7 +91,6 @@ enum APIRouter:URLRequestConvertible {
             return nil
         }
     }
-    
     
     //MARK:- Parameters
     private var parameters: Parameters? {
@@ -105,6 +118,8 @@ enum APIRouter:URLRequestConvertible {
         switch self {
         case .getFavories, .getAppointments, .removeFavorite, .removeAppointment,.searchResultRequest(_),.addOrDeleteDoctorFromFavoriteList:
             urlRequest.setValue(UserDefaultsManager.shared().token, forHTTPHeaderField: HeaderKeys.authorization)
+        case .logout:
+            urlRequest.setValue(UserDefaultsManager.shared().token, forHTTPHeaderField: HeaderKeys.authorization)
         default:
             break
         }
@@ -123,6 +138,8 @@ enum APIRouter:URLRequestConvertible {
                 return encodeToJSON(body)
             case.ResetPassword(let body):
                 return encodeToJSON(body)
+            case .contacutUsRequest(let body):
+                return encodeToJSON(body)
             default:
                 return nil
             }
@@ -139,10 +156,7 @@ enum APIRouter:URLRequestConvertible {
             return JSONEncoding.default
           }
         }()
-        
-        // Encoding
-        //let encoding: ParameterEncoding = JSONEncoding.default
-        
+    
         //print(try encoding.encode(urlRequest, with: parameters))
         return try encoding.encode(urlRequest, with: parameters)
     }

@@ -11,6 +11,8 @@ protocol PaginationVCProtocol: class {
     func reloadTableview()
     func showLoader()
     func hideLoader()
+    func tableViewIsEmpty(message: String)
+    func hideEmptyTablePlaceHolder()
     func setCellImage(image: Data, indexPath: IndexPath)
 }
 
@@ -27,17 +29,23 @@ class FavoritesVC: UIViewController {
         super.viewDidLoad()
         favoritesView.setup()
         favoritesView.setupTableView(delgate: self, dataSource: self)
-        self.setupNavigationBar()
-        self.setViewControllerTitle(to: L10n.myFavorites, fontColor: .white)
-        self.setUpButtonsInNavigationBar()
-        
+        configureNavigationBar()
+        //self.setUpButtonsInNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         viewModel.getData()
+        configureNavigationBar()
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         viewModel.clearData()
+    }
+    
+    private func configureNavigationBar() {
+        self.setViewControllerTitle(to: L10n.myFavorites)
+        self.setupNavigationBar()
+        self.setupSettingButton()
     }
     
     // Public Methods
@@ -50,6 +58,15 @@ class FavoritesVC: UIViewController {
 }
 
 extension FavoritesVC: FavoritesVCProtocol {
+    
+    func hideEmptyTablePlaceHolder() {
+        favoritesView.favoritesTableView.removeNoDataPlaceholder()
+    }
+    
+    func tableViewIsEmpty(message: String) {
+        favoritesView.favoritesTableView.setNoDataPlaceholder(message)
+    }
+    
     func reloadTableview(){
         favoritesView.favoritesTableView.reloadData()
     }

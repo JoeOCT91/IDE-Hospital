@@ -10,6 +10,8 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
+  /// ABOUT
+  internal static let about = L10n.tr("Localizable", "about")
   /// SearchResultTableViewCell
   internal static let cellIdentifire = L10n.tr("Localizable", "cellIdentifire")
   /// Choose City
@@ -26,6 +28,10 @@ internal enum L10n {
   internal static let chooseSpecialists = L10n.tr("Localizable", "chooseSpecialists")
   /// Confirm Password
   internal static let confirmPasswordPlaceholder = L10n.tr("Localizable", "confirm PasswordPlaceholder")
+  /// If you would like further information about how we can help you andyour health it would be great to hear from you.
+  internal static let contactUsMainLabel = L10n.tr("Localizable", "contactUsMainLabel")
+  /// For More information call: 19199
+  internal static let contactUsSmallLabel = L10n.tr("Localizable", "contactUsSmallLabel")
   /// Data Not Found
   internal static let dataNotFound = L10n.tr("Localizable", "dataNotFound")
   /// Password field isn't Match
@@ -42,6 +48,8 @@ internal enum L10n {
   internal static let emailTextFieldPlaceholder = L10n.tr("Localizable", "emailTextFieldPlaceholder")
   /// Enter Details
   internal static let enterDetails = L10n.tr("Localizable", "enterDetails")
+  /// Enter Message
+  internal static let enterMessage = L10n.tr("Localizable", "enterMessage")
   /// Enter Password
   internal static let enterPasswordPlaceholder = L10n.tr("Localizable", "enterPasswordPlaceholder")
   /// Examination Fees: 
@@ -70,6 +78,8 @@ internal enum L10n {
   internal static let login = L10n.tr("Localizable", "login")
   /// Login
   internal static let loginButton = L10n.tr("Localizable", "loginButton")
+  /// Login To Show your data
+  internal static let loginToShowYourData = L10n.tr("Localizable", "LoginToShowYourData")
   ///  minutes
   internal static let minutes = L10n.tr("Localizable", "minutes")
   /// My Appointments
@@ -114,12 +124,32 @@ internal enum L10n {
   internal static let search = L10n.tr("Localizable", "search")
   /// Search Result
   internal static let searchResult = L10n.tr("Localizable", "searchResult")
+  /// Send
+  internal static let send = L10n.tr("Localizable", "send")
   /// Send Request
   internal static let sendRequest = L10n.tr("Localizable", "sendRequest")
   /// Service Search
   internal static let serviceSearch = L10n.tr("Localizable", "serviceSearch")
   /// Set New Password
   internal static let setNewPassword = L10n.tr("Localizable", "setNewPassword")
+  /// About Us
+  internal static let sideMenuAboutUs = L10n.tr("Localizable", "sideMenuAboutUs ")
+  /// Booked Appointments
+  internal static let sideMenuBookedAppointments = L10n.tr("Localizable", "sideMenuBookedAppointments")
+  /// Contact Us
+  internal static let sideMenuContactUs = L10n.tr("Localizable", "sideMenuContactUs")
+  /// Edit Profile
+  internal static let sideMenuEditProfile = L10n.tr("Localizable", "sideMenuEditProfile")
+  /// Favourites
+  internal static let sideMenuFavourites = L10n.tr("Localizable", "sideMenuFavourites")
+  /// Login
+  internal static let sideMenuLogin = L10n.tr("Localizable", "sideMenuLogin")
+  /// Logouts
+  internal static let sideMenuLogouts = L10n.tr("Localizable", "sideMenuLogouts")
+  /// Share
+  internal static let sideMenuShare = L10n.tr("Localizable", "sideMenuShare")
+  /// Terms & Conditions
+  internal static let sideMenuTermsConditions = L10n.tr("Localizable", "sideMenuTerms&Conditions")
   /// SIGN UP
   internal static let signUp = L10n.tr("Localizable", "signUp")
   /// Sign Up
@@ -134,8 +164,16 @@ internal enum L10n {
   internal static let successRequestMessage = L10n.tr("Localizable", "successRequestMessage")
   /// Terms & Conditions
   internal static let terms = L10n.tr("Localizable", "terms")
+  /// Terms & Conditions
+  internal static let termsAndConditions = L10n.tr("Localizable", "TermsAndConditions")
   /// Wating Time: 
   internal static let watingTime = L10n.tr("Localizable", "watingTime")
+  /// You have no appointments
+  internal static let youHaveNoAppointemts = L10n.tr("Localizable", "YouHaveNoAppointemts")
+  /// You have no favorites
+  internal static let youHaveNoFavorites = L10n.tr("Localizable", "youHaveNoFavorites")
+  /// Your Message
+  internal static let yourMessage = L10n.tr("Localizable", "yourMessage")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

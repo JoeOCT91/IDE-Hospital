@@ -14,6 +14,15 @@ class AlertVC: UIViewController {
     private let messageLabel = HospitalCellLabel(textAlignment: .right, fontSize: 15, font: UIFont(font : FontFamily.PTSans.bold, size: 15))
     private let actionButton = HospitalButton(frame: .zero, tittle: "OK")
     
+    init(message: String = "Default message"){
+        super.init(nibName: nil, bundle: nil)
+        messageLabel.text = message
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configreView()
@@ -55,7 +64,7 @@ class AlertVC: UIViewController {
         ])
     }
     private func configureMessageLabel(){
-        messageLabel.text = "This feature not fully developed Yet!"
+        //messageLabel.text = "This feature not fully developed Yet!"
         messageLabel.textAlignment = .center
         messageLabel.textColor = UIColor(named: ColorName.darkRoyalBlue)
         NSLayoutConstraint.activate([

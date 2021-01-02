@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 protocol SearchViewModelProtocol {
     func callGetCategoriesAPI()
     func bringPickerValues(tag:Int, row:Int) -> String
@@ -14,8 +15,8 @@ protocol SearchViewModelProtocol {
     func checkIfCityFieldSelectedFirstOrNot(tag:Int)
     func checkResistingRegionValueOrNot(tag:Int)
     func getCurrentChoosenData() -> SearchResultBody
-    
 }
+
 class SearchViewModel{
     weak private var view:SearchVCProtocol!
     private var specialtiesArr:[Specialties] = []
@@ -35,8 +36,6 @@ class SearchViewModel{
 extension SearchViewModel:SearchViewModelProtocol{
     func getCurrentChoosenData() -> SearchResultBody {
         let currentChosenData = SearchResultBody(main_category_id: self.categoryID, userToken: nil, specialty_id: self.currentSpecialtiesID, city_id: self.currentCitiesID, region_id: self.currentRegionID, company_id: self.currentCompaniesID, name: self.view.getCurrentDoctorValue(), order_by: nil, page: 1, per_page: 15)
-        print("Current Category ID" + " = \(self.categoryID)")
-        print("Current Selected Speciality" + " = \(self.currentSpecialtiesID)")
         return currentChosenData
     }
     

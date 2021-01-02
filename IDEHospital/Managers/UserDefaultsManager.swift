@@ -26,7 +26,7 @@ class UserDefaultsManager {
             guard UserDefaults.standard.object(forKey: UserDefaultsKeys.token) != nil else {
                 return nil
             }
-            return UserDefaults.standard.string(forKey: UserDefaultsKeys.token)!
+            return "Bearer \(UserDefaults.standard.string(forKey: UserDefaultsKeys.token)!)"
         }
     }
 }

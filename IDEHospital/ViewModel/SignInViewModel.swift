@@ -29,7 +29,8 @@ class SignInViewModel {
                 if result.code == 201{
                     print(result.data)
                     UserDefaultsManager.shared().token = result.data?.access_token
-                    self.view.presentSuccessAlert(title: L10n.successfulRequest, message: L10n.successRequestMessage)
+                    self.view.sucssesfulLogin()
+                    //self.view.presentSuccessAlert(title: L10n.successfulRequest, message: L10n.successRequestMessage)
                 }
                 else{
                     self.view.presentError(title: L10n.sorry, message: result.message ?? "")

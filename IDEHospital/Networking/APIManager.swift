@@ -22,33 +22,33 @@ class APIManager {
             completion(response)
         }
     }
-
+    
     // nurseRequest
     class func sendNurseRequestAPI(body:RequsetBodyData ,completion: @escaping (Result<NurseResponse, Error>)-> ()){
         request(APIRouter.nurseRequest(body)){ (response) in
-               completion(response)
-           }
-       }
+            completion(response)
+        }
+    }
     // search Result Request
     class func sendSearchResultRequestAPI(body:SearchResultBody ,completion: @escaping (Result<SearchResultResponse, Error>)-> ()){
         request(APIRouter.searchResultRequest(body)){ (response) in
-                  completion(response)
-              }
+            completion(response)
+        }
     }
     
     // add or delete doctor from favorite list Request
     class func addOrDeleteDoctorFromFavoriteListAPI(doctorID:Int ,completion: @escaping (Result<HeartResponse, Error>)-> ()){
         request(APIRouter.addOrDeleteDoctorFromFavoriteList(doctorID)){ (response) in
-                    completion(response)
-            }
-      }
-
+            completion(response)
+        }
+    }
+    
     class func getFavorites<Element>(page: Int, complation: @escaping (Result<BaseResponse<Element>, Error>) -> () ) {
         request(APIRouter.getFavories(page)) { (response) in
             complation(response)
         }
     }
-
+    
     class func getAppointments(page: Int, complation: @escaping (Result<AppointmentsMainResponse, Error>) -> () ) {
         request(APIRouter.getAppointments(page)) { (response) in
             complation(response)
@@ -70,24 +70,49 @@ class APIManager {
     // Login Request
     class func sendLoginRequestAPI(body:AuthBodyData , completion:@escaping (Result<LoginResponse,Error>)-> ()){
         request(APIRouter.login(body)){ (response) in
-               completion(response)
-           }
-       }
+            completion(response)
+        }
+    }
     // Register Request
     class func sendRegisterRequestAPI(body:AuthBodyData ,completion: @escaping (Result<SignUpResponse, Error>)-> ()){
         request(APIRouter.signUp(body)){ (response) in
-               completion(response)
-           }
-       }
+            completion(response)
+        }
+    }
     
     // Reset Password Request
     class func sendResetPasswordRequestAPI(body:AuthBodyData ,completion: @escaping (Result<ResetPasswordResponse, Error>)-> ()){
         request(APIRouter.ResetPassword(body)){ (response) in
-               completion(response)
-           }
-       }
+            completion(response)
+        }
+    }
+    // Logout request
+    class func logoutRequest(complation: @escaping (Result<DeleteResponse, Error>) -> () ) {
+        request(APIRouter.logout) { (response) in
+            complation(response)
+        }
+    }
+    //Get terms and conditions
+    class func getTermsAndConditions(complation: @escaping (Result<TermsAndCondition, Error>) -> ()) {
+        request(APIRouter.termsAndConditions){ respons in
+            complation(respons)
+        }
+    }
     
+    // ContactUs Request
+    class func sendContactUsRequestAPI(body:RequsetBodyData ,completion: @escaping (Result<ContactUsResponse, Error>)-> ()){
+        request(APIRouter.contacutUsRequest(body)){ (response) in
+            completion(response)
+        }
+    }
+    // About Request
+    class func getAboutUS(completion: @escaping (Result<AboutResponse, Error>)-> ()){
+        request(APIRouter.getAbout){ (response) in
+            completion(response)
+        }
+    }
 }
+
 extension APIManager{
     // MARK:- The request function to get results in a closure
     private static func request<T: Decodable>(_ urlConvertible: URLRequestConvertible, completion:  @escaping (Result<T, Error>) -> ()) {
@@ -98,12 +123,11 @@ extension APIManager{
                 completion(.success(value))
             case .failure(let error):
                 completion(.failure(error))
-//                let str = String(data: response.data!, encoding: .utf8)
-//                print(str)
+            //                let str = String(data: response.data!, encoding: .utf8)
+            //                print(str)
             }
         }.responseJSON { response in
-            //print(response)
+            print(response)
         }
     }
 }
-
