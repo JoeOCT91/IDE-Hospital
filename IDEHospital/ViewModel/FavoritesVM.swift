@@ -22,23 +22,35 @@ class FavoritesVM<T: FavoritesVCProtocol>: ViewModelWithPagination<T>, Favorites
         child = self
     }
     
+    private func hasNoDataToPresent(){
+        view?.tableViewIsEmpty(message: L10n.youHaveNoFavorites)
+    }
+    
+    private  func removeEmptyDataPlaceholder(){
+        if !dataList.isEmpty { view?.hideEmptyTablePlaceHolder() }
+    }
+
     //Call data from the server
     func getData(){
-        self.view?.showLoader()
-        APIManager.getFavorites(page: page) { [weak self] (result: Result<BaseResponse<Doctor>, Error>) in
-            guard let self = self else { return }
-            switch result {
-            case .success(let favorites):
-                self.dataList.append(contentsOf: favorites.data.items)
-                print("page is \(self.page)")
-                self.isHasMorePages(pagesCount: favorites.data.totalPages)
-                self.page += 1
-                self.view?.hideLoader()
-                self.view?.reloadTableview()
-            case .failure(let error):
-                self.view?.hideLoader()
-                print(error)
+        if UserDefaultsManager.shared().token != nil {
+            self.view?.showLoader()
+            APIManager.getFavorites(page: page) { [weak self] (result: Result<BaseResponse<Doctor>, Error>) in
+                guard let self = self else { return }
+                switch result {
+                case .success(let favorites):
+                    self.dataList.append(contentsOf: favorites.data.items)
+                    print("page is \(self.page)")
+                    self.isHasMorePages(pagesCount: favorites.data.totalPages)
+                    self.page += 1
+                    self.view?.hideLoader()
+                    self.view?.reloadTableview()
+                case .failure(let error):
+                    self.view?.hideLoader()
+                    print(error)
+                }
             }
+        } else {
+            view?.tableViewIsEmpty(message: L10n.loginToShowYourData)
         }
     }
     
@@ -56,7 +68,7 @@ class FavoritesVM<T: FavoritesVCProtocol>: ViewModelWithPagination<T>, Favorites
     func getCellData(indexPath: IndexPath) -> Doctor {
         return dataList[indexPath.row] as! Doctor
     }
-
+    
     func deleteEntry(id: Int){
         APIManager.removeFavorite(doctorID: id) { [weak self] result in
             guard let self = self else { return }

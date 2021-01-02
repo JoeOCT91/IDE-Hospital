@@ -14,6 +14,7 @@ class SupplierTabBarVC: UITabBarController {
     let searchNavigation = UINavigationController()
     let favoriteNavigation = UINavigationController()
     let scheduleNavigation = UINavigationController()
+    
     var categoryID:Int = 0{
           didSet(newValue){
             self.setViewControllers()
@@ -36,26 +37,29 @@ class SupplierTabBarVC: UITabBarController {
     // MARK:- Public Methods
     private func setSearchTab() {
         let searchVC = SearchVC.create(id: self.categoryID)
+        searchVC.setupBackWithDismiss()
         searchVC.tabBarItem.image = Asset.component411.image.withRenderingMode(.alwaysOriginal)
-        //searchVC.tabBarItem.selectedImage = Asset.component411.image.withRenderingMode(.alwaysOriginal)
         searchVC.tabBarItem.title = L10n.search
         searchNavigation.viewControllers = [searchVC]
     }
     private func setFavoriteTab() {
         let favoriteVC = FavoritesVC.create()
+        favoriteVC.setupBackWithDismiss()
+        favoriteVC.setupSettingButton()
         favoriteVC.tabBarItem.image = Asset.joheart.image.withRenderingMode(.alwaysOriginal)
-        //favoriteVC.tabBarItem.selectedImage = Asset.joheart.image.withRenderingMode(.alwaysOriginal)
         favoriteVC.tabBarItem.title = L10n.favorite
         favoriteNavigation.viewControllers = [favoriteVC]
     }
     
     private func setScheduleTab() {
-        let scheduleVC = AppointmentsVC.create()
-        scheduleVC.tabBarItem.image = Asset.calendar3.image.withRenderingMode(.alwaysOriginal)
-        //scheduleVC.tabBarItem.selectedImage = Asset.calendar3.image.withRenderingMode(.alwaysOriginal)
-        scheduleVC.tabBarItem.title = L10n.schedule
-        scheduleNavigation.viewControllers = [scheduleVC]
+        let appointmentsVC = AppointmentsVC.create()
+        appointmentsVC.setupBackWithDismiss()
+        appointmentsVC.setupSettingButton()
+        appointmentsVC.tabBarItem.image = Asset.calendar3.image.withRenderingMode(.alwaysOriginal)
+        appointmentsVC.tabBarItem.title = L10n.schedule
+        scheduleNavigation.viewControllers = [appointmentsVC]
     }
+    
     private func setViewControllers() {
         setSearchTab()
         setFavoriteTab()
