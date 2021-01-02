@@ -45,6 +45,7 @@ class SupplierTabBarVC: UITabBarController {
     private func setFavoriteTab() {
         let favoriteVC = FavoritesVC.create()
         favoriteVC.setupBackWithDismiss()
+        favoriteVC.setupSettingButton()
         favoriteVC.tabBarItem.image = Asset.joheart.image.withRenderingMode(.alwaysOriginal)
         favoriteVC.tabBarItem.title = L10n.favorite
         favoriteNavigation.viewControllers = [favoriteVC]
@@ -53,6 +54,7 @@ class SupplierTabBarVC: UITabBarController {
     private func setScheduleTab() {
         let appointmentsVC = AppointmentsVC.create()
         appointmentsVC.setupBackWithDismiss()
+        appointmentsVC.setupSettingButton()
         appointmentsVC.tabBarItem.image = Asset.calendar3.image.withRenderingMode(.alwaysOriginal)
         appointmentsVC.tabBarItem.title = L10n.schedule
         scheduleNavigation.viewControllers = [appointmentsVC]

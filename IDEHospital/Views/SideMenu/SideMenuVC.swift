@@ -38,7 +38,7 @@ class SideMenuVC: UIViewController {
     
     private func configureNavigationBar(){
         setupNavigationBar(backgroundColor: ColorName.darkRoyalBlue.color)
-        setViewControllerTitle(to: "SETTING", fontColor: ColorName.white.color)
+        setViewControllerTitle(to: "SETTING")
         setupBackWithDismiss()
     }
     
@@ -59,6 +59,7 @@ extension SideMenuVC: SideMenuVCProtocol {
     
     func favoritesPressed() {
         let favoritesVC = FavoritesVC.create()
+        favoritesVC.setupBackWithPopup()
         pushToNavigation(VC: favoritesVC)
     }
     
