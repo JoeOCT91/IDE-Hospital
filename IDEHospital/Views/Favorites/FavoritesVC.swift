@@ -45,7 +45,6 @@ class FavoritesVC: UIViewController {
     private func configureNavigationBar() {
         self.setViewControllerTitle(to: L10n.myFavorites)
         self.setupNavigationBar()
-        self.setupSettingButton()
     }
     
     // Public Methods

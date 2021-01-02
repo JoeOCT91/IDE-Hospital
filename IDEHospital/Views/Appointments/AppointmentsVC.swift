@@ -34,7 +34,6 @@ class AppointmentsVC: UIViewController{
     private func configureNavigationBar() {
         self.setViewControllerTitle(to: L10n.myAppointment)
         self.setupNavigationBar()
-        self.setupSettingButton()
     }
     
     // Public Methods

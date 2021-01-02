@@ -367,6 +367,15 @@
 			path = Strings;
 			sourceTree = "<group>";
 		};
+		8628891125A0B0D200D8AE17 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				B2DF043C2597E1AD00400F8F /* SignInViewModel.swift */,
+				B2DF043A2597E18700400F8F /* SignUpViewModel.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		8628D5C1258C0B0700CAB803 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
@@ -482,6 +491,8 @@
 		863232E8257D742200514F5A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				869D2001259A70DB00067BBC /* SideMenu */,
+				8628891125A0B0D200D8AE17 /* Auth */,
 				8628D5BE258C0ABD00CAB803 /* FavoritesVM.swift */,
 				861D5778258C294E00EFED1D /* AppointmentsVM.swift */,
 				8632AA05258901DF00E4DB8D /* HomeViewModel.swift */,
@@ -489,11 +500,7 @@
 				B26DB98B258DE47C00DDE8B8 /* NurseViewModel.swift */,
 				B2BE220E2592A35E004BA737 /* SearchResultViewModel.swift */,
 				86215D07258D596C00022D86 /* ViewModelWithPagination.swift */,
-				869D1FE4259A236C00067BBC /* SideMenuViewModel.swift */,
 				B2DF04382597E16800400F8F /* ResetPasswordViewModel.swift */,
-				B2DF043A2597E18700400F8F /* SignUpViewModel.swift */,
-				B2DF043C2597E1AD00400F8F /* SignInViewModel.swift */,
-				869D2001259A70DB00067BBC /* SideMenu */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -652,6 +659,7 @@
 				86241F84259D0EED0063CD57 /* AboutUsVM.swift */,
 				86241F87259D0EFC0063CD57 /* ContactUsViewModel.swift */,
 				869D2002259A70EF00067BBC /* TermsAndConditionsVM.swift */,
+				869D1FE4259A236C00067BBC /* SideMenuViewModel.swift */,
 			);
 			path = SideMenu;
 			sourceTree = "<group>";

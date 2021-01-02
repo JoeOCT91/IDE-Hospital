@@ -21,13 +21,17 @@ class AboutVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.aboutView.setUp()
-        self.setupNavigationBar()
-        self.setViewControllerTitle(to: L10n.about, fontColor: .white)
-        self.setUpButtonsInPushedNavigationBar()
-        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
-        self.viewModel.callAboutAPI()
+        configureNavigationBar()
+        viewModel.callAboutAPI()
+    }
+    
+    private func configureNavigationBar() {
+        setViewControllerTitle(to: L10n.about)
+        setupNavigationBar()
+        setupBackWithPopup()
     }
     
     // MARK:- Public Methods
