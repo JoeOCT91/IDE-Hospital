@@ -22,12 +22,15 @@ class ContactUsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.contactUsView.setUp()
-        self.setupNavigationBar()
-        self.setViewControllerTitle(to: L10n.sideMenuContactUs.uppercased(), fontColor: .white)
-        self.setUpButtonsInPushedNavigationBar()
+        configureNavigationBar()
     }
     
-  
+    private func configureNavigationBar() {
+        setViewControllerTitle(to: L10n.sideMenuContactUs.uppercased())
+        setupNavigationBar()
+        setupBackWithPopup()
+    }
+    
     // MARK:- Public Methods
     class func create() -> ContactUsVC {
         let contactUsVC: ContactUsVC = UIViewController.create(storyboardName: Storyboards.sideMenu, identifier: ViewControllers.contactUsVC)
