@@ -34,12 +34,15 @@ class HomeVC: UIViewController {
         homeView.setupCollectionView(delgate: self, dataSource: self)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        configureNavigationBar()
+        setupSettingButton()
+    }
+    
     //MARK:- Private Methods
     private func configureNavigationBar() {
-        //navigationController?.setViewControllerTitle(to: L10n.chooseServices, fontColor: UIColor(named: ColorName.white))
         self.setupNavigationBar()
         self.setViewControllerTitle(to: L10n.chooseServices, fontColor: .white)
-        
     }
     
     // MARK:- Public Methods
@@ -49,27 +52,28 @@ class HomeVC: UIViewController {
         homeVC.viewModel = viewModel
         return homeVC
     }
-
+    
 }
 
 extension HomeVC: HomeVCProtocol {
-    
-    func goChooseServicesScreen(celTag:Int) {
+        
+    internal func goChooseServicesScreen(celTag:Int) {
         let tabBarController = SupplierTabBarVC()
         tabBarController.modalPresentationStyle = .fullScreen
         tabBarController.categoryID = celTag
         self.present(tabBarController, animated: true)
     }
-    func goToNurseScreen() {
-      let nurseVC = NurseVC.create()
-      nurseVC.modalPresentationStyle = .fullScreen
-      self.navigationController?.pushViewController(nurseVC, animated: true)
+    
+    internal func goToNurseScreen() {
+              let nurseVC = NurseVC.create()
+              nurseVC.modalPresentationStyle = .fullScreen
+              self.navigationController?.pushViewController(nurseVC, animated: true)
     }
     
     internal func reloadData() {
         homeView.collectionView.reloadData()
     }
-
+    
     internal func showLoader() {
         view.showLoader()
     }
@@ -94,7 +98,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! CategoryCell
         //Cell tag hold category ID to use when navigate to others controllers
-         print(cell.tag)
+        print(cell.tag)
         viewModel.determineWhichVCToOpen(tag: cell.tag)
     }
     
@@ -104,5 +108,5 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.tag = ID
         cell.setupCell(title: title, color: color , image: image)
     }
-  
+    
 }

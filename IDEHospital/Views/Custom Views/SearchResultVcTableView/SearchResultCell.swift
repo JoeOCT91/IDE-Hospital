@@ -13,6 +13,7 @@ protocol sendDoctorIdDelegate {
     func getDoctorID(id:Int)
 }
 class SearchResultCell: UITableViewCell {
+    @IBOutlet weak var bookNowButton: HospitalButton!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var ratingView: CosmosView!

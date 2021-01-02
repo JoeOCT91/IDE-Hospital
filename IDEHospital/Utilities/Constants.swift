@@ -16,6 +16,10 @@ struct Storyboards {
     static let nurse = "Nurse"
     static let favorites = "Favorites"
     static let appointments = "Appointments"
+    static let sideMenu = "SideMenu"
+    static let authentication = "Authentication"
+    static let contactUs = "ContactUs"
+    static let staticContent = "StaticContent"
 }
 
 // Cells
@@ -23,11 +27,12 @@ struct Cells {
     static let category = "Category"
     static let favorites = "Favorites"
     static let appointment = "Appointment"
+    static let sideMenu = "SideMenu"
 }
 
 // View Controllers
 struct ViewControllers {
-    
+
     static let homeVC   = "HomeVC"
     static let searchVC = "SearchVC"
     static let searchResult = "SearchResultVC"
@@ -37,6 +42,14 @@ struct ViewControllers {
     static let nurseVC = "NurseVC"
     static let searchResultCell = "SearchResultCell"
     static let appointmentsVC = "AppointmentsVC"
+    static let sideMenu = "SideMenuVC"
+    static let termsAndConditionsVC = "TermsAndConditionsVC"
+    static let resetPasswordVC = "ResetPasswordVC"
+    static let signUpVC = "SignUpVC"
+    static let signInVC = "SignInVC"
+    static let contactUsVC = "ContactUsVC"
+    static let aboutVC = "AboutVC"
+
 
 }
 
@@ -48,6 +61,13 @@ struct URLs {
     static let nurseRequest = "nursing_requests"
     static let favorites = "favorites/doctors"
     static let appoitments = "user_appointments"
+    static let forgetPassword = "forget_password"
+    static let register = "register"
+    static let login = "login"
+    static let logout = "logout"
+    static let termsAndConditions = "terms_and_conditions"
+    static let contactUs = "contact_us_requests"
+    static let about = "about_us"
 }
 
 // Header Keys
@@ -77,8 +97,6 @@ struct ParameterKeys {
     static var order_by = "order_by"
     static var page = "page"
     static var per_page = "per_page"
-    
-    
 }
 
 // UserDefaultsKeys

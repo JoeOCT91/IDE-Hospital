@@ -34,22 +34,35 @@ class AppointmentsVM<T: AppointmentsVCProtocol>: ViewModelWithPagination<T>, App
         return dateArr
     }
     
+    func hasNoDataToPresent(){
+        view?.tableViewIsEmpty(message: L10n.youHaveNoAppointemts)
+    }
+    
+    func removeEmptyDataPlaceholder(){
+        if !dataList.isEmpty { view?.hideEmptyTablePlaceHolder() }
+    }
+    
     func getData(){
-        view?.showLoader()
-        APIManager.getAppointments(page: page) { [weak self] (result) in
-            guard let self = self else { return }
-            switch result {
-            case .success(let appoinmentsData):
-                self.dataList.append(contentsOf: appoinmentsData.data.appointments)
-                self.page += 1
-                self.isHasMorePages(pagesCount: appoinmentsData.data.page)
-                self.view?.reloadTableview()
-                self.view?.hideLoader()
-                print(self.dataList.count)
-            case .failure(let error):
-                self.view?.hideLoader()
-                print(error)
+        if UserDefaultsManager.shared().token != nil {
+            view?.showLoader()
+            hasNoDataToPresent()
+            APIManager.getAppointments(page: page) { [weak self] (result) in
+                guard let self = self else { return }
+                switch result {
+                case .success(let appoinmentsData):
+                    self.dataList.append(contentsOf: appoinmentsData.data.appointments)
+                    self.page += 1
+                    self.isHasMorePages(pagesCount: appoinmentsData.data.page)
+                    self.view?.reloadTableview()
+                    self.view?.hideLoader()
+                    
+                case .failure(let error):
+                    self.view?.hideLoader()
+                    print(error)
+                }
             }
+        } else {
+            view?.tableViewIsEmpty(message: L10n.loginToShowYourData)
         }
     }
     
