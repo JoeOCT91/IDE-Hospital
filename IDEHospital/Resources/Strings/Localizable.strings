@@ -82,7 +82,7 @@
 //About
 "about" = "ABOUT";
 //terms and conditions
-
+"TermsAndConditions" = "Terms & Conditions";
 //Empty Table Meessage
 "LoginToShowYourData" = "Login To Show your data";
 "YouHaveNoAppointemts" = "You have no appointments";

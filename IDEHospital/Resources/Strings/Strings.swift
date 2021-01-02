@@ -164,6 +164,8 @@ internal enum L10n {
   internal static let successRequestMessage = L10n.tr("Localizable", "successRequestMessage")
   /// Terms & Conditions
   internal static let terms = L10n.tr("Localizable", "terms")
+  /// Terms & Conditions
+  internal static let termsAndConditions = L10n.tr("Localizable", "TermsAndConditions")
   /// Wating Time: 
   internal static let watingTime = L10n.tr("Localizable", "watingTime")
   /// You have no appointments

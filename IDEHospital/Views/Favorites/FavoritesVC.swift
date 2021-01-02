@@ -30,7 +30,7 @@ class FavoritesVC: UIViewController {
         favoritesView.setup()
         favoritesView.setupTableView(delgate: self, dataSource: self)
         configureNavigationBar()
-        self.setUpButtonsInNavigationBar()
+        //self.setUpButtonsInNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,8 +43,9 @@ class FavoritesVC: UIViewController {
     }
     
     private func configureNavigationBar() {
+        self.setViewControllerTitle(to: L10n.myFavorites)
         self.setupNavigationBar()
-        self.setViewControllerTitle(to: L10n.myFavorites, fontColor: .white)
+        self.setupSettingButton()
     }
     
     // Public Methods
@@ -59,11 +60,11 @@ class FavoritesVC: UIViewController {
 extension FavoritesVC: FavoritesVCProtocol {
     
     func hideEmptyTablePlaceHolder() {
-        
+        favoritesView.favoritesTableView.removeNoDataPlaceholder()
     }
     
     func tableViewIsEmpty(message: String) {
-        
+        favoritesView.favoritesTableView.setNoDataPlaceholder(message)
     }
     
     func reloadTableview(){

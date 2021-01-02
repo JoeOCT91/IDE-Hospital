@@ -38,14 +38,12 @@ class SupplierTabBarVC: UITabBarController {
     private func setSearchTab() {
         let searchVC = SearchVC.create(id: self.categoryID)
         searchVC.tabBarItem.image = Asset.component411.image.withRenderingMode(.alwaysOriginal)
-        //searchVC.tabBarItem.selectedImage = Asset.component411.image.withRenderingMode(.alwaysOriginal)
         searchVC.tabBarItem.title = L10n.search
         searchNavigation.viewControllers = [searchVC]
     }
     private func setFavoriteTab() {
         let favoriteVC = FavoritesVC.create()
         favoriteVC.tabBarItem.image = Asset.joheart.image.withRenderingMode(.alwaysOriginal)
-        //favoriteVC.tabBarItem.selectedImage = Asset.joheart.image.withRenderingMode(.alwaysOriginal)
         favoriteVC.tabBarItem.title = L10n.favorite
         favoriteNavigation.viewControllers = [favoriteVC]
     }
@@ -53,7 +51,6 @@ class SupplierTabBarVC: UITabBarController {
     private func setScheduleTab() {
         let scheduleVC = AppointmentsVC.create()
         scheduleVC.tabBarItem.image = Asset.calendar3.image.withRenderingMode(.alwaysOriginal)
-        //scheduleVC.tabBarItem.selectedImage = Asset.calendar3.image.withRenderingMode(.alwaysOriginal)
         scheduleVC.tabBarItem.title = L10n.schedule
         scheduleNavigation.viewControllers = [scheduleVC]
     }

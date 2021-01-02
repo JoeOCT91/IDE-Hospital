@@ -22,7 +22,14 @@ class TermsAndConditionsVC: UIViewController {
         termsAndConditionsView.setup()
         viewModel.getTermsAndConditions()
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        configureNavigationBar()
+    }
+    private func configureNavigationBar() {
+        self.setViewControllerTitle(to: L10n.termsAndConditions)
+        self.setupNavigationBar()
+        self.setupBackWithPopup()
+    }
     
     class func create() -> UIViewController {
         let TermsAndConditionsVC: TermsAndConditionsVC =

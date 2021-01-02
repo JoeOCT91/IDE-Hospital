@@ -501,7 +501,6 @@
 		863232E9257D74ED00514F5A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				869D1FFC259A6F3300067BBC /* TermsAndConditions */,
 				869D1FDA259A1CB700067BBC /* SideMenu */,
 				B207B4C525894CA2002603EA /* Custom Views */,
 				B2DF04222597D89C00400F8F /* Authentication */,
@@ -630,6 +629,7 @@
 			children = (
 				869D1FDB259A1CE900067BBC /* SideMenuVC.swift */,
 				869D1FDE259A22CE00067BBC /* SideMenuView.swift */,
+				869D1FFC259A6F3300067BBC /* TermsAndConditions */,
 				B2D29544259CD0C70092C3E0 /* AboutUs */,
 				B2567353259BD2790019925B /* ContactUs */,
 			);
@@ -642,7 +642,8 @@
 				869D1FFD259A704F00067BBC /* TermsAndConditionsVC.swift */,
 				86241F70259CEEED0063CD57 /* TermsAndConditionsView.swift */,
 			);
-			path = TermsAndConditions;
+			name = TermsAndConditions;
+			path = ../TermsAndConditions;
 			sourceTree = "<group>";
 		};
 		869D2001259A70DB00067BBC /* SideMenu */ = {
