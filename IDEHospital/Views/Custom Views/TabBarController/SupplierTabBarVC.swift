@@ -37,6 +37,7 @@ class SupplierTabBarVC: UITabBarController {
     // MARK:- Public Methods
     private func setSearchTab() {
         let searchVC = SearchVC.create(id: self.categoryID)
+        searchVC.setupBackWithDismiss()
         searchVC.tabBarItem.image = Asset.component411.image.withRenderingMode(.alwaysOriginal)
         searchVC.tabBarItem.title = L10n.search
         searchNavigation.viewControllers = [searchVC]
