@@ -22,6 +22,9 @@ class FavoritesVM<T: FavoritesVCProtocol>: ViewModelWithPagination<T>, Favorites
         child = self
     }
     
+    func hasNoDataToPresent(){
+        
+    }
     //Call data from the server
     func getData(){
         self.view?.showLoader()

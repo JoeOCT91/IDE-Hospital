@@ -22,14 +22,19 @@ class AppointmentsVC: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         appointmentsView.setup()
-        self.setupNavigationBar()
-        //self.setUpButtonsInNavigationBar()
         appointmentsView.setupTableView(delgate: self, dataSource: self)
-        viewModel.getData()
+        //viewModel.getData()
     }
     
-    func configureNavigationBar() {
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.getData()
+        configureNavigationBar()
+    }
+    
+    private func configureNavigationBar() {
         self.setViewControllerTitle(to: L10n.myAppointment)
+        self.setupNavigationBar()
+        self.setupSettingButton()
     }
     
     // Public Methods
@@ -50,6 +55,12 @@ extension AppointmentsVC: AppointmentsVCProtocol {
     }
     func reloadTableview(){
         appointmentsView.appointmentsTableView.reloadData()
+    }
+    func tableViewIsEmpty(message: String){
+        appointmentsView.appointmentsTableView.setNoDataPlaceholder(message)
+    }
+    func hideEmptyTablePlaceHolder(){
+        appointmentsView.appointmentsTableView.removeNoDataPlaceholder()
     }
     
 }

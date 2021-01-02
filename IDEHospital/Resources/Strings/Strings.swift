@@ -78,6 +78,8 @@ internal enum L10n {
   internal static let login = L10n.tr("Localizable", "login")
   /// Login
   internal static let loginButton = L10n.tr("Localizable", "loginButton")
+  /// Login To Show your data
+  internal static let loginToShowYourData = L10n.tr("Localizable", "LoginToShowYourData")
   ///  minutes
   internal static let minutes = L10n.tr("Localizable", "minutes")
   /// My Appointments
@@ -164,6 +166,10 @@ internal enum L10n {
   internal static let terms = L10n.tr("Localizable", "terms")
   /// Wating Time: 
   internal static let watingTime = L10n.tr("Localizable", "watingTime")
+  /// You have no appointments
+  internal static let youHaveNoAppointemts = L10n.tr("Localizable", "YouHaveNoAppointemts")
+  /// You have no favorites
+  internal static let youHaveNoFavorites = L10n.tr("Localizable", "youHaveNoFavorites")
   /// Your Message
   internal static let yourMessage = L10n.tr("Localizable", "yourMessage")
 }

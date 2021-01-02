@@ -11,6 +11,8 @@ protocol PaginationVCProtocol: class {
     func reloadTableview()
     func showLoader()
     func hideLoader()
+    func tableViewIsEmpty(message: String)
+    func hideEmptyTablePlaceHolder()
     func setCellImage(image: Data, indexPath: IndexPath)
 }
 
@@ -55,6 +57,15 @@ class FavoritesVC: UIViewController {
 }
 
 extension FavoritesVC: FavoritesVCProtocol {
+    
+    func hideEmptyTablePlaceHolder() {
+        
+    }
+    
+    func tableViewIsEmpty(message: String) {
+        
+    }
+    
     func reloadTableview(){
         favoritesView.favoritesTableView.reloadData()
     }

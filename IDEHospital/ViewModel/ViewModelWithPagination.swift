@@ -15,6 +15,7 @@ protocol ViewModelWithPaginatioProtocol: PaginationChild {
 }
 
 protocol PaginationChild: class {
+    func hasNoDataToPresent()
     func getData()
 }
 
