@@ -39,7 +39,7 @@ class FavoritesCell: UITableViewCell {
     private let secondBio = HospitalCellLabel(textAlignment: .left, fontSize: 12)
     private let reviewsCount = HospitalCellLabel(textAlignment: .left, fontSize: 12, font: UIFont(font: FontFamily.PTSans.regular, size: 12))
     //Buttons Views
-    private let viewProfileButton = HospitalButton(frame: .zero, tittle: "View Profile")
+    private let viewProfileButton = HospitalButton(frame: .zero, tittle: "View Profile", color: ColorName.darkRoyalBlue)
     private let deleteButton = UIButton(frame: .zero)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){

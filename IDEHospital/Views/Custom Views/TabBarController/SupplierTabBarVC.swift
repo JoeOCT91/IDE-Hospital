@@ -33,6 +33,7 @@ class SupplierTabBarVC: UITabBarController {
         tabBar.layer.shadowRadius = 10
         tabBar.layer.shadowColor = UIColor.black.cgColor
         tabBar.layer.shadowOpacity = 0.3
+        
     }
     // MARK:- Public Methods
     private func setSearchTab() {
@@ -40,6 +41,7 @@ class SupplierTabBarVC: UITabBarController {
         searchVC.setupBackWithDismiss()
         searchVC.tabBarItem.image = Asset.component411.image.withRenderingMode(.alwaysOriginal)
         searchVC.tabBarItem.title = L10n.search
+        searchVC.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for:.selected)
         searchNavigation.viewControllers = [searchVC]
     }
     private func setFavoriteTab() {
@@ -47,6 +49,7 @@ class SupplierTabBarVC: UITabBarController {
         favoriteVC.setupBackWithDismiss()
         favoriteVC.setupSettingButton()
         favoriteVC.tabBarItem.image = Asset.joheart.image.withRenderingMode(.alwaysOriginal)
+        favoriteVC.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for:.selected)
         favoriteVC.tabBarItem.title = L10n.favorite
         favoriteNavigation.viewControllers = [favoriteVC]
     }
@@ -56,6 +59,7 @@ class SupplierTabBarVC: UITabBarController {
         appointmentsVC.setupBackWithDismiss()
         appointmentsVC.setupSettingButton()
         appointmentsVC.tabBarItem.image = Asset.calendar3.image.withRenderingMode(.alwaysOriginal)
+        appointmentsVC.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for:.selected)
         appointmentsVC.tabBarItem.title = L10n.schedule
         scheduleNavigation.viewControllers = [appointmentsVC]
     }

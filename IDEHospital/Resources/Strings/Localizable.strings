@@ -31,7 +31,9 @@
 "rightPhoneNumberFormatDescription" = "The Entered Number Doesn't Start with 010,011,012 or 015 with Max 11 Numbers at All";
 "pleaseEnterDetails" = "Details Field is Empty, Please Write your Details";
 "successfulRequest" = "Successful Request";
-"successRequestMessage" = "Your Request has been Sent Successfully";
+"successRequestMessage" = "Your Request have been Sent Successfully";
+"successLogin" = "You have been Logged in Successfully!";
+"successRegister" =  "You have been Registered Successfully!";
 "searchResult" = "Search Result";
 "sortBy" = "Sort By";
 "noSearchResult" = "No Search Result Found";
@@ -73,6 +75,7 @@
 "instructions" = "By clicking sign up, you agree to our ";
 "terms" = "Terms & Conditions";
 "forgot" = "Forgot Password?";
+"loginFirst" = "You have to Login First to Select your Favorites";
 //contactUs
 "contactUsMainLabel" = "If you would like further information about how we can help you andyour health it would be great to hear from you.";
 "contactUsSmallLabel" = "For More information call: 19199";

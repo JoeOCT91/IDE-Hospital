@@ -78,6 +78,8 @@ internal enum L10n {
   internal static let login = L10n.tr("Localizable", "login")
   /// Login
   internal static let loginButton = L10n.tr("Localizable", "loginButton")
+  /// You have to Login First to Select your Favorites
+  internal static let loginFirst = L10n.tr("Localizable", "loginFirst")
   /// Login To Show your data
   internal static let loginToShowYourData = L10n.tr("Localizable", "LoginToShowYourData")
   ///  minutes
@@ -160,7 +162,11 @@ internal enum L10n {
   internal static let sortBy = L10n.tr("Localizable", "sortBy")
   /// Successful Request
   internal static let successfulRequest = L10n.tr("Localizable", "successfulRequest")
-  /// Your Request has been Sent Successfully
+  /// You have been Logged in Successfully!
+  internal static let successLogin = L10n.tr("Localizable", "successLogin")
+  /// You have been Registered Successfully!
+  internal static let successRegister = L10n.tr("Localizable", "successRegister")
+  /// Your Request have been Sent Successfully
   internal static let successRequestMessage = L10n.tr("Localizable", "successRequestMessage")
   /// Terms & Conditions
   internal static let terms = L10n.tr("Localizable", "terms")

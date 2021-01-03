@@ -24,7 +24,7 @@ class SignUpViewModel {
             switch response{
             case .failure(let error):
                 print(error.localizedDescription)
-                self.view.presentError(title: L10n.sorry, message: error.localizedDescription)
+                self.view.presentErrorAlert(title: L10n.sorry, message: error.localizedDescription)
             case .success(let result):
                 if result.code == 201{
                     print(result.data)
@@ -32,7 +32,7 @@ class SignUpViewModel {
                     self.view.presentSuccessAlert(title: L10n.successfulRequest, message: L10n.successRequestMessage)
                 }
                 else{
-                    self.view.presentError(title: L10n.sorry, message: result.errors?.email?[0] ?? "")
+                    self.view.presentErrorAlert(title: L10n.sorry, message: result.errors?.email?[0] ?? "")
                 }
             }
             self.view.hideLoader()
@@ -43,43 +43,43 @@ extension SignUpViewModel:SignUpViewModelProtocol{
     func signUpRequest(name: String?, email: String?, mobile: String?, password: String?, confirmPassword: String?) {
         
         guard !name!.isEmpty else{
-            self.view.presentError(title: L10n.sorry, message: L10n.pleaseEnterName)
+            self.view.presentErrorAlert(title: L10n.sorry, message: L10n.pleaseEnterName)
             return
         }
         guard name!.count > 3 else{
-            self.view.presentError(title: L10n.sorry, message: L10n.nameFieldCountIsSmall)
+            self.view.presentErrorAlert(title: L10n.sorry, message: L10n.nameFieldCountIsSmall)
             return
         }
         guard let email = email?.trimmed , !email.isEmpty else {
-            self.view.presentError(title: L10n.sorry, message: L10n.pleaseEnterEmail)
+            self.view.presentErrorAlert(title: L10n.sorry, message: L10n.pleaseEnterEmail)
             return
         }
         guard ValidatorManager.shared().isValidEmail(email) else{
-            self.view.presentError(title: L10n.sorry, message: L10n.invalidEMailFormat)
+            self.view.presentErrorAlert(title: L10n.sorry, message: L10n.invalidEMailFormat)
             return
         }
         guard !mobile!.isEmpty else {
-            self.view.presentError(title: L10n.sorry, message: L10n.pleaseEnterPhoneNumber)
+            self.view.presentErrorAlert(title: L10n.sorry, message: L10n.pleaseEnterPhoneNumber)
             return
         }
         guard ValidatorManager.shared().isPhoneNumberValid(phoneNumber: mobile!) else{
-            self.view.presentError(title: L10n.sorry, message: L10n.rightPhoneNumberFormatDescription)
+            self.view.presentErrorAlert(title: L10n.sorry, message: L10n.rightPhoneNumberFormatDescription)
             return
         }
         guard !password!.isEmpty else {
-            self.view.presentError(title: L10n.sorry, message: L10n.pleaseEnterPassword)
+            self.view.presentErrorAlert(title: L10n.sorry, message: L10n.pleaseEnterPassword)
             return
         }
         guard ValidatorManager.shared().isPasswordValid(password!) else{
-            self.view.presentError(title: L10n.sorry, message: L10n.rightPasswordFormatDescription)
+            self.view.presentErrorAlert(title: L10n.sorry, message: L10n.rightPasswordFormatDescription)
             return
         }
         guard !confirmPassword!.isEmpty else {
-            self.view.presentError(title: L10n.sorry, message: L10n.pleaseConfirmPassword)
+            self.view.presentErrorAlert(title: L10n.sorry, message: L10n.pleaseConfirmPassword)
             return
         }
         guard password == confirmPassword else{
-            self.view.presentError(title: L10n.sorry, message: L10n.disMatchedPassword)
+            self.view.presentErrorAlert(title: L10n.sorry, message: L10n.disMatchedPassword)
             return
         }
         let body = AuthBodyData(name: name, email: email, mobile: mobile, password: password)

@@ -29,19 +29,20 @@ class SearchResultCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.makeImageViewCirclerShape()
-       
+        
     }
     @IBAction func heartButtonPressed(_ sender: Any) {
-        
-        print("Doctor ID" + " \(currentDoctorID)")
-        
+        if UserDefaultsManager.shared().token != nil {
+            
+            if heartButton.currentBackgroundImage == Asset.redHeart.image {
+                self.heartButton.setBackgroundImage(Asset.emptyHeart.image, for: .normal)
+            }
+            else{
+                self.heartButton.setBackgroundImage(Asset.redHeart.image, for: .normal)
+            }
+        }
         self.sendDoctorDelegate?.getDoctorID(id: currentDoctorID)
-        if heartButton.currentBackgroundImage == Asset.redHeart.image {
-            self.heartButton.setBackgroundImage(Asset.emptyHeart.image, for: .normal)
-        }
-        else{
-            self.heartButton.setBackgroundImage(Asset.redHeart.image, for: .normal)
-        }
+        
     }
     
     @IBAction func bookNowButtonPressed(_ sender: Any) {
@@ -67,15 +68,15 @@ class SearchResultCell: UITableViewCell {
         case true:
             self.heartButton.setBackgroundImage(Asset.redHeart.image, for: .normal)
         default:
-             self.heartButton.setBackgroundImage(Asset.emptyHeart.image, for: .normal)
+            self.heartButton.setBackgroundImage(Asset.emptyHeart.image, for: .normal)
         }
         self.watingTimeLabel.text = L10n.watingTime + "\(watingTime)" + L10n.minutes
         self.feesLabel.text = L10n.examinationFess + "\(fees)" + L10n.egyptionPound
     }
     // MARK:- Preivate Functions
     private func makeImageViewCirclerShape() {
-          self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
-          self.profileImageView.clipsToBounds = true;
-      }
-      
+        self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
+        self.profileImageView.clipsToBounds = true;
+    }
+    
 }

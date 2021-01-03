@@ -56,6 +56,10 @@ extension SearchResultViewModel:SearchResultViewModelProtocol{
     
     // MARK:- For Change Heart Value
     func callAddOrDeleteDoctorFromFavoriteListAPI(id: Int) {
+        guard UserDefaultsManager.shared().token != nil else {
+            self.view.presentErrorAlert(title: "", message: L10n.loginFirst)
+            return
+        }
         print("view Model ID" + " \(id)")
         APIManager.addOrDeleteDoctorFromFavoriteListAPI(doctorID: id){(response) in
             switch response{

@@ -25,21 +25,19 @@ extension UIViewController {
         self.navigationItem.titleView = titleLabel
     }
     
-    func setUpButtonsInNavigationBar() {
-        self.createRightButtonInNavigationBar()
-        self.createLeftButtonInNavigationBar()
-    }
-    
-    func setUpButtonsInPushedNavigationBar() {
-        self.createRightButtonInNavigationBar()
-        self.createBackButtonInNavigationBar()
-    }
-    
     internal func setupSettingButton(){
         var settingIcon = UIImage(asset: Asset.settings)
         settingIcon = settingIcon?.withRenderingMode(.alwaysOriginal)
         let settingButton = UIBarButtonItem(image: settingIcon, style: .plain, target: self, action: #selector(settingsButton))
         navigationItem.rightBarButtonItem = settingButton
+    }
+    //Control setting button pressed
+    @objc private func settingsButton(_ sender:UIBarButtonItem){
+        let sideMenuVC = SideMenuVC.create()
+        let settingNavigation = UINavigationController(rootViewController: sideMenuVC)
+        settingNavigation.modalPresentationStyle = .overFullScreen
+        //settingNavigation.modalTransitionStyle = .crossDissolve
+        present(settingNavigation, animated: true)
     }
     
     internal func setupBackWithDismiss() {
@@ -60,39 +58,6 @@ extension UIViewController {
         navigationItem.leftBarButtonItem = backButton
     }
     @objc private func popUpAction() {
-        self.navigationController?.popViewController(animated: true)
-    }
-    
-    internal func createRightButtonInNavigationBar() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(settingsButton))
-        navigationItem.rightBarButtonItem?.setBackgroundImage(Asset.settings.image, for: .normal, barMetrics: .default)
-    }
-    
-    //Control setting button pressed
-    @objc private func settingsButton(_ sender:UIBarButtonItem){
-        let sideMenuVC = SideMenuVC.create()
-        let settingNavigation = UINavigationController(rootViewController: sideMenuVC)
-        settingNavigation.modalPresentationStyle = .overFullScreen
-        //settingNavigation.modalTransitionStyle = .crossDissolve
-        present(settingNavigation, animated: true)
-    }
-    
-    private func createLeftButtonInNavigationBar() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(goBackButton))
-        navigationItem.leftBarButtonItem?.setBackgroundImage(Asset.back2.image, for: .normal, barMetrics: .default)
-    }
-    
-    @objc private func goBackButton(_ sender:UIBarButtonItem){
-        print("dkfk")
-        self.dismiss(animated: true)
-    }
-    
-    private func createBackButtonInNavigationBar() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backButton))
-        navigationItem.leftBarButtonItem?.setBackgroundImage(Asset.back2.image, for: .normal, barMetrics: .default)
-    }
-    
-    @objc private func backButton(_ sender:UIBarButtonItem){
         self.navigationController?.popViewController(animated: true)
     }
 }

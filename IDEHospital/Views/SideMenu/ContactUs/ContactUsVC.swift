@@ -8,7 +8,7 @@
 import UIKit
 protocol ContactUsVCProtocol: class {
     func presentSuccessAlert(title:String, message:String)
-       func presentError(title:String,message: String)
+       func presentErrorAlert(title:String,message: String)
        func showLoader()
        func hideLoader()
 }
@@ -46,17 +46,23 @@ class ContactUsVC: UIViewController {
 }
 extension ContactUsVC:ContactUsVCProtocol{
     func presentSuccessAlert(title: String, message: String) {
-        self.showSuccessfulAlert(title: title, message: message)
-      }
-      func presentError(title:String,message: String) {
-        let alert = AlertVC()
-        presentAlertOnMainThread(alertVC: alert)
-          //self.showAlert(title: title, message: message)
-      }
+        let alertVC = AlertVC(message: message,alertTaype: 2)
+        alertVC.alertDelegate = self
+        presentAlertOnMainThread(alertVC: alertVC)
+    }
+    func presentErrorAlert(title:String,message: String) {
+        let alertVC = AlertVC(message: message,alertTaype: 1)
+        presentAlertOnMainThread(alertVC: alertVC)
+    }
       func showLoader() {
           self.view.showLoader()
       }
       func hideLoader() {
           self.view.hideLoader()
       }
+}
+extension ContactUsVC:AlertVcDelegate{
+    func okButtonPressed() {
+        self.view.window?.rootViewController?.dismiss(animated: false)
+    }
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 protocol SearchResultVCProtocol: class {
-    func presentError(title:String,message: String)
+    func presentErrorAlert(title:String,message: String)
     func showLoader()
     func hideLoader()
     func addSelectedItem(tag:Int, item:String)
@@ -21,9 +21,7 @@ class SearchResultVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchResultView.setupView()
-        self.setupNavigationBar()
-        self.setViewControllerTitle(to: L10n.searchResult, fontColor: .white)
-        self.setUpButtonsInPushedNavigationBar()
+        configureNavigationBar()
         self.setUpSearchResultTable()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -44,6 +42,12 @@ class SearchResultVC: UIViewController {
         self.searchResultView.searchResultTableView.delegate = self
         self.searchResultView.searchResultTableView.dataSource = self
     }
+    private func configureNavigationBar() {
+        self.setupNavigationBar()
+        self.setViewControllerTitle(to: L10n.searchResult, fontColor: .white)
+        self.setupSettingButton()
+        self.setupBackWithPopup()
+    }
     
     @objc private func donePressed(_ sender:UIBarButtonItem){
         viewModel.itemSelected(tag: sender.tag, row: searchResultView.pickerView.selectedRow(inComponent: 0))
@@ -53,8 +57,7 @@ class SearchResultVC: UIViewController {
 extension SearchResultVC:SearchResultVCProtocol{
     // MARK:- to SHow a label when there is no values in Table View
     func showEmptyDataLabel() {
-        self.searchResultView.searchResultTableView.alpha = 0
-        self.searchResultView.emptyDataLabel.alpha = 1
+        self.searchResultView.searchResultTableView.setNoDataPlaceholder(L10n.noSearchResult)
     }
     // MARK:- to Reload Table View Values
     func reloadTableViewData() {
@@ -66,8 +69,9 @@ extension SearchResultVC:SearchResultVCProtocol{
         texFiled.text = item
     }
     
-    func presentError(title:String,message: String) {
-        self.showAlert(title: title, message: message)
+    func presentErrorAlert(title:String,message: String) {
+        let alertVC = AlertVC(message: message,alertTaype: 1)
+        presentAlertOnMainThread(alertVC: alertVC)
     }
     
     func showLoader() {
