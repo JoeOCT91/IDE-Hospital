@@ -90,3 +90,11 @@
 "LoginToShowYourData" = "Login To Show your data";
 "YouHaveNoAppointemts" = "You have no appointments";
 "youHaveNoFavorites" = "You have no favorites";
+//Rating
+"pleaseRateDoctor" = "Please rate your experience with the doctor";
+"review" = "Review";
+"commentPlaceHolder" = "Add Comment";
+"successRatingAlert" = "Your Rating Have been Added Successfully!";
+"pleaseEnterComment" = "Comment Field is Empty, We Keen to Listen to your Comment";
+"commentFieldCountIsSmall" = "The Comment must be at least 3 characters";
+"noRatings" = "Please Leave Your Rating";

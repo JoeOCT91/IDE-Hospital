@@ -18,7 +18,7 @@ protocol SearchViewModelProtocol {
 }
 
 class SearchViewModel{
-    weak private var view:SearchVCProtocol!
+    weak private var view:SearchVCProtocol?
     private var specialtiesArr:[Specialties] = []
     private var citiesArr:[Cities] = []
     private var regionArr:[Regions] = []
@@ -35,13 +35,13 @@ class SearchViewModel{
 }
 extension SearchViewModel:SearchViewModelProtocol{
     func getCurrentChoosenData() -> SearchResultBody {
-        let currentChosenData = SearchResultBody(main_category_id: self.categoryID, userToken: nil, specialty_id: self.currentSpecialtiesID, city_id: self.currentCitiesID, region_id: self.currentRegionID, company_id: self.currentCompaniesID, name: self.view.getCurrentDoctorValue(), order_by: nil, page: 1, per_page: 15)
+        let currentChosenData = SearchResultBody(main_category_id: self.categoryID, userToken: nil, specialty_id: self.currentSpecialtiesID, city_id: self.currentCitiesID, region_id: self.currentRegionID, company_id: self.currentCompaniesID, name: self.view?.getCurrentDoctorValue(), order_by: nil, page: 1, per_page: 15)
         return currentChosenData
     }
     
     func callGetCategoriesAPI() {
         APIManager.getCategoriesAPIRouter(categoryID: self.categoryID){(response) in
-            self.view.showLoader()
+            self.view?.showLoader()
             switch response {
             case .failure(let error):
                 print(error.localizedDescription)
@@ -51,7 +51,7 @@ extension SearchViewModel:SearchViewModelProtocol{
                 self.citiesArr = data.data.cities
                 self.companiesArr = data.data.companies
             }
-            self.view.hideLoader()
+            self.view?.hideLoader()
         }
     }
     
@@ -88,17 +88,17 @@ extension SearchViewModel:SearchViewModelProtocol{
         switch tag {
         case 1:
             self.currentSpecialtiesID = self.specialtiesArr[row].id
-            view.addSelectedItem(tag: tag, item: self.specialtiesArr[row].name)
+            view?.addSelectedItem(tag: tag, item: self.specialtiesArr[row].name)
         case 2:
             self.currentCitiesID = self.citiesArr[row].id
-            view.addSelectedItem(tag: tag, item: self.citiesArr[row].name)
+            view?.addSelectedItem(tag: tag, item: self.citiesArr[row].name)
             self.regionArr = citiesArr[row].regions
         case 3:
             self.currentRegionID = self.regionArr[row].id
-            view.addSelectedItem(tag: tag, item:self.regionArr[row].name)
+            view?.addSelectedItem(tag: tag, item:self.regionArr[row].name)
         case 4:
             self.currentCompaniesID = self.companiesArr[row].id
-            view.addSelectedItem(tag: tag, item: self.companiesArr[row].name)
+            view?.addSelectedItem(tag: tag, item: self.companiesArr[row].name)
         default:
             break
         }
@@ -106,15 +106,15 @@ extension SearchViewModel:SearchViewModelProtocol{
     
     func checkResistingRegionValueOrNot(tag: Int) {
         if tag == 2 {
-            self.view.resetRegionTextFieldValue()
+            self.view?.resetRegionTextFieldValue()
         }
     }
     func checkIfCityFieldSelectedFirstOrNot(tag:Int) {
         if (tag == 3) && (regionArr.count == 0) {
             DispatchQueue.main.async {
-                self.view.presentError(title: L10n.sorry, message: AlertMessages.selectCityBeforeRegionFirst)
+                self.view?.presentError(title: L10n.sorry, message: AlertMessages.selectCityBeforeRegionFirst)
             }
-            self.view.switchToCityTextField()
+            self.view?.switchToCityTextField()
         }
     }
 }

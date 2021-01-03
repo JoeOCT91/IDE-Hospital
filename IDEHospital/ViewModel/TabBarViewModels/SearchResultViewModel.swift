@@ -21,7 +21,7 @@ protocol SearchResultViewModelProtocol {
     func changeIsFavoriteValue(id:Int)
 }
 class SearchResultViewModel{
-    private weak var view:SearchResultVCProtocol!
+    private weak var view:SearchResultVCProtocol?
     private let sortArr:[String] = [L10n.fees,L10n.rating]
     private var doctorsDataBody:SearchResultBody!
     private var total_Pages:Int!
@@ -51,20 +51,19 @@ extension SearchResultViewModel:SearchResultViewModelProtocol{
     func loadFirstPage() {
         doctorsDataBody.page = 1
         self.doctorItems = []
-        self.view.reloadTableViewData()
+        self.view?.reloadTableViewData()
     }
     
     // MARK:- For Change Heart Value
     func callAddOrDeleteDoctorFromFavoriteListAPI(id: Int) {
         guard UserDefaultsManager.shared().token != nil else {
-            self.view.presentErrorAlert(title: "", message: L10n.loginFirst)
+            self.view?.presentErrorAlert(title: "", message: L10n.loginFirst)
             return
         }
         print("view Model ID" + " \(id)")
         APIManager.addOrDeleteDoctorFromFavoriteListAPI(doctorID: id){(response) in
             switch response{
             case .failure(let error):
-                print("ffds")
                 print(error.localizedDescription)
             case .success(let response):
                 if response.code == 202{
@@ -100,7 +99,7 @@ extension SearchResultViewModel:SearchResultViewModelProtocol{
     }
     // MARK:- Bring Search Reasult API
     func sendSearchResultRequestAPI() {
-        self.view.showLoader()
+        self.view?.showLoader()
         APIManager.sendSearchResultRequestAPI(body: doctorsDataBody){(response) in
             switch response{
             case .failure(let error):
@@ -109,12 +108,12 @@ extension SearchResultViewModel:SearchResultViewModelProtocol{
                 print("Current Page" + " = \(doctorsData.data.page)")
                 self.total_Pages = doctorsData.data.total_pages
                 self.doctorItems += doctorsData.data.items
-                self.view.reloadTableViewData()
+                self.view?.reloadTableViewData()
             }
             if self.doctorItems.count == 0{
-                self.view.showEmptyDataLabel()
+                self.view?.showEmptyDataLabel()
             }
-            self.view.hideLoader()
+            self.view?.hideLoader()
         }
     }
     
@@ -127,7 +126,7 @@ extension SearchResultViewModel:SearchResultViewModelProtocol{
     }
     
     func itemSelected(tag: Int, row: Int) {
-        view.addSelectedItem(tag: tag, item: self.sortArr[row])
+        view?.addSelectedItem(tag: tag, item: self.sortArr[row])
         if self.sortArr[row].lowercased() != doctorsDataBody.order_by {
             doctorsDataBody.order_by = self.sortArr[row].lowercased()
             self.doctorsDataBody.page = 1

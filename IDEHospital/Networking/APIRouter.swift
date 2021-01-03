@@ -27,7 +27,9 @@ enum APIRouter:URLRequestConvertible {
     case logout
     case termsAndConditions
     case getAbout
-
+    case addRating(_ body:RatingBodyData)
+    
+    
     //Mark:- HTTP Methods
     private var method: HTTPMethod {
         switch self {
@@ -77,6 +79,8 @@ enum APIRouter:URLRequestConvertible {
             return URLs.contactUs
         case .getAbout:
             return URLs.about
+        case .addRating(let body):
+            return URLs.ratingDoctor + "/\(body.doctor_id)" + "/reviews"
         default:
             return ""
         }
@@ -140,6 +144,8 @@ enum APIRouter:URLRequestConvertible {
                 return encodeToJSON(body)
             case .contacutUsRequest(let body):
                 return encodeToJSON(body)
+            case .addRating(let body):
+                return encodeToJSON(body)
             default:
                 return nil
             }
@@ -149,14 +155,14 @@ enum APIRouter:URLRequestConvertible {
         
         // Encoding
         let encoding: ParameterEncoding = {
-          switch method {
-          case .get, .delete:
-            return URLEncoding.default
-          default:
-            return JSONEncoding.default
-          }
+            switch method {
+            case .get, .delete:
+                return URLEncoding.default
+            default:
+                return JSONEncoding.default
+            }
         }()
-    
+        
         //print(try encoding.encode(urlRequest, with: parameters))
         return try encoding.encode(urlRequest, with: parameters)
     }

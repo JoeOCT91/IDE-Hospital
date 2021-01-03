@@ -65,9 +65,12 @@ extension HomeVC: HomeVCProtocol {
     }
     
     internal func goToNurseScreen() {
-              let nurseVC = NurseVC.create()
-              nurseVC.modalPresentationStyle = .fullScreen
-              self.navigationController?.pushViewController(nurseVC, animated: true)
+//              let nurseVC = NurseVC.create()
+//              nurseVC.modalPresentationStyle = .fullScreen
+//              self.navigationController?.pushViewController(nurseVC, animated: true)
+        let ratingVC = RatingVC.create(doctorID: 5)
+                     ratingVC.modalPresentationStyle = .fullScreen
+                     self.navigationController?.pushViewController(ratingVC, animated: true)
     }
     
     internal func reloadData() {
