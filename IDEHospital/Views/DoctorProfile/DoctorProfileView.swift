@@ -37,6 +37,9 @@ class DoctorProfileView: UIView {
     private func configureDoctorButtomView(){
         doctorButtomView.anchor(top: dctorTopView.bottomAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor)
     }
+    func reloadTableView() {
+        doctorButtomView.reloadTableView()
+    }
     
     
 

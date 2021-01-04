@@ -28,13 +28,14 @@ enum APIRouter:URLRequestConvertible {
     case termsAndConditions
     case getAbout
     case doctorReviews(_ doctorID: Int)
+    case doctorInformation(_ doctorID: Int)
 
     //Mark:- HTTP Methods
     private var method: HTTPMethod {
         switch self {
         case .getCategories, .getFavories, .getCategory, .getAppointments, .getAbout, .searchResultRequest:
             return .get
-        case .termsAndConditions, .doctorReviews:
+        case .termsAndConditions, .doctorReviews, .doctorInformation:
             return .get
         case .removeAppointment:
             return .delete
@@ -80,6 +81,8 @@ enum APIRouter:URLRequestConvertible {
             return URLs.about
         case .doctorReviews(let doctorID):
             return URLs.doctors + "\(doctorID)/reviews"
+        case .doctorInformation(let doctorID):
+            return URLs.doctors + "/\((doctorID))"
         }
     }
     private var query: URLQueryItem? {
@@ -119,7 +122,7 @@ enum APIRouter:URLRequestConvertible {
         switch self {
         case .getFavories, .getAppointments, .removeFavorite, .removeAppointment,.searchResultRequest(_),.addOrDeleteDoctorFromFavoriteList:
             urlRequest.setValue(UserDefaultsManager.shared().token, forHTTPHeaderField: HeaderKeys.authorization)
-        case .logout, .doctorReviews:
+        case .logout, .doctorReviews, .doctorInformation:
             urlRequest.setValue(UserDefaultsManager.shared().token, forHTTPHeaderField: HeaderKeys.authorization)
         default:
             break

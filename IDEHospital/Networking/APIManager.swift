@@ -113,8 +113,15 @@ class APIManager {
     }
     
     //MARK:- Doctor profile
+    //Doctor Information
+    class func getDoctorInformation(doctorID: Int, complation: @escaping (Result<DoctorInformationResponse, Error>) -> () ) {
+        request(APIRouter.doctorInformation(doctorID)) { (respone) in
+            complation(respone)
+        }
+    }
+    
     //Doctor reviews
-    class func getDoctorReviews(doctorID: Int, complation: @escaping (Result<DoctorProfileMainResponse<Review>,Error>) -> ()) {
+    class func getDoctorReviews(doctorID: Int, complation: @escaping (Result<DoctorProfileMainResponse<Review>,Error>) -> () ) {
         request(APIRouter.doctorReviews(doctorID)) { (response) in
             complation(response)
         }

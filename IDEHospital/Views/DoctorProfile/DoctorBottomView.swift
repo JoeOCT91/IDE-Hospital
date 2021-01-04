@@ -26,10 +26,15 @@ class DoctorBottomView: UIView {
     
     func setupTableView(delgate: UITableViewDelegate, dataSource: UITableViewDataSource){
         reviewsTableView.separatorStyle = .none
-        //reviewsTableView.register(AppoinmentCell.self, forCellReuseIdentifier: Cells.appointment)
+        reviewsTableView.register(DoctorReviewCell.self, forCellReuseIdentifier: Cells.doctorReviewCell)
         reviewsTableView.delegate = delgate
         reviewsTableView.dataSource = dataSource
-        reviewsTableView.isHidden = true
+        reviewsTableView.backgroundColor = ColorName.white.color.withAlphaComponent(0.75)
+        reviewsTableView.alpha = 0
+    }
+    
+    func reloadTableView() {
+        reviewsTableView.reloadData()
     }
     
     private func configureViews() {
@@ -87,9 +92,9 @@ class DoctorBottomView: UIView {
         reviewsButton.isSelected = false
         profileButton.isSelected = true
         //Hide Reviews View
-        reviewsTableView.isHidden = true
+        reviewsTableView.alpha = 0
         // Show Profile View
-        scrollView.isHidden = false
+        scrollView.alpha = 1
     }
     @objc private func reviewsButtonHasClicked() {
         profileButton.isHighlighted = false
@@ -97,9 +102,9 @@ class DoctorBottomView: UIView {
         reviewsButton.isSelected = true
         profileButton.isSelected = false
         //hideProfileView
-        scrollView.isHidden = true
+        scrollView.alpha = 0
         //Show Reviews View
-        reviewsTableView.isHidden = false
+        reviewsTableView.alpha = 1
     }
     
     func configureScrollView() {

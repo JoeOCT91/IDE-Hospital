@@ -10,6 +10,7 @@ import UIKit
 protocol DoctorProfileVCProtocol: class {
     func showLoader()
     func HideLoader()
+    func reloadTableView()
     
 }
 
@@ -21,7 +22,6 @@ class DoctorProfileVC: UIViewController {
     @IBOutlet var doctorProfileView: DoctorProfileView!
 
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         viewsSetup()
@@ -51,16 +51,25 @@ extension DoctorProfileVC: DoctorProfileVCProtocol {
     func HideLoader() {
         
     }
+    internal func reloadTableView() {
+        doctorProfileView.reloadTableView()
+    }
     
     
 }
+
 extension DoctorProfileVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        20
+        return viewModel.getReviewsCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: Cells.doctorReviewCell, for: indexPath) as! DoctorReviewCell
+        cell.setupData(doctorReview: viewModel.getReviewData(index: indexPath.row))
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
     }
     
     

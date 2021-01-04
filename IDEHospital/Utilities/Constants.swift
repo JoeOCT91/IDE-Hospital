@@ -29,6 +29,7 @@ struct Cells {
     static let favorites = "Favorites"
     static let appointment = "Appointment"
     static let sideMenu = "SideMenu"
+    static let doctorReviewCell = "DoctorReviewCell"
 }
 
 // View Controllers
