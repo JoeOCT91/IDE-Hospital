@@ -57,7 +57,6 @@ extension RatingViewModel:RatingViewModelProtocol{
             self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.noRatings)
             return
         }
-        
         let body = RatingBodyData(doctor_id: doctorID, rating: rating, comment: comment)
         self.callAddDoctorRating(body: body)
     }

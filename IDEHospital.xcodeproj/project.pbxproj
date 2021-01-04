@@ -1102,7 +1102,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1220;
-				LastUpgradeCheck = 1220;
+				LastUpgradeCheck = 1150;
 				TargetAttributes = {
 					863232C8257D733C00514F5A = {
 						CreatedOnToolsVersion = 12.2;
@@ -1150,8 +1150,6 @@
 				862851D0257FCE120059122F /* Home.storyboard in Resources */,
 				B21BDE2825834D4E00430408 /* PT Sans Regular.ttf in Resources */,
 				B2D29563259D09280092C3E0 /* SideMenu.storyboard in Resources */,
-				863232D6257D733D00514F5A /* Assets.xcassets in Resources */,
-				863232D4257D733C00514F5A /* Main.storyboard in Resources */,
 				B21BDE042582B89A00430408 /* Search.storyboard in Resources */,
 				861D577C258C2A9F00EFED1D /* Appointments.storyboard in Resources */,
 			);
@@ -1236,7 +1234,6 @@
 				869D1FF9259A600000067BBC /* Anchor+Constrains.swift in Sources */,
 				B2DF04332597DA4800400F8F /* ResetPasswordVC.swift in Sources */,
 				B266057F259A711500F1A8BA /* AutError.swift in Sources */,
-				B21BDE2D2584060900430408 /* UILable+LatterSpacing.swift in Sources */,
 				B2DF043D2597E1AD00400F8F /* SignInViewModel.swift in Sources */,
 				863232FC257D82DB00514F5A /* Constants.swift in Sources */,
 				86285234258085010059122F /* Strings.swift in Sources */,
@@ -1301,7 +1298,6 @@
 				B2660579259A5B9100F1A8BA /* User.swift in Sources */,
 				B21BDE312584F29300430408 /* CategoriesData.swift in Sources */,
 				B26013902590C80F004E95B1 /* NurseResponse.swift in Sources */,
-				862851C1257FC28D0059122F /* SearchViewModel.swift in Sources */,
 				863232D1257D733C00514F5A /* SearchVC.swift in Sources */,
 				B207B4C725894D0A002603EA /* SupplierTabBarVC.swift in Sources */,
 				861D5770258C28DA00EFED1D /* AppointmentsView.swift in Sources */,
@@ -1336,11 +1332,7 @@
 				B2D29546259CD0E20092C3E0 /* AboutVC.swift in Sources */,
 				869D1FFE259A704F00067BBC /* TermsAndConditionsVC.swift in Sources */,
 				B2D29553259CED3F0092C3E0 /* AboutResponse.swift in Sources */,
-				862851ED258061740059122F /* UIColor+FromHex.swift in Sources */,
 				B2D2958425A257350092C3E0 /* VoucherViewModel.swift in Sources */,
-				8632AA142589043700E4DB8D /* UIViewController+Storyboard.swift in Sources */,
-				B26DB991258E665400DDE8B8 /* IDEAHopitalTextField.swift in Sources */,
-				869D1FFE259A704F00067BBC /* TermsAndConditionsVC.swift in Sources */,
 				B26DB98C258DE47C00DDE8B8 /* NurseViewModel.swift in Sources */,
 				B2BE22182593A65C004BA737 /* DoctorResponse.swift in Sources */,
 			);

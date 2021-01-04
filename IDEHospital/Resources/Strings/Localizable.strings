@@ -98,3 +98,11 @@
 "pleaseEnterComment" = "Comment Field is Empty, We Keen to Listen to your Comment";
 "commentFieldCountIsSmall" = "The Comment must be at least 3 characters";
 "noRatings" = "Please Leave Your Rating";
+//Voucher
+"doYouHaveVoucher" = "Do you have a Voucher Code?";
+"anotherPerson" = "Are you Booking for another person?";
+"yes" = "Yes";
+"no" = "No";
+"enterCode" = "Enter Code";
+"continue" = "Continue";
+"enterName" = "Enter Name";

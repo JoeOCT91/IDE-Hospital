@@ -8,11 +8,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="PT Sans Regular.ttf">
-            <string>PTSans-Regular</string>
-        </array>
         <array key="PT_Sans_Bold.ttf">
             <string>PTSans-Bold</string>
+        </array>
+        <array key="PT_Sans_Regular.ttf">
+            <string>PTSans-Regular</string>
         </array>
     </customFonts>
     <objects>
