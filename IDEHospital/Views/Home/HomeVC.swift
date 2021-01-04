@@ -98,7 +98,6 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! CategoryCell
         //Cell tag hold category ID to use when navigate to others controllers
-        print(cell.tag)
         viewModel.determineWhichVCToOpen(tag: cell.tag)
     }
     

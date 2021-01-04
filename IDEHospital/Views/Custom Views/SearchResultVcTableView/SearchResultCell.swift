@@ -29,12 +29,9 @@ class SearchResultCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.makeImageViewCirclerShape()
-       
     }
     @IBAction func heartButtonPressed(_ sender: Any) {
-        
-        print("Doctor ID" + " \(currentDoctorID)")
-        
+                
         self.sendDoctorDelegate?.getDoctorID(id: currentDoctorID)
         if heartButton.currentBackgroundImage == Asset.redHeart.image {
             self.heartButton.setBackgroundImage(Asset.emptyHeart.image, for: .normal)

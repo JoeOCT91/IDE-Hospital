@@ -111,6 +111,14 @@ class APIManager {
             completion(response)
         }
     }
+    
+    //MARK:- Doctor profile
+    //Doctor reviews
+    class func getDoctorReviews(doctorID: Int, complation: @escaping (Result<DoctorProfileMainResponse<Review>,Error>) -> ()) {
+        request(APIRouter.doctorReviews(doctorID)) { (response) in
+            complation(response)
+        }
+    }
 }
 
 extension APIManager{
@@ -127,7 +135,7 @@ extension APIManager{
             //                print(str)
             }
         }.responseJSON { response in
-            print(response)
+            //print(response)
         }
     }
 }

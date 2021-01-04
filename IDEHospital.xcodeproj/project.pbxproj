@@ -41,8 +41,16 @@
 		8628D5C8258C0D8200CAB803 /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8628D5C7258C0D8200CAB803 /* Favorites.storyboard */; };
 		86298359258437CB00546BB8 /* PT_Sans_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86201AD22583F029001D1C06 /* PT_Sans_Bold.ttf */; };
 		8629835B258437CF00546BB8 /* PT_Sans_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86201AD32583F029001D1C06 /* PT_Sans_Regular.ttf */; };
+		862A8ACD25A397050038B898 /* DoctorProfleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862A8ACC25A397050038B898 /* DoctorProfleResponse.swift */; };
 		862C489C258F4E00000066E5 /* DeleteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862C489B258F4E00000066E5 /* DeleteResponse.swift */; };
 		862C489F258F4FC9000066E5 /* ConfirmationAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862C489E258F4FC9000066E5 /* ConfirmationAlert.swift */; };
+		862FA02825A21E730043DEE8 /* DoctorProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 862FA02725A21E730043DEE8 /* DoctorProfile.storyboard */; };
+		862FA02C25A21E980043DEE8 /* DoctorProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862FA02B25A21E980043DEE8 /* DoctorProfileView.swift */; };
+		862FA02F25A21EC30043DEE8 /* DoctorProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862FA02E25A21EC30043DEE8 /* DoctorProfileVC.swift */; };
+		862FA03225A21F3E0043DEE8 /* DoctorProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862FA03125A21F3E0043DEE8 /* DoctorProfileVM.swift */; };
+		862FA03525A228650043DEE8 /* DoctorTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862FA03425A228650043DEE8 /* DoctorTopView.swift */; };
+		862FA03925A23E5E0043DEE8 /* DoctorBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862FA03825A23E5E0043DEE8 /* DoctorBottomView.swift */; };
+		862FA03C25A2649D0043DEE8 /* UIView+RoundCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862FA03B25A2649D0043DEE8 /* UIView+RoundCorner.swift */; };
 		863232CD257D733C00514F5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863232CC257D733C00514F5A /* AppDelegate.swift */; };
 		863232D1257D733C00514F5A /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863232D0257D733C00514F5A /* SearchVC.swift */; };
 		863232D4257D733C00514F5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 863232D2257D733C00514F5A /* Main.storyboard */; };
@@ -170,8 +178,16 @@
 		8628D5C2258C0B0700CAB803 /* FavoritesReponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesReponse.swift; sourceTree = "<group>"; };
 		8628D5C3258C0B0700CAB803 /* Doctor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
 		8628D5C7258C0D8200CAB803 /* Favorites.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Favorites.storyboard; sourceTree = "<group>"; };
+		862A8ACC25A397050038B898 /* DoctorProfleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorProfleResponse.swift; sourceTree = "<group>"; };
 		862C489B258F4E00000066E5 /* DeleteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteResponse.swift; sourceTree = "<group>"; };
 		862C489E258F4FC9000066E5 /* ConfirmationAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationAlert.swift; sourceTree = "<group>"; };
+		862FA02725A21E730043DEE8 /* DoctorProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DoctorProfile.storyboard; sourceTree = "<group>"; };
+		862FA02B25A21E980043DEE8 /* DoctorProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorProfileView.swift; sourceTree = "<group>"; };
+		862FA02E25A21EC30043DEE8 /* DoctorProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorProfileVC.swift; sourceTree = "<group>"; };
+		862FA03125A21F3E0043DEE8 /* DoctorProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorProfileVM.swift; sourceTree = "<group>"; };
+		862FA03425A228650043DEE8 /* DoctorTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorTopView.swift; sourceTree = "<group>"; };
+		862FA03825A23E5E0043DEE8 /* DoctorBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorBottomView.swift; sourceTree = "<group>"; };
+		862FA03B25A2649D0043DEE8 /* UIView+RoundCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+RoundCorner.swift"; sourceTree = "<group>"; };
 		863232C9257D733C00514F5A /* IDEHospital.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IDEHospital.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		863232CC257D733C00514F5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		863232D0257D733C00514F5A /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
@@ -384,6 +400,25 @@
 			path = Favorites;
 			sourceTree = "<group>";
 		};
+		862A8ACA25A396CF0038B898 /* Doctor Profle */ = {
+			isa = PBXGroup;
+			children = (
+				862A8ACC25A397050038B898 /* DoctorProfleResponse.swift */,
+			);
+			path = "Doctor Profle";
+			sourceTree = "<group>";
+		};
+		862FA02A25A21E7B0043DEE8 /* DoctorProfile */ = {
+			isa = PBXGroup;
+			children = (
+				862FA02E25A21EC30043DEE8 /* DoctorProfileVC.swift */,
+				862FA02B25A21E980043DEE8 /* DoctorProfileView.swift */,
+				862FA03425A228650043DEE8 /* DoctorTopView.swift */,
+				862FA03825A23E5E0043DEE8 /* DoctorBottomView.swift */,
+			);
+			path = DoctorProfile;
+			sourceTree = "<group>";
+		};
 		863232C0257D733C00514F5A = {
 			isa = PBXGroup;
 			children = (
@@ -463,6 +498,7 @@
 		863232E6257D73DF00514F5A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				862A8ACA25A396CF0038B898 /* Doctor Profle */,
 				86241F6C259CEC3C0063CD57 /* SideMenu */,
 				B238A8D3259CBEF0007BB176 /* Contact Us */,
 				B2660570259A5A5100F1A8BA /* Authentication */,
@@ -501,6 +537,7 @@
 				B2BE220E2592A35E004BA737 /* SearchResultViewModel.swift */,
 				86215D07258D596C00022D86 /* ViewModelWithPagination.swift */,
 				B2DF04382597E16800400F8F /* ResetPasswordViewModel.swift */,
+				862FA03125A21F3E0043DEE8 /* DoctorProfileVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -508,6 +545,7 @@
 		863232E9257D74ED00514F5A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				862FA02A25A21E7B0043DEE8 /* DoctorProfile */,
 				869D1FDA259A1CB700067BBC /* SideMenu */,
 				B207B4C525894CA2002603EA /* Custom Views */,
 				B2DF04222597D89C00400F8F /* Authentication */,
@@ -559,6 +597,7 @@
 				B26DB98D258DE66D00DDE8B8 /* Nurse.storyboard */,
 				861D577B258C2A9F00EFED1D /* Appointments.storyboard */,
 				B2D29562259D09280092C3E0 /* SideMenu.storyboard */,
+				862FA02725A21E730043DEE8 /* DoctorProfile.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -601,6 +640,7 @@
 				8632AA172589045800E4DB8D /* UIViewController+Alert.swift */,
 				869D1FF8259A600000067BBC /* Anchor+Constrains.swift */,
 				8628890C25A09FEB00D8AE17 /* UITableView+EmptyLabel.swift */,
+				862FA03B25A2649D0043DEE8 /* UIView+RoundCorner.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -992,6 +1032,7 @@
 				863232D4257D733C00514F5A /* Main.storyboard in Resources */,
 				B21BDE042582B89A00430408 /* Search.storyboard in Resources */,
 				861D577C258C2A9F00EFED1D /* Appointments.storyboard in Resources */,
+				862FA02825A21E730043DEE8 /* DoctorProfile.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1069,6 +1110,7 @@
 				861D5775258C290300EFED1D /* AppointmentsVC.swift in Sources */,
 				B21BDE112582C1A400430408 /* UITabBarController+Storyboard.swift in Sources */,
 				869D1FDC259A1CE900067BBC /* SideMenuVC.swift in Sources */,
+				862FA03225A21F3E0043DEE8 /* DoctorProfileVM.swift in Sources */,
 				B21BDE2D2584060900430408 /* UILable+LatterSpacing.swift in Sources */,
 				869D1FF9259A600000067BBC /* Anchor+Constrains.swift in Sources */,
 				B2DF04332597DA4800400F8F /* ResetPasswordVC.swift in Sources */,
@@ -1085,6 +1127,7 @@
 				863232FF257D835F00514F5A /* UserDefaultsManager.swift in Sources */,
 				8628D5AA258C075B00CAB803 /* HospitalButton.swift in Sources */,
 				B2660577259A5AC600F1A8BA /* SignUpResponse.swift in Sources */,
+				862FA03525A228650043DEE8 /* DoctorTopView.swift in Sources */,
 				863232F9257D7BE300514F5A /* APIRouter.swift in Sources */,
 				869D2003259A70EF00067BBC /* TermsAndConditionsVM.swift in Sources */,
 				869D1FF6259A561000067BBC /* SideMenuCell.swift in Sources */,
@@ -1099,6 +1142,7 @@
 				86201AD02583EF26001D1C06 /* SetupFunction+UINavigationController.swift in Sources */,
 				B266057D259A5BD400F1A8BA /* ResetPasswordResponse.swift in Sources */,
 				B2DF04392597E16800400F8F /* ResetPasswordViewModel.swift in Sources */,
+				862A8ACD25A397050038B898 /* DoctorProfleResponse.swift in Sources */,
 				B238A8D5259CBF25007BB176 /* ContactUsResponse.swift in Sources */,
 				861D5779258C294E00EFED1D /* AppointmentsVM.swift in Sources */,
 				8628D5BF258C0ABD00CAB803 /* FavoritesVM.swift in Sources */,
@@ -1114,6 +1158,7 @@
 				B26DB98A258DE45700DDE8B8 /* NurseView.swift in Sources */,
 				B2567357259BD6DD0019925B /* ContactUsView.swift in Sources */,
 				8632AA182589045800E4DB8D /* UIViewController+Alert.swift in Sources */,
+				862FA03925A23E5E0043DEE8 /* DoctorBottomView.swift in Sources */,
 				B21BDE1A2582C45700430408 /* ScheduleView.swift in Sources */,
 				B260139E25920A91004E95B1 /* SearchResultCell.swift in Sources */,
 				86215D08258D596C00022D86 /* ViewModelWithPagination.swift in Sources */,
@@ -1127,14 +1172,17 @@
 				B2BE221A2593AAC1004BA737 /* SearchResultBody.swift in Sources */,
 				86241F6E259CEC5C0063CD57 /* TermsAndConditions.swift in Sources */,
 				B2BE22162593A49E004BA737 /* SearchResultData.swift in Sources */,
+				862FA02C25A21E980043DEE8 /* DoctorProfileView.swift in Sources */,
 				B21BDE162582C42A00430408 /* SearchView.swift in Sources */,
 				8628D5A9258C075B00CAB803 /* AlertVC.swift in Sources */,
 				862C489C258F4E00000066E5 /* DeleteResponse.swift in Sources */,
 				B2567355259BD6CC0019925B /* ContactUsVC.swift in Sources */,
+				862FA02F25A21EC30043DEE8 /* DoctorProfileVC.swift in Sources */,
 				86385A59258CB25E0060C564 /* AppointmentsMainResponse.swift in Sources */,
 				B26DB985258BCBE800DDE8B8 /*  UIView+BackgroundExtension.swift in Sources */,
 				8632A9FD2589019E00E4DB8D /* CategoryCell.swift in Sources */,
 				B2660579259A5B9100F1A8BA /* User.swift in Sources */,
+				862FA03C25A2649D0043DEE8 /* UIView+RoundCorner.swift in Sources */,
 				B21BDE312584F29300430408 /* CategoriesData.swift in Sources */,
 				B26013902590C80F004E95B1 /* NurseResponse.swift in Sources */,
 				862851C1257FC28D0059122F /* SearchViewModel.swift in Sources */,

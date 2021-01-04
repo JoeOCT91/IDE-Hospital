@@ -30,7 +30,6 @@ class FavoritesVC: UIViewController {
         favoritesView.setup()
         favoritesView.setupTableView(delgate: self, dataSource: self)
         configureNavigationBar()
-        //self.setUpButtonsInNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -107,8 +106,9 @@ extension FavoritesVC: FavoritesCellDelgate{
     }
     
     @objc func viewDoctorProfile(doctorID: Int) {
-        let alertVC = AlertVC()
-        self.presentAlertOnMainThread(alertVC: alertVC)
+        let doctorProfile = DoctorProfileVC.create(doctorID: 18)
+        doctorProfile.setupBackWithPopup()
+        navigationController?.pushViewController(doctorProfile, animated: true)
     }
     
 }
