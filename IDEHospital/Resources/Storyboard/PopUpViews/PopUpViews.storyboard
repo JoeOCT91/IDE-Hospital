@@ -19,7 +19,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dfl-qA-m53">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <connections>
-                                    <action selector="dismissButtonPressed:" destination="VLk-5j-8kf" eventType="touchUpInside" id="nGh-pu-BuT"/>
+                                    <action selector="hideVoucherPopUpViewButtonPressed:" destination="VLk-5j-8kf" eventType="touchUpInside" id="nGh-pu-BuT"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cK4-rV-j6h">
@@ -156,32 +156,39 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gli-bt-ZBg" userLabel="ConfirmationPopUpView">
-                                <rect key="frame" x="-475" y="377" width="364" height="152"/>
+                                <rect key="frame" x="-486" y="377" width="386" height="152"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uca-7M-mIn">
-                                        <rect key="frame" x="324.5" y="13" width="24" height="24"/>
+                                        <rect key="frame" x="345" y="13" width="24" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="DWf-dL-CAf"/>
                                             <constraint firstAttribute="width" constant="24" id="aav-4o-UaA"/>
                                         </constraints>
                                         <connections>
-                                            <action selector="dismissButtonPressed:" destination="VLk-5j-8kf" eventType="touchUpInside" id="jke-us-dDU"/>
+                                            <action selector="dismissButtonPressed:" destination="VLk-5j-8kf" eventType="touchUpInside" id="Ogj-oO-8S2"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9V-CI-IOq">
-                                        <rect key="frame" x="161" y="26" width="42" height="20.5"/>
+                                        <rect key="frame" x="172" y="26" width="42" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwj-zi-uFr">
-                                        <rect key="frame" x="161" y="56.5" width="42" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwj-zi-uFr">
+                                        <rect key="frame" x="15" y="56.5" width="358" height="30.5"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Label">
+                                                <attributes>
+                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.5" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Dy-KT-KAb" customClass="HospitalButton" customModule="IDEHospital" customModuleProvider="target">
-                                        <rect key="frame" x="132" y="116.5" width="100" height="25"/>
+                                        <rect key="frame" x="144" y="116.5" width="100" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="NDD-xM-koj"/>
                                             <constraint firstAttribute="width" constant="100" id="kNG-WU-ThK"/>
@@ -199,12 +206,13 @@
                                     <constraint firstItem="5Dy-KT-KAb" firstAttribute="centerX" secondItem="dwj-zi-uFr" secondAttribute="centerX" id="7wI-cd-Sle"/>
                                     <constraint firstItem="dwj-zi-uFr" firstAttribute="top" secondItem="a9V-CI-IOq" secondAttribute="bottom" constant="10" id="Bfr-0j-VBW"/>
                                     <constraint firstItem="Uca-7M-mIn" firstAttribute="centerX" secondItem="Gli-bt-ZBg" secondAttribute="centerX" multiplier="1.85" id="EL0-Yw-GAg"/>
-                                    <constraint firstItem="dwj-zi-uFr" firstAttribute="centerX" secondItem="a9V-CI-IOq" secondAttribute="centerX" id="K4z-Fb-CTB"/>
-                                    <constraint firstItem="a9V-CI-IOq" firstAttribute="centerX" secondItem="Gli-bt-ZBg" secondAttribute="centerX" id="ROu-zD-ZNE"/>
                                     <constraint firstItem="Uca-7M-mIn" firstAttribute="top" secondItem="Gli-bt-ZBg" secondAttribute="top" constant="13" id="aMj-E2-Hel"/>
                                     <constraint firstItem="5Dy-KT-KAb" firstAttribute="centerY" secondItem="Gli-bt-ZBg" secondAttribute="centerY" multiplier="1.7" id="gjd-XH-852"/>
+                                    <constraint firstItem="a9V-CI-IOq" firstAttribute="centerX" secondItem="Gli-bt-ZBg" secondAttribute="centerX" id="hj4-LL-9WC"/>
+                                    <constraint firstItem="dwj-zi-uFr" firstAttribute="leading" secondItem="Gli-bt-ZBg" secondAttribute="leading" constant="15" id="lDX-CY-mvB"/>
                                     <constraint firstItem="a9V-CI-IOq" firstAttribute="top" secondItem="Gli-bt-ZBg" secondAttribute="top" constant="26" id="pRn-ix-gJo"/>
                                     <constraint firstAttribute="height" constant="152" id="rSG-MH-Ydh"/>
+                                    <constraint firstAttribute="trailing" secondItem="dwj-zi-uFr" secondAttribute="trailing" constant="13" id="sjy-ci-zlU"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -213,7 +221,7 @@
                             <constraint firstItem="Gli-bt-ZBg" firstAttribute="centerY" secondItem="QkV-kx-idG" secondAttribute="centerY" id="0Hw-K4-RYD"/>
                             <constraint firstItem="QkV-kx-idG" firstAttribute="trailing" secondItem="Dfl-qA-m53" secondAttribute="trailing" id="Jfe-gl-67Y"/>
                             <constraint firstItem="Gli-bt-ZBg" firstAttribute="centerX" secondItem="QkV-kx-idG" secondAttribute="centerX" constant="-500" id="KJJ-4O-TMb"/>
-                            <constraint firstItem="Gli-bt-ZBg" firstAttribute="width" secondItem="Lj9-Eg-HFy" secondAttribute="width" multiplier="0.879227" id="Y8t-gz-xFf"/>
+                            <constraint firstItem="Gli-bt-ZBg" firstAttribute="width" secondItem="Lj9-Eg-HFy" secondAttribute="width" multiplier="350:375" id="Y8t-gz-xFf"/>
                             <constraint firstItem="Dfl-qA-m53" firstAttribute="leading" secondItem="QkV-kx-idG" secondAttribute="leading" id="Z0l-ix-L8T"/>
                             <constraint firstItem="QkV-kx-idG" firstAttribute="bottom" secondItem="Dfl-qA-m53" secondAttribute="bottom" id="eS7-aN-aiJ"/>
                             <constraint firstItem="cK4-rV-j6h" firstAttribute="leading" secondItem="QkV-kx-idG" secondAttribute="leading" constant="13" id="f0C-HR-nuf"/>
@@ -231,6 +239,7 @@
                             <outlet property="continueButton" destination="uoB-o1-bSy" id="6qb-Mb-s2F"/>
                             <outlet property="detailsLabel" destination="dwj-zi-uFr" id="hoJ-iG-1kI"/>
                             <outlet property="dismissButton" destination="Uca-7M-mIn" id="GZk-Ez-voK"/>
+                            <outlet property="hideVoucherPopUpViewButton" destination="Dfl-qA-m53" id="3FU-yM-znx"/>
                             <outlet property="nameSwitch" destination="zi0-1w-4sw" id="P34-MK-Ko9"/>
                             <outlet property="noSw1" destination="JXc-cu-FLO" id="8Jr-Nd-ITL"/>
                             <outlet property="noSw2" destination="uzk-Ws-koC" id="YM8-B0-t4V"/>

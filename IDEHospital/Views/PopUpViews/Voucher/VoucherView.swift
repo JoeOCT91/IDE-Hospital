@@ -20,6 +20,7 @@ class VoucherView: UIView {
     @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var voucherSwitch: UISwitch!
     @IBOutlet weak var nameSwitch: UISwitch!
+    @IBOutlet weak var hideVoucherPopUpViewButton: UIButton!
     // Confirmation PopUpView
     @IBOutlet weak var ConfirmationPopUpView: UIView!
     @IBOutlet weak var dismissButton: UIButton!
@@ -56,23 +57,22 @@ class VoucherView: UIView {
         self.setUpLabel(label: titleLabel, labelText: L10n.confirmYourAppointment , fontName: FontFamily.PTSans.bold, fontSize: 15, fontColor: ColorName.darkRoyalBlue.color)
         self.setUpLabel(label: detailsLabel, labelText: L10n.youAreAboutToBook , fontName: FontFamily.PTSans.regular, fontSize: 15, fontColor: UIColor.black)
     }
-    
 }
 
 extension VoucherView{
     private func setUpLabel(label:UILabel, labelText:String, fontName:FontConvertible, fontSize:CGFloat, fontColor:UIColor) {
         label.font = UIFont(font: fontName, size: fontSize)
-        label.numberOfLines = 2
+        label.numberOfLines = 0
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
-        label.textAlignment = .left
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = labelText
         label.textColor = fontColor
     }
 //    private func setAttributedMessage(mediumText: String, boldText: String)-> NSAttributedString{
-//        let attributedString = NSMutableAttributedString(string: String(format: “%@“, mediumText), attributes: [.font: FontFamily.PTSans.regular.font(size: 15), .foregroundColor: UIColor.black])
-//        attributedString.append(NSMutableAttributedString(string: String(format: “%@“, boldText), attributes: [.font: FontFamily.PTSans.Bold.font(size: 15), .foregroundColor: UIColor.black]))
+//        let attributedString = NSMutableAttributedString(string: String(format: "%@", mediumText), attributes: [.font: FontFamily.PTSans.regular.font(size: 15), .foregroundColor: UIColor.black])
+//        attributedString.append(NSMutableAttributedString(string: String(format: "%@", boldText), attributes: [.font: FontFamily.PTSans.bold.font(size: 15), .foregroundColor: UIColor.black]))
 //      return attributedString
 //    }
     private func setUpTextFiled(textFiled:UITextField,textValue:String, placeholder:String) {

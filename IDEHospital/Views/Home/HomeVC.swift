@@ -56,21 +56,23 @@ class HomeVC: UIViewController {
 }
 
 extension HomeVC: HomeVCProtocol {
-        
+    
     internal func goChooseServicesScreen(celTag:Int) {
-        let tabBarController = SupplierTabBarVC()
-        tabBarController.modalPresentationStyle = .fullScreen
-        tabBarController.categoryID = celTag
-        self.present(tabBarController, animated: true)
+        //        let tabBarController = SupplierTabBarVC()
+        //        tabBarController.modalPresentationStyle = .fullScreen
+        //        tabBarController.categoryID = celTag
+        //        self.present(tabBarController, animated: true)
+        let voucherVC = VoucherVC.create(doctorID: 22,doctorName: "Lautaro Martinez" ,appointmentTime: "1609761600")
+        self.present(voucherVC, animated: true)
     }
     
     internal func goToNurseScreen() {
-//              let nurseVC = NurseVC.create()
-//              nurseVC.modalPresentationStyle = .fullScreen
-//              self.navigationController?.pushViewController(nurseVC, animated: true)
+        //              let nurseVC = NurseVC.create()
+        //              nurseVC.modalPresentationStyle = .fullScreen
+        //              self.navigationController?.pushViewController(nurseVC, animated: true)
         let ratingVC = RatingVC.create(doctorID: 5)
-                     ratingVC.modalPresentationStyle = .fullScreen
-                     self.navigationController?.pushViewController(ratingVC, animated: true)
+        ratingVC.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(ratingVC, animated: true)
     }
     
     internal func reloadData() {

@@ -26,10 +26,7 @@ class VoucherViewModel {
     
     // MARK:- Private Functions
     private func bookAppointmentWithDoctorAPI(body:VoucherDataBody){
-        guard UserDefaultsManager.shared().token != nil else {
-            self.view?.presentErrorAlert(title: "", message: L10n.loginFirst)
-            return
-        }
+        
         self.view?.showLoader()
         APIManager.bookAppoinmentWithDoctorAPI(body: body){(response) in
             switch response{
@@ -55,13 +52,13 @@ class VoucherViewModel {
     }
     
     private func convertTimestampToDate(timestamp: Double) -> String{
-           let date = Date(timeIntervalSince1970: timestamp)
-           let dateFormatter = DateFormatter()
-           dateFormatter.timeZone = .current
-           dateFormatter.dateFormat = "EEEE,d MMMM yyy//hh:mm at d"
-           let dateString = dateFormatter.string(from: date)
-           return dateString
-       }
+        let date = Date(timeIntervalSince1970: timestamp)
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = .current
+        dateFormatter.dateFormat = "EEEE, d MMMM yyy, hh:mm at d"
+        let dateString = dateFormatter.string(from: date)
+        return dateString
+    }
 }
 extension VoucherViewModel:VoucherViewModelProtocol{
     func bookDoctorAppointmentRequest(voucher: String?, patientName: String?, bookForAnotherSwitch: Bool?) {
@@ -91,7 +88,11 @@ extension VoucherViewModel:VoucherViewModelProtocol{
         }
     }
     func setVoucherAndPatiantName(patientName: String?, voucherCode: String?, bookForAnotherSwitch: Bool, voucherSwitch:Bool) {
-    
+        guard UserDefaultsManager.shared().token != nil else {
+            self.view?.presentErrorAlert(title: "", message: L10n.loginFirst)
+            return
+        }
+        
         if voucherSwitch{
             if voucherCode?.count ?? 0 == 0 {
                 self.view?.presentErrorAlert(title: "", message: L10n.pleaseEnterVoucher)

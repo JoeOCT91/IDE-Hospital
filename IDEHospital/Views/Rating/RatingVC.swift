@@ -28,9 +28,7 @@ class RatingVC: UIViewController {
         return ratingVC
     }
     @IBAction func submitReview(_ sender: Any) {
-//        self.viewModel.addDoctorRating(rating: Int(ratingView.ratingView.rating), comment: ratingView.commentTextField.text)
-        let voucherVC = VoucherVC.create(doctorID: 20,doctorName: "Lautaro Martinez" ,appointmentTime: "1609761600")
-            self.present(voucherVC, animated: true)
+        self.viewModel.addDoctorRating(rating: Int(ratingView.ratingView.rating), comment: ratingView.commentTextField.text)
     }
     
     //MARK:- Private Functions

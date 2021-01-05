@@ -41,8 +41,14 @@ class VoucherVC: UIViewController {
         self.anotherPersonSwitch = viewModel.reviewAnotherPersonSwitch(isOn: sender.isOn)
     }
     
-    @IBAction func dismissButtonPressed(_ sender: Any) {
+    @IBAction func hideVoucherPopUpViewButtonPressed(_ sender: Any) {
         self.dismiss(animated: true)
+    }
+
+    @IBAction func dismissButtonPressed(_ sender: Any) {
+        let alert = ConfirmationAlert(id: 0, message: "Are you want to cancel the Appointment!")
+        alert.delgate = self
+        presentAlertOnMainThread(alertVC: alert)
     }
     @IBAction func continueButtonPressed(_ sender: Any) {
         viewModel.setVoucherAndPatiantName(patientName: voucherView.anotherPersonTextField.text, voucherCode:
@@ -54,13 +60,16 @@ class VoucherVC: UIViewController {
     }
 }
 extension VoucherVC:VoucherVcProtocol{
+    
     func closeCurrentView() {
         self.view.window?.rootViewController?.dismiss(animated: false)
     }
-
+    
     func goToConfirmationPopView(doctorName: String, appointmentDate: String) {
-        voucherView.detailsLabel.text! += appointmentDate + "with Doctor" + doctorName
+        
+        voucherView.detailsLabel.text! += appointmentDate + "with Doctor " + doctorName
         voucherView.popUpView.alpha = 0
+        voucherView.hideVoucherPopUpViewButton.alpha = 0
         voucherView.confirmationPopUpViewCenterXConstraint.constant = 0
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
             self.voucherView.layoutIfNeeded()
@@ -95,6 +104,11 @@ extension VoucherVC:VoucherVcProtocol{
 }
 extension VoucherVC:AlertVcDelegate{
     func okButtonPressed() {
-         self.view.window?.rootViewController?.dismiss(animated: false)
+        self.view.window?.rootViewController?.dismiss(animated: false)
+    }
+}
+extension VoucherVC:ConfirmationAlertDelgate{
+    func confirmPressed(id: Int) {
+        self.view.window?.rootViewController?.dismiss(animated: false)
     }
 }
