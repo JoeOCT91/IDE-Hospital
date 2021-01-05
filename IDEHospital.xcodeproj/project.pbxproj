@@ -89,6 +89,8 @@
 		B21BDE372584F2E000430408 /* Regions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21BDE362584F2E000430408 /* Regions.swift */; };
 		B21BDE392584F2F700430408 /* Companies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21BDE382584F2F700430408 /* Companies.swift */; };
 		B238A8D5259CBF25007BB176 /* ContactUsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B238A8D4259CBF25007BB176 /* ContactUsResponse.swift */; };
+		B244EEFC25A3D7A900EA1F7E /* VoucherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B244EEFB25A3D7A900EA1F7E /* VoucherResponse.swift */; };
+		B244EEFE25A3D7B800EA1F7E /* VoucherDataBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = B244EEFD25A3D7B800EA1F7E /* VoucherDataBody.swift */; };
 		B2567355259BD6CC0019925B /* ContactUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2567354259BD6CC0019925B /* ContactUsVC.swift */; };
 		B2567357259BD6DD0019925B /* ContactUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2567356259BD6DD0019925B /* ContactUsView.swift */; };
 		B26013902590C80F004E95B1 /* NurseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B260138F2590C80F004E95B1 /* NurseResponse.swift */; };
@@ -229,6 +231,8 @@
 		B21BDE362584F2E000430408 /* Regions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regions.swift; sourceTree = "<group>"; };
 		B21BDE382584F2F700430408 /* Companies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Companies.swift; sourceTree = "<group>"; };
 		B238A8D4259CBF25007BB176 /* ContactUsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsResponse.swift; sourceTree = "<group>"; };
+		B244EEFB25A3D7A900EA1F7E /* VoucherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherResponse.swift; sourceTree = "<group>"; };
+		B244EEFD25A3D7B800EA1F7E /* VoucherDataBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherDataBody.swift; sourceTree = "<group>"; };
 		B2567354259BD6CC0019925B /* ContactUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsVC.swift; sourceTree = "<group>"; };
 		B2567356259BD6DD0019925B /* ContactUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsView.swift; sourceTree = "<group>"; };
 		B260138F2590C80F004E95B1 /* NurseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NurseResponse.swift; sourceTree = "<group>"; };
@@ -480,6 +484,7 @@
 		863232E6257D73DF00514F5A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B244EEFA25A3D78F00EA1F7E /* Voucher */,
 				B2D2958625A27F250092C3E0 /* Rating */,
 				86241F6C259CEC3C0063CD57 /* SideMenu */,
 				B238A8D3259CBEF0007BB176 /* Contact Us */,
@@ -753,6 +758,15 @@
 				B238A8D4259CBF25007BB176 /* ContactUsResponse.swift */,
 			);
 			path = "Contact Us";
+			sourceTree = "<group>";
+		};
+		B244EEFA25A3D78F00EA1F7E /* Voucher */ = {
+			isa = PBXGroup;
+			children = (
+				B244EEFB25A3D7A900EA1F7E /* VoucherResponse.swift */,
+				B244EEFD25A3D7B800EA1F7E /* VoucherDataBody.swift */,
+			);
+			path = Voucher;
 			sourceTree = "<group>";
 		};
 		B2567353259BD2790019925B /* ContactUs */ = {
@@ -1302,6 +1316,7 @@
 				B207B4C725894D0A002603EA /* SupplierTabBarVC.swift in Sources */,
 				861D5770258C28DA00EFED1D /* AppointmentsView.swift in Sources */,
 				B2D2956A25A251E90092C3E0 /* RatingVC.swift in Sources */,
+				B244EEFE25A3D7B800EA1F7E /* VoucherDataBody.swift in Sources */,
 				B2D2957225A252DE0092C3E0 /* RatingViewModel.swift in Sources */,
 				869D2007259A803700067BBC /* SideMenuDataModel.swift in Sources */,
 				86241F88259D0EFD0063CD57 /* ContactUsViewModel.swift in Sources */,
@@ -1309,6 +1324,7 @@
 				862C489F258F4FC9000066E5 /* ConfirmationAlert.swift in Sources */,
 				B21BDE2F2584F26400430408 /* CategoriesResponse.swift in Sources */,
 				8628890D25A09FEB00D8AE17 /* UITableView+EmptyLabel.swift in Sources */,
+				B244EEFC25A3D7A900EA1F7E /* VoucherResponse.swift in Sources */,
 				B2BE220F2592A35E004BA737 /* SearchResultViewModel.swift in Sources */,
 				B21BDE332584F2AD00430408 /* Specialties.swift in Sources */,
 				B26DB988258DE44700DDE8B8 /* NurseVC.swift in Sources */,

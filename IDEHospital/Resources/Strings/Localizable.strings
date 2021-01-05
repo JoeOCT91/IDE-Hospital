@@ -106,3 +106,9 @@
 "enterCode" = "Enter Code";
 "continue" = "Continue";
 "enterName" = "Enter Name";
+"pleaseEnterVoucher" = "Please Enter your Voucher";
+"pleaseEnterPatient" = "Please Enter Patiant Name";
+"noVoucher" = "The selected voucher is invalid.";
+"confirmYourAppointment" = "Confirm Your Appointment";
+"youAreAboutToBook" = "You are about to book an appointment on ";
+"successfulBooking" = "Your Appointment have been Booked Successfully";

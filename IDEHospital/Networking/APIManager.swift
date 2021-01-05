@@ -118,6 +118,12 @@ class APIManager {
                completion(response)
            }
        }
+    // Book Appintment with doctor (Voucher)
+    class func bookAppoinmentWithDoctorAPI(body:VoucherDataBody ,completion: @escaping (Result<VoucherResponse, Error>)-> ()){
+        request(APIRouter.bookAppointment(body)){ (response) in
+                  completion(response)
+              }
+          }
 }
 
 extension APIManager{

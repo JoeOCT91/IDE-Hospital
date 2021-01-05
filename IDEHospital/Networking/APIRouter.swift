@@ -28,6 +28,7 @@ enum APIRouter:URLRequestConvertible {
     case termsAndConditions
     case getAbout
     case addRating(_ body:RatingBodyData)
+    case bookAppointment(_ body:VoucherDataBody)
     
     
     //Mark:- HTTP Methods
@@ -81,6 +82,8 @@ enum APIRouter:URLRequestConvertible {
             return URLs.about
         case .addRating(let body):
             return URLs.ratingDoctor + "/\(body.doctor_id)" + "/reviews"
+        case .bookAppointment:
+            return URLs.appoitments
         default:
             return ""
         }
@@ -122,7 +125,7 @@ enum APIRouter:URLRequestConvertible {
         switch self {
         case .getFavories, .getAppointments, .removeFavorite, .removeAppointment,.searchResultRequest(_),.addOrDeleteDoctorFromFavoriteList:
             urlRequest.setValue(UserDefaultsManager.shared().token, forHTTPHeaderField: HeaderKeys.authorization)
-        case .logout:
+        case .logout,.addRating,.bookAppointment:
             urlRequest.setValue(UserDefaultsManager.shared().token, forHTTPHeaderField: HeaderKeys.authorization)
         default:
             break
@@ -145,6 +148,8 @@ enum APIRouter:URLRequestConvertible {
             case .contacutUsRequest(let body):
                 return encodeToJSON(body)
             case .addRating(let body):
+                return encodeToJSON(body)
+            case .bookAppointment(let body):
                 return encodeToJSON(body)
             default:
                 return nil
