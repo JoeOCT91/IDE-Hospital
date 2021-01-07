@@ -20,7 +20,6 @@ struct Storyboards {
     static let authentication = "Authentication"
     static let contactUs = "ContactUs"
     static let staticContent = "StaticContent"
-    static let popUpViews = "PopUpViews"
     static let rating = "Rating"
 }
 
@@ -52,9 +51,7 @@ struct ViewControllers {
     static let contactUsVC = "ContactUsVC"
     static let aboutVC = "AboutVC"
     static let ratingVC = "RatingVC"
-    static let voucherVC = "VoucherVC"
-
-
+    static let bookWithDoctorVC = "BookWithDoctorVC"
 }
 
 // Urls

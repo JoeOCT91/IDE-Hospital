@@ -62,8 +62,11 @@ extension HomeVC: HomeVCProtocol {
         //        tabBarController.modalPresentationStyle = .fullScreen
         //        tabBarController.categoryID = celTag
         //        self.present(tabBarController, animated: true)
-        let voucherVC = VoucherVC.create(doctorID: 22,doctorName: "Lautaro Martinez" ,appointmentTime: "1609761600")
-        self.present(voucherVC, animated: true)
+        
+        let bookWithDoctorVC = BookWithDoctorVC.create(doctorID: 23, doctorName: "Lautaro Martinez", appointmentTime: "1609761600")
+        bookWithDoctorVC.modalTransitionStyle = .crossDissolve
+        bookWithDoctorVC.modalPresentationStyle = .overCurrentContext
+        self.present(bookWithDoctorVC, animated: true)
     }
     
     internal func goToNurseScreen() {

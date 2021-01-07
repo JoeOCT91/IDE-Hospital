@@ -12,6 +12,9 @@ extension UIViewController {
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
         return storyboard.instantiateViewController(withIdentifier: identifier) as! T
     }
+//    class func create<T: UIViewController>(nibName: String) -> T {
+//        return UIViewController(nibName: nibName, bundle: nil) as! T
+//    }
     
     func setupNavigationBar(backgroundColor: UIColor = UIColor(named: ColorName.veryLightPink)) {
         navigationController?.setNavigationBar(backgroundColor: backgroundColor)

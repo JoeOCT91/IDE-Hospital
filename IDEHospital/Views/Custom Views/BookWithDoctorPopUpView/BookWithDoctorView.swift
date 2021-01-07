@@ -1,12 +1,13 @@
 //
-//  VoucherView.swift
+//  BookWithDoctorView.swift
 //  IDEHospital
 //
-//  Created by Mostafa Saleh on 1/3/21.
+//  Created by Mostafa Saleh on 1/7/21.
 //
 
+import Foundation
 import UIKit
-class VoucherView: UIView {
+class BookWithDoctorView:UIView{
     // Voucher PopUpView
     @IBOutlet weak var voucherLabel: UILabel!
     @IBOutlet weak var yesSw1: UILabel!
@@ -21,6 +22,9 @@ class VoucherView: UIView {
     @IBOutlet weak var voucherSwitch: UISwitch!
     @IBOutlet weak var nameSwitch: UISwitch!
     @IBOutlet weak var hideVoucherPopUpViewButton: UIButton!
+    @IBOutlet weak var AnotherPersonTopYLabelConstraint: NSLayoutConstraint!
+    @IBOutlet weak var continueButtonTopYConstraint: NSLayoutConstraint!
+    
     // Confirmation PopUpView
     @IBOutlet weak var ConfirmationPopUpView: UIView!
     @IBOutlet weak var dismissButton: UIButton!
@@ -45,8 +49,8 @@ class VoucherView: UIView {
         self.setUpTextFiled(textFiled: voucherTextField, textValue: "", placeholder: L10n.enterCode)
         self.setUpTextFiled(textFiled: anotherPersonTextField, textValue: "", placeholder: L10n.enterName)
         //Setup Switches
-        setUpSwitch(switches: voucherSwitch,onTintColor:ColorName.darkRoyalBlue.color,backGroundColor:ColorName.darkRoyalBlue.color)
-        setUpSwitch(switches: nameSwitch,onTintColor:ColorName.darkRoyalBlue.color,backGroundColor:ColorName.darkRoyalBlue.color)
+        setUpSwitch(switches: voucherSwitch)
+        setUpSwitch(switches: nameSwitch)
         
         //SetUp Confirmation PopUp View
         ConfirmationPopUpView.layer.cornerRadius = 10
@@ -59,7 +63,7 @@ class VoucherView: UIView {
     }
 }
 
-extension VoucherView{
+extension BookWithDoctorView{
     private func setUpLabel(label:UILabel, labelText:String, fontName:FontConvertible, fontSize:CGFloat, fontColor:UIColor) {
         label.font = UIFont(font: fontName, size: fontSize)
         label.numberOfLines = 0
@@ -70,11 +74,11 @@ extension VoucherView{
         label.text = labelText
         label.textColor = fontColor
     }
-//    private func setAttributedMessage(mediumText: String, boldText: String)-> NSAttributedString{
-//        let attributedString = NSMutableAttributedString(string: String(format: "%@", mediumText), attributes: [.font: FontFamily.PTSans.regular.font(size: 15), .foregroundColor: UIColor.black])
-//        attributedString.append(NSMutableAttributedString(string: String(format: "%@", boldText), attributes: [.font: FontFamily.PTSans.bold.font(size: 15), .foregroundColor: UIColor.black]))
-//      return attributedString
-//    }
+    //    private func setAttributedMessage(mediumText: String, boldText: String)-> NSAttributedString{
+    //        let attributedString = NSMutableAttributedString(string: String(format: "%@", mediumText), attributes: [.font: FontFamily.PTSans.regular.font(size: 15), .foregroundColor: UIColor.black])
+    //        attributedString.append(NSMutableAttributedString(string: String(format: "%@", boldText), attributes: [.font: FontFamily.PTSans.bold.font(size: 15), .foregroundColor: UIColor.black]))
+    //      return attributedString
+    //    }
     private func setUpTextFiled(textFiled:UITextField,textValue:String, placeholder:String) {
         textFiled.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: FontFamily.PTSans.regular.font(size: 15)])
         textFiled.text = textValue
@@ -85,11 +89,12 @@ extension VoucherView{
         textFiled.alpha = 0.5
         textFiled.isEnabled = false
     }
-    private func setUpSwitch(switches:UISwitch,onTintColor:UIColor,backGroundColor:UIColor){
+    private func setUpSwitch(switches:UISwitch){
+        switches.tintColor = ColorName.darkRoyalBlue.color
+        switches.onTintColor = UIColor.lightGray
+        switches.backgroundColor = ColorName.darkRoyalBlue.color
         switches.layer.cornerRadius = 16
         switches.layer.masksToBounds = true
-        switches.onTintColor = onTintColor
-        switches.backgroundColor = backGroundColor
     }
     
     private func setUpButton(button:UIButton, backgroundImageName:UIImage){

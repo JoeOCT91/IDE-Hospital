@@ -107,8 +107,7 @@ extension FavoritesVC: FavoritesCellDelgate{
     }
     
     @objc func viewDoctorProfile(doctorID: Int) {
-        let alertVC = AlertVC()
-        self.presentAlertOnMainThread(alertVC: alertVC)
+        self.presentAlertOnMainThread(delegate: nil)
     }
     
 }

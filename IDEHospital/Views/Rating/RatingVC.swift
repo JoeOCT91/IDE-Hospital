@@ -42,13 +42,10 @@ class RatingVC: UIViewController {
 }
 extension RatingVC:RatingVcProtocol{
     func presentSuccessAlert(title: String, message: String) {
-        let alertVC = AlertVC(message: message,alertTaype: 2)
-        alertVC.alertDelegate = self
-        presentAlertOnMainThread(alertVC: alertVC)
+        self.presentAlertOnMainThread(message: message, alertTaype: 2, delegate: self)
     }
     func presentErrorAlert(title:String,message: String) {
-        let alertVC = AlertVC(message: message,alertTaype: 1)
-        presentAlertOnMainThread(alertVC: alertVC)
+        self.presentAlertOnMainThread(message: message, alertTaype: 1, delegate: nil)
     }
     func showLoader() {
         self.view.showLoader()
