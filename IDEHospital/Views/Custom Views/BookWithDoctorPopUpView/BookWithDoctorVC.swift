@@ -13,7 +13,7 @@ protocol BookWithDoctorVcProtocol:class {
     func presentErrorAlert(title:String,message: String)
     func showLoader()
     func hideLoader()
-    func goToConfirmationPopView(doctorName:String, appointmentDate:String)
+    func goToConfirmationPopView(doctorName:String, appointmentDate:String, appointmentDay:String)
 }
 class BookWithDoctorVC: UIViewController {
     
@@ -70,8 +70,9 @@ class BookWithDoctorVC: UIViewController {
 }
 extension BookWithDoctorVC:BookWithDoctorVcProtocol{
     
-    func goToConfirmationPopView(doctorName: String, appointmentDate: String) {
-        bookWithDoctorView.detailsLabel.text! += appointmentDate + "with Doctor " + doctorName
+    func goToConfirmationPopView(doctorName:String, appointmentDate:String, appointmentDay:String) {
+        var attributedDate = bookWithDoctorView.setAttributedMessage(mediumText: L10n.youAreAboutToBook + appointmentDay, boldText: appointmentDate,doctorName: doctorName)
+        bookWithDoctorView.detailsLabel.attributedText = attributedDate
         bookWithDoctorView.popUpView.alpha = 0
         bookWithDoctorView.hideVoucherPopUpViewButton.alpha = 0
         bookWithDoctorView.confirmationPopUpViewCenterXConstraint.constant = 0

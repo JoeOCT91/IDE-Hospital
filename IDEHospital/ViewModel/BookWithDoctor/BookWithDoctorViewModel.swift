@@ -61,6 +61,23 @@ class BookWithDoctorViewModel {
         let dateString = dateFormatter.string(from: date)
         return dateString
     }
+    
+    private func extractDayFromDate(date:String) -> (String,String){
+        var day:String = ""
+        var filtredDate = ""
+        for i in 0..<date.count{
+            if date[date.index(date.startIndex, offsetBy: i)] == ","{
+                day += "\(date[date.index(date.startIndex, offsetBy: i)])"
+                break
+            }
+            day += "\(date[date.index(date.startIndex, offsetBy: i)])"
+        }
+        for i in day.count..<date.count{
+            filtredDate += "\(date[date.index(date.startIndex, offsetBy: i)])"
+        }
+        print(filtredDate)
+        return (day,filtredDate)
+    }
 }
 extension BookWithDoctorViewModel:BookWithDoctorViewModelProtocol{
     func bookDoctorAppointmentRequest(voucher: String?, patientName: String?, bookForAnotherSwitch: Bool?) {
@@ -107,7 +124,8 @@ extension BookWithDoctorViewModel:BookWithDoctorViewModelProtocol{
             }
         }
         let timestamp = (appointmentTime! as NSString).doubleValue
-        let bookDate =  self.convertTimestampToDate(timestamp: timestamp)
-        self.view?.goToConfirmationPopView(doctorName: doctorName, appointmentDate: bookDate)
+        var bookDate =  self.convertTimestampToDate(timestamp: timestamp)
+        let dateDetails = self.extractDayFromDate(date: bookDate)
+        self.view?.goToConfirmationPopView(doctorName: doctorName, appointmentDate: dateDetails.1,appointmentDay: dateDetails.0)
     }
 }

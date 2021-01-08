@@ -61,6 +61,14 @@ class BookWithDoctorView:UIView{
         self.setUpLabel(label: titleLabel, labelText: L10n.confirmYourAppointment , fontName: FontFamily.PTSans.bold, fontSize: 15, fontColor: ColorName.darkRoyalBlue.color)
         self.setUpLabel(label: detailsLabel, labelText: L10n.youAreAboutToBook , fontName: FontFamily.PTSans.regular, fontSize: 15, fontColor: UIColor.black)
     }
+    func setAttributedMessage(mediumText:String, boldText: String, doctorName:String)-> NSAttributedString{
+        let attributedString = NSMutableAttributedString(string: String(format: "%@", mediumText), attributes: [.font: FontFamily.PTSans.regular.font(size: 15), .foregroundColor: UIColor.black])
+        attributedString.append(NSMutableAttributedString(string: String(format: "%@", boldText), attributes: [.font: FontFamily.PTSans.bold.font(size: 15), .foregroundColor: UIColor.black]))
+        attributedString.append(NSMutableAttributedString(string: String(format: "%@", "with "), attributes: [.font: FontFamily.PTSans.regular.font(size: 15), .foregroundColor: UIColor.black]))
+        attributedString.append(NSMutableAttributedString(string: String(format: "%@","Doctor " + doctorName), attributes: [.font: FontFamily.PTSans.bold.font(size: 15), .foregroundColor: UIColor.black]))
+        
+        return attributedString
+    }
 }
 
 extension BookWithDoctorView{
@@ -74,11 +82,7 @@ extension BookWithDoctorView{
         label.text = labelText
         label.textColor = fontColor
     }
-    //    private func setAttributedMessage(mediumText: String, boldText: String)-> NSAttributedString{
-    //        let attributedString = NSMutableAttributedString(string: String(format: "%@", mediumText), attributes: [.font: FontFamily.PTSans.regular.font(size: 15), .foregroundColor: UIColor.black])
-    //        attributedString.append(NSMutableAttributedString(string: String(format: "%@", boldText), attributes: [.font: FontFamily.PTSans.bold.font(size: 15), .foregroundColor: UIColor.black]))
-    //      return attributedString
-    //    }
+    
     private func setUpTextFiled(textFiled:UITextField,textValue:String, placeholder:String) {
         textFiled.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: FontFamily.PTSans.regular.font(size: 15)])
         textFiled.text = textValue

@@ -119,6 +119,8 @@
 		B2BE22162593A49E004BA737 /* SearchResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BE22152593A49E004BA737 /* SearchResultData.swift */; };
 		B2BE22182593A65C004BA737 /* DoctorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BE22172593A65C004BA737 /* DoctorResponse.swift */; };
 		B2BE221A2593AAC1004BA737 /* SearchResultBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BE22192593AAC1004BA737 /* SearchResultBody.swift */; };
+		B2C27E9625A8FB4300457350 /* String+Subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C27E9525A8FB4300457350 /* String+Subscript.swift */; };
+		B2C27E9825A90C8F00457350 /* String+ReplaceCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C27E9725A90C8F00457350 /* String+ReplaceCharacter.swift */; };
 		B2D29546259CD0E20092C3E0 /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D29545259CD0E20092C3E0 /* AboutVC.swift */; };
 		B2D29548259CD0F70092C3E0 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D29547259CD0F70092C3E0 /* AboutView.swift */; };
 		B2D29553259CED3F0092C3E0 /* AboutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D29552259CED3F0092C3E0 /* AboutResponse.swift */; };
@@ -261,6 +263,8 @@
 		B2BE22152593A49E004BA737 /* SearchResultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultData.swift; sourceTree = "<group>"; };
 		B2BE22172593A65C004BA737 /* DoctorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorResponse.swift; sourceTree = "<group>"; };
 		B2BE22192593AAC1004BA737 /* SearchResultBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultBody.swift; sourceTree = "<group>"; };
+		B2C27E9525A8FB4300457350 /* String+Subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Subscript.swift"; sourceTree = "<group>"; };
+		B2C27E9725A90C8F00457350 /* String+ReplaceCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ReplaceCharacter.swift"; sourceTree = "<group>"; };
 		B2D29545259CD0E20092C3E0 /* AboutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
 		B2D29547259CD0F70092C3E0 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		B2D29552259CED3F0092C3E0 /* AboutResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutResponse.swift; sourceTree = "<group>"; };
@@ -636,6 +640,8 @@
 			children = (
 				8632AA1F258904A000E4DB8D /* String+trimming.swift */,
 				86241F74259CF0C10063CD57 /* String+ToHTML.swift */,
+				B2C27E9525A8FB4300457350 /* String+Subscript.swift */,
+				B2C27E9725A90C8F00457350 /* String+ReplaceCharacter.swift */,
 			);
 			path = String;
 			sourceTree = "<group>";
@@ -1266,7 +1272,9 @@
 				B26141DA25A7458D009695A3 /* BookWithDoctorVC.swift in Sources */,
 				862851E1257FE68C0059122F /* MainCategory.swift in Sources */,
 				86385A5F258CB2D00060C564 /* Appointment.swift in Sources */,
+				B2C27E9625A8FB4300457350 /* String+Subscript.swift in Sources */,
 				86385A5C258CB2870060C564 /* AppointmentsResponse.swift in Sources */,
+				B2C27E9825A90C8F00457350 /* String+ReplaceCharacter.swift in Sources */,
 				8632AA03258901AD00E4DB8D /* HomeVC.swift in Sources */,
 				B21BDE352584F2C800430408 /* Cities.swift in Sources */,
 				B2660575259A5AB600F1A8BA /* AuthBodyData.swift in Sources */,
