@@ -92,7 +92,7 @@ class APIManager {
             complation(response)
         }
     }
-    //Get terms and conditions
+    // Get terms and conditions
     class func getTermsAndConditions(complation: @escaping (Result<TermsAndCondition, Error>) -> ()) {
         request(APIRouter.termsAndConditions){ respons in
             complation(respons)
@@ -117,6 +117,12 @@ class APIManager {
     class func getDoctorInformation(doctorID: Int, complation: @escaping (Result<DoctorInformationResponse, Error>) -> () ) {
         request(APIRouter.doctorInformation(doctorID)) { (respone) in
             complation(respone)
+        }
+    }
+    //Doctor Appointments dates
+    class func getAppointmentsDates(doctorID: Int, complation: @escaping (Result<MainResponse<AppointmentDate>, Error>) -> () ) {
+        request(APIRouter.doctorAppointments(doctorID)) { (result) in
+            complation(result)
         }
     }
     

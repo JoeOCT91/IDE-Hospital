@@ -12,6 +12,8 @@ import Foundation
 internal enum L10n {
   /// ABOUT
   internal static let about = L10n.tr("Localizable", "about")
+  /// Book
+  internal static let book = L10n.tr("Localizable", "book")
   /// SearchResultTableViewCell
   internal static let cellIdentifire = L10n.tr("Localizable", "cellIdentifire")
   /// Choose City
@@ -38,6 +40,8 @@ internal enum L10n {
   internal static let disMatchedPassword = L10n.tr("Localizable", "disMatchedPassword")
   /// Doctor Name
   internal static let doctorName = L10n.tr("Localizable", "DoctorName")
+  /// Doctor Profile
+  internal static let doctorProfile = L10n.tr("Localizable", "doctorProfile")
   /// Don't Have account?
   internal static let donTHavePassword = L10n.tr("Localizable", "don't_HavePassword")
   /// done
@@ -52,6 +56,8 @@ internal enum L10n {
   internal static let enterMessage = L10n.tr("Localizable", "enterMessage")
   /// Enter Password
   internal static let enterPasswordPlaceholder = L10n.tr("Localizable", "enterPasswordPlaceholder")
+  /// Examination Fees :
+  internal static let examinationFees = L10n.tr("Localizable", "ExaminationFees")
   /// Examination Fees: 
   internal static let examinationFess = L10n.tr("Localizable", "examinationFess")
   /// Favorite
@@ -166,6 +172,8 @@ internal enum L10n {
   internal static let terms = L10n.tr("Localizable", "terms")
   /// Terms & Conditions
   internal static let termsAndConditions = L10n.tr("Localizable", "TermsAndConditions")
+  /// View on map
+  internal static let viewOnMap = L10n.tr("Localizable", "viewOnMap")
   /// Wating Time: 
   internal static let watingTime = L10n.tr("Localizable", "watingTime")
   /// You have no appointments

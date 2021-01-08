@@ -24,7 +24,8 @@ class HospitalCellLabel: UILabel {
         configure()
     }
     
-    func setupContent(imageName: String, text: String){
+    func setupContent(imageName: String, text: String, textColor: UIColor = ColorName.white.color){
+        self.textColor = textColor
         // Create Attachment
         let imageAttachment = NSTextAttachment()
         imageAttachment.image = UIImage(named: imageName)

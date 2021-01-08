@@ -11,7 +11,9 @@ import Cosmos
 
 protocol sendDoctorIdDelegate {
     func getDoctorID(id:Int)
+    func bookNowPressed(doctorID: Int)
 }
+
 class SearchResultCell: UITableViewCell {
     @IBOutlet weak var bookNowButton: HospitalButton!
     @IBOutlet weak var nameLabel: UILabel!
@@ -42,7 +44,7 @@ class SearchResultCell: UITableViewCell {
     }
     
     @IBAction func bookNowButtonPressed(_ sender: Any) {
-        
+        sendDoctorDelegate?.bookNowPressed(doctorID: currentDoctorID)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

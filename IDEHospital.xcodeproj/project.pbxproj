@@ -46,6 +46,8 @@
 		862A8AD425A3B4100038B898 /* DoctorInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862A8AD325A3B4100038B898 /* DoctorInformation.swift */; };
 		862C489C258F4E00000066E5 /* DeleteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862C489B258F4E00000066E5 /* DeleteResponse.swift */; };
 		862C489F258F4FC9000066E5 /* ConfirmationAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862C489E258F4FC9000066E5 /* ConfirmationAlert.swift */; };
+		862EC79B25A631F00056CC56 /* AppointmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EC79A25A631F00056CC56 /* AppointmentCell.swift */; };
+		862EC79E25A640540056CC56 /* AppointmentsDatesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862EC79D25A640540056CC56 /* AppointmentsDatesResponse.swift */; };
 		862FA02825A21E730043DEE8 /* DoctorProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 862FA02725A21E730043DEE8 /* DoctorProfile.storyboard */; };
 		862FA02C25A21E980043DEE8 /* DoctorProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862FA02B25A21E980043DEE8 /* DoctorProfileView.swift */; };
 		862FA02F25A21EC30043DEE8 /* DoctorProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862FA02E25A21EC30043DEE8 /* DoctorProfileVC.swift */; };
@@ -185,6 +187,8 @@
 		862A8AD325A3B4100038B898 /* DoctorInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorInformation.swift; sourceTree = "<group>"; };
 		862C489B258F4E00000066E5 /* DeleteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteResponse.swift; sourceTree = "<group>"; };
 		862C489E258F4FC9000066E5 /* ConfirmationAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationAlert.swift; sourceTree = "<group>"; };
+		862EC79A25A631F00056CC56 /* AppointmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentCell.swift; sourceTree = "<group>"; };
+		862EC79D25A640540056CC56 /* AppointmentsDatesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsDatesResponse.swift; sourceTree = "<group>"; };
 		862FA02725A21E730043DEE8 /* DoctorProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DoctorProfile.storyboard; sourceTree = "<group>"; };
 		862FA02B25A21E980043DEE8 /* DoctorProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorProfileView.swift; sourceTree = "<group>"; };
 		862FA02E25A21EC30043DEE8 /* DoctorProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorProfileVC.swift; sourceTree = "<group>"; };
@@ -409,6 +413,7 @@
 			children = (
 				862A8ACC25A397050038B898 /* DoctorProfleResponse.swift */,
 				862A8AD325A3B4100038B898 /* DoctorInformation.swift */,
+				862EC79D25A640540056CC56 /* AppointmentsDatesResponse.swift */,
 			);
 			path = "Doctor Profle";
 			sourceTree = "<group>";
@@ -615,6 +620,7 @@
 				86385A54258CA74F0060C564 /* AppoinmentCell.swift */,
 				869D1FF5259A561000067BBC /* SideMenuCell.swift */,
 				862A8AD025A3A06C0038B898 /* DoctorReviewCell.swift */,
+				862EC79A25A631F00056CC56 /* AppointmentCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1131,6 +1137,7 @@
 				B2DF04352597DA8C00400F8F /* SignUpVC.swift in Sources */,
 				B2BE22142593A48A004BA737 /* SearchResultResponse.swift in Sources */,
 				863232F6257D7BB700514F5A /* APIManager.swift in Sources */,
+				862EC79E25A640540056CC56 /* AppointmentsDatesResponse.swift in Sources */,
 				863232FF257D835F00514F5A /* UserDefaultsManager.swift in Sources */,
 				8628D5AA258C075B00CAB803 /* HospitalButton.swift in Sources */,
 				B2660577259A5AC600F1A8BA /* SignUpResponse.swift in Sources */,
@@ -1179,6 +1186,7 @@
 				B2BE221A2593AAC1004BA737 /* SearchResultBody.swift in Sources */,
 				86241F6E259CEC5C0063CD57 /* TermsAndConditions.swift in Sources */,
 				B2BE22162593A49E004BA737 /* SearchResultData.swift in Sources */,
+				862EC79B25A631F00056CC56 /* AppointmentCell.swift in Sources */,
 				862FA02C25A21E980043DEE8 /* DoctorProfileView.swift in Sources */,
 				B21BDE162582C42A00430408 /* SearchView.swift in Sources */,
 				8628D5A9258C075B00CAB803 /* AlertVC.swift in Sources */,

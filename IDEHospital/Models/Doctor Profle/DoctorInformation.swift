@@ -14,23 +14,25 @@ struct DoctorInformationResponse: Codable {
 }
 
 struct DoctorInformation: Codable {
+    
     let id, rating, reviewsCount: Int
-    let name, bio, secondBio, specialty: String
-    let address, lng, lat: String
+    let specialty, name, bio, secondBio: String
+    let address: String
+    let lng, lat: Double
     let fees, waitingTime: Int
-    let image, city, region: String
-    let isFavorited: Bool
+    let image: String
+    let city, region: String
     let companies: [String]
+    let isFavorited: Bool
 
     enum CodingKeys: String, CodingKey {
         case id, rating
         case reviewsCount = "reviews_count"
-        case name, bio
+        case specialty, name, bio
         case secondBio = "second_bio"
-        case specialty, address, lng, lat, fees
+        case address, lng, lat, fees
         case waitingTime = "waiting_time"
-        case image, city, region
+        case image, city, region, companies
         case isFavorited = "is_favorited"
-        case companies
     }
 }

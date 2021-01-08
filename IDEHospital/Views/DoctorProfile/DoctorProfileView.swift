@@ -7,40 +7,77 @@
 
 import UIKit
 
+protocol doctorProfileViewDelegate: class {
+    func favoriteButtonPressed(doctorID: Int)
+    func showOnMapPressed(lng: Double, lat: Double)
+    func previousDayPressed()
+    func nextDayPressed()
+    func bookpressed()
+}
+
 class DoctorProfileView: UIView {
     
-    private let dctorTopView = DoctorTopView()
-    private let doctorButtomView = DoctorBottomView()
+    let doctorTopView = DoctorTopView()
+    private let doctorBottomView = DoctorBottomView()
     
+    weak var delgate: doctorProfileViewDelegate?
         
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setup()
+        doctorTopView.configureViews()
     }
     
+    //MARK:- Public methods
     func setupTableView(delgate: UITableViewDelegate, dataSource: UITableViewDataSource){
-        doctorButtomView.setupTableView(delgate: delgate, dataSource: dataSource)
+        doctorBottomView.setupTableView(delgate: delgate, dataSource: dataSource)
+    }
+    func setupCollectioView(delgate: UICollectionViewDelegate, dataSource: UICollectionViewDataSource) {
+        doctorTopView.setupCollectioView(delgate: delgate, dataSource: dataSource)
+    }
+    func setupDoctorImage(image: Data){
+        doctorTopView.setDoctorImage(image: image)
     }
     
+    func setupDoctorData(doctorInformation: DoctorInformation) {
+        doctorTopView.delegate = delgate
+        doctorBottomView.delegate = delgate
+        doctorBottomView.setupData(doctorInformation: doctorInformation)
+        doctorTopView.setupData(doctorInformation: doctorInformation)
+    }
+    func reloadTableView() {
+        doctorBottomView.reloadTableView()
+    }
+    func reloadCollectionData() {
+        doctorTopView.reloadCollectionData()
+    }
+    
+    func favoriteVisability(isHidden: Bool){
+        doctorTopView.favoriteVisability(isHidden: isHidden)
+    }
+    
+    func setupAppointmentData(date: String){
+        doctorTopView.setupAppointmentData(date: date)
+    }
+    
+    func isFavorite(imageName: String) {
+        doctorTopView.isFavorite(imageName: imageName)
+    }
+    
+    //MARK:- Private methods
     private func setup(){
-        self.addSubview(dctorTopView)
+        self.addSubview(doctorTopView)
         configureDctorTopView()
-        self.addSubview(doctorButtomView)
+        self.addSubview(doctorBottomView)
         configureDoctorButtomView()
-        
     }
     
     private func configureDctorTopView(){
-        dctorTopView.backgroundColor = .systemRed
-        dctorTopView.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: self.centerYAnchor, trailing: self.trailingAnchor)
+        doctorTopView.anchor(top: self.safeAreaLayoutGuide.topAnchor, leading: self.leadingAnchor, bottom: self.centerYAnchor, trailing: self.trailingAnchor)
     }
     private func configureDoctorButtomView(){
-        doctorButtomView.anchor(top: dctorTopView.bottomAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor)
+        doctorBottomView.anchor(top: doctorTopView.bottomAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor,
+                                padding: UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0))
     }
-    func reloadTableView() {
-        doctorButtomView.reloadTableView()
-    }
-    
-    
-
 }
+

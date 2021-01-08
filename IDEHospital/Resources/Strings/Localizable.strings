@@ -87,3 +87,10 @@
 "LoginToShowYourData" = "Login To Show your data";
 "YouHaveNoAppointemts" = "You have no appointments";
 "youHaveNoFavorites" = "You have no favorites";
+//DoctorProfile
+"book" = "Book";
+"doctorProfile" = "Doctor Profile";
+"ExaminationFees" = "Examination Fees :";
+//Search Result
+"searchResult" = "Search Result";
+"viewOnMap" ="View on map";

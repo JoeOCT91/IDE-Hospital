@@ -29,13 +29,14 @@ enum APIRouter:URLRequestConvertible {
     case getAbout
     case doctorReviews(_ doctorID: Int)
     case doctorInformation(_ doctorID: Int)
+    case doctorAppointments(_ doctorID: Int)
 
     //Mark:- HTTP Methods
     private var method: HTTPMethod {
         switch self {
         case .getCategories, .getFavories, .getCategory, .getAppointments, .getAbout, .searchResultRequest:
             return .get
-        case .termsAndConditions, .doctorReviews, .doctorInformation:
+        case .termsAndConditions, .doctorReviews, .doctorInformation, .doctorAppointments:
             return .get
         case .removeAppointment:
             return .delete
@@ -82,7 +83,9 @@ enum APIRouter:URLRequestConvertible {
         case .doctorReviews(let doctorID):
             return URLs.doctors + "\(doctorID)/reviews"
         case .doctorInformation(let doctorID):
-            return URLs.doctors + "/\((doctorID))"
+            return URLs.doctors + "\((doctorID))"
+        case .doctorAppointments(let doctorID):
+            return URLs.doctors + "\(doctorID)/appointments"
         }
     }
     private var query: URLQueryItem? {
@@ -161,7 +164,7 @@ enum APIRouter:URLRequestConvertible {
           }
         }()
     
-        //print(try encoding.encode(urlRequest, with: parameters))
+        print(try encoding.encode(urlRequest, with: parameters))
         return try encoding.encode(urlRequest, with: parameters)
     }
 }

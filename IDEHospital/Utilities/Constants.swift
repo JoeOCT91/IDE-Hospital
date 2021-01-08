@@ -30,6 +30,7 @@ struct Cells {
     static let appointment = "Appointment"
     static let sideMenu = "SideMenu"
     static let doctorReviewCell = "DoctorReviewCell"
+    static let appointmentDateCell = "appointmentDateCell"
 }
 
 // View Controllers

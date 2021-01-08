@@ -23,6 +23,7 @@ protocol FavoritesVCProtocol: PaginationVCProtocol {
 class FavoritesVC: UIViewController {
     
     @IBOutlet var favoritesView: FavoritesView!
+    
     private var viewModel: FavoritesVMProtocol!
     
     override func viewDidLoad() {
@@ -68,6 +69,7 @@ extension FavoritesVC: FavoritesVCProtocol {
     func reloadTableview(){
         favoritesView.favoritesTableView.reloadData()
     }
+    
     func showLoader(){
         view.showLoader()
     }
@@ -106,7 +108,7 @@ extension FavoritesVC: FavoritesCellDelgate{
     }
     
     @objc func viewDoctorProfile(doctorID: Int) {
-        let doctorProfile = DoctorProfileVC.create(doctorID: 18)
+        let doctorProfile = DoctorProfileVC.create(doctorID: doctorID)
         doctorProfile.setupBackWithPopup()
         navigationController?.pushViewController(doctorProfile, animated: true)
     }
