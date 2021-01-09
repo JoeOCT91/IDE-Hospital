@@ -31,7 +31,9 @@
 "rightPhoneNumberFormatDescription" = "The Entered Number Doesn't Start with 010,011,012 or 015 with Max 11 Numbers at All";
 "pleaseEnterDetails" = "Details Field is Empty, Please Write your Details";
 "successfulRequest" = "Successful Request";
-"successRequestMessage" = "Your Request has been Sent Successfully";
+"successRequestMessage" = "Your Request have been Sent Successfully";
+"successLogin" = "You have been Logged in Successfully!";
+"successRegister" =  "You have been Registered Successfully!";
 "searchResult" = "Search Result";
 "sortBy" = "Sort By";
 "noSearchResult" = "No Search Result Found";
@@ -73,6 +75,7 @@
 "instructions" = "By clicking sign up, you agree to our ";
 "terms" = "Terms & Conditions";
 "forgot" = "Forgot Password?";
+"loginFirst" = "You have to Login First to Select your Favorites";
 //contactUs
 "contactUsMainLabel" = "If you would like further information about how we can help you andyour health it would be great to hear from you.";
 "contactUsSmallLabel" = "For More information call: 19199";
@@ -87,6 +90,7 @@
 "LoginToShowYourData" = "Login To Show your data";
 "YouHaveNoAppointemts" = "You have no appointments";
 "youHaveNoFavorites" = "You have no favorites";
+<<<<<<< HEAD
 //DoctorProfile
 "book" = "Book";
 "doctorProfile" = "Doctor Profile";
@@ -94,3 +98,27 @@
 //Search Result
 "searchResult" = "Search Result";
 "viewOnMap" ="View on map";
+=======
+//Rating
+"pleaseRateDoctor" = "Please rate your experience with the doctor";
+"review" = "Review";
+"commentPlaceHolder" = "Add Comment";
+"successRatingAlert" = "Your Rating Have been Added Successfully!";
+"pleaseEnterComment" = "Comment Field is Empty, We Keen to Listen to your Comment";
+"commentFieldCountIsSmall" = "The Comment must be at least 3 characters";
+"noRatings" = "Please Leave Your Rating";
+//Voucher
+"doYouHaveVoucher" = "Do you have a Voucher Code?";
+"anotherPerson" = "Are you Booking for another person?";
+"yes" = "Yes";
+"no" = "No";
+"enterCode" = "Enter Code";
+"continue" = "Continue";
+"enterName" = "Enter Name";
+"pleaseEnterVoucher" = "Please Enter your Voucher";
+"pleaseEnterPatient" = "Please Enter Patiant Name";
+"noVoucher" = "The selected voucher is invalid.";
+"confirmYourAppointment" = "Confirm Your Appointment";
+"youAreAboutToBook" = "You are about to book an appointment on ";
+"successfulBooking" = "Your Appointment have been Booked Successfully";
+>>>>>>> Sprint-4

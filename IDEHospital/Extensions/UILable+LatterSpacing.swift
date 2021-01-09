@@ -16,16 +16,21 @@ extension UILabel {
         }
     }
     
-    func setLineHeight(lineHeight: CGFloat) {
-        let text = self.text
-        if let text = text {
-            let attributeString = NSMutableAttributedString(string: text)
-            let style = NSMutableParagraphStyle()
-            
-            style.lineSpacing = lineHeight
-            attributeString.addAttribute(NSAttributedString.Key.paragraphStyle, value: style, range: NSMakeRange(0, text.count))
-            self.attributedText = attributeString
-        }
+ func setLineSpacing(lineSpacing: CGFloat = 0.0, lineHeightMultiple: CGFloat = 0.0) {
+    
+      let attributedString = NSMutableAttributedString(string: "Your text")
+
+        // *** Create instance of `NSMutableParagraphStyle`
+        let paragraphStyle = NSMutableParagraphStyle()
+
+        // *** set LineSpacing property in points ***
+        paragraphStyle.lineSpacing = 2 // Whatever line spacing you want in points
+
+        // *** Apply attribute to string ***
+        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, attributedString.length))
+
+        // *** Set Attributed String to your label ***
+        self.attributedText = attributedString
     }
             
 }

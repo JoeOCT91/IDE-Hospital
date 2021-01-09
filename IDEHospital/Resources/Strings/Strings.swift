@@ -12,8 +12,6 @@ import Foundation
 internal enum L10n {
   /// ABOUT
   internal static let about = L10n.tr("Localizable", "about")
-  /// Book
-  internal static let book = L10n.tr("Localizable", "book")
   /// SearchResultTableViewCell
   internal static let cellIdentifire = L10n.tr("Localizable", "cellIdentifire")
   /// Choose City
@@ -40,8 +38,6 @@ internal enum L10n {
   internal static let disMatchedPassword = L10n.tr("Localizable", "disMatchedPassword")
   /// Doctor Name
   internal static let doctorName = L10n.tr("Localizable", "DoctorName")
-  /// Doctor Profile
-  internal static let doctorProfile = L10n.tr("Localizable", "doctorProfile")
   /// Don't Have account?
   internal static let donTHavePassword = L10n.tr("Localizable", "don't_HavePassword")
   /// done
@@ -56,8 +52,6 @@ internal enum L10n {
   internal static let enterMessage = L10n.tr("Localizable", "enterMessage")
   /// Enter Password
   internal static let enterPasswordPlaceholder = L10n.tr("Localizable", "enterPasswordPlaceholder")
-  /// Examination Fees :
-  internal static let examinationFees = L10n.tr("Localizable", "ExaminationFees")
   /// Examination Fees: 
   internal static let examinationFess = L10n.tr("Localizable", "examinationFess")
   /// Favorite
@@ -84,6 +78,8 @@ internal enum L10n {
   internal static let login = L10n.tr("Localizable", "login")
   /// Login
   internal static let loginButton = L10n.tr("Localizable", "loginButton")
+  /// You have to Login First to Select your Favorites
+  internal static let loginFirst = L10n.tr("Localizable", "loginFirst")
   /// Login To Show your data
   internal static let loginToShowYourData = L10n.tr("Localizable", "LoginToShowYourData")
   ///  minutes
@@ -166,14 +162,16 @@ internal enum L10n {
   internal static let sortBy = L10n.tr("Localizable", "sortBy")
   /// Successful Request
   internal static let successfulRequest = L10n.tr("Localizable", "successfulRequest")
-  /// Your Request has been Sent Successfully
+  /// You have been Logged in Successfully!
+  internal static let successLogin = L10n.tr("Localizable", "successLogin")
+  /// You have been Registered Successfully!
+  internal static let successRegister = L10n.tr("Localizable", "successRegister")
+  /// Your Request have been Sent Successfully
   internal static let successRequestMessage = L10n.tr("Localizable", "successRequestMessage")
   /// Terms & Conditions
   internal static let terms = L10n.tr("Localizable", "terms")
   /// Terms & Conditions
   internal static let termsAndConditions = L10n.tr("Localizable", "TermsAndConditions")
-  /// View on map
-  internal static let viewOnMap = L10n.tr("Localizable", "viewOnMap")
   /// Wating Time: 
   internal static let watingTime = L10n.tr("Localizable", "watingTime")
   /// You have no appointments

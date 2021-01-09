@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--RatingVC-->
+        <scene sceneID="Csh-Ns-KEd">
+            <objects>
+                <viewController storyboardIdentifier="RatingVC" id="GAc-NA-WTG" customClass="RatingVC" customModule="IDEHospital" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4RW-Yf-ceD" customClass="RatingView" customModule="IDEHospital" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RoS-hF-TAX">
+                                <rect key="frame" x="50" y="289.5" width="260" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="57u-qH-Qzz" customClass="CosmosView" customModule="Cosmos">
+                                <rect key="frame" x="50" y="318.5" width="88" height="14.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14.300000000000001" id="2lP-Zd-OBx"/>
+                                    <constraint firstAttribute="width" constant="88" id="SXr-L8-pYs"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="filled Star"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="empty star"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="starMargin">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rpZ-vs-ORs">
+                                <rect key="frame" x="50" y="340.5" width="275.5" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="Ybw-qP-GdS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utJ-2D-StB">
+                                <rect key="frame" x="30" y="534" width="315" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="QZf-1B-WHu"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="submitReview:" destination="GAc-NA-WTG" eventType="touchUpInside" id="K5P-GH-36Z"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sdn-yU-VuY">
+                                <rect key="frame" x="50" y="355.5" width="275.5" height="2"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="TbJ-Ke-Ts3"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="RoS-hF-TAX" firstAttribute="centerY" secondItem="oR0-1D-YtW" secondAttribute="centerY" multiplier="0.9" id="41Z-dP-ufy"/>
+                            <constraint firstItem="57u-qH-Qzz" firstAttribute="top" secondItem="RoS-hF-TAX" secondAttribute="bottom" constant="8" id="6ez-Zd-h5g"/>
+                            <constraint firstItem="oR0-1D-YtW" firstAttribute="trailing" secondItem="RoS-hF-TAX" secondAttribute="trailing" constant="65" id="Asp-i1-OLh"/>
+                            <constraint firstItem="oR0-1D-YtW" firstAttribute="trailing" secondItem="rpZ-vs-ORs" secondAttribute="trailing" constant="49.5" id="OlL-4S-rUs"/>
+                            <constraint firstItem="Sdn-yU-VuY" firstAttribute="top" secondItem="rpZ-vs-ORs" secondAttribute="bottom" id="PRs-7K-dZY"/>
+                            <constraint firstItem="RoS-hF-TAX" firstAttribute="leading" secondItem="oR0-1D-YtW" secondAttribute="leading" constant="50" id="aYR-mX-Qdg"/>
+                            <constraint firstItem="rpZ-vs-ORs" firstAttribute="leading" secondItem="57u-qH-Qzz" secondAttribute="leading" id="cDf-1c-ppo"/>
+                            <constraint firstItem="oR0-1D-YtW" firstAttribute="trailing" secondItem="utJ-2D-StB" secondAttribute="trailing" constant="30" id="cwn-vc-6b9"/>
+                            <constraint firstItem="Sdn-yU-VuY" firstAttribute="trailing" secondItem="rpZ-vs-ORs" secondAttribute="trailing" id="dG1-Qj-baY"/>
+                            <constraint firstItem="Sdn-yU-VuY" firstAttribute="leading" secondItem="rpZ-vs-ORs" secondAttribute="leading" id="gEO-p8-5Wa"/>
+                            <constraint firstItem="rpZ-vs-ORs" firstAttribute="top" secondItem="57u-qH-Qzz" secondAttribute="bottom" constant="7.7000000000000002" id="jVg-3a-CFc"/>
+                            <constraint firstItem="oR0-1D-YtW" firstAttribute="bottom" secondItem="utJ-2D-StB" secondAttribute="bottom" constant="88" id="pLW-OV-8GQ"/>
+                            <constraint firstItem="utJ-2D-StB" firstAttribute="leading" secondItem="oR0-1D-YtW" secondAttribute="leading" constant="30" id="sQv-Eg-FZs"/>
+                            <constraint firstItem="57u-qH-Qzz" firstAttribute="leading" secondItem="RoS-hF-TAX" secondAttribute="leading" id="uAD-pc-awz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oR0-1D-YtW"/>
+                        <connections>
+                            <outlet property="commentTextField" destination="rpZ-vs-ORs" id="Vbh-CF-ihL"/>
+                            <outlet property="headerLabel" destination="RoS-hF-TAX" id="hHn-gf-BrX"/>
+                            <outlet property="ratingView" destination="57u-qH-Qzz" id="WOG-3J-42A"/>
+                            <outlet property="submitReviewButton" destination="utJ-2D-StB" id="hz8-Yz-lfA"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="ratingView" destination="4RW-Yf-ceD" id="1E8-86-9dh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Mv-Ld-HZD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="64" y="145"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="empty star" width="15" height="14.5"/>
+        <image name="filled Star" width="15" height="14.5"/>
+    </resources>
+</document>

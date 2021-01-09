@@ -20,7 +20,11 @@ struct Storyboards {
     static let authentication = "Authentication"
     static let contactUs = "ContactUs"
     static let staticContent = "StaticContent"
+<<<<<<< HEAD
     static let doctorProfile = "DoctorProfile"
+=======
+    static let rating = "Rating"
+>>>>>>> Sprint-4
 }
 
 // Cells
@@ -53,6 +57,8 @@ struct ViewControllers {
     static let contactUsVC = "ContactUsVC"
     static let aboutVC = "AboutVC"
     static let doctorProfileVC = "DoctorProfileVC"
+    static let ratingVC = "RatingVC"
+    static let bookWithDoctorVC = "BookWithDoctorVC"
 }
 
 // Urls
@@ -71,6 +77,7 @@ struct URLs {
     static let contactUs = "contact_us_requests"
     static let about = "about_us"
     static let doctors = "doctors/"
+    static let ratingDoctor = "doctors"
 }
 
 // Header Keys
