@@ -60,6 +60,10 @@ class BookWithDoctorView:UIView{
         // SetUp Title Label
         self.setUpLabel(label: titleLabel, labelText: L10n.confirmYourAppointment , fontName: FontFamily.PTSans.bold, fontSize: 15, fontColor: ColorName.darkRoyalBlue.color)
         self.setUpLabel(label: detailsLabel, labelText: L10n.youAreAboutToBook , fontName: FontFamily.PTSans.regular, fontSize: 15, fontColor: UIColor.black)
+        // SetUp Constraints
+        AnotherPersonTopYLabelConstraint.constant = -25
+        continueButtonTopYConstraint.constant = -28.5
+        
     }
     func setAttributedMessage(mediumText:String, boldText: String, doctorName:String)-> NSAttributedString{
         let attributedString = NSMutableAttributedString(string: String(format: "%@", mediumText), attributes: [.font: FontFamily.PTSans.regular.font(size: 15), .foregroundColor: UIColor.black])
@@ -90,8 +94,7 @@ extension BookWithDoctorView{
         textFiled.layer.borderWidth = 2
         textFiled.layer.cornerRadius = 10
         textFiled.layer.masksToBounds = true
-        textFiled.alpha = 0.5
-        textFiled.isEnabled = false
+        textFiled.alpha = 0
     }
     private func setUpSwitch(switches:UISwitch){
         switches.tintColor = ColorName.darkRoyalBlue.color
