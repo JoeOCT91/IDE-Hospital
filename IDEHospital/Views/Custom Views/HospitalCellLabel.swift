@@ -21,6 +21,10 @@ class HospitalCellLabel: UILabel {
         super.init(frame: .zero)
         self.font = font
         self.font = self.font.withSize(fontSize)
+        self.numberOfLines = 0
+        self.adjustsFontSizeToFitWidth = true
+        self.minimumScaleFactor = 0.5
+        self.setLineSpacing(lineSpacing: 3, lineHeightMultiple: 3)
         configure()
     }
     

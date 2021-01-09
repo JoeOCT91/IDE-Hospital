@@ -53,8 +53,7 @@ class SideMenuVC: UIViewController {
 
 extension SideMenuVC: SideMenuVCProtocol {
     func editProfilePressed() {
-        let alert = AlertVC()
-        presentAlertOnMainThread(alertVC: alert)
+        self.presentAlertOnMainThread(delegate: nil)
     }
     
     func favoritesPressed() {
@@ -80,8 +79,7 @@ extension SideMenuVC: SideMenuVCProtocol {
     }
     
     func sharePressed() {
-        let alert = AlertVC()
-        presentAlertOnMainThread(alertVC: alert)
+       presentAlertOnMainThread(delegate: nil)
     }
     
     func termsAndConditionsPressed(){
@@ -90,9 +88,7 @@ extension SideMenuVC: SideMenuVCProtocol {
     }
     
     func logoutPressed(){
-        let alert = ConfirmationAlert(id: 0, message: "Are you sure to logout!")
-        alert.delgate = self
-        presentAlertOnMainThread(alertVC: alert)
+        presentAlertOnMainThread(id: 0, message: "Are you sure to logout!", delegate: self)
     }
     
     func logoutSuccess(){

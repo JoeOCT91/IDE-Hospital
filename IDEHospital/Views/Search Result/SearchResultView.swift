@@ -14,7 +14,7 @@ class SearchResultView:UIView{
     @IBOutlet weak var sortByLabel: UILabel!
     @IBOutlet weak var filterTextField: UITextField!
     @IBOutlet weak var arrowImageInTextField: UIImageView!
-    @IBOutlet weak var emptyDataLabel: UILabel!
+
     var pickerView = UIPickerView()
     //MARK:- Public Functions
     func setupView() {
@@ -26,8 +26,6 @@ class SearchResultView:UIView{
         self.setUpLabel(label: sortByLabel, labelText: L10n.sortBy, fontName: FontFamily.PTSans.bold, fontSize: 12, fontColor: .white, alpha: 1)
         // set Filter TextField
         self.setUpTextFiled(textFiled: filterTextField, textValue: L10n.rating, placeholder: "", imageName: Asset.whiteArrow.image, imageViewInTextFiled: arrowImageInTextField, fontName: FontFamily.PTSans.bold, fontSize: 12, tag: 1)
-        // set empty result lable
-        self.setUpLabel(label: emptyDataLabel, labelText: L10n.noSearchResult, fontName: FontFamily.PTSans.bold, fontSize: 15, fontColor: .white, alpha: 0)
         
     }
 }

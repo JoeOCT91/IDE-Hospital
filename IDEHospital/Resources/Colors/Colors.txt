@@ -1,3 +1,4 @@
 White : #ffffff
 veryLightPink : #cccccc
 darkRoyalBlue : #001867
+richPurpleTwo : #6F0466

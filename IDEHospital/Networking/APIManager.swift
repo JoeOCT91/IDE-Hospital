@@ -111,6 +111,19 @@ class APIManager {
             completion(response)
         }
     }
+    
+    // Add Rating Request
+       class func addDoctorRatingAPI(body:RatingBodyData ,completion: @escaping (Result<RatingResponse, Error>)-> ()){
+        request(APIRouter.addRating(body)){ (response) in
+               completion(response)
+           }
+       }
+    // Book Appintment with doctor (Voucher)
+    class func bookAppoinmentWithDoctorAPI(body:VoucherDataBody ,completion: @escaping (Result<VoucherResponse, Error>)-> ()){
+        request(APIRouter.bookAppointment(body)){ (response) in
+                  completion(response)
+              }
+          }
 }
 
 extension APIManager{

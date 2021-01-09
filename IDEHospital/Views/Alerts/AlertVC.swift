@@ -6,17 +6,27 @@
 //
 
 import UIKit
-
+protocol AlertVcDelegate {
+    func okButtonPressed()
+}
 class AlertVC: UIViewController {
     
     private let containerView = UIView()
-    private let alertImage = UIImageView(image: Asset.alertError.image)
+    private var alertImage = UIImageView(image: Asset.alertError.image)
     private let messageLabel = HospitalCellLabel(textAlignment: .right, fontSize: 15, font: UIFont(font : FontFamily.PTSans.bold, size: 15))
-    private let actionButton = HospitalButton(frame: .zero, tittle: "OK")
-    
-    init(message: String = "Default message"){
+    private let actionButton = HospitalButton(frame: .zero, tittle: "OK", color: ColorName.darkRoyalBlue)
+    private var alertTaype = 1
+     var alertDelegate:AlertVcDelegate?
+    init(message: String = "Default message", alertTaype:Int = 1){
         super.init(nibName: nil, bundle: nil)
         messageLabel.text = message
+        self.alertTaype = alertTaype
+        switch alertTaype {
+        case 2:
+            alertImage = UIImageView(image: Asset.alertConfirmation.image)
+        default:
+            alertImage = UIImageView(image: Asset.alertError.image)
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -81,12 +91,19 @@ class AlertVC: UIViewController {
             actionButton.widthAnchor.constraint(equalToConstant: 55),
             actionButton.heightAnchor.constraint(equalToConstant: 30),
         ])
-        actionButton.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
+        switch alertTaype {
+        case 2:
+            actionButton.addTarget(self, action: #selector(successAlert), for: .touchUpInside)
+        default:
+            actionButton.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
+        }
+        
+    }
+    @objc private func successAlert(){
+        self.alertDelegate?.okButtonPressed()
+        self.dismiss(animated: true)
     }
     @objc private func dismissAlert(){
         self.dismiss(animated: true)
     }
-
- 
-
 }
