@@ -15,32 +15,24 @@ protocol DoctorProfileVMProtocol: ViewModelWithPaginatioProtocol {
     func getNextDay()
     func getDoctorInformation()
     func getDoctorAppointmentsDate()
-    func getReviewsCount() -> Int
     func getReviewData(index: Int) -> Review
     func getDateAppointmentsCount() -> Int
     func favoritePresedPeroses(doctorID: Int)
     func prepareForBooking(indexPath: IndexPath)
-    //func checkIfItselected(indexPath: IndexPath) -> Bool
     func perfromBookingAction(bookingInformation: (Int, String, Int) -> ())
-    //func getCellData(indexPath: IndexPath, complation: (Bool, ColorName, String) -> ())
     func checkIfItselected(indexPath: IndexPath, withData: (Bool, ColorName, String) -> ()) -> Bool
 }
 
 class DoctorProfileVM<T: DoctorProfileVCProtocol>: ViewModelWithPagination<T>, DoctorProfileVMProtocol{
 
-    
-
-    
-    
-    //View model
-    //private weak var view: DoctorProfileVCProtocol?
+    //View model proprety is in the parent class
+    //view proprety in the parent class
     
     private var doctorID: Int
     private var doctorName = String()
     private var appointmentTimestamp = Int()
     private var isFavorite = Bool() // This var sets by getDoctorInformation()
     private var dayIndex = 0
-    private var doctorReviews = [Review]()
     private var doctorAppointments = [AppointmentDate]()
     private var selectedIndexPath = IndexPath()
     
@@ -176,7 +168,7 @@ class DoctorProfileVM<T: DoctorProfileVCProtocol>: ViewModelWithPagination<T>, D
         }
     }
     
-    //MARK:- Doctor reviews and information
+    //MARK:- Doctor Profile
     internal func getDoctorInformation(){
         APIManager.getDoctorInformation(doctorID: doctorID) { [weak self] (result) in
             guard let self = self else { return }
@@ -193,6 +185,17 @@ class DoctorProfileVM<T: DoctorProfileVCProtocol>: ViewModelWithPagination<T>, D
             }
         }
     }
+    
+    internal func getDoctorImage(urlString: String){
+        guard let url = URL(string: urlString) else { return }
+        SDWebImageDownloader().downloadImage(with: url) { [weak self] (image, data, error, bool) in
+            guard let self = self else { return }
+            guard let data = data else { return }
+            SDWebImageCacheSerializer().cacheData(with: image!, originalData: data, imageURL: url)
+            self.view?.setDoctorImage(image: data)
+        }
+    }
+    
     //MARK:- Reviews function
     internal func getData() {
         APIManager.getDoctorReviews(doctorID: doctorID) { [weak self] (result) in
@@ -209,21 +212,7 @@ class DoctorProfileVM<T: DoctorProfileVCProtocol>: ViewModelWithPagination<T>, D
             }
         }
     }
-    
-    internal func getDoctorImage(urlString: String){
-        guard let url = URL(string: urlString) else { return }
-        SDWebImageDownloader().downloadImage(with: url) { [weak self] (image, data, error, bool) in
-            guard let self = self else { return }
-            guard let data = data else { return }
-            SDWebImageCacheSerializer().cacheData(with: image!, originalData: data, imageURL: url)
-            self.view?.setDoctorImage(image: data)
-        }
-    }
-    
-    internal func getReviewsCount() -> Int {
-        return doctorReviews.count
-    }
-    
+
     internal func getReviewData(index: Int) -> Review {
         return dataList[index] as! Review
     }

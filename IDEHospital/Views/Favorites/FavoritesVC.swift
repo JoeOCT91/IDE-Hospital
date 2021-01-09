@@ -7,13 +7,14 @@
 
 import UIKit
 
+@objc
 protocol PaginationVCProtocol: class {
     func reloadTableview()
     func showLoader()
     func hideLoader()
     func tableViewIsEmpty(message: String)
     func hideEmptyTablePlaceHolder()
-    func setCellImage(image: Data, indexPath: IndexPath)
+    @objc optional func setCellImage(image: Data, indexPath: IndexPath)
 }
 
 protocol FavoritesVCProtocol: PaginationVCProtocol {

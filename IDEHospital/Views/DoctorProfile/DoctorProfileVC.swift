@@ -61,9 +61,6 @@ class DoctorProfileVC: UIViewController {
 
 extension DoctorProfileVC: DoctorProfileVCProtocol {
     
-    
-
-    
     func tableViewIsEmpty(message: String) {
         
     }
@@ -72,11 +69,6 @@ extension DoctorProfileVC: DoctorProfileVCProtocol {
         
     }
     
-    func setCellImage(image: Data, indexPath: IndexPath) {
-        
-    }
-    
-
     func reloadTableview() {
         doctorProfileView.reloadTableView()
     }
@@ -108,6 +100,7 @@ extension DoctorProfileVC: DoctorProfileVCProtocol {
     internal func favoriteVisability(isHidden: Bool){
         doctorProfileView.favoriteVisability(isHidden: isHidden)
     }
+    
     internal func setupAppointmentData(date: String){
         doctorProfileView.setupAppointmentData(date: date)
     }
