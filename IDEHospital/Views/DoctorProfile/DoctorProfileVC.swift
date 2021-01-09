@@ -155,7 +155,6 @@ extension DoctorProfileVC: UICollectionViewDelegate, UICollectionViewDataSource 
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath ) as? AppointmentDateCell else { return }
-        collectionView.reloadData()
         cell.deSelected()
     }
 }
