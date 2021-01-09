@@ -27,12 +27,7 @@ class RestPasswordViewModel {
                 self.view?.presentErrorAlert(title: L10n.sorry, message: error.localizedDescription)
             case .success(let result):
                 if result.code == 202{
-<<<<<<< HEAD:IDEHospital/ViewModel/ResetPasswordViewModel.swift
-                    self.view.presentSuccessAlert(title: L10n.successfulRequest, message: L10n.successRequestMessage)
-=======
-                    print(result.success)
                     self.view?.presentSuccessAlert(title: L10n.successfulRequest, message: L10n.successRequestMessage)
->>>>>>> Sprint-4:IDEHospital/ViewModel/Auth/ResetPasswordViewModel.swift
                 }
                 else{
                     self.view?.presentErrorAlert(title: L10n.sorry, message: result.errors?.email?[0] ?? "")

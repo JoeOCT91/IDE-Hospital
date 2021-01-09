@@ -20,11 +20,8 @@ struct Storyboards {
     static let authentication = "Authentication"
     static let contactUs = "ContactUs"
     static let staticContent = "StaticContent"
-<<<<<<< HEAD
     static let doctorProfile = "DoctorProfile"
-=======
     static let rating = "Rating"
->>>>>>> Sprint-4
 }
 
 // Cells

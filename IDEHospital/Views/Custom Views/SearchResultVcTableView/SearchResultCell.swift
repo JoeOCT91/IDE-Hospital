@@ -31,19 +31,8 @@ class SearchResultCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.makeImageViewCirclerShape()
-<<<<<<< HEAD
     }
-    @IBAction func heartButtonPressed(_ sender: Any) {
-                
-        self.sendDoctorDelegate?.getDoctorID(id: currentDoctorID)
-        if heartButton.currentBackgroundImage == Asset.redHeart.image {
-            self.heartButton.setBackgroundImage(Asset.emptyHeart.image, for: .normal)
-        }
-        else{
-            self.heartButton.setBackgroundImage(Asset.redHeart.image, for: .normal)
-=======
-        
-    }
+    
     @IBAction func heartButtonPressed(_ sender: Any) {
         if UserDefaultsManager.shared().token != nil {
             
@@ -53,7 +42,6 @@ class SearchResultCell: UITableViewCell {
             else{
                 self.heartButton.setBackgroundImage(Asset.redHeart.image, for: .normal)
             }
->>>>>>> Sprint-4
         }
         self.sendDoctorDelegate?.getDoctorID(id: currentDoctorID)
         

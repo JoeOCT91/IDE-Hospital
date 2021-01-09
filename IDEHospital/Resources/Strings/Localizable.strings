@@ -90,7 +90,6 @@
 "LoginToShowYourData" = "Login To Show your data";
 "YouHaveNoAppointemts" = "You have no appointments";
 "youHaveNoFavorites" = "You have no favorites";
-<<<<<<< HEAD
 //DoctorProfile
 "book" = "Book";
 "doctorProfile" = "Doctor Profile";
@@ -98,7 +97,6 @@
 //Search Result
 "searchResult" = "Search Result";
 "viewOnMap" ="View on map";
-=======
 //Rating
 "pleaseRateDoctor" = "Please rate your experience with the doctor";
 "review" = "Review";
@@ -121,4 +119,4 @@
 "confirmYourAppointment" = "Confirm Your Appointment";
 "youAreAboutToBook" = "You are about to book an appointment on ";
 "successfulBooking" = "Your Appointment have been Booked Successfully";
->>>>>>> Sprint-4
+
