@@ -31,6 +31,7 @@ class DoctorProfileVC: UIViewController {
     private var viewModel: DoctorProfileVMProtocol!
     // view
     @IBOutlet var doctorProfileView: DoctorProfileView!
+    
 
     
     override func viewDidLoad() {
@@ -60,7 +61,7 @@ class DoctorProfileVC: UIViewController {
         return doctorProfileVC
     }
 }
-//
+
 extension DoctorProfileVC: DoctorProfileVCProtocol {
     func setCellData(time: String, isBooked: Bool, backgroundColor: ColorName, indexPath: IndexPath) {
         
@@ -142,20 +143,24 @@ extension DoctorProfileVC: UICollectionViewDelegate, UICollectionViewDataSource 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let cell = cell as? AppointmentDateCell else { return }
         viewModel.getCellData(indexPath: indexPath) { (isBooked, backgroundColor, title) in
-            cell.isSelected = false
+            print("the cell that will display indexPath is " , indexPath)
+            cell.isSelected = viewModel.checkIfItselected(indexPath: indexPath)
             cell.setupCell(title: title, backgroundColor: backgroundColor, isBooked: isBooked)
         }
+
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath ) as! AppointmentDateCell
-        viewModel.prepareForBooking(index: indexPath.row)
+        viewModel.prepareForBooking(indexPath: indexPath)
+        //collectionView.setContentOffset(<#T##contentOffset: CGPoint##CGPoint#>, animated: <#T##Bool#>)
         cell.selected()
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath ) as? AppointmentDateCell else { return }
         cell.deSelected()
+        //cell.isSelected = false
     }
 }
 
@@ -177,8 +182,10 @@ extension DoctorProfileVC: doctorProfileViewDelegate {
     
     internal func bookpressed() {
         viewModel.perfromBookingAction { (doctorID, doctorName, appointmentTime) in
-            let bookVc = BookWithDoctorVC.create(doctorID: doctorID, doctorName: doctorName, appointmentTime: String(appointmentTime))
-            present(bookVc, animated: true)
+            let bookVC = BookWithDoctorVC.create(doctorID: doctorID, doctorName: doctorName, appointmentTime: String(appointmentTime))
+            bookVC.modalPresentationStyle = .overFullScreen
+            bookVC.modalTransitionStyle = .crossDissolve
+            present(bookVC, animated: true)
         }
     }
     

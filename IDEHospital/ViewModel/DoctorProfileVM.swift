@@ -20,7 +20,8 @@ protocol DoctorProfileVMProtocol: class {
     func getReviewData(index: Int) -> Review
     func getDateAppointmentsCount() -> Int
     func favoritePresedPeroses(doctorID: Int)
-    func  prepareForBooking(index: Int)
+    func prepareForBooking(indexPath: IndexPath)
+    func checkIfItselected(indexPath: IndexPath) -> Bool
     func perfromBookingAction(bookingInformation: (Int, String, Int) -> ())
     func getCellData(indexPath: IndexPath, complation: (Bool, ColorName, String) -> ())
 }
@@ -37,6 +38,7 @@ class DoctorProfileVM: DoctorProfileVMProtocol {
     private var dayIndex = 0
     private var doctorReviews = [Review]()
     private var doctorAppointments = [AppointmentDate]()
+    private var selectedIndexPath = IndexPath()
     
     init(view: DoctorProfileVCProtocol, doctorID: Int) {
         self.view = view
@@ -50,15 +52,22 @@ class DoctorProfileVM: DoctorProfileVMProtocol {
     }
     
     //This function to prepare view model to perform booking when book button preesed
-    internal func  prepareForBooking(index: Int) {
+    internal func  prepareForBooking(indexPath: IndexPath) {
         view?.enableBookButton()
-        appointmentTimestamp = doctorAppointments[dayIndex].times[index].time
-        print(appointmentTimestamp)
-
+        print("clicked cell index bath ", indexPath)
+        selectedIndexPath = indexPath
+        appointmentTimestamp = doctorAppointments[dayIndex].times[indexPath.row].time
     }
+    
+    internal func checkIfItselected(indexPath: IndexPath) -> Bool {
+        print(selectedIndexPath)
+        return indexPath == selectedIndexPath ? true : false
+    }
+    
     internal func perfromBookingAction(bookingInformation: (Int, String, Int) -> ()) {
         bookingInformation(doctorID, doctorName, appointmentTimestamp)
     }
+    
     //this function hide favorite icon from the view when the user is not authrized
     func checkForAuth() {
         if UserDefaultsManager.shared().token == nil {
@@ -84,12 +93,16 @@ class DoctorProfileVM: DoctorProfileVMProtocol {
         }
     }
     
+
+    
     func getCellData(indexPath: IndexPath, complation: (Bool, ColorName, String) -> ()){
         let timestamp  = doctorAppointments[dayIndex].times[indexPath.row].time
         let dateFormat = "hh:mm at d"
         let dateString = convertStamp(format: dateFormat, timestamp: timestamp)
-        let isBooked = doctorAppointments[dayIndex].times[indexPath.row].booked ? false : true
-        let colorName = isBooked ? ColorName.warmGrey : ColorName.niceBlue
+        let isBooked = doctorAppointments[dayIndex].times[indexPath.row].booked ? true : false
+        var colorName = isBooked ?  ColorName.warmGrey : ColorName.niceBlue
+        print(checkIfItselected(indexPath: selectedIndexPath))
+        colorName = checkIfItselected(indexPath: selectedIndexPath) ? ColorName.darkRoyalBlue : colorName
         complation(isBooked, colorName, dateString)
     }
     
@@ -127,7 +140,7 @@ class DoctorProfileVM: DoctorProfileVMProtocol {
         if dayIndex > 0 {
             dayIndex -= 1
             let date = convertStamp(format: "EEEE,d MMMM yyy", timestamp: doctorAppointments[dayIndex].date)
-            print(date)
+            print(doctorAppointments[dayIndex].times)
             view?.disableBookButton()
             view?.setupAppointmentData(date: date)
             view?.reloadCollectionData()

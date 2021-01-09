@@ -45,8 +45,8 @@ class AppointmentDateCell: UICollectionViewCell {
 
     func setupCell(title: String, backgroundColor: ColorName, isBooked: Bool){
         self.timeLabel.text = title
-        self.backgroundColor = UIColor(named: backgroundColor)
-        self.isUserInteractionEnabled = isBooked
+        self.timeLabel.backgroundColor = UIColor(named: backgroundColor)
+        self.isUserInteractionEnabled = !isBooked
     }
     
     func selected(){
