@@ -15,15 +15,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-//        IQKeyboardManager.shared.enable = true
-//        let homeVC = HomeVC.create()
-//        let navigationController = UINavigationController(rootViewController: homeVC)
-//        window?.rootViewController = navigationController
+        IQKeyboardManager.shared.enable = true
         
-        
-        let appointmentVC = DoctorProfileVC.create(doctorID: 65)
-        let navigationController = UINavigationController(rootViewController: appointmentVC)
+        let homeVC = HomeVC.create()
+        let navigationController = UINavigationController(rootViewController: homeVC)
         window?.rootViewController = navigationController
+        
+        
+//        let appointmentVC = DoctorProfileVC.create(doctorID: 65)
+//        let navigationController = UINavigationController(rootViewController: appointmentVC)
+//        window?.rootViewController = navigationController
         
 //        let favoritesVC = FavoritesVC.create()
 //        let navigationController = UINavigationController(rootViewController: favoritesVC)

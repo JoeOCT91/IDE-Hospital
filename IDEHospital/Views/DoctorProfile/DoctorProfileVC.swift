@@ -10,19 +10,15 @@ import CoreLocation
 import MapKit
 
 
-protocol DoctorProfileVCProtocol: class {
-    func showLoader()
-    func hideLoader()
-    func reloadTableView()
+protocol DoctorProfileVCProtocol: PaginationVCProtocol {
     func favoriteVisability(isHidden: Bool)
     func setupAppointmentData(date: String)
     func setupDctorInformationData(doctorInformation: DoctorInformation)
     func setDoctorImage(image: Data)
     func reloadCollectionData()
-    func setCellData(time: String, isBooked: Bool, backgroundColor: ColorName, indexPath: IndexPath)
     func isFavorite(imageName: String)
     func enableBookButton()
-    func scrollTobegin()
+    func scrollTobegining()
     func disableBookButton()
 }
 
@@ -64,8 +60,25 @@ class DoctorProfileVC: UIViewController {
 }
 
 extension DoctorProfileVC: DoctorProfileVCProtocol {
-    func setCellData(time: String, isBooked: Bool, backgroundColor: ColorName, indexPath: IndexPath) {
+    
+    
+
+    
+    func tableViewIsEmpty(message: String) {
         
+    }
+    
+    func hideEmptyTablePlaceHolder() {
+        
+    }
+    
+    func setCellImage(image: Data, indexPath: IndexPath) {
+        
+    }
+    
+
+    func reloadTableview() {
+        doctorProfileView.reloadTableView()
     }
     
     func isFavorite(imageName: String) {
@@ -78,10 +91,6 @@ extension DoctorProfileVC: DoctorProfileVCProtocol {
     
     internal func hideLoader() {
         view.hideLoader()
-    }
-    
-    internal func reloadTableView() {
-        doctorProfileView.reloadTableView()
     }
     
     internal func setupDctorInformationData(doctorInformation: DoctorInformation){
@@ -110,7 +119,7 @@ extension DoctorProfileVC: DoctorProfileVCProtocol {
     internal func disableBookButton(){
         doctorProfileView.disableBookButton()
     }
-    internal func scrollTobegin(){
+    internal func scrollTobegining(){
         collection.setContentOffset(.zero, animated: true)
     }
     
@@ -118,7 +127,7 @@ extension DoctorProfileVC: DoctorProfileVCProtocol {
 
 extension DoctorProfileVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.getReviewsCount()
+        return viewModel.getDataListCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -128,7 +137,7 @@ extension DoctorProfileVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-
+        guard let cell = cell as? DoctorReviewCell else { return }
     }
 
 }
@@ -155,14 +164,12 @@ extension DoctorProfileVC: UICollectionViewDelegate, UICollectionViewDataSource 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath ) as! AppointmentDateCell
         viewModel.prepareForBooking(indexPath: indexPath)
-        //collectionView.setContentOffset(<#T##contentOffset: CGPoint##CGPoint#>, animated: true)
         cell.selected()
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath ) as? AppointmentDateCell else { return }
         cell.deSelected()
-        //cell.isSelected = false
     }
 }
 

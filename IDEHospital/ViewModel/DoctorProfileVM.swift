@@ -8,7 +8,7 @@
 import Foundation
 import SDWebImage
 
-protocol DoctorProfileVMProtocol: class {
+protocol DoctorProfileVMProtocol: ViewModelWithPaginatioProtocol {
     func getData()
     func checkForAuth()
     func getPreviousDay()
@@ -27,10 +27,12 @@ protocol DoctorProfileVMProtocol: class {
     func checkIfItselected(indexPath: IndexPath, withData: (Bool, ColorName, String) -> ()) -> Bool
 }
 
-class DoctorProfileVM: DoctorProfileVMProtocol {
+class DoctorProfileVM<T: DoctorProfileVCProtocol>: ViewModelWithPagination<T>, DoctorProfileVMProtocol{
+
+    
     
     //View model
-    private weak var view: DoctorProfileVCProtocol?
+    //private weak var view: DoctorProfileVCProtocol?
     
     private var doctorID: Int
     private var doctorName = String()
@@ -41,9 +43,10 @@ class DoctorProfileVM: DoctorProfileVMProtocol {
     private var doctorAppointments = [AppointmentDate]()
     private var selectedIndexPath = IndexPath()
     
-    init(view: DoctorProfileVCProtocol, doctorID: Int) {
-        self.view = view
+    init(view: T, doctorID: Int) {
         self.doctorID = doctorID
+        super.init()
+        self.view = view
     }
     
     func getData() {
@@ -130,7 +133,7 @@ class DoctorProfileVM: DoctorProfileVMProtocol {
         let date = convertStamp(format: "EEEE,d MMMM yyy", timestamp: doctorAppointments[dayIndex].date)
         view?.setupAppointmentData(date: date)
         view?.disableBookButton()
-        view?.scrollTobegin()
+        view?.scrollTobegining()
         selectedIndexPath = IndexPath()
         view?.reloadCollectionData()
     }
@@ -143,7 +146,7 @@ class DoctorProfileVM: DoctorProfileVMProtocol {
             let date = convertStamp(format: "EEEE,d MMMM yyy", timestamp: doctorAppointments[dayIndex].date)
             view?.disableBookButton()
             view?.setupAppointmentData(date: date)
-            view?.scrollTobegin()
+            view?.scrollTobegining()
 
             selectedIndexPath = IndexPath()
             view?.reloadCollectionData()
@@ -194,8 +197,11 @@ class DoctorProfileVM: DoctorProfileVMProtocol {
             guard let self = self else { return }
             switch result {
             case .success(let result):
-                self.doctorReviews = result.data.items
-                self.view?.reloadTableView()
+                self.dataList.append(contentsOf: result.data.items)
+                self.isHasMorePages(pagesCount: result.data.totalPages)
+                self.page += 1
+                //self.doctorReviews = result.data.items
+                self.view?.reloadTableview()
             case .failure(let error):
                 print(error)
             }
@@ -217,7 +223,7 @@ class DoctorProfileVM: DoctorProfileVMProtocol {
     }
     
     internal func getReviewData(index: Int) -> Review {
-        return doctorReviews[index]
+        return dataList[index] as! Review
     }
     
 }
