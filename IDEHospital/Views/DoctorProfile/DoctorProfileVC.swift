@@ -176,7 +176,10 @@ extension DoctorProfileVC: doctorProfileViewDelegate {
     }
     
     internal func bookpressed() {
-        print("Booked")
+        viewModel.perfromBookingAction { (doctorID, doctorName, appointmentTime) in
+            let bookVc = BookWithDoctorVC.create(doctorID: doctorID, doctorName: doctorName, appointmentTime: String(appointmentTime))
+            present(bookVc, animated: true)
+        }
     }
     
     internal func favoriteButtonPressed(doctorID: Int) {

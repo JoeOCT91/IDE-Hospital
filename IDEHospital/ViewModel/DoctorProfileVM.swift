@@ -21,6 +21,7 @@ protocol DoctorProfileVMProtocol: class {
     func getDateAppointmentsCount() -> Int
     func favoritePresedPeroses(doctorID: Int)
     func  prepareForBooking(index: Int)
+    func perfromBookingAction(bookingInformation: (Int, String, Int) -> ())
     func getCellData(indexPath: IndexPath, complation: (Bool, ColorName, String) -> ())
 }
 
@@ -30,6 +31,7 @@ class DoctorProfileVM: DoctorProfileVMProtocol {
     private weak var view: DoctorProfileVCProtocol?
     
     private var doctorID: Int
+    private var doctorName = String()
     private var appointmentTimestamp = Int()
     private var isFavorite = Bool() // This var sets by getDoctorInformation()
     private var dayIndex = 0
@@ -54,7 +56,9 @@ class DoctorProfileVM: DoctorProfileVMProtocol {
         print(appointmentTimestamp)
 
     }
-    
+    internal func perfromBookingAction(bookingInformation: (Int, String, Int) -> ()) {
+        bookingInformation(doctorID, doctorName, appointmentTimestamp)
+    }
     //this function hide favorite icon from the view when the user is not authrized
     func checkForAuth() {
         if UserDefaultsManager.shared().token == nil {
