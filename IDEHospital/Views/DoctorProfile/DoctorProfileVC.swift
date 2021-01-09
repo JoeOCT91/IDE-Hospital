@@ -21,6 +21,8 @@ protocol DoctorProfileVCProtocol: class {
     func reloadCollectionData()
     func setCellData(time: String, isBooked: Bool, backgroundColor: ColorName, indexPath: IndexPath)
     func isFavorite(imageName: String)
+    func enableBookButton()
+    func disableBookButton()
 }
 
 class DoctorProfileVC: UIViewController {
@@ -95,8 +97,16 @@ extension DoctorProfileVC: DoctorProfileVCProtocol {
     internal func favoriteVisability(isHidden: Bool){
         doctorProfileView.favoriteVisability(isHidden: isHidden)
     }
-    func setupAppointmentData(date: String){
+    internal func setupAppointmentData(date: String){
         doctorProfileView.setupAppointmentData(date: date)
+    }
+    
+    internal func enableBookButton(){
+        doctorProfileView.enableBookButton()
+    }
+    
+    internal func disableBookButton(){
+        doctorProfileView.disableBookButton()
     }
     
 }
@@ -132,32 +142,23 @@ extension DoctorProfileVC: UICollectionViewDelegate, UICollectionViewDataSource 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let cell = cell as? AppointmentDateCell else { return }
         viewModel.getCellData(indexPath: indexPath) { (isBooked, backgroundColor, title) in
+            cell.isSelected = false
             cell.setupCell(title: title, backgroundColor: backgroundColor, isBooked: isBooked)
         }
-
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath ) as! AppointmentDateCell
+        viewModel.prepareForBooking(index: indexPath.row)
         cell.selected()
     }
     
-//    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-//        guard let cell = collectionView.cellForItem(at: indexPath ) as? AppointmentDateCell else { return }
-//        cell.deSelected()
-//    }
-    
-//    func setCellData(time: String, isBooked: Bool, backgroundColor: ColorName, indexPath: IndexPath){
-//        guard let cell = doctorProfileView.doctorTopView.appointemtsCollection.cellForItem(at: indexPath) as? AppointmentDateCell else { return }
-//        print("cell for this index bath \(indexPath) is \(String(describing: cell)) ")
-//
-//        //cell.setupCell(title: time, backgroundColor: backgroundColor, isBooked: isBooked)
-//        print(cell)
-//    }
-    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath ) as? AppointmentDateCell else { return }
+        collectionView.reloadData()
+        cell.deSelected()
+    }
 }
-
-
 
 extension DoctorProfileVC: doctorProfileViewDelegate {
     

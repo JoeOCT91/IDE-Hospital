@@ -63,6 +63,12 @@ class DoctorProfileView: UIView {
     func isFavorite(imageName: String) {
         doctorTopView.isFavorite(imageName: imageName)
     }
+    func enableBookButton(){
+        doctorTopView.enableBookButton()
+    }
+    func disableBookButton(){
+        doctorTopView.disableBookButton()
+    }
     
     //MARK:- Private methods
     private func setup(){

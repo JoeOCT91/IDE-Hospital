@@ -68,6 +68,15 @@ class DoctorTopView: UIView {
         favoriteButton.setBackgroundImage(UIImage(named: imageName), for: .normal)
     }
     
+    func enableBookButton(){
+        bookNowButton.isEnabled = true
+        bookNowButton.backgroundColor = ColorName.darkRoyalBlue.color
+    }
+    func disableBookButton(){
+        bookNowButton.isEnabled = true
+        bookNowButton.backgroundColor = ColorName.warmGrey.color
+    }
+    
     
     func setupCollectioView(delgate: UICollectionViewDelegate, dataSource: UICollectionViewDataSource) {
         appointemtsCollection.register(AppointmentDateCell.self, forCellWithReuseIdentifier: Cells.appointmentDateCell)
@@ -104,6 +113,8 @@ class DoctorTopView: UIView {
         configureFavoriteButton()
         doctorInfo.addSubview(doctorBio)
         configureDoctorBio()
+        doctorInfo.addSubview(tapToReviewButton)
+        configureTapToReviewButton()
     }
     
     private func ConfigureDoctorImage(){
@@ -150,6 +161,24 @@ class DoctorTopView: UIView {
             let starImage = UIImageView(image: Asset.emptyStar.image)
             doctorRating.addArrangedSubview(starImage)
         }
+    }
+    private func configureTapToReviewButton() {
+        tapToReviewButton.translatesAutoresizingMaskIntoConstraints = false
+        tapToReviewButton.addTarget(self, action: #selector(taToReviewPressed), for: .touchUpInside)
+        NSLayoutConstraint.activate([
+            tapToReviewButton.leadingAnchor.constraint(equalTo: doctorRating.trailingAnchor, constant: 10),
+            tapToReviewButton.centerYAnchor.constraint(equalTo: doctorRating.centerYAnchor, constant: 4),
+        ])
+        let attributes: [NSAttributedString.Key : Any] = [
+            NSAttributedString.Key.font : UIFont(font: FontFamily.PTSans.bold, size: 10)?.withSize(10) as Any,
+            NSAttributedString.Key.foregroundColor : UIColor.white,
+            NSAttributedString.Key.underlineStyle : 1]
+
+        let attributedString = NSMutableAttributedString(string:L10n.tabReview, attributes: attributes)
+        tapToReviewButton.setAttributedTitle(attributedString, for: .normal)
+    }
+    @objc private func taToReviewPressed(){
+        print("presed")
     }
     
     private func setupRating(rating: Int) {
@@ -200,6 +229,7 @@ class DoctorTopView: UIView {
         delegate?.bookpressed()
     }
     
+    //MARK:- Appointments dates navigation
     private func configureAppointmentsNavigation(){
         appointmentsNavigation.translatesAutoresizingMaskIntoConstraints = false
         appointmentsNavigation.backgroundColor = ColorName.darkRoyalBlue.color
@@ -217,6 +247,7 @@ class DoctorTopView: UIView {
         self.addSubview(rightutton)
         configureRightButton()
     }
+    
     private func configureAppointmentDate(){
         appointmentDate.translatesAutoresizingMaskIntoConstraints = false
         appointmentDate.textColor = .white
@@ -256,6 +287,7 @@ class DoctorTopView: UIView {
         delegate?.previousDayPressed()
     }
     
+    //MARK:- Appointments collection View configurations
     private func configureAppointemtsCollection() {
         appointemtsCollection = UICollectionView(frame: .zero, collectionViewLayout: creatTwoColumnFlowLayout())
         doctorAppointments.addSubview(appointemtsCollection)
@@ -268,6 +300,7 @@ class DoctorTopView: UIView {
             appointemtsCollection.heightAnchor.constraint(equalToConstant: 90),
         ])
         appointemtsCollection.showsHorizontalScrollIndicator = false
+        appointemtsCollection.allowsMultipleSelection = false
     }
     
     private func creatTwoColumnFlowLayout() -> UICollectionViewFlowLayout {

@@ -208,6 +208,8 @@ internal enum L10n {
   internal static let successRegister = L10n.tr("Localizable", "successRegister")
   /// Your Request have been Sent Successfully
   internal static let successRequestMessage = L10n.tr("Localizable", "successRequestMessage")
+  /// TAB Review
+  internal static let tabReview = L10n.tr("Localizable", "tabReview")
   /// Terms & Conditions
   internal static let terms = L10n.tr("Localizable", "terms")
   /// Terms & Conditions

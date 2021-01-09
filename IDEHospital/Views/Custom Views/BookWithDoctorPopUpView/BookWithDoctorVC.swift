@@ -67,7 +67,7 @@ class BookWithDoctorVC: UIViewController {
 extension BookWithDoctorVC:BookWithDoctorVcProtocol{
     
     func goToConfirmationPopView(doctorName:String, appointmentDate:String, appointmentDay:String) {
-        var attributedDate = bookWithDoctorView.setAttributedMessage(mediumText: L10n.youAreAboutToBook + appointmentDay, boldText: appointmentDate,doctorName: doctorName)
+        let attributedDate = bookWithDoctorView.setAttributedMessage(mediumText: L10n.youAreAboutToBook + appointmentDay, boldText: appointmentDate,doctorName: doctorName)
         bookWithDoctorView.detailsLabel.attributedText = attributedDate
         bookWithDoctorView.popUpView.alpha = 0
         bookWithDoctorView.hideVoucherPopUpViewButton.alpha = 0

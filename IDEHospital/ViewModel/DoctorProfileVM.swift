@@ -20,6 +20,7 @@ protocol DoctorProfileVMProtocol: class {
     func getReviewData(index: Int) -> Review
     func getDateAppointmentsCount() -> Int
     func favoritePresedPeroses(doctorID: Int)
+    func  prepareForBooking(index: Int)
     func getCellData(indexPath: IndexPath, complation: (Bool, ColorName, String) -> ())
 }
 
@@ -29,6 +30,7 @@ class DoctorProfileVM: DoctorProfileVMProtocol {
     private weak var view: DoctorProfileVCProtocol?
     
     private var doctorID: Int
+    private var appointmentTimestamp = Int()
     private var isFavorite = Bool() // This var sets by getDoctorInformation()
     private var dayIndex = 0
     private var doctorReviews = [Review]()
@@ -44,7 +46,16 @@ class DoctorProfileVM: DoctorProfileVMProtocol {
         getDoctorAppointmentsDate()
         getDoctorReviews()
     }
-    //this function hide favorte icon from the view when the user is not authrized
+    
+    //This function to prepare view model to perform booking when book button preesed
+    internal func  prepareForBooking(index: Int) {
+        view?.enableBookButton()
+        appointmentTimestamp = doctorAppointments[dayIndex].times[index].time
+        print(appointmentTimestamp)
+
+    }
+    
+    //this function hide favorite icon from the view when the user is not authrized
     func checkForAuth() {
         if UserDefaultsManager.shared().token == nil {
             view?.favoriteVisability(isHidden: true)
@@ -75,7 +86,6 @@ class DoctorProfileVM: DoctorProfileVMProtocol {
         let dateString = convertStamp(format: dateFormat, timestamp: timestamp)
         let isBooked = doctorAppointments[dayIndex].times[indexPath.row].booked ? false : true
         let colorName = isBooked ? ColorName.warmGrey : ColorName.niceBlue
-        
         complation(isBooked, colorName, dateString)
     }
     
@@ -92,24 +102,29 @@ class DoctorProfileVM: DoctorProfileVMProtocol {
         if doctorAppointments.isEmpty {
             return 0
         } else {
-            print(dayIndex)
             return doctorAppointments[dayIndex].times.count
         }
     }
+    
     // get next day appointments list and set date label
     func getNextDay(){
         dayIndex += 1
         if dayIndex == doctorAppointments.count { dayIndex -= 1 }
         let date = convertStamp(format: "EEEE,d MMMM yyy", timestamp: doctorAppointments[dayIndex].date)
+        print(date)
         view?.setupAppointmentData(date: date)
+        view?.disableBookButton()
         view?.reloadCollectionData()
     }
+    
     // get Pervious day appointments list and set date label
     func getPreviousDay(){
         if dayIndex == 0 { return }
         if dayIndex > 0 {
             dayIndex -= 1
             let date = convertStamp(format: "EEEE,d MMMM yyy", timestamp: doctorAppointments[dayIndex].date)
+            print(date)
+            view?.disableBookButton()
             view?.setupAppointmentData(date: date)
             view?.reloadCollectionData()
         }
