@@ -24,7 +24,8 @@ class RatingView: UIView {
         //Setup TextFiled
         setUpTextFiled(textFiled: commentTextField, textValue: "", placeholder: L10n.commentPlaceHolder)
         //Setup Button
-        setUpButton(button: submitReviewButton, buttonTitle: L10n.setNewPassword, backgroundImageName: Asset.buttonBar.image, FontName: FontFamily.PTSans.bold, fontSize: 20)
+        ratingView.rating = 0
+        setUpButton(button: submitReviewButton, buttonTitle: L10n.submitReview, backgroundImageName: Asset.buttonBar.image, FontName: FontFamily.PTSans.bold, fontSize: 20)
     }
 }
 extension RatingView{

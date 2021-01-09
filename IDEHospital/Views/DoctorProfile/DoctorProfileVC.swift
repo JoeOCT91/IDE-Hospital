@@ -22,6 +22,7 @@ protocol DoctorProfileVCProtocol: class {
     func setCellData(time: String, isBooked: Bool, backgroundColor: ColorName, indexPath: IndexPath)
     func isFavorite(imageName: String)
     func enableBookButton()
+    func scrollTobegin()
     func disableBookButton()
 }
 
@@ -31,7 +32,7 @@ class DoctorProfileVC: UIViewController {
     private var viewModel: DoctorProfileVMProtocol!
     // view
     @IBOutlet var doctorProfileView: DoctorProfileView!
-    
+    private weak var collection: UICollectionView!
 
     
     override func viewDidLoad() {
@@ -109,6 +110,9 @@ extension DoctorProfileVC: DoctorProfileVCProtocol {
     internal func disableBookButton(){
         doctorProfileView.disableBookButton()
     }
+    internal func scrollTobegin(){
+        collection.setContentOffset(.zero, animated: true)
+    }
     
 }
 
@@ -132,6 +136,7 @@ extension DoctorProfileVC: UITableViewDataSource, UITableViewDelegate {
 extension DoctorProfileVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        collection = collectionView
         return viewModel.getDateAppointmentsCount()
     }
     
@@ -142,18 +147,15 @@ extension DoctorProfileVC: UICollectionViewDelegate, UICollectionViewDataSource 
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let cell = cell as? AppointmentDateCell else { return }
-        viewModel.getCellData(indexPath: indexPath) { (isBooked, backgroundColor, title) in
-            print("the cell that will display indexPath is " , indexPath)
-            cell.isSelected = viewModel.checkIfItselected(indexPath: indexPath)
+        cell.isSelected = viewModel.checkIfItselected(indexPath: indexPath) { (isBooked, backgroundColor, title) in
             cell.setupCell(title: title, backgroundColor: backgroundColor, isBooked: isBooked)
         }
-
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath ) as! AppointmentDateCell
         viewModel.prepareForBooking(indexPath: indexPath)
-        //collectionView.setContentOffset(<#T##contentOffset: CGPoint##CGPoint#>, animated: <#T##Bool#>)
+        //collectionView.setContentOffset(<#T##contentOffset: CGPoint##CGPoint#>, animated: true)
         cell.selected()
     }
     
@@ -165,6 +167,11 @@ extension DoctorProfileVC: UICollectionViewDelegate, UICollectionViewDataSource 
 }
 
 extension DoctorProfileVC: doctorProfileViewDelegate {
+    
+    func tapToReviewPressed(doctorID: Int) {
+        let ratingVC = RatingVC.create(doctorID: doctorID)
+        navigationController?.pushViewController(ratingVC, animated: true)
+    }
     
     func showOnMapPressed(lng: Double, lat: Double) {
         let regionDistance:CLLocationDistance = 10000

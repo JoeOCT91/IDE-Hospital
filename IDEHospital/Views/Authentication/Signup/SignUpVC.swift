@@ -44,9 +44,7 @@ class SignUpVC: UIViewController {
     private func configureNavigationBar() {
         self.setupNavigationBar()
         self.setViewControllerTitle(to: L10n.signUp, fontColor: .white)
-        self.setupSettingButton()
         self.setupBackWithPopup()
-        
     }
     
 }

@@ -21,9 +21,10 @@ protocol DoctorProfileVMProtocol: class {
     func getDateAppointmentsCount() -> Int
     func favoritePresedPeroses(doctorID: Int)
     func prepareForBooking(indexPath: IndexPath)
-    func checkIfItselected(indexPath: IndexPath) -> Bool
+    //func checkIfItselected(indexPath: IndexPath) -> Bool
     func perfromBookingAction(bookingInformation: (Int, String, Int) -> ())
-    func getCellData(indexPath: IndexPath, complation: (Bool, ColorName, String) -> ())
+    //func getCellData(indexPath: IndexPath, complation: (Bool, ColorName, String) -> ())
+    func checkIfItselected(indexPath: IndexPath, withData: (Bool, ColorName, String) -> ()) -> Bool
 }
 
 class DoctorProfileVM: DoctorProfileVMProtocol {
@@ -54,14 +55,26 @@ class DoctorProfileVM: DoctorProfileVMProtocol {
     //This function to prepare view model to perform booking when book button preesed
     internal func  prepareForBooking(indexPath: IndexPath) {
         view?.enableBookButton()
-        print("clicked cell index bath ", indexPath)
         selectedIndexPath = indexPath
         appointmentTimestamp = doctorAppointments[dayIndex].times[indexPath.row].time
     }
     
-    internal func checkIfItselected(indexPath: IndexPath) -> Bool {
-        print(selectedIndexPath)
-        return indexPath == selectedIndexPath ? true : false
+    internal func checkIfItselected(indexPath: IndexPath, withData: (Bool, ColorName, String) -> ()) -> Bool {
+        let isSelcetd = indexPath == selectedIndexPath ? true : false
+        getCellData(indexPath: indexPath) { (isBooked, backgroundColor, doctorname) in
+            let colorName = isSelcetd ? ColorName.darkRoyalBlue : backgroundColor
+            withData(isBooked, colorName, doctorname)
+        }
+        return isSelcetd
+    }
+    
+    private func getCellData(indexPath: IndexPath, complation: (Bool, ColorName, String) -> ()){
+        let timestamp  = doctorAppointments[dayIndex].times[indexPath.row].time
+        let dateFormat = "hh:mm at d"
+        let dateString = convertStamp(format: dateFormat, timestamp: timestamp)
+        let isBooked = doctorAppointments[dayIndex].times[indexPath.row].booked ? true : false
+        let colorName = isBooked ?  ColorName.warmGrey : ColorName.niceBlue
+        complation(isBooked, colorName, dateString)
     }
     
     internal func perfromBookingAction(bookingInformation: (Int, String, Int) -> ()) {
@@ -93,19 +106,6 @@ class DoctorProfileVM: DoctorProfileVMProtocol {
         }
     }
     
-
-    
-    func getCellData(indexPath: IndexPath, complation: (Bool, ColorName, String) -> ()){
-        let timestamp  = doctorAppointments[dayIndex].times[indexPath.row].time
-        let dateFormat = "hh:mm at d"
-        let dateString = convertStamp(format: dateFormat, timestamp: timestamp)
-        let isBooked = doctorAppointments[dayIndex].times[indexPath.row].booked ? true : false
-        var colorName = isBooked ?  ColorName.warmGrey : ColorName.niceBlue
-        print(checkIfItselected(indexPath: selectedIndexPath))
-        colorName = checkIfItselected(indexPath: selectedIndexPath) ? ColorName.darkRoyalBlue : colorName
-        complation(isBooked, colorName, dateString)
-    }
-    
     private func convertStamp(format: String, timestamp: Int) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
@@ -128,9 +128,10 @@ class DoctorProfileVM: DoctorProfileVMProtocol {
         dayIndex += 1
         if dayIndex == doctorAppointments.count { dayIndex -= 1 }
         let date = convertStamp(format: "EEEE,d MMMM yyy", timestamp: doctorAppointments[dayIndex].date)
-        print(date)
         view?.setupAppointmentData(date: date)
         view?.disableBookButton()
+        view?.scrollTobegin()
+        selectedIndexPath = IndexPath()
         view?.reloadCollectionData()
     }
     
@@ -140,9 +141,11 @@ class DoctorProfileVM: DoctorProfileVMProtocol {
         if dayIndex > 0 {
             dayIndex -= 1
             let date = convertStamp(format: "EEEE,d MMMM yyy", timestamp: doctorAppointments[dayIndex].date)
-            print(doctorAppointments[dayIndex].times)
             view?.disableBookButton()
             view?.setupAppointmentData(date: date)
+            view?.scrollTobegin()
+
+            selectedIndexPath = IndexPath()
             view?.reloadCollectionData()
         }
     }

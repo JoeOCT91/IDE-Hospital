@@ -48,7 +48,6 @@ class SignInVC: UIViewController {
     private func configureNavigationBar() {
         self.setupNavigationBar()
         self.setViewControllerTitle(to: L10n.login, fontColor: .white)
-        self.setupSettingButton()
         self.setupBackWithPopup()
     }
 }

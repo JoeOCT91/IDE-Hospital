@@ -178,7 +178,7 @@ class DoctorTopView: UIView {
         tapToReviewButton.setAttributedTitle(attributedString, for: .normal)
     }
     @objc private func taToReviewPressed(){
-        print("presed")
+        delegate?.tapToReviewPressed(doctorID: doctorID)
     }
     
     private func setupRating(rating: Int) {

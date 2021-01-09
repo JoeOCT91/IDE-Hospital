@@ -196,6 +196,8 @@ internal enum L10n {
   internal static let sorry = L10n.tr("Localizable", "sorry")
   /// Sort By
   internal static let sortBy = L10n.tr("Localizable", "sortBy")
+  /// Submit Review
+  internal static let submitReview = L10n.tr("Localizable", "submitReview")
   /// Your Appointment have been Booked Successfully
   internal static let successfulBooking = L10n.tr("Localizable", "successfulBooking")
   /// Successful Request

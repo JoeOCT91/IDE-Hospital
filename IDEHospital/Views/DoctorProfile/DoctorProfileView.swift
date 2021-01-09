@@ -12,6 +12,7 @@ protocol doctorProfileViewDelegate: class {
     func showOnMapPressed(lng: Double, lat: Double)
     func previousDayPressed()
     func nextDayPressed()
+    func tapToReviewPressed(doctorID: Int)
     func bookpressed()
 }
 

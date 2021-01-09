@@ -97,8 +97,9 @@
 "ExaminationFees" = "Examination Fees :";
 //Search Result
 "searchResult" = "Search Result";
-"viewOnMap" ="View on map";
+"viewOnMap" = "View on map";
 //Rating
+"submitReview" = "Submit Review";
 "pleaseRateDoctor" = "Please rate your experience with the doctor";
 "review" = "Review";
 "commentPlaceHolder" = "Add Comment";
@@ -120,4 +121,5 @@
 "confirmYourAppointment" = "Confirm Your Appointment";
 "youAreAboutToBook" = "You are about to book an appointment on ";
 "successfulBooking" = "Your Appointment have been Booked Successfully";
+//Rating
 
