@@ -30,7 +30,9 @@ enum APIRouter:URLRequestConvertible {
     case doctorReviews(_ doctorID: Int)
     case doctorInformation(_ doctorID: Int)
     case doctorAppointments(_ doctorID: Int)
-
+    case addRating(_ body:RatingBodyData)
+    case bookAppointment(_ body:VoucherDataBody)
+    
     //Mark:- HTTP Methods
     private var method: HTTPMethod {
         switch self {
@@ -86,6 +88,12 @@ enum APIRouter:URLRequestConvertible {
             return URLs.doctors + "\((doctorID))"
         case .doctorAppointments(let doctorID):
             return URLs.doctors + "\(doctorID)/appointments"
+        case .addRating(let body):
+            return URLs.ratingDoctor + "/\(body.doctor_id)" + "/reviews"
+        case .bookAppointment:
+            return URLs.appoitments
+        default:
+            return ""
         }
     }
     private var query: URLQueryItem? {
@@ -125,7 +133,7 @@ enum APIRouter:URLRequestConvertible {
         switch self {
         case .getFavories, .getAppointments, .removeFavorite, .removeAppointment,.searchResultRequest(_),.addOrDeleteDoctorFromFavoriteList:
             urlRequest.setValue(UserDefaultsManager.shared().token, forHTTPHeaderField: HeaderKeys.authorization)
-        case .logout, .doctorReviews, .doctorInformation:
+        case .logout, .doctorReviews, .doctorInformation, .addRating,.bookAppointment:
             urlRequest.setValue(UserDefaultsManager.shared().token, forHTTPHeaderField: HeaderKeys.authorization)
         default:
             break
@@ -147,6 +155,10 @@ enum APIRouter:URLRequestConvertible {
                 return encodeToJSON(body)
             case .contacutUsRequest(let body):
                 return encodeToJSON(body)
+            case .addRating(let body):
+                return encodeToJSON(body)
+            case .bookAppointment(let body):
+                return encodeToJSON(body)
             default:
                 return nil
             }
@@ -156,15 +168,16 @@ enum APIRouter:URLRequestConvertible {
         
         // Encoding
         let encoding: ParameterEncoding = {
-          switch method {
-          case .get, .delete:
-            return URLEncoding.default
-          default:
-            return JSONEncoding.default
-          }
+            switch method {
+            case .get, .delete:
+                return URLEncoding.default
+            default:
+                return JSONEncoding.default
+            }
         }()
     
-        print(try encoding.encode(urlRequest, with: parameters))
+        //print(try encoding.encode(urlRequest, with: parameters))
+
         return try encoding.encode(urlRequest, with: parameters)
     }
 }

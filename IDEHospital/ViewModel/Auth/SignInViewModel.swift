@@ -11,7 +11,7 @@ protocol SignInViewModelProtocol {
     func loginRequest(email:String?, password:String?)
 }
 class SignInViewModel {
-    private weak var view:SignInVCProtocol!
+    private weak var view:SignInVCProtocol?
     
     init(view:SignInVCProtocol) {
         self.view = view
@@ -19,22 +19,22 @@ class SignInViewModel {
     
     // MARK:- Private Functions
     private func sendLoginRequestAPI(body:AuthBodyData){
-        self.view.showLoader()
+        self.view?.showLoader()
         APIManager.sendLoginRequestAPI(body: body){(response) in
             switch response{
             case .failure(let error):
                 print(error.localizedDescription)
-                self.view.presentError(title: L10n.sorry, message: error.localizedDescription)
+                self.view?.presentErrorAlert(title: L10n.sorry, message: error.localizedDescription)
             case .success(let result):
                 if result.code == 201{
                     UserDefaultsManager.shared().token = result.data?.access_token
-                    self.view.sucssesfulLogin()
+                    self.view?.presentSuccessAlert(title: "", message: L10n.successLogin )
                 }
                 else{
-                    self.view.presentError(title: L10n.sorry, message: result.message ?? "")
+                    self.view?.presentErrorAlert(title: L10n.sorry, message: result.message ?? "")
                 }
             }
-            self.view.hideLoader()
+            self.view?.hideLoader()
         }
     }
 }
@@ -42,19 +42,19 @@ extension SignInViewModel:SignInViewModelProtocol{
     func loginRequest(email: String?, password: String?) {
         
         guard let email = email?.trimmed , !email.isEmpty else {
-            self.view.presentError(title: L10n.sorry, message: L10n.pleaseEnterEmail)
+            self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.pleaseEnterEmail)
             return
         }
         guard ValidatorManager.shared().isValidEmail(email) else{
-            self.view.presentError(title: L10n.sorry, message: L10n.invalidEMailFormat)
+            self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.invalidEMailFormat)
             return
         }
         guard !password!.isEmpty else {
-            self.view.presentError(title: L10n.sorry, message: L10n.pleaseEnterPassword)
+            self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.pleaseEnterPassword)
             return
         }
         guard ValidatorManager.shared().isPasswordValid(password!) else{
-            self.view.presentError(title: L10n.sorry, message: L10n.rightPasswordFormatDescription)
+            self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.rightPasswordFormatDescription)
             return
         }
         let body = AuthBodyData(name: "", email: email, mobile: "", password: password)
