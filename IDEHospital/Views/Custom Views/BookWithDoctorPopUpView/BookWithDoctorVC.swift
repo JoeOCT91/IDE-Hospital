@@ -46,11 +46,7 @@ class BookWithDoctorVC: UIViewController {
     }
     
     @IBAction func dismissButtonPressed(_ sender: Any) {
-        //self.presentAlertOnMainThread(id: 0, message: "Are you want to cancel the Appointment!", delegate: self)
-        bookWithDoctorView.popUpView.alpha = 1
-        bookWithDoctorView.hideVoucherPopUpViewButton.alpha = 1
-        bookWithDoctorView.confirmationPopUpViewCenterXConstraint.constant = -500
-        animateView()
+       self.presentAlertOnMainThread(id: 0, message: "Are you want to cancel the Appointment!", delegate: self)
     }
     @IBAction func continueButtonPressed(_ sender: Any) {
         viewModel.setVoucherAndPatiantName(patientName: bookWithDoctorView.anotherPersonTextField.text, voucherCode:
