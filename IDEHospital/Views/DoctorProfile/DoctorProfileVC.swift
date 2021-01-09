@@ -36,7 +36,7 @@ class DoctorProfileVC: UIViewController {
         viewsSetup()
     }
     override func viewWillAppear(_ animated: Bool) {
-        viewModel.getData()
+        viewModel.getAllData()
         viewModel.checkForAuth()
         setupBackWithPopup()
         setupNavigationBar()
@@ -124,7 +124,7 @@ extension DoctorProfileVC: DoctorProfileVCProtocol {
     }
     
 }
-
+//MARK:- Reviews table View
 extension DoctorProfileVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.getDataListCount()
@@ -137,11 +137,12 @@ extension DoctorProfileVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let cell = cell as? DoctorReviewCell else { return }
+        guard cell is DoctorReviewCell else { return }
+        viewModel.scrollObserve(cellCount: indexPath.row)
     }
 
 }
-
+//MARK:- Appointment collection View
 extension DoctorProfileVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -173,6 +174,7 @@ extension DoctorProfileVC: UICollectionViewDelegate, UICollectionViewDataSource 
     }
 }
 
+//MARK:- Doctor profile view delgation function
 extension DoctorProfileVC: doctorProfileViewDelegate {
     
     func tapToReviewPressed(doctorID: Int) {
@@ -214,10 +216,5 @@ extension DoctorProfileVC: doctorProfileViewDelegate {
     internal func previousDayPressed(){
         viewModel.getPreviousDay()
     }
-    
-    func openDoctorLocation(doctorName: String, latitude: CLLocationDegrees, longitude: CLLocationDegrees){
- 
-    }
-    
     
 }

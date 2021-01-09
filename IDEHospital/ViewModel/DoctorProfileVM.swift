@@ -9,11 +9,10 @@ import Foundation
 import SDWebImage
 
 protocol DoctorProfileVMProtocol: ViewModelWithPaginatioProtocol {
-    func getData()
+    func getAllData()
     func checkForAuth()
     func getPreviousDay()
     func getNextDay()
-    func getDoctorReviews()
     func getDoctorInformation()
     func getDoctorAppointmentsDate()
     func getReviewsCount() -> Int
@@ -28,6 +27,8 @@ protocol DoctorProfileVMProtocol: ViewModelWithPaginatioProtocol {
 }
 
 class DoctorProfileVM<T: DoctorProfileVCProtocol>: ViewModelWithPagination<T>, DoctorProfileVMProtocol{
+
+    
 
     
     
@@ -47,12 +48,13 @@ class DoctorProfileVM<T: DoctorProfileVCProtocol>: ViewModelWithPagination<T>, D
         self.doctorID = doctorID
         super.init()
         self.view = view
+        self.child = self
     }
     
-    func getData() {
+    func getAllData() {
         getDoctorInformation()
         getDoctorAppointmentsDate()
-        getDoctorReviews()
+        getData()
     }
     
     //This function to prepare view model to perform booking when book button preesed
@@ -70,7 +72,7 @@ class DoctorProfileVM<T: DoctorProfileVCProtocol>: ViewModelWithPagination<T>, D
         }
         return isSelcetd
     }
-    
+    //Appointment collection view cell Data
     private func getCellData(indexPath: IndexPath, complation: (Bool, ColorName, String) -> ()){
         let timestamp  = doctorAppointments[dayIndex].times[indexPath.row].time
         let dateFormat = "hh:mm at d"
@@ -85,7 +87,7 @@ class DoctorProfileVM<T: DoctorProfileVCProtocol>: ViewModelWithPagination<T>, D
     }
     
     //this function hide favorite icon from the view when the user is not authrized
-    func checkForAuth() {
+    internal func checkForAuth() {
         if UserDefaultsManager.shared().token == nil {
             view?.favoriteVisability(isHidden: true)
         } else {
@@ -191,8 +193,8 @@ class DoctorProfileVM<T: DoctorProfileVCProtocol>: ViewModelWithPagination<T>, D
             }
         }
     }
-    
-    internal func getDoctorReviews() {
+    //MARK:- Reviews function
+    internal func getData() {
         APIManager.getDoctorReviews(doctorID: doctorID) { [weak self] (result) in
             guard let self = self else { return }
             switch result {

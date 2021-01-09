@@ -73,11 +73,12 @@ extension FavoritesVC: FavoritesVCProtocol {
     func showLoader(){
         view.showLoader()
     }
+    
     func hideLoader(){
         view.hideLoader()
     }
 }
-
+//MARK:- Favorites table view delgetes functions
 extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.getDataListCount()
