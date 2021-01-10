@@ -121,6 +121,6 @@
 "noVoucher" = "The selected voucher is invalid.";
 "confirmYourAppointment" = "Confirm Your Appointment";
 "youAreAboutToBook" = "You are about to book an appointment on ";
-"successfulBooking" = "Your Appointment have been Booked Successfully";
+"successfulBooking" = "Appointment have been Booked Successfully";
 //Rating
 

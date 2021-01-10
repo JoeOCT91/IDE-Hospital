@@ -13,6 +13,7 @@ protocol BookWithDoctorViewModelProtocol {
     func bookDoctorAppointmentRequest(voucher:String?, patientName:String?, bookForAnotherSwitch:Bool?)
     func getVoucherCode() -> String?
     func getPatientName() -> String?
+    func getDoctorID() -> Int
 }
 class BookWithDoctorViewModel {
     private var view:BookWithDoctorVcProtocol?
@@ -84,6 +85,10 @@ class BookWithDoctorViewModel {
     }
 }
 extension BookWithDoctorViewModel:BookWithDoctorViewModelProtocol{
+    func getDoctorID() -> Int {
+        return self.doctorID
+    }
+    
     func getVoucherCode() -> String? {
         return self.voucherCode
     }

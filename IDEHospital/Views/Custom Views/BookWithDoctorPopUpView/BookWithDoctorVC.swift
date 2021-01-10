@@ -54,8 +54,6 @@ class BookWithDoctorVC: UIViewController {
     }
     
     @IBAction func confirmButtonPressed(_ sender: Any) {
-        print(viewModel.getPatientName())
-        print(viewModel.getVoucherCode())
         viewModel.bookDoctorAppointmentRequest(voucher: viewModel.getVoucherCode(), patientName: viewModel.getPatientName(), bookForAnotherSwitch: anotherPersonSwitch)
     }
     //MARK:- Private Methods
@@ -63,6 +61,9 @@ class BookWithDoctorVC: UIViewController {
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
             self.bookWithDoctorView.layoutIfNeeded()
         }, completion: nil)
+    }
+    private func dismissCurrretVC(){
+        self.dismiss(animated: true)
     }
     
 }
@@ -109,6 +110,7 @@ extension BookWithDoctorVC:AlertVcDelegate{
 }
 extension BookWithDoctorVC:ConfirmationAlertDelgate{
     func confirmPressed(id: Int) {
-        self.view.window?.rootViewController?.dismiss(animated: false)
+        self.dismiss(animated: true)
+        self.dismissCurrretVC()
     }
 }
