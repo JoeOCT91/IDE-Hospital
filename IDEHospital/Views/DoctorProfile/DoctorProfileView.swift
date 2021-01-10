@@ -90,12 +90,13 @@ class DoctorProfileView: UIView {
     }
     
     private func configureDctorTopView(){
-        doctorTopView.anchor(top: self.safeAreaLayoutGuide.topAnchor, leading: self.leadingAnchor, bottom: self.centerYAnchor, trailing: self.trailingAnchor)
+        doctorTopView.anchor(top: self.safeAreaLayoutGuide.topAnchor, leading: self.leadingAnchor, bottom: self.centerYAnchor, trailing: self.trailingAnchor,
+                             padding: UIEdgeInsets(top: 0, left: 0, bottom: -30, right: 0))
     }
     
     private func configureDoctorButtomView(){
         doctorBottomView.anchor(top: doctorTopView.bottomAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor,
-                                padding: UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0))
+                                padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
     }
 }
 

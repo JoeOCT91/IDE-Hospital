@@ -10,14 +10,14 @@ import SDWebImage
 
 protocol DoctorProfileVMProtocol: ViewModelWithPaginatioProtocol {
     func getAllData()
-    func checkForAuth()
+    func checkForAuth() -> Bool
     func getPreviousDay()
     func getNextDay()
     func getDoctorInformation()
     func getDoctorAppointmentsDate()
     func getReviewData(index: Int) -> Review
     func getDateAppointmentsCount() -> Int
-    func favoritePresedPeroses(doctorID: Int)
+    func favoritePresedProcess(doctorID: Int)
     func prepareForBooking(indexPath: IndexPath)
     func perfromBookingAction(bookingInformation: (Int, String, Int) -> ())
     func checkIfItselected(indexPath: IndexPath, withData: (Bool, ColorName, String) -> ()) -> Bool
@@ -75,17 +75,22 @@ class DoctorProfileVM<T: DoctorProfileVCProtocol>: ViewModelWithPagination<T>, D
     }
     
     internal func perfromBookingAction(bookingInformation: (Int, String, Int) -> ()) {
-        bookingInformation(doctorID, doctorName, appointmentTimestamp)
+        if checkForAuth() {
+            bookingInformation(doctorID, doctorName, appointmentTimestamp)
+        } else {
+            view?.presentError()
+        }
     }
     
     //this function hide favorite icon from the view when the user is not authrized
-    internal func checkForAuth() {
+    internal func checkForAuth() -> Bool {
         if UserDefaultsManager.shared().token == nil {
-            view?.favoriteVisability(isHidden: true)
+            return false
         } else {
-            view?.favoriteVisability(isHidden: false)
+            return true
         }
     }
+    
     
     //MArk:- Doctor appointments section
     internal func getDoctorAppointmentsDate() {
@@ -148,23 +153,27 @@ class DoctorProfileVM<T: DoctorProfileVCProtocol>: ViewModelWithPagination<T>, D
     }
     
     // Add to favorite
-    func favoritePresedPeroses(doctorID: Int){
-        view?.showLoader()
-        APIManager.addOrDeleteDoctorFromFavoriteListAPI(doctorID: doctorID) { [weak self] (result) in
-            guard let self = self else { return }
-            switch result {
-            case .success(_):
-                if self.isFavorite {
-                    self.view?.isFavorite(imageName: Asset.emptyHeart.name)
-                    self.isFavorite = false
-                } else {
-                    self.view?.isFavorite(imageName: Asset.redHeart.name)
-                    self.isFavorite = true
+    func favoritePresedProcess(doctorID: Int){
+        if checkForAuth() {
+            view?.showLoader()
+            APIManager.addOrDeleteDoctorFromFavoriteListAPI(doctorID: doctorID) { [weak self] (result) in
+                guard let self = self else { return }
+                switch result {
+                case .success(_):
+                    if self.isFavorite {
+                        self.view?.isFavorite(imageName: Asset.emptyHeart.name)
+                        self.isFavorite = false
+                    } else {
+                        self.view?.isFavorite(imageName: Asset.redHeart.name)
+                        self.isFavorite = true
+                    }
+                    self.view?.hideLoader()
+                case .failure(let error):
+                    print(error)
                 }
-                self.view?.hideLoader()
-            case .failure(let error):
-                print(error)
             }
+        }  else {
+            view?.presentError()
         }
     }
     

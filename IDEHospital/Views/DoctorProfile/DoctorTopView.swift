@@ -207,7 +207,7 @@ class DoctorTopView: UIView {
     
     private func configureDoctorAppointments() {
         doctorAppointments.anchor(top: doctorInfo.bottomAnchor , leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor,
-                                  padding: UIEdgeInsets(top: 0, left: 0, bottom: -25, right: 0))
+                                  padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
         configureAppointemtsCollection()
         doctorAppointments.addSubview(appointmentsNavigation)
         configureAppointmentsNavigation()
@@ -222,7 +222,7 @@ class DoctorTopView: UIView {
         bookNowButton.setTitle(L10n.book, for: .normal)
         bookNowButton.addTarget(self, action: #selector(bookPressed), for: .touchUpInside)
         NSLayoutConstraint.activate([
-            bookNowButton.topAnchor.constraint(equalTo: appointemtsCollection.bottomAnchor, constant: 0 ),
+            bookNowButton.topAnchor.constraint(equalTo: appointemtsCollection.bottomAnchor, constant: 10 ),
             bookNowButton.heightAnchor.constraint(equalToConstant: 25),
             bookNowButton.widthAnchor.constraint(equalToConstant: 100),
             bookNowButton.centerXAnchor.constraint(equalTo: self.centerXAnchor)

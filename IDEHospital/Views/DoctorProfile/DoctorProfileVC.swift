@@ -10,7 +10,6 @@ import CoreLocation
 import MapKit
 
 protocol DoctorProfileVCProtocol: PaginationVCProtocol {
-    func favoriteVisability(isHidden: Bool)
     func setupAppointmentData(date: String)
     func setupDctorInformationData(doctorInformation: DoctorInformation)
     func setDoctorImage(image: Data)
@@ -19,6 +18,7 @@ protocol DoctorProfileVCProtocol: PaginationVCProtocol {
     func enableBookButton()
     func scrollTobegining()
     func disableBookButton()
+    func presentError()
 }
 
 class DoctorProfileVC: UIViewController {
@@ -35,7 +35,6 @@ class DoctorProfileVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         viewModel.getAllData()
-        viewModel.checkForAuth()
         setupBackWithPopup()
         setupNavigationBar()
     }
@@ -95,10 +94,6 @@ extension DoctorProfileVC: DoctorProfileVCProtocol {
         doctorProfileView.reloadCollectionData()
     }
     
-    internal func favoriteVisability(isHidden: Bool){
-        doctorProfileView.favoriteVisability(isHidden: isHidden)
-    }
-    
     internal func setupAppointmentData(date: String){
         doctorProfileView.setupAppointmentData(date: date)
     }
@@ -112,6 +107,9 @@ extension DoctorProfileVC: DoctorProfileVCProtocol {
     }
     internal func scrollTobegining(){
         doctorProfileView.scrollTobegining()
+    }
+    internal func presentError(){
+        self.presentAlertOnMainThread(message: L10n.loginFirst, delegate: nil)
     }
     
 }
@@ -196,7 +194,7 @@ extension DoctorProfileVC: doctorProfileViewDelegate {
     }
     
     internal func favoriteButtonPressed(doctorID: Int) {
-        viewModel.favoritePresedPeroses(doctorID: doctorID)
+        viewModel.favoritePresedProcess(doctorID: doctorID)
     }
     
     internal func nextDayPressed(){
