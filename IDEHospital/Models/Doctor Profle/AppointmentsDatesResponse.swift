@@ -11,7 +11,7 @@ import Foundation
 struct MainResponse<Elment: Codable>: Codable {
     let success: Bool
     let code: Int
-    let data: [Elment]
+    let data: Elment
 }
 
 // MARK: - Datum

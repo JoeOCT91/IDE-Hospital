@@ -7,12 +7,6 @@
 
 import Foundation
 
-struct DoctorInformationResponse: Codable {
-    let success: Bool
-    let data: DoctorInformation
-    let code: Int
-}
-
 struct DoctorInformation: Codable {
     
     let id, rating, reviewsCount: Int

@@ -114,13 +114,13 @@ class APIManager {
     
     //MARK:- Doctor profile
     //Doctor Information
-    class func getDoctorInformation(doctorID: Int, complation: @escaping (Result<DoctorInformationResponse, Error>) -> () ) {
+    class func getDoctorInformation(doctorID: Int, complation: @escaping (Result<MainResponse<DoctorInformation>, Error>) -> () ) {
         request(APIRouter.doctorInformation(doctorID)) { (respone) in
             complation(respone)
         }
     }
     //Doctor Appointments dates
-    class func getAppointmentsDates(doctorID: Int, complation: @escaping (Result<MainResponse<AppointmentDate>, Error>) -> () ) {
+    class func getAppointmentsDates(doctorID: Int, complation: @escaping (Result<MainResponse<[AppointmentDate]>, Error>) -> () ) {
         request(APIRouter.doctorAppointments(doctorID)) { (result) in
             complation(result)
         }
