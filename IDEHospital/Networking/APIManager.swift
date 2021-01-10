@@ -163,6 +163,8 @@ extension APIManager{
             }
         }.responseJSON { response in
             //print(response)
+        } .response { response in
+            //print(response.response?.statusCode)
         }
     }
 }

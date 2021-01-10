@@ -80,9 +80,9 @@ class DoctorBottomView: UIView {
     private func buttonConfigure() -> UIButton {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setBackgroundColor(ColorName.white.color, for: .normal)
-        button.setBackgroundColor(ColorName.veryLightPink.color, for: .selected)
-        button.setBackgroundColor(ColorName.veryLightPink.color, for: .highlighted)
+        button.setBackgroundColor(ColorName.veryLightPink.color, for: .normal)
+        button.setBackgroundColor(ColorName.white.color, for: .selected)
+        button.setBackgroundColor(ColorName.white.color, for: .highlighted)
         button.setTitleColor(UIColor.black, for: .normal)
         button.titleLabel?.font = UIFont(name: FontFamily.PTSans.bold.name, size: 15)
         button.titleLabel?.font = UIFont(name: FontFamily.PTSans.bold.name, size: 15)

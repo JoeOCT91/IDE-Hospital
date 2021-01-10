@@ -67,7 +67,9 @@ class DoctorReviewCell: UITableViewCell {
     
     private func setupRating(rating: Int) {
         let views = doctorRating.arrangedSubviews
-        for i in 0 ..< min(4, rating) {
+        print(rating)
+        for i in 0 ..< min(5, max(0, rating)) {
+            print(i)
             let starImage = UIImageView(image: Asset.rateStar.image)
             doctorRating.removeArrangedSubview(views[i])
             doctorRating.insertArrangedSubview(starImage, at: i)
