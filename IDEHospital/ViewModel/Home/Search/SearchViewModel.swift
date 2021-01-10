@@ -46,7 +46,6 @@ extension SearchViewModel:SearchViewModelProtocol{
             case .failure(let error):
                 print(error.localizedDescription)
             case .success(let data):
-                print(data.data)
                 self.specialtiesArr = data.data.specialties
                 self.citiesArr = data.data.cities
                 self.companiesArr = data.data.companies

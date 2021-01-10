@@ -23,6 +23,7 @@ class SearchResultView:UIView{
         // set FilterView Background Color
         sortView.backgroundColor = UIColor(named: ColorName.darkRoyalBlue)
         // set SortBy Label
+        searchResultTableView.separatorStyle = .none
         self.setUpLabel(label: sortByLabel, labelText: L10n.sortBy, fontName: FontFamily.PTSans.bold, fontSize: 12, fontColor: .white, alpha: 1)
         // set Filter TextField
         self.setUpTextFiled(textFiled: filterTextField, textValue: L10n.rating, placeholder: "", imageName: Asset.whiteArrow.image, imageViewInTextFiled: arrowImageInTextField, fontName: FontFamily.PTSans.bold, fontSize: 12, tag: 1)

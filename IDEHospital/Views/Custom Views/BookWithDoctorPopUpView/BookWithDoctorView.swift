@@ -46,8 +46,8 @@ class BookWithDoctorView:UIView{
         self.setUpLabel(label: yesSw2, labelText: L10n.yes , fontName: FontFamily.PTSans.bold, fontSize: 15, fontColor: ColorName.darkRoyalBlue.color)
         self.setUpLabel(label: noSw2, labelText: L10n.no , fontName: FontFamily.PTSans.bold, fontSize: 15, fontColor:ColorName.darkRoyalBlue.color)
         //Setup TextFileds
-        self.setUpTextFiled(textFiled: voucherTextField, textValue: "", placeholder: L10n.enterCode)
-        self.setUpTextFiled(textFiled: anotherPersonTextField, textValue: "", placeholder: L10n.enterName)
+        self.setUpTextFiled(textFiled: voucherTextField, textValue: nil, placeholder: L10n.enterCode)
+        self.setUpTextFiled(textFiled: anotherPersonTextField, textValue: nil, placeholder: L10n.enterName)
         //Setup Switches
         setUpSwitch(switches: voucherSwitch)
         setUpSwitch(switches: nameSwitch)
@@ -87,7 +87,7 @@ extension BookWithDoctorView{
         label.textColor = fontColor
     }
     
-    private func setUpTextFiled(textFiled:UITextField,textValue:String, placeholder:String) {
+    private func setUpTextFiled(textFiled:UITextField,textValue:String?, placeholder:String) {
         textFiled.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: FontFamily.PTSans.regular.font(size: 15)])
         textFiled.text = textValue
         textFiled.layer.borderColor = ColorName.darkRoyalBlue.color.cgColor

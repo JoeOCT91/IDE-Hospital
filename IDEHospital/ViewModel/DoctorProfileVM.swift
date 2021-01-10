@@ -184,6 +184,7 @@ class DoctorProfileVM<T: DoctorProfileVCProtocol>: ViewModelWithPagination<T>, D
             switch result {
             case .success(let doctorInformation):
                 self.view?.setupDctorInformationData(doctorInformation: doctorInformation.data)
+                self.doctorName = doctorInformation.data.name
                 if doctorInformation.data.isFavorited {
                     self.view?.isFavorite(imageName: Asset.redHeart.name)
                     self.isFavorite = doctorInformation.data.isFavorited

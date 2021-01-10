@@ -89,7 +89,7 @@ enum APIRouter:URLRequestConvertible {
         case .doctorAppointments(let doctorID):
             return URLs.doctors + "\(doctorID)/appointments"
         case .addRating(let body):
-            return URLs.ratingDoctor + "/\(body.doctor_id)" + "/reviews"
+            return URLs.doctors + "\(body.doctor_id)/reviews"
         case .bookAppointment:
             return URLs.appoitments
         default:
@@ -131,9 +131,7 @@ enum APIRouter:URLRequestConvertible {
         urlRequest.httpMethod = method.rawValue
         //Http Headers
         switch self {
-        case .getFavories, .getAppointments, .removeFavorite, .removeAppointment,.searchResultRequest(_),.addOrDeleteDoctorFromFavoriteList:
-            urlRequest.setValue(UserDefaultsManager.shared().token, forHTTPHeaderField: HeaderKeys.authorization)
-        case .logout, .doctorReviews, .doctorInformation, .addRating,.bookAppointment:
+        case .getFavories, .getAppointments, .removeFavorite, .removeAppointment,.searchResultRequest(_),.addOrDeleteDoctorFromFavoriteList, .logout, .doctorReviews, .doctorInformation, .addRating,.bookAppointment:
             urlRequest.setValue(UserDefaultsManager.shared().token, forHTTPHeaderField: HeaderKeys.authorization)
         default:
             break
@@ -176,7 +174,7 @@ enum APIRouter:URLRequestConvertible {
             }
         }()
     
-        //print(try encoding.encode(urlRequest, with: parameters))
+        print(try encoding.encode(urlRequest, with: parameters))
 
         return try encoding.encode(urlRequest, with: parameters)
     }

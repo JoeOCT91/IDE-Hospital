@@ -11,12 +11,16 @@ protocol BookWithDoctorViewModelProtocol {
     func reviewAnotherPersonSwitch(isOn:Bool) -> Bool
     func setVoucherAndPatiantName(patientName: String?, voucherCode: String?, bookForAnotherSwitch: Bool, voucherSwitch:Bool)
     func bookDoctorAppointmentRequest(voucher:String?, patientName:String?, bookForAnotherSwitch:Bool?)
+    func getVoucherCode() -> String?
+    func getPatientName() -> String?
 }
 class BookWithDoctorViewModel {
     private var view:BookWithDoctorVcProtocol?
     private var doctorID:Int!
     private var appointmentTime:String!
     private var doctorName:String!
+    private var patientName:String?
+    private var voucherCode:String?
     init(view:BookWithDoctorVcProtocol, doctorID:Int, doctorName:String, appointmentTime:String) {
         self.view = view
         self.doctorID = doctorID
@@ -80,6 +84,14 @@ class BookWithDoctorViewModel {
     }
 }
 extension BookWithDoctorViewModel:BookWithDoctorViewModelProtocol{
+    func getVoucherCode() -> String? {
+        return self.voucherCode
+    }
+    
+    func getPatientName() -> String? {
+        return self.patientName
+    }
+    
     func bookDoctorAppointmentRequest(voucher: String?, patientName: String?, bookForAnotherSwitch: Bool?) {
         let body = VoucherDataBody(doctor_id: doctorID, appointment: appointmentTime, patient_name: patientName, book_for_another: bookForAnotherSwitch, voucher: voucher)
         self.bookAppointmentWithDoctorAPI(body: body)
@@ -117,11 +129,17 @@ extension BookWithDoctorViewModel:BookWithDoctorViewModelProtocol{
                 return
             }
         }
+        else{
+            self.voucherCode = nil
+        }
         if bookForAnotherSwitch{
             if patientName?.count ?? 0 == 0 {
                 self.view?.presentErrorAlert(title: "", message: L10n.pleaseEnterPatient)
                 return
             }
+        }
+        else{
+            self.patientName = nil
         }
         let timestamp = (appointmentTime! as NSString).doubleValue
         var bookDate =  self.convertTimestampToDate(timestamp: timestamp)

@@ -186,6 +186,7 @@ extension DoctorProfileVC: doctorProfileViewDelegate {
     
     internal func bookpressed() {
         viewModel.perfromBookingAction { (doctorID, doctorName, appointmentTime) in
+            print("Doctor name" + doctorName)
             let bookVC = BookWithDoctorVC.create(doctorID: doctorID, doctorName: doctorName, appointmentTime: String(appointmentTime))
             bookVC.modalPresentationStyle = .overFullScreen
             bookVC.modalTransitionStyle = .crossDissolve
