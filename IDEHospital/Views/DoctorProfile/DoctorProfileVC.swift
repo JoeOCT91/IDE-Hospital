@@ -32,6 +32,7 @@ class DoctorProfileVC: UIViewController {
         super.viewDidLoad()
         viewsSetup()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         viewModel.getAllData()
         viewModel.checkForAuth()
@@ -136,7 +137,6 @@ extension DoctorProfileVC: UITableViewDataSource, UITableViewDelegate {
 extension DoctorProfileVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        collection = collectionView
         return viewModel.getDateAppointmentsCount()
     }
     
