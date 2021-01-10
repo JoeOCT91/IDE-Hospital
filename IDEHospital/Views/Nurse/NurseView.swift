@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import KMPlaceholderTextView
 class NurseView: UIView {
     
     @IBOutlet weak var mainLabel: UILabel!
@@ -15,7 +16,7 @@ class NurseView: UIView {
     @IBOutlet weak var emailTextField: IDEAHopitalTextField!
     @IBOutlet weak var phoneNumberTextField: IDEAHopitalTextField!
     
-    @IBOutlet weak var detailsTextView: UITextView!
+    @IBOutlet weak var detailsTextView: KMPlaceholderTextView!
     
     @IBOutlet weak var sendRequestButton: UIButton!
     public func setUp() {
@@ -29,7 +30,7 @@ class NurseView: UIView {
         self.setUpTextFiled(textFiled: emailTextField, textValue: "", placeholder: L10n.emailTextFieldPlaceholder, imageName: Asset.emailIcon.image, numbersPad: false , emailPad: true)
         self.setUpTextFiled(textFiled: phoneNumberTextField, textValue: "", placeholder: L10n.phoneTextFieldPlaceholder, imageName: Asset.phoneIcon.image, numbersPad: true , emailPad: false)
         // textView
-        self.setUpTextArea(textView: detailsTextView , textValue: L10n.enterDetails)
+        self.setUpTextArea(textView: detailsTextView , textValue: "" , placeholder: L10n.enterDetails)
         // Last Button in View
         setUpButton(button: sendRequestButton, buttonTitle: L10n.sendRequest, backgroundImageName: Asset.buttonBar.image, FontName: FontFamily.PTSans.bold, fontSize: 20)
     }
@@ -60,7 +61,7 @@ extension NurseView{
         }
     }
     
-    private func setUpTextArea(textView:UITextView,textValue:String) {
+    private func setUpTextArea(textView:KMPlaceholderTextView,textValue:String,placeholder:String) {
         
         textView.text = textValue
         textView.font = UIFont(font: FontFamily.PTSans.bold, size: 15)
@@ -69,7 +70,8 @@ extension NurseView{
         textView.layer.borderWidth = 1.0;
         textView.layer.cornerRadius = 5.0;
         textView.backgroundColor = .clear
-        textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.endOfDocument)
+        textView.placeholder = placeholder
+        
     }
     
     private func setUpButton(button:UIButton, buttonTitle:String, backgroundImageName:UIImage, FontName:FontConvertible, fontSize:CGFloat){

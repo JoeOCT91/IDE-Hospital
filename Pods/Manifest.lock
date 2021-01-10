@@ -2,6 +2,7 @@ PODS:
   - Alamofire (5.4.0)
   - Cosmos (23.0.0)
   - IQKeyboardManagerSwift (6.5.6)
+  - KMPlaceholderTextView (1.4.0)
   - SDWebImage (5.10.0):
     - SDWebImage/Core (= 5.10.0)
   - SDWebImage/Core (5.10.0)
@@ -11,6 +12,7 @@ DEPENDENCIES:
   - Alamofire (~> 5.2)
   - Cosmos (~> 23.0)
   - IQKeyboardManagerSwift
+  - KMPlaceholderTextView
   - SDWebImage (~> 5.0)
   - SwiftGen (~> 6.0)
 
@@ -19,6 +21,7 @@ SPEC REPOS:
     - Alamofire
     - Cosmos
     - IQKeyboardManagerSwift
+    - KMPlaceholderTextView
     - SDWebImage
     - SwiftGen
 
@@ -26,9 +29,10 @@ SPEC CHECKSUMS:
   Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
   Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+  KMPlaceholderTextView: 2206c3df39979e9396e2d96fa9f427a8951121b0
   SDWebImage: 9169792e9eec3e45bba2a0c02f74bf8bd922d1ee
   SwiftGen: 67860cc7c3cfc2ed25b9b74cfd55495fc89f9108
 
-PODFILE CHECKSUM: 5eccefe688e50d782fb4d7d480255601e71b92a1
+PODFILE CHECKSUM: a627d8b11a490be0f71894c0de0f83fe25ed7354
 
 COCOAPODS: 1.10.0

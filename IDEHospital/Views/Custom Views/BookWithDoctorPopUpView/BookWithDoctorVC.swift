@@ -105,7 +105,8 @@ extension BookWithDoctorVC:BookWithDoctorVcProtocol{
 }
 extension BookWithDoctorVC:AlertVcDelegate{
     func okButtonPressed() {
-        self.view.window?.rootViewController?.dismiss(animated: false)
+     self.dismiss(animated: true)
+      self.dismissCurrretVC()
     }
 }
 extension BookWithDoctorVC:ConfirmationAlertDelgate{

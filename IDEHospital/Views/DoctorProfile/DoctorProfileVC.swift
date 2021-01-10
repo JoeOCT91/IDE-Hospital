@@ -37,6 +37,7 @@ class DoctorProfileVC: UIViewController {
         viewModel.getAllData()
         setupBackWithPopup()
         setupNavigationBar()
+        setupSettingButton()
     }
     
     private func viewsSetup(){

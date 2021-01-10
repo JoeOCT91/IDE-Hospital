@@ -164,8 +164,9 @@ class DoctorBottomView: UIView {
     }
     
     func configureScrollView() {
+        
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.backgroundColor = ColorName.veryLightPink.color
+        scrollView.backgroundColor = ColorName.white.color.withAlphaComponent(0.75)
         NSLayoutConstraint.activate([
             scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
