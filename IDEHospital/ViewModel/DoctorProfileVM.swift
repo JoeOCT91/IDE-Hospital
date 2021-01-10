@@ -204,8 +204,8 @@ class DoctorProfileVM<T: DoctorProfileVCProtocol>: ViewModelWithPagination<T>, D
             case .success(let result):
                 self.dataList.append(contentsOf: result.data.items)
                 self.isHasMorePages(pagesCount: result.data.totalPages)
+                if self.dataList.isEmpty { self.view?.tableViewIsEmpty(message: L10n.noReviews) }
                 self.page += 1
-                //self.doctorReviews = result.data.items
                 self.view?.reloadTableview()
             case .failure(let error):
                 print(error)

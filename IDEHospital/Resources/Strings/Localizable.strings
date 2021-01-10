@@ -91,6 +91,7 @@
 "YouHaveNoAppointemts" = "You have no appointments";
 "youHaveNoFavorites" = "You have no favorites";
 //DoctorProfile
+"noReviews" = "This doctor has no reviews yet";
 "tabReview" = "TAB Review";
 "book" = "Book";
 "doctorProfile" = "Doctor Profile";

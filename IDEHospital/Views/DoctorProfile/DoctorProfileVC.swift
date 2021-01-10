@@ -9,7 +9,6 @@ import UIKit
 import CoreLocation
 import MapKit
 
-
 protocol DoctorProfileVCProtocol: PaginationVCProtocol {
     func favoriteVisability(isHidden: Bool)
     func setupAppointmentData(date: String)

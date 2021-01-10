@@ -118,6 +118,8 @@ internal enum L10n {
   internal static let no = L10n.tr("Localizable", "no")
   /// Please Leave Your Rating
   internal static let noRatings = L10n.tr("Localizable", "noRatings")
+  /// This doctor has no reviews yet
+  internal static let noReviews = L10n.tr("Localizable", "noReviews")
   /// No Search Result Found
   internal static let noSearchResult = L10n.tr("Localizable", "noSearchResult")
   /// The selected voucher is invalid.
