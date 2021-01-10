@@ -77,6 +77,10 @@ class DoctorTopView: UIView {
         bookNowButton.backgroundColor = ColorName.warmGrey.color
     }
     
+    func scrollTobegining(){
+        appointemtsCollection.setContentOffset(.zero, animated: true)
+    }
+    
     
     func setupCollectioView(delgate: UICollectionViewDelegate, dataSource: UICollectionViewDataSource) {
         appointemtsCollection.register(AppointmentDateCell.self, forCellWithReuseIdentifier: Cells.appointmentDateCell)

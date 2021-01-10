@@ -27,8 +27,6 @@ class DoctorProfileVC: UIViewController {
     private var viewModel: DoctorProfileVMProtocol!
     // view
     @IBOutlet var doctorProfileView: DoctorProfileView!
-    private weak var collection: UICollectionView!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,7 +110,7 @@ extension DoctorProfileVC: DoctorProfileVCProtocol {
         doctorProfileView.disableBookButton()
     }
     internal func scrollTobegining(){
-        collection.setContentOffset(.zero, animated: true)
+        doctorProfileView.scrollTobegining()
     }
     
 }

@@ -33,9 +33,11 @@ class DoctorProfileView: UIView {
     func setupTableView(delgate: UITableViewDelegate, dataSource: UITableViewDataSource){
         doctorBottomView.setupTableView(delgate: delgate, dataSource: dataSource)
     }
+    
     func setupCollectioView(delgate: UICollectionViewDelegate, dataSource: UICollectionViewDataSource) {
         doctorTopView.setupCollectioView(delgate: delgate, dataSource: dataSource)
     }
+    
     func setupDoctorImage(image: Data){
         doctorTopView.setDoctorImage(image: image)
     }
@@ -46,9 +48,11 @@ class DoctorProfileView: UIView {
         doctorBottomView.setupData(doctorInformation: doctorInformation)
         doctorTopView.setupData(doctorInformation: doctorInformation)
     }
+    
     func reloadTableView() {
         doctorBottomView.reloadTableView()
     }
+    
     func reloadCollectionData() {
         doctorTopView.reloadCollectionData()
     }
@@ -64,11 +68,17 @@ class DoctorProfileView: UIView {
     func isFavorite(imageName: String) {
         doctorTopView.isFavorite(imageName: imageName)
     }
+    
     func enableBookButton(){
         doctorTopView.enableBookButton()
     }
+    
     func disableBookButton(){
         doctorTopView.disableBookButton()
+    }
+    
+    func scrollTobegining(){
+        doctorTopView.scrollTobegining()
     }
     
     //MARK:- Private methods
@@ -82,6 +92,7 @@ class DoctorProfileView: UIView {
     private func configureDctorTopView(){
         doctorTopView.anchor(top: self.safeAreaLayoutGuide.topAnchor, leading: self.leadingAnchor, bottom: self.centerYAnchor, trailing: self.trailingAnchor)
     }
+    
     private func configureDoctorButtomView(){
         doctorBottomView.anchor(top: doctorTopView.bottomAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor,
                                 padding: UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0))
