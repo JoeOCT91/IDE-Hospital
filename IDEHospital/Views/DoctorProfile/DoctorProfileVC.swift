@@ -116,7 +116,7 @@ extension DoctorProfileVC: DoctorProfileVCProtocol {
         doctorProfileView.scrollTobegining()
     }
     internal func presentError(){
-        self.presentAlertOnMainThread(message: L10n.loginFirst, delegate: nil)
+        self.presentAlertOnMainThread(message: L10n.loginToBook, delegate: nil)
     }
     
 }

@@ -97,6 +97,7 @@
 "book" = "Book";
 "doctorProfile" = "Doctor Profile";
 "ExaminationFees" = "Examination Fees :";
+"loginToBook" = "You need to login to book an appointment";
 //Search Result
 "searchResult" = "Search Result";
 "viewOnMap" = "View on map";

@@ -104,6 +104,8 @@ internal enum L10n {
   internal static let loginFirst = L10n.tr("Localizable", "loginFirst")
   /// You have to Login First to Book an Appointment
   internal static let loginFirstToAppointment = L10n.tr("Localizable", "loginFirstToAppointment")
+  /// You need to login to book an appointment
+  internal static let loginToBook = L10n.tr("Localizable", "loginToBook")
   /// Login To Show your data
   internal static let loginToShowYourData = L10n.tr("Localizable", "LoginToShowYourData")
   ///  minutes
