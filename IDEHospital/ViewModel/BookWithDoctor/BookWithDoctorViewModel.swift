@@ -117,7 +117,7 @@ extension BookWithDoctorViewModel:BookWithDoctorViewModelProtocol{
     }
     func setVoucherAndPatiantName(patientName: String?, voucherCode: String?, bookForAnotherSwitch: Bool, voucherSwitch:Bool) {
         guard UserDefaultsManager.shared().token != nil else {
-            self.view?.presentErrorAlert(title: "", message: L10n.loginFirst)
+            self.view?.presentErrorAlert(title: "", message: L10n.loginFirstToAppointment)
             return
         }
         bookForAnotherPatientSwitch = bookForAnotherSwitch

@@ -71,7 +71,7 @@ class SupplierTabBarVC: UITabBarController {
         self.viewControllers = [searchNavigation, favoriteNavigation, scheduleNavigation]
         self.selectedIndex = 0
         for vc in self.viewControllers! {
-            vc.tabBarItem.imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
+            vc.tabBarItem.imageInsets = UIEdgeInsets(top: 1, left: 0, bottom: -1, right: 0)
         }
     }
 }
