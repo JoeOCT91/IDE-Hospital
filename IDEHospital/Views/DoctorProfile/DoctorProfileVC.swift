@@ -216,6 +216,7 @@ extension DoctorProfileVC: doctorProfileViewDelegate {
 }
 extension DoctorProfileVC: BookWithDoctorVCDelegate {
     func reloadData() {
+        disableBookButton()
         viewModel.getDoctorAppointmentsDate()
     }
     
