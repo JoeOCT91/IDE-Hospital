@@ -30,7 +30,6 @@ class SearchResultCell: UITableViewCell {
     var sendDoctorDelegate:sendDoctorIdDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.makeImageViewCirclerShape()
     }
     
     @IBAction func heartButtonPressed(_ sender: Any) {
@@ -75,14 +74,4 @@ class SearchResultCell: UITableViewCell {
         self.watingTimeLabel.text = L10n.watingTime + "\(watingTime)" + L10n.minutes
         self.feesLabel.text = L10n.examinationFess + "\(fees)" + L10n.egyptionPound
     }
-    // MARK:- Preivate Functions
-    private func makeImageViewCirclerShape() {
-        self.profileImageView.layer.borderColor = ColorName.darkRoyalBlue.color.cgColor
-        self.profileImageView.layer.masksToBounds = true
-        self.profileImageView.contentMode = .scaleToFill
-        self.profileImageView.layer.borderWidth = 2
-        self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
-        self.profileImageView.clipsToBounds = true;
-    }
-    
 }
