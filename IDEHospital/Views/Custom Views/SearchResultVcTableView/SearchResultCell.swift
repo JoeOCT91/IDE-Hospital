@@ -77,6 +77,10 @@ class SearchResultCell: UITableViewCell {
     }
     // MARK:- Preivate Functions
     private func makeImageViewCirclerShape() {
+        self.profileImageView.layer.borderColor = ColorName.darkRoyalBlue.color.cgColor
+        self.profileImageView.layer.masksToBounds = true
+        self.profileImageView.contentMode = .scaleToFill
+        self.profileImageView.layer.borderWidth = 2
         self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2;
         self.profileImageView.clipsToBounds = true;
     }
