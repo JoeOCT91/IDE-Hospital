@@ -7,9 +7,9 @@
 
 import Foundation
 struct VoucherDataBody:Codable {
-    var doctor_id:Int?
-    var appointment:String?
+    var doctor_id:Int
+    var appointment:String
     var patient_name:String?
-    var book_for_another:Bool?
+    var book_for_another:Bool
     var voucher:String?
 }

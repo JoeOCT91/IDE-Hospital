@@ -54,7 +54,7 @@ class BookWithDoctorVC: UIViewController {
     }
     
     @IBAction func confirmButtonPressed(_ sender: Any) {
-        viewModel.bookDoctorAppointmentRequest(voucher: viewModel.getVoucherCode(), patientName: viewModel.getPatientName(), bookForAnotherSwitch: anotherPersonSwitch)
+        viewModel.bookDoctorAppointmentRequest()
     }
     //MARK:- Private Methods
     private func animateView(){

@@ -10,9 +10,7 @@ protocol BookWithDoctorViewModelProtocol {
     func reviewVoucherSwitch(isOn:Bool) -> Bool
     func reviewAnotherPersonSwitch(isOn:Bool) -> Bool
     func setVoucherAndPatiantName(patientName: String?, voucherCode: String?, bookForAnotherSwitch: Bool, voucherSwitch:Bool)
-    func bookDoctorAppointmentRequest(voucher:String?, patientName:String?, bookForAnotherSwitch:Bool?)
-    func getVoucherCode() -> String?
-    func getPatientName() -> String?
+    func bookDoctorAppointmentRequest()
     func getDoctorID() -> Int
 }
 class BookWithDoctorViewModel {
@@ -22,6 +20,7 @@ class BookWithDoctorViewModel {
     private var doctorName:String!
     private var patientName:String?
     private var voucherCode:String?
+    private var bookForAnotherPatientSwitch:Bool = false
     init(view:BookWithDoctorVcProtocol, doctorID:Int, doctorName:String, appointmentTime:String) {
         self.view = view
         self.doctorID = doctorID
@@ -89,16 +88,9 @@ extension BookWithDoctorViewModel:BookWithDoctorViewModelProtocol{
         return self.doctorID
     }
     
-    func getVoucherCode() -> String? {
-        return self.voucherCode
-    }
-    
-    func getPatientName() -> String? {
-        return self.patientName
-    }
-    
-    func bookDoctorAppointmentRequest(voucher: String?, patientName: String?, bookForAnotherSwitch: Bool?) {
-        let body = VoucherDataBody(doctor_id: doctorID, appointment: appointmentTime, patient_name: patientName, book_for_another: bookForAnotherSwitch, voucher: voucher)
+    func bookDoctorAppointmentRequest() {
+        let body = VoucherDataBody(doctor_id: doctorID, appointment: appointmentTime, patient_name: patientName, book_for_another: bookForAnotherPatientSwitch, voucher: voucherCode)
+        print(body)
         self.bookAppointmentWithDoctorAPI(body: body)
     }
     
@@ -128,26 +120,33 @@ extension BookWithDoctorViewModel:BookWithDoctorViewModelProtocol{
             self.view?.presentErrorAlert(title: "", message: L10n.loginFirst)
             return
         }
+        bookForAnotherPatientSwitch = bookForAnotherSwitch
         if voucherSwitch{
             if voucherCode?.count ?? 0 == 0 {
                 self.view?.presentErrorAlert(title: "", message: L10n.pleaseEnterVoucher)
                 return
             }
+            else{
+                self.voucherCode = voucherCode
+            }
         }
         else{
             self.voucherCode = nil
         }
-        if bookForAnotherSwitch{
+        if bookForAnotherPatientSwitch{
             if patientName?.count ?? 0 == 0 {
                 self.view?.presentErrorAlert(title: "", message: L10n.pleaseEnterPatient)
                 return
+            }
+            else{
+                self.patientName = patientName
             }
         }
         else{
             self.patientName = nil
         }
         let timestamp = (appointmentTime! as NSString).doubleValue
-        var bookDate =  self.convertTimestampToDate(timestamp: timestamp)
+        let bookDate =  self.convertTimestampToDate(timestamp: timestamp)
         let dateDetails = self.extractDayFromDate(date: bookDate)
         self.view?.goToConfirmationPopView(doctorName: doctorName, appointmentDate: dateDetails.1,appointmentDay: dateDetails.0)
     }
