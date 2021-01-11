@@ -17,7 +17,7 @@ protocol sendDoctorIdDelegate {
 class SearchResultCell: UITableViewCell {
     @IBOutlet weak var bookNowButton: HospitalButton!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profileImageView: DoctorImageView!
     @IBOutlet weak var ratingView: CosmosView!
     @IBOutlet weak var reviewCountLabel: UILabel!
     @IBOutlet weak var specialtyLabel: UILabel!
