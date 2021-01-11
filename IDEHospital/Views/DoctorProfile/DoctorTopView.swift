@@ -222,7 +222,7 @@ class DoctorTopView: UIView {
         bookNowButton.setTitle(L10n.book, for: .normal)
         bookNowButton.addTarget(self, action: #selector(bookPressed), for: .touchUpInside)
         NSLayoutConstraint.activate([
-            bookNowButton.topAnchor.constraint(equalTo: appointemtsCollection.bottomAnchor, constant: 10 ),
+            bookNowButton.topAnchor.constraint(equalTo: appointemtsCollection.bottomAnchor, constant: 0 ),
             bookNowButton.heightAnchor.constraint(equalToConstant: 25),
             bookNowButton.widthAnchor.constraint(equalToConstant: 100),
             bookNowButton.centerXAnchor.constraint(equalTo: self.centerXAnchor)
@@ -301,7 +301,7 @@ class DoctorTopView: UIView {
             appointemtsCollection.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             appointemtsCollection.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             appointemtsCollection.centerYAnchor.constraint(equalTo: doctorAppointments.centerYAnchor),
-            appointemtsCollection.heightAnchor.constraint(equalToConstant: 90),
+            appointemtsCollection.heightAnchor.constraint(equalToConstant: 70),
         ])
         appointemtsCollection.showsHorizontalScrollIndicator = false
         appointemtsCollection.allowsMultipleSelection = false
@@ -313,7 +313,7 @@ class DoctorTopView: UIView {
         let avilableWidth = width - (padding * 3)
         let itemwidth = avilableWidth / 3
         let flowlayout = UICollectionViewFlowLayout()
-        flowlayout.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
+        flowlayout.sectionInset = UIEdgeInsets(top: 0, left: padding, bottom: 10, right: padding)
         flowlayout.itemSize = CGSize(width: itemwidth, height: 25)
         flowlayout.scrollDirection = .horizontal
         return flowlayout
