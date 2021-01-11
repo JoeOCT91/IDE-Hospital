@@ -21,6 +21,7 @@ protocol DoctorProfileVCProtocol: PaginationVCProtocol {
     func presentError()
 }
 
+
 class DoctorProfileVC: UIViewController {
     
     // View model
@@ -34,12 +35,16 @@ class DoctorProfileVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(true)
         viewModel.getAllData()
         setupBackWithPopup()
         setupNavigationBar()
         setupSettingButton()
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        viewModel.getAllData()
+    }
     private func viewsSetup(){
         doctorProfileView.delgate = self
         setViewControllerTitle(to: L10n.searchResult)
@@ -93,6 +98,7 @@ extension DoctorProfileVC: DoctorProfileVCProtocol {
     
     internal func reloadCollectionData() {
         doctorProfileView.reloadCollectionData()
+        scrollTobegining()
     }
     
     internal func setupAppointmentData(date: String){
@@ -188,6 +194,7 @@ extension DoctorProfileVC: doctorProfileViewDelegate {
     internal func bookpressed() {
         viewModel.perfromBookingAction { (doctorID, doctorName, appointmentTime) in
             let bookVC = BookWithDoctorVC.create(doctorID: doctorID, doctorName: doctorName, appointmentTime: String(appointmentTime))
+            bookVC.delegate = self
             bookVC.modalPresentationStyle = .overFullScreen
             bookVC.modalTransitionStyle = .crossDissolve
             present(bookVC, animated: true)
@@ -205,5 +212,12 @@ extension DoctorProfileVC: doctorProfileViewDelegate {
     internal func previousDayPressed(){
         viewModel.getPreviousDay()
     }
+    
+}
+extension DoctorProfileVC: BookWithDoctorVCDelegate {
+    func reloadData() {
+        viewModel.getDoctorAppointmentsDate()
+    }
+    
     
 }

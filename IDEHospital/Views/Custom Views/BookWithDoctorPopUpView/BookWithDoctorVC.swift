@@ -15,7 +15,13 @@ protocol BookWithDoctorVcProtocol:class {
     func hideLoader()
     func goToConfirmationPopView(doctorName:String, appointmentDate:String, appointmentDay:String)
 }
+protocol BookWithDoctorVCDelegate: class {
+    func reloadData()
+}
 class BookWithDoctorVC: UIViewController {
+    
+    //Book an appointment popup delegate
+    internal weak var delegate: BookWithDoctorVCDelegate?
     
     @IBOutlet var bookWithDoctorView: BookWithDoctorView!
     var viewModel:BookWithDoctorViewModelProtocol!
@@ -63,6 +69,7 @@ class BookWithDoctorVC: UIViewController {
         }, completion: nil)
     }
     private func dismissCurrretVC(){
+        delegate?.reloadData()
         self.dismiss(animated: true)
     }
     

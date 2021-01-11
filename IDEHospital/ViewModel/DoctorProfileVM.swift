@@ -99,6 +99,7 @@ class DoctorProfileVM<T: DoctorProfileVCProtocol>: ViewModelWithPagination<T>, D
             switch result {
             case .success(let appointmentsDates):
                 self.doctorAppointments = appointmentsDates.data
+                self.selectedIndexPath = IndexPath()
                 let date = self.convertStamp(format: "EEEE,d MMMM yyy", timestamp: self.doctorAppointments[self.dayIndex].date)
                 self.view?.setupAppointmentData(date: date)
                 self.view?.reloadCollectionData()
@@ -132,7 +133,6 @@ class DoctorProfileVM<T: DoctorProfileVCProtocol>: ViewModelWithPagination<T>, D
         let date = convertStamp(format: "EEEE,d MMMM yyy", timestamp: doctorAppointments[dayIndex].date)
         view?.setupAppointmentData(date: date)
         view?.disableBookButton()
-        view?.scrollTobegining()
         selectedIndexPath = IndexPath()
         view?.reloadCollectionData()
     }
@@ -145,8 +145,6 @@ class DoctorProfileVM<T: DoctorProfileVCProtocol>: ViewModelWithPagination<T>, D
             let date = convertStamp(format: "EEEE,d MMMM yyy", timestamp: doctorAppointments[dayIndex].date)
             view?.disableBookButton()
             view?.setupAppointmentData(date: date)
-            view?.scrollTobegining()
-
             selectedIndexPath = IndexPath()
             view?.reloadCollectionData()
         }
