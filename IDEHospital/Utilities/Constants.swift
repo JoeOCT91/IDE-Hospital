@@ -20,6 +20,8 @@ struct Storyboards {
     static let authentication = "Authentication"
     static let contactUs = "ContactUs"
     static let staticContent = "StaticContent"
+    static let doctorProfile = "DoctorProfile"
+    static let rating = "Rating"
 }
 
 // Cells
@@ -28,6 +30,8 @@ struct Cells {
     static let favorites = "Favorites"
     static let appointment = "Appointment"
     static let sideMenu = "SideMenu"
+    static let doctorReviewCell = "DoctorReviewCell"
+    static let appointmentDateCell = "appointmentDateCell"
 }
 
 // View Controllers
@@ -49,8 +53,9 @@ struct ViewControllers {
     static let signInVC = "SignInVC"
     static let contactUsVC = "ContactUsVC"
     static let aboutVC = "AboutVC"
-
-
+    static let doctorProfileVC = "DoctorProfileVC"
+    static let ratingVC = "RatingVC"
+    static let bookWithDoctorVC = "BookWithDoctorVC"
 }
 
 // Urls
@@ -68,6 +73,8 @@ struct URLs {
     static let termsAndConditions = "terms_and_conditions"
     static let contactUs = "contact_us_requests"
     static let about = "about_us"
+    static let doctors = "doctors/"
+    static let ratingDoctor = "doctors"
 }
 
 // Header Keys

@@ -8,7 +8,7 @@
 import UIKit
 protocol SignUpVCProtocol: class {
     func presentSuccessAlert(title:String, message:String)
-    func presentError(title:String,message: String)
+    func presentErrorAlert(title:String,message: String)
     func showLoader()
     func hideLoader()
 }
@@ -20,9 +20,7 @@ class SignUpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         signUpView.setUp()
-        self.setupNavigationBar()
-        self.setViewControllerTitle(to: L10n.signUp, fontColor: .white)
-        self.setUpButtonsInPushedNavigationBar()
+        configureNavigationBar()
     }
     
     // MARK:- Public Methods
@@ -38,22 +36,36 @@ class SignUpVC: UIViewController {
     }
     
     @IBAction func termsAndConditionsButtonPressed(_ sender: Any) {
-        //TODO:- Open Terms&Conditions VC
+        let termsVC = TermsAndConditionsVC.create()
+        self.navigationController?.pushViewController(termsVC, animated: true)
+    }
+    
+    //MARK:- Private Functions
+    private func configureNavigationBar() {
+        self.setupNavigationBar()
+        self.setViewControllerTitle(to: L10n.signUp, fontColor: .white)
+        self.setupBackWithPopup()
     }
     
 }
 extension SignUpVC:SignUpVCProtocol{
     
     func presentSuccessAlert(title: String, message: String) {
-        self.showSuccessfulAlert(title: title, message: message)
+        
+        self.presentAlertOnMainThread(message: message, alertTaype: 2, delegate: self)
     }
-    func presentError(title:String,message: String) {
-        self.showAlert(title: title, message: message)
+    func presentErrorAlert(title:String,message: String) {
+       self.presentAlertOnMainThread(message: message, alertTaype: 1, delegate: nil)
     }
     func showLoader() {
         self.view.showLoader()
     }
     func hideLoader() {
         self.view.hideLoader()
+    }
+}
+extension SignUpVC:AlertVcDelegate{
+    func okButtonPressed() {
+        self.view.window?.rootViewController?.dismiss(animated: false)
     }
 }

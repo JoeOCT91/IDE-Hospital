@@ -94,9 +94,7 @@ extension AppointmentsVC: ConfirmationAlertDelgate {
 }
 extension AppointmentsVC: AppoinmentCellDelgate {
     func cancelAppointment(doctorID: Int) {
-        let alertVC = ConfirmationAlert(id: doctorID, message: AlertMessages.appointmentCancel)
-        alertVC.delgate = self
-        presentAlertOnMainThread(alertVC: alertVC)
+        self.presentAlertOnMainThread(id: doctorID, message: AlertMessages.appointmentCancel, delegate: self)
     }
     
     func openDoctorLocation(doctorName: String, latitude: CLLocationDegrees, longitude: CLLocationDegrees){
