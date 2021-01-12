@@ -8,7 +8,7 @@
 import UIKit
 protocol ResetPasswordVCProtocol: class {
     func presentSuccessAlert(title:String, message:String)
-    func presentError(title:String,message: String)
+    func presentErrorAlert(title:String,message: String)
     func showLoader()
     func hideLoader()
 }
@@ -19,9 +19,7 @@ class ResetPasswordVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         resetPasswordView.setUp()
-        self.setupNavigationBar()
-        self.setViewControllerTitle(to: L10n.resetPassword, fontColor: .white)
-        self.setUpButtonsInPushedNavigationBar()
+        configureNavigationBar()
     }
     
     // MARK:- Public Methods
@@ -35,13 +33,22 @@ class ResetPasswordVC: UIViewController {
         self.viewModel.resetPasswordRequest(email: resetPasswordView.emailTextField.text)
     }
     
+    //MARK:- Private Functions
+    private func configureNavigationBar() {
+        self.setupNavigationBar()
+        self.setViewControllerTitle(to: L10n.resetPassword, fontColor: .white)
+        self.setupSettingButton()
+        self.setupBackWithPopup()
+        
+    }
+    
 }
 extension ResetPasswordVC:ResetPasswordVCProtocol{
     func presentSuccessAlert(title: String, message: String) {
-        self.showSuccessfulAlert(title: title, message: message)
+        self.presentAlertOnMainThread(message: message, alertTaype: 2, delegate: self)
     }
-    func presentError(title:String,message: String) {
-        self.showAlert(title: title, message: message)
+    func presentErrorAlert(title:String,message: String) {
+        self.presentAlertOnMainThread(message: message, alertTaype: 1, delegate: nil)
     }
     func showLoader() {
         self.view.showLoader()
@@ -49,4 +56,11 @@ extension ResetPasswordVC:ResetPasswordVCProtocol{
     func hideLoader() {
         self.view.hideLoader()
     }
+}
+extension ResetPasswordVC:AlertVcDelegate{
+    func okButtonPressed() {
+        self.view.window?.rootViewController?.dismiss(animated: false)
+    }
+    
+    
 }

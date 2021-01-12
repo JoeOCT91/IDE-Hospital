@@ -21,11 +21,11 @@ class ConfirmationAlert: UIViewController {
     private let containerView = UIView()
     
     private let messageLabel = HospitalCellLabel(textAlignment: .right, fontSize: 15, font: UIFont(font : FontFamily.PTSans.bold, size: 15))
-    private let agreeButton = HospitalButton(frame: .zero, tittle: "Yes")
-    private let discardButton = HospitalButton(frame: .zero, tittle: "No")
+    private let agreeButton = HospitalButton(frame: .zero, tittle: "Yes", color: ColorName.darkRoyalBlue)
+    private let discardButton = HospitalButton(frame: .zero, tittle: "No", color: ColorName.richPurpleTwo)
     let buttonWidth = (UIScreen.main.bounds.width -  (40)) / 4
-
-
+    
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -82,29 +82,31 @@ class ConfirmationAlert: UIViewController {
             messageLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20),
         ])
     }
-    private func  configureAgreeButton(){
-
+    private func  ConfigureDiscardButton(){
+        
+        discardButton.titleLabel?.font = discardButton.titleLabel?.font.withSize(15)
+        agreeButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            discardButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor,constant: -20),
+            discardButton.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 20),
+            discardButton.widthAnchor.constraint(equalToConstant: buttonWidth),
+            discardButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor, constant: (buttonWidth / 2) + 10 )
+            
+        ])
+        discardButton.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
+    }
+    private func configureAgreeButton() {
+        
         agreeButton.titleLabel?.font = discardButton.titleLabel?.font.withSize(15)
-
         agreeButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             agreeButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor,constant: -20),
             agreeButton.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 20),
             agreeButton.widthAnchor.constraint(equalToConstant: buttonWidth),
-            agreeButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor, constant: (buttonWidth / 2) + 10 )
-            
+            agreeButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor, constant: -(buttonWidth / 2) - 10 )
         ])
+        
         agreeButton.addTarget(self, action: #selector(confirmPressed), for: .touchUpInside)
-    }
-    private func ConfigureDiscardButton() {
-        discardButton.titleLabel?.font = discardButton.titleLabel?.font.withSize(15)
-        NSLayoutConstraint.activate([
-            discardButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor,constant: -20),
-            discardButton.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 20),
-            discardButton.widthAnchor.constraint(equalToConstant: buttonWidth),
-            discardButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor, constant: -(buttonWidth / 2) - 10 )
-        ])
-        discardButton.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
     }
     
     @objc private func dismissAlert(){

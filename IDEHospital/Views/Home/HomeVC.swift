@@ -36,7 +36,6 @@ class HomeVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         configureNavigationBar()
-        setupSettingButton()
     }
     
     //MARK:- Private Methods
@@ -56,7 +55,7 @@ class HomeVC: UIViewController {
 }
 
 extension HomeVC: HomeVCProtocol {
-        
+    
     internal func goChooseServicesScreen(celTag:Int) {
         let tabBarController = SupplierTabBarVC()
         tabBarController.modalPresentationStyle = .fullScreen
@@ -65,9 +64,10 @@ extension HomeVC: HomeVCProtocol {
     }
     
     internal func goToNurseScreen() {
-              let nurseVC = NurseVC.create()
-              nurseVC.modalPresentationStyle = .fullScreen
-              self.navigationController?.pushViewController(nurseVC, animated: true)
+        let nurseVC = NurseVC.create()
+        nurseVC.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(nurseVC, animated: true)
+        
     }
     
     internal func reloadData() {
@@ -98,7 +98,6 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! CategoryCell
         //Cell tag hold category ID to use when navigate to others controllers
-        print(cell.tag)
         viewModel.determineWhichVCToOpen(tag: cell.tag)
     }
     

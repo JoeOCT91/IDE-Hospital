@@ -14,10 +14,10 @@ class HospitalButton: UIButton {
         configure()
     }
     
-    init(frame: CGRect, tittle: String) {
+    init(frame: CGRect, tittle: String, color:ColorName) {
         super.init(frame: frame)
         self.setTitle(tittle, for: .normal)
-        configure()
+        configure(color: color)
     }
     
     required init?(coder: NSCoder) {
@@ -25,11 +25,11 @@ class HospitalButton: UIButton {
         configure()
     }
     
-    private func configure(){
+    private func configure(color:ColorName = ColorName.darkRoyalBlue){
         self.titleLabel?.font = UIFont(font: FontFamily.PTSans.bold, size: 12)
         self.titleLabel?.font = self.titleLabel?.font.withSize(12)
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.backgroundColor = UIColor(named: ColorName.darkRoyalBlue)
+        self.backgroundColor = UIColor(named: color)
         self.layer.cornerRadius = 10
     }
 }

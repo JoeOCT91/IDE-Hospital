@@ -9,8 +9,7 @@ import UIKit
 
 protocol SignInVCProtocol:class {
     func presentSuccessAlert(title:String, message:String)
-    func presentError(title:String,message: String)
-    func sucssesfulLogin()
+    func presentErrorAlert(title:String,message: String)
     func showLoader()
     func hideLoader()
 }
@@ -21,9 +20,7 @@ class SignInVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         signInView.setUp()
-        self.setupNavigationBar()
-        self.setViewControllerTitle(to: L10n.login, fontColor: .white)
-        self.setUpButtonsInPushedNavigationBar()
+        configureNavigationBar()
     }
     // MARK:- Public Methods
     class func create() -> SignInVC {
@@ -47,21 +44,29 @@ class SignInVC: UIViewController {
         signUpVC.modalPresentationStyle = .fullScreen
         self.navigationController?.pushViewController(signUpVC, animated: true)
     }
+    // MARK:- Private Functions
+    private func configureNavigationBar() {
+        self.setupNavigationBar()
+        self.setViewControllerTitle(to: L10n.login, fontColor: .white)
+        self.setupBackWithPopup()
+    }
 }
 extension SignInVC:SignInVCProtocol{
-    func sucssesfulLogin() {
-        self.view.window?.rootViewController?.dismiss(animated: false)
-    }
     func presentSuccessAlert(title: String, message: String) {
-        self.showSuccessfulAlert(title: title, message: message)
+        self.presentAlertOnMainThread(message: message, alertTaype: 2, delegate: self)
     }
-    func presentError(title:String,message: String) {
-        self.showAlert(title: title, message: message)
+    func presentErrorAlert(title:String,message: String) {
+        self.presentAlertOnMainThread(message: message, alertTaype: 1, delegate: nil)
     }
     func showLoader() {
         self.view.showLoader()
     }
     func hideLoader() {
         self.view.hideLoader()
+    }
+}
+extension SignInVC:AlertVcDelegate{
+    func okButtonPressed() {
+        self.view.window?.rootViewController?.dismiss(animated: false)
     }
 }
