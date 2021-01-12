@@ -14,6 +14,8 @@ internal enum L10n {
   internal static let about = L10n.tr("Localizable", "about")
   /// Are you Booking for another person?
   internal static let anotherPerson = L10n.tr("Localizable", "anotherPerson")
+  /// Book
+  internal static let book = L10n.tr("Localizable", "book")
   /// SearchResultTableViewCell
   internal static let cellIdentifire = L10n.tr("Localizable", "cellIdentifire")
   /// Choose City
@@ -48,6 +50,8 @@ internal enum L10n {
   internal static let disMatchedPassword = L10n.tr("Localizable", "disMatchedPassword")
   /// Doctor Name
   internal static let doctorName = L10n.tr("Localizable", "DoctorName")
+  /// Doctor Profile
+  internal static let doctorProfile = L10n.tr("Localizable", "doctorProfile")
   /// Don't Have account?
   internal static let donTHavePassword = L10n.tr("Localizable", "don't_HavePassword")
   /// done
@@ -68,6 +72,8 @@ internal enum L10n {
   internal static let enterName = L10n.tr("Localizable", "enterName")
   /// Enter Password
   internal static let enterPasswordPlaceholder = L10n.tr("Localizable", "enterPasswordPlaceholder")
+  /// Examination Fees :
+  internal static let examinationFees = L10n.tr("Localizable", "ExaminationFees")
   /// Examination Fees: 
   internal static let examinationFess = L10n.tr("Localizable", "examinationFess")
   /// Favorite
@@ -96,6 +102,10 @@ internal enum L10n {
   internal static let loginButton = L10n.tr("Localizable", "loginButton")
   /// You have to Login First to Select your Favorites
   internal static let loginFirst = L10n.tr("Localizable", "loginFirst")
+  /// You have to Login First to Book an Appointment
+  internal static let loginFirstToAppointment = L10n.tr("Localizable", "loginFirstToAppointment")
+  /// You need to login to book an appointment
+  internal static let loginToBook = L10n.tr("Localizable", "loginToBook")
   /// Login To Show your data
   internal static let loginToShowYourData = L10n.tr("Localizable", "LoginToShowYourData")
   ///  minutes
@@ -112,6 +122,8 @@ internal enum L10n {
   internal static let no = L10n.tr("Localizable", "no")
   /// Please Leave Your Rating
   internal static let noRatings = L10n.tr("Localizable", "noRatings")
+  /// This doctor has no reviews yet
+  internal static let noReviews = L10n.tr("Localizable", "noReviews")
   /// No Search Result Found
   internal static let noSearchResult = L10n.tr("Localizable", "noSearchResult")
   /// The selected voucher is invalid.
@@ -190,7 +202,9 @@ internal enum L10n {
   internal static let sorry = L10n.tr("Localizable", "sorry")
   /// Sort By
   internal static let sortBy = L10n.tr("Localizable", "sortBy")
-  /// Your Appointment have been Booked Successfully
+  /// Submit Review
+  internal static let submitReview = L10n.tr("Localizable", "submitReview")
+  /// Appointment have been Booked Successfully
   internal static let successfulBooking = L10n.tr("Localizable", "successfulBooking")
   /// Successful Request
   internal static let successfulRequest = L10n.tr("Localizable", "successfulRequest")
@@ -202,10 +216,14 @@ internal enum L10n {
   internal static let successRegister = L10n.tr("Localizable", "successRegister")
   /// Your Request have been Sent Successfully
   internal static let successRequestMessage = L10n.tr("Localizable", "successRequestMessage")
+  /// TAB Review
+  internal static let tabReview = L10n.tr("Localizable", "tabReview")
   /// Terms & Conditions
   internal static let terms = L10n.tr("Localizable", "terms")
   /// Terms & Conditions
   internal static let termsAndConditions = L10n.tr("Localizable", "TermsAndConditions")
+  /// View on map
+  internal static let viewOnMap = L10n.tr("Localizable", "viewOnMap")
   /// Wating Time: 
   internal static let watingTime = L10n.tr("Localizable", "watingTime")
   /// Yes

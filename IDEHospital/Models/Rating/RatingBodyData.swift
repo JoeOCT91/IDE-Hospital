@@ -7,7 +7,7 @@
 
 import Foundation
 struct RatingBodyData:Codable {
-    var doctor_id:Int?
+    var doctor_id:Int
     var rating:Int?
     var comment:String?
 }

@@ -11,4 +11,5 @@ target 'IDEHospital' do
 	pod 'IQKeyboardManagerSwift'
 	pod 'SwiftGen', '~> 6.0'
   pod 'Cosmos', '~> 23.0'
+  pod 'KMPlaceholderTextView'
 end

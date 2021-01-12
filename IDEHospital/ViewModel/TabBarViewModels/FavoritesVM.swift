@@ -39,7 +39,6 @@ class FavoritesVM<T: FavoritesVCProtocol>: ViewModelWithPagination<T>, Favorites
                 switch result {
                 case .success(let favorites):
                     self.dataList.append(contentsOf: favorites.data.items)
-                    print("page is \(self.page)")
                     self.isHasMorePages(pagesCount: favorites.data.totalPages)
                     self.page += 1
                     self.view?.hideLoader()

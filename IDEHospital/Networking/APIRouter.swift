@@ -27,16 +27,18 @@ enum APIRouter:URLRequestConvertible {
     case logout
     case termsAndConditions
     case getAbout
+    case doctorReviews(_ doctorID: Int)
+    case doctorInformation(_ doctorID: Int)
+    case doctorAppointments(_ doctorID: Int)
     case addRating(_ body:RatingBodyData)
     case bookAppointment(_ body:VoucherDataBody)
-    
     
     //Mark:- HTTP Methods
     private var method: HTTPMethod {
         switch self {
         case .getCategories, .getFavories, .getCategory, .getAppointments, .getAbout, .searchResultRequest:
             return .get
-        case .termsAndConditions:
+        case .termsAndConditions, .doctorReviews, .doctorInformation, .doctorAppointments:
             return .get
         case .removeAppointment:
             return .delete
@@ -80,8 +82,14 @@ enum APIRouter:URLRequestConvertible {
             return URLs.contactUs
         case .getAbout:
             return URLs.about
+        case .doctorReviews(let doctorID):
+            return URLs.doctors + "\(doctorID)/reviews"
+        case .doctorInformation(let doctorID):
+            return URLs.doctors + "\((doctorID))"
+        case .doctorAppointments(let doctorID):
+            return URLs.doctors + "\(doctorID)/appointments"
         case .addRating(let body):
-            return URLs.ratingDoctor + "/\(body.doctor_id)" + "/reviews"
+            return URLs.doctors + "\(body.doctor_id)/reviews"
         case .bookAppointment:
             return URLs.appoitments
         default:
@@ -123,9 +131,7 @@ enum APIRouter:URLRequestConvertible {
         urlRequest.httpMethod = method.rawValue
         //Http Headers
         switch self {
-        case .getFavories, .getAppointments, .removeFavorite, .removeAppointment,.searchResultRequest(_),.addOrDeleteDoctorFromFavoriteList:
-            urlRequest.setValue(UserDefaultsManager.shared().token, forHTTPHeaderField: HeaderKeys.authorization)
-        case .logout,.addRating,.bookAppointment:
+        case .getFavories, .getAppointments, .removeFavorite, .removeAppointment,.searchResultRequest(_),.addOrDeleteDoctorFromFavoriteList, .logout, .doctorReviews, .doctorInformation, .addRating,.bookAppointment:
             urlRequest.setValue(UserDefaultsManager.shared().token, forHTTPHeaderField: HeaderKeys.authorization)
         default:
             break
@@ -167,8 +173,9 @@ enum APIRouter:URLRequestConvertible {
                 return JSONEncoding.default
             }
         }()
-        
-        //print(try encoding.encode(urlRequest, with: parameters))
+    
+        print(try encoding.encode(urlRequest, with: parameters))
+
         return try encoding.encode(urlRequest, with: parameters)
     }
 }

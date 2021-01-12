@@ -92,7 +92,7 @@ class APIManager {
             complation(response)
         }
     }
-    //Get terms and conditions
+    // Get terms and conditions
     class func getTermsAndConditions(complation: @escaping (Result<TermsAndCondition, Error>) -> ()) {
         request(APIRouter.termsAndConditions){ respons in
             complation(respons)
@@ -112,6 +112,27 @@ class APIManager {
         }
     }
     
+    //MARK:- Doctor profile
+    //Doctor Information
+    class func getDoctorInformation(doctorID: Int, complation: @escaping (Result<MainResponse<DoctorInformation>, Error>) -> () ) {
+        request(APIRouter.doctorInformation(doctorID)) { (respone) in
+            complation(respone)
+        }
+    }
+    //Doctor Appointments dates
+    class func getAppointmentsDates(doctorID: Int, complation: @escaping (Result<MainResponse<[AppointmentDate]>, Error>) -> () ) {
+        request(APIRouter.doctorAppointments(doctorID)) { (result) in
+            complation(result)
+        }
+    }
+    
+    //Doctor reviews
+    class func getDoctorReviews(doctorID: Int, complation: @escaping (Result<DoctorProfileMainResponse<Review>,Error>) -> () ) {
+        request(APIRouter.doctorReviews(doctorID)) { (response) in
+            complation(response)
+        }
+    }
+
     // Add Rating Request
        class func addDoctorRatingAPI(body:RatingBodyData ,completion: @escaping (Result<RatingResponse, Error>)-> ()){
         request(APIRouter.addRating(body)){ (response) in
@@ -124,6 +145,7 @@ class APIManager {
                   completion(response)
               }
           }
+
 }
 
 extension APIManager{
@@ -140,7 +162,9 @@ extension APIManager{
             //                print(str)
             }
         }.responseJSON { response in
-            print(response)
+            //print(response)
+        } .response { response in
+            //print(response.response?.statusCode)
         }
     }
 }

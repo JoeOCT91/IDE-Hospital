@@ -24,17 +24,17 @@ class IDEAHopitalTextField: UITextField  {
     override open func editingRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: padding)
     }
-
-  override func awakeFromNib() {
-       super.awakeFromNib()
-       self.textColor = ColorName.white.color
-       self.font = UIFont(font: FontFamily.PTSans.bold, size: 15)
-       self.backgroundColor = .clear
-       self.leftViewMode = .always
-       self.borderStyle = .none
-       self.layoutIfNeeded()
-   }
- 
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.textColor = ColorName.white.color
+        self.font = UIFont(font: FontFamily.PTSans.bold, size: 15)
+        self.backgroundColor = .clear
+        self.leftViewMode = .always
+        self.borderStyle = .none
+        self.layoutIfNeeded()
+    }
+    
     func createBottomLine(){
         let bottomLine = CALayer()
         bottomLine.frame = CGRect(x: 0, y: frame.height, width: self.frame.width, height: 3)
@@ -42,11 +42,11 @@ class IDEAHopitalTextField: UITextField  {
         super.layer.addSublayer(bottomLine)
     }
     
-          func setup(leftImage: UIImage, placeholder: String) {
-              self.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: ColorName.white.color, NSAttributedString.Key.font: FontFamily.PTSans.bold.font(size: 15)])
-              let leftIcon = UIImageView(image: leftImage)
-              self.leftView = leftIcon
-          }
+    func setup(leftImage: UIImage, placeholder: String) {
+        self.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: ColorName.white.color, NSAttributedString.Key.font: FontFamily.PTSans.bold.font(size: 15)])
+        let leftIcon = UIImageView(image: leftImage)
+        self.leftView = leftIcon
+    }
 }
 
 

@@ -82,6 +82,11 @@ extension SearchResultVC:SearchResultVCProtocol{
 }
 
 extension SearchResultVC: UITableViewDelegate, UITableViewDataSource , sendDoctorIdDelegate{
+    func bookNowPressed(doctorID: Int) {
+        let doctorProfileVC = DoctorProfileVC.create(doctorID: doctorID)
+        navigationController?.pushViewController(doctorProfileVC, animated: true)
+    }
+    
     // MARK:- Send doctor ID to Add or Delete Dorcor From Favorite List API
     func getDoctorID(id: Int) {
         self.viewModel.callAddOrDeleteDoctorFromFavoriteListAPI(id: id)

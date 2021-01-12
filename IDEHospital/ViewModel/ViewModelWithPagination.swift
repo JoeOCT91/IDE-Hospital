@@ -39,11 +39,11 @@ class ViewModelWithPagination<T: PaginationVCProtocol> {
         }
     }
     
-    private func didScrollToEnd(cellCount: Int) -> Bool{
+    private func didScrollToEnd(cellCount: Int) -> Bool {
         return cellCount + 1  == dataList.count ? true : false
     }
     
-    internal func isHasMorePages(pagesCount: Int){
+    internal func isHasMorePages(pagesCount: Int) {
         pagesCount > page ? (hasMorePages = true) : (hasMorePages = false)
     }
     

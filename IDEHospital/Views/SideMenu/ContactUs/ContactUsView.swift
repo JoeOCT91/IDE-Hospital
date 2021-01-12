@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import KMPlaceholderTextView
 class ContactUsView:UIView{
     
     @IBOutlet weak var mainLabel: UILabel!
@@ -14,7 +15,7 @@ class ContactUsView:UIView{
     @IBOutlet weak var nameTextField: IDEAHopitalTextField!
     @IBOutlet weak var emailTextField: IDEAHopitalTextField!
     @IBOutlet weak var mobileTextField: IDEAHopitalTextField!
-    @IBOutlet weak var detailsTextArea: UITextView!
+    @IBOutlet weak var detailsTextArea: KMPlaceholderTextView!
     @IBOutlet weak var contactUsButton: UIButton!
     
     public func setUp() {
@@ -28,7 +29,7 @@ class ContactUsView:UIView{
         self.setUpTextFiled(textFiled: emailTextField, textValue: "", placeholder: L10n.emailTextFieldPlaceholder, imageName: Asset.emailIcon.image, numbersPad: false , emailPad: true)
         self.setUpTextFiled(textFiled: mobileTextField, textValue: "", placeholder: L10n.phoneTextFieldPlaceholder, imageName: Asset.phoneIcon.image, numbersPad: true , emailPad: false)
         // textView
-        self.setUpTextArea(textView: detailsTextArea , textValue: L10n.enterDetails)
+        self.setUpTextArea(textView: detailsTextArea , textValue: "", placeholder: L10n.yourMessage)
         // Last Button in View
         setUpButton(button: contactUsButton, buttonTitle: L10n.send, backgroundImageName: Asset.buttonBar.image, FontName: FontFamily.PTSans.bold, fontSize: 20)
     }
@@ -60,9 +61,10 @@ extension ContactUsView{
         }
     }
     
-    private func setUpTextArea(textView:UITextView,textValue:String) {
+    private func setUpTextArea(textView:KMPlaceholderTextView,textValue:String,placeholder:String) {
         
         textView.text = textValue
+        textView.placeholder = placeholder
         textView.font = UIFont(font: FontFamily.PTSans.bold, size: 15)
         textView.textColor = .white
         textView.layer.borderColor = UIColor.white.cgColor

@@ -76,6 +76,7 @@
 "terms" = "Terms & Conditions";
 "forgot" = "Forgot Password?";
 "loginFirst" = "You have to Login First to Select your Favorites";
+"loginFirstToAppointment" = "You have to Login First to Book an Appointment";
 //contactUs
 "contactUsMainLabel" = "If you would like further information about how we can help you andyour health it would be great to hear from you.";
 "contactUsSmallLabel" = "For More information call: 19199";
@@ -90,7 +91,18 @@
 "LoginToShowYourData" = "Login To Show your data";
 "YouHaveNoAppointemts" = "You have no appointments";
 "youHaveNoFavorites" = "You have no favorites";
+//DoctorProfile
+"noReviews" = "This doctor has no reviews yet";
+"tabReview" = "TAB Review";
+"book" = "Book";
+"doctorProfile" = "Doctor Profile";
+"ExaminationFees" = "Examination Fees :";
+"loginToBook" = "You need to login to book an appointment";
+//Search Result
+"searchResult" = "Search Result";
+"viewOnMap" = "View on map";
 //Rating
+"submitReview" = "Submit Review";
 "pleaseRateDoctor" = "Please rate your experience with the doctor";
 "review" = "Review";
 "commentPlaceHolder" = "Add Comment";
@@ -111,4 +123,6 @@
 "noVoucher" = "The selected voucher is invalid.";
 "confirmYourAppointment" = "Confirm Your Appointment";
 "youAreAboutToBook" = "You are about to book an appointment on ";
-"successfulBooking" = "Your Appointment have been Booked Successfully";
+"successfulBooking" = "Appointment have been Booked Successfully";
+//Rating
+

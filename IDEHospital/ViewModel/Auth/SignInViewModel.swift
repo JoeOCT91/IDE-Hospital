@@ -27,7 +27,6 @@ class SignInViewModel {
                 self.view?.presentErrorAlert(title: L10n.sorry, message: error.localizedDescription)
             case .success(let result):
                 if result.code == 201{
-                    print(result.data)
                     UserDefaultsManager.shared().token = result.data?.access_token
                     self.view?.presentSuccessAlert(title: "", message: L10n.successLogin )
                 }

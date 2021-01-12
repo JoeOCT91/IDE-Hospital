@@ -15,7 +15,13 @@ protocol BookWithDoctorVcProtocol:class {
     func hideLoader()
     func goToConfirmationPopView(doctorName:String, appointmentDate:String, appointmentDay:String)
 }
+protocol BookWithDoctorVCDelegate: class {
+    func reloadData()
+}
 class BookWithDoctorVC: UIViewController {
+    
+    //Book an appointment popup delegate
+    internal weak var delegate: BookWithDoctorVCDelegate?
     
     @IBOutlet var bookWithDoctorView: BookWithDoctorView!
     var viewModel:BookWithDoctorViewModelProtocol!
@@ -54,7 +60,7 @@ class BookWithDoctorVC: UIViewController {
     }
     
     @IBAction func confirmButtonPressed(_ sender: Any) {
-        viewModel.bookDoctorAppointmentRequest(voucher: bookWithDoctorView.voucherTextField.text, patientName: bookWithDoctorView.anotherPersonTextField.text, bookForAnotherSwitch: anotherPersonSwitch)
+        viewModel.bookDoctorAppointmentRequest()
     }
     //MARK:- Private Methods
     private func animateView(){
@@ -62,12 +68,16 @@ class BookWithDoctorVC: UIViewController {
             self.bookWithDoctorView.layoutIfNeeded()
         }, completion: nil)
     }
+    private func dismissCurrretVC(){
+        delegate?.reloadData()
+        self.dismiss(animated: true)
+    }
     
 }
 extension BookWithDoctorVC:BookWithDoctorVcProtocol{
     
     func goToConfirmationPopView(doctorName:String, appointmentDate:String, appointmentDay:String) {
-        var attributedDate = bookWithDoctorView.setAttributedMessage(mediumText: L10n.youAreAboutToBook + appointmentDay, boldText: appointmentDate,doctorName: doctorName)
+        let attributedDate = bookWithDoctorView.setAttributedMessage(mediumText: L10n.youAreAboutToBook + appointmentDay, boldText: appointmentDate,doctorName: doctorName)
         bookWithDoctorView.detailsLabel.attributedText = attributedDate
         bookWithDoctorView.popUpView.alpha = 0
         bookWithDoctorView.hideVoucherPopUpViewButton.alpha = 0
@@ -102,11 +112,13 @@ extension BookWithDoctorVC:BookWithDoctorVcProtocol{
 }
 extension BookWithDoctorVC:AlertVcDelegate{
     func okButtonPressed() {
-        self.view.window?.rootViewController?.dismiss(animated: false)
+     self.dismiss(animated: true)
+      self.dismissCurrretVC()
     }
 }
 extension BookWithDoctorVC:ConfirmationAlertDelgate{
     func confirmPressed(id: Int) {
-        self.view.window?.rootViewController?.dismiss(animated: false)
+        self.dismiss(animated: true)
+        self.dismissCurrretVC()
     }
 }

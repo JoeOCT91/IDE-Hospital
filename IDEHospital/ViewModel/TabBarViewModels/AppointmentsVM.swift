@@ -53,6 +53,7 @@ class AppointmentsVM<T: AppointmentsVCProtocol>: ViewModelWithPagination<T>, App
                     self.dataList.append(contentsOf: appoinmentsData.data.appointments)
                     self.page += 1
                     self.isHasMorePages(pagesCount: appoinmentsData.data.page)
+                    self.removeEmptyDataPlaceholder()
                     self.view?.reloadTableview()
                     self.view?.hideLoader()
                     

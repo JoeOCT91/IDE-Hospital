@@ -21,15 +21,24 @@ internal struct ColorName {
   /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#ffffff"></span>
   /// Alpha: 100% <br/> (0xffffffff)
   internal static let white = ColorName(rgbaValue: 0xffffffff)
+  /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#707070"></span>
+  /// Alpha: 100% <br/> (0x707070ff)
+  internal static let brownishGrey = ColorName(rgbaValue: 0x707070ff)
   /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#001867"></span>
   /// Alpha: 100% <br/> (0x001867ff)
   internal static let darkRoyalBlue = ColorName(rgbaValue: 0x001867ff)
+  /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#0f85b9"></span>
+  /// Alpha: 100% <br/> (0x0f85b9ff)
+  internal static let niceBlue = ColorName(rgbaValue: 0x0f85b9ff)
   /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#6f0466"></span>
   /// Alpha: 100% <br/> (0x6f0466ff)
   internal static let richPurpleTwo = ColorName(rgbaValue: 0x6f0466ff)
   /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#cccccc"></span>
   /// Alpha: 100% <br/> (0xccccccff)
   internal static let veryLightPink = ColorName(rgbaValue: 0xccccccff)
+  /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#908c8c"></span>
+  /// Alpha: 100% <br/> (0x908c8cff)
+  internal static let warmGrey = ColorName(rgbaValue: 0x908c8cff)
 }
 // swiftlint:enable identifier_name line_length type_body_length
 

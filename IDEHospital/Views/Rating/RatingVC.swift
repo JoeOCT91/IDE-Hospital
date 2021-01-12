@@ -39,6 +39,10 @@ class RatingVC: UIViewController {
         self.setupBackWithPopup()
         
     }
+    private func popCurrentView(){
+        //self.dismiss(animated: true)
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 extension RatingVC:RatingVcProtocol{
     func presentSuccessAlert(title: String, message: String) {
@@ -56,6 +60,7 @@ extension RatingVC:RatingVcProtocol{
 }
 extension RatingVC:AlertVcDelegate{
     func okButtonPressed() {
-        self.view.window?.rootViewController?.dismiss(animated: false)
+        self.dismiss(animated: true)
+        self.popCurrentView()
     }
 }

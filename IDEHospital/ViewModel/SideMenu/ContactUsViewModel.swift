@@ -12,6 +12,7 @@ protocol ContactUsViewModelProtocol {
 class ContactUsViewModel{
     
     private weak var view:ContactUsVCProtocol?
+
     init(view:ContactUsVCProtocol) {
         self.view = view
     }
@@ -26,7 +27,6 @@ class ContactUsViewModel{
                 self.view?.presentErrorAlert(title: L10n.sorry, message: error.localizedDescription)
                 print(error.localizedDescription)
             case .success(let result):
-                print(result.code)
                 if result.code == 202 {
                     self.view?.presentSuccessAlert(title: L10n.successfulRequest, message: L10n.successRequestMessage)
                 }
@@ -39,6 +39,7 @@ extension ContactUsViewModel:ContactUsViewModelProtocol{
     
     func contuctUsRequest(name:String?, email:String?, phoneNumber:String?, message:String?){
         guard !name!.isEmpty else{
+
             self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.pleaseEnterName)
             return
         }

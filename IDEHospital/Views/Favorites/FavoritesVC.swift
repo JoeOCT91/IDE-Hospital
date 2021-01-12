@@ -7,13 +7,14 @@
 
 import UIKit
 
+@objc
 protocol PaginationVCProtocol: class {
     func reloadTableview()
     func showLoader()
     func hideLoader()
     func tableViewIsEmpty(message: String)
     func hideEmptyTablePlaceHolder()
-    func setCellImage(image: Data, indexPath: IndexPath)
+    @objc optional func setCellImage(image: Data, indexPath: IndexPath)
 }
 
 protocol FavoritesVCProtocol: PaginationVCProtocol {
@@ -23,6 +24,7 @@ protocol FavoritesVCProtocol: PaginationVCProtocol {
 class FavoritesVC: UIViewController {
     
     @IBOutlet var favoritesView: FavoritesView!
+    
     private var viewModel: FavoritesVMProtocol!
     
     override func viewDidLoad() {
@@ -30,7 +32,6 @@ class FavoritesVC: UIViewController {
         favoritesView.setup()
         favoritesView.setupTableView(delgate: self, dataSource: self)
         configureNavigationBar()
-        //self.setUpButtonsInNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,14 +70,16 @@ extension FavoritesVC: FavoritesVCProtocol {
     func reloadTableview(){
         favoritesView.favoritesTableView.reloadData()
     }
+    
     func showLoader(){
         view.showLoader()
     }
+    
     func hideLoader(){
         view.hideLoader()
     }
 }
-
+//MARK:- Favorites table view delgetes functions
 extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.getDataListCount()
@@ -107,7 +110,9 @@ extension FavoritesVC: FavoritesCellDelgate{
     }
     
     @objc func viewDoctorProfile(doctorID: Int) {
-        self.presentAlertOnMainThread(delegate: nil)
+        let doctorProfile = DoctorProfileVC.create(doctorID: doctorID)
+        doctorProfile.setupBackWithPopup()
+        navigationController?.pushViewController(doctorProfile, animated: true)
     }
     
 }

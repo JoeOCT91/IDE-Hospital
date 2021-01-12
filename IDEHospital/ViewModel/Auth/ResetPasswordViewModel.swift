@@ -27,7 +27,6 @@ class RestPasswordViewModel {
                 self.view?.presentErrorAlert(title: L10n.sorry, message: error.localizedDescription)
             case .success(let result):
                 if result.code == 202{
-                    print(result.success)
                     self.view?.presentSuccessAlert(title: L10n.successfulRequest, message: L10n.successRequestMessage)
                 }
                 else{
