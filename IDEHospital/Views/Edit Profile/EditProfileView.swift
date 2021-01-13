@@ -9,7 +9,7 @@ import UIKit
 
 protocol EditProfileDelegate: class {
     func cancelPressed()
-    func savePressed()
+    func savePressed(edittedData: EdditedData)
 }
 
 class EditProfileView: UIView {
@@ -39,6 +39,9 @@ class EditProfileView: UIView {
         userNameTextField.text = userData.name
         phoneNumberTextField.text = userData.mobile
         emailTextField.text = userData.email
+        oldPassTextField.text = ""
+        newPassTextField.text = ""
+        confirmPassTextField.text = ""
     }
     
     //MARK:- Private Methods
@@ -83,7 +86,6 @@ class EditProfileView: UIView {
             bootomLine.leadingAnchor.constraint(equalTo: textField.leadingAnchor),
             bootomLine.trailingAnchor.constraint(equalTo: textField.trailingAnchor)
         ])
-        
         return textField
     }
     
@@ -109,7 +111,7 @@ class EditProfileView: UIView {
     
     private func configureEmailTextField() {
         emailTextField.keyboardType = .emailAddress
-        emailTextField.setup(leftImage: Asset.emailIcon.image, placeholder: L10n.enterPasswordPlaceholder)
+        emailTextField.setup(leftImage: Asset.emailIcon.image, placeholder: L10n.emailTextFieldPlaceholder)
         NSLayoutConstraint.activate([
             emailTextField.topAnchor.constraint(equalTo: userNameTextField.bottomAnchor, constant: padding),
             emailTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
@@ -126,7 +128,7 @@ class EditProfileView: UIView {
             phoneNumberTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
         ])
     }
-    func configureOldPassTextField() {
+    private func configureOldPassTextField() {
         oldPassTextField.setup(leftImage: Asset.passwordIcon.image, placeholder: L10n.oldPassword)
         oldPassTextField.isSecureTextEntry = true
         NSLayoutConstraint.activate([
@@ -187,11 +189,18 @@ class EditProfileView: UIView {
         cancelButton.setTitle(L10n.cancel, for: .normal)
         cancelButton.backgroundColor = ColorName.richPurple.color
         saveButton.addTarget(self, action: #selector(savePressed), for: .touchUpInside)
-        saveButton.addTarget(self, action: #selector(cancelPressed), for: .touchUpInside)
+        cancelButton.addTarget(self, action: #selector(cancelPressed), for: .touchUpInside)
     }
     
     @objc private func savePressed(){
-        delegate?.savePressed()
+        let edditedData = EdditedData(name: userNameTextField.text,
+                                      email: emailTextField.text,
+                                      mobile: phoneNumberTextField.text,
+                                      oldPass: oldPassTextField.text,
+                                      newPass: newPassTextField.text,
+                                      confirmPass: confirmPassTextField.text)
+        
+        delegate?.savePressed(edittedData: edditedData)
     }
     
     @objc private func cancelPressed(){

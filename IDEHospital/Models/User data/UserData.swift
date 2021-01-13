@@ -9,14 +9,16 @@ import Foundation
 
 class UserDataResponse: Codable {
     
-    let success: Bool
-    let userData: UserData
+    let success: Bool?
+    let userData: UserData?
     let code: Int
+    let message: String?
     
     enum CodingKeys: String, CodingKey {
         case success
         case code
         case userData = "data"
+        case message
     }
     
 }
@@ -32,5 +34,12 @@ class UserData: Codable {
         case name
         case mobile
         case accessToken = "access_token"
+    }
+    
+    init(email: String, name: String, mobile: String) {
+        self.name = name
+        self.email = email
+        self.mobile = mobile
+        self.accessToken = nil
     }
 }

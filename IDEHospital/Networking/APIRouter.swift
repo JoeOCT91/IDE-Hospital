@@ -33,6 +33,7 @@ enum APIRouter:URLRequestConvertible {
     case addRating(_ body:RatingBodyData)
     case bookAppointment(_ body:VoucherDataBody)
     case getUserData
+    case editUserData(_ body: EdditedData)
     
     //Mark:- HTTP Methods
     private var method: HTTPMethod {
@@ -43,6 +44,8 @@ enum APIRouter:URLRequestConvertible {
             return .get
         case .removeAppointment:
             return .delete
+        case .editUserData:
+            return .patch
         default:
             return .post
         }
@@ -93,10 +96,8 @@ enum APIRouter:URLRequestConvertible {
             return URLs.doctors + "\(body.doctor_id)/reviews"
         case .bookAppointment:
             return URLs.appoitments
-        case .getUserData:
+        case .getUserData, .editUserData:
             return URLs.user
-        default:
-            return ""
         }
     }
     private var query: URLQueryItem? {
@@ -136,11 +137,12 @@ enum APIRouter:URLRequestConvertible {
         switch self {
         case .getFavories, .getAppointments, .removeFavorite, .removeAppointment,.searchResultRequest(_),.addOrDeleteDoctorFromFavoriteList, .logout, .doctorReviews, .doctorInformation, .addRating,.bookAppointment:
             urlRequest.setValue(UserDefaultsManager.shared().token, forHTTPHeaderField: HeaderKeys.authorization)
-        case .getUserData:
+        case .getUserData, .editUserData:
             urlRequest.setValue(UserDefaultsManager.shared().token, forHTTPHeaderField: HeaderKeys.authorization)
         default:
             break
         }
+        
         urlRequest.setValue("Accept-Language", forHTTPHeaderField: "en")
         urlRequest.setValue("application/json", forHTTPHeaderField: HeaderKeys.contentType)
         urlRequest.setValue("application/json", forHTTPHeaderField: HeaderKeys.accept)
@@ -162,6 +164,8 @@ enum APIRouter:URLRequestConvertible {
                 return encodeToJSON(body)
             case .bookAppointment(let body):
                 return encodeToJSON(body)
+            case .editUserData(let body):
+                return encodeToJSON(body)
             default:
                 return nil
             }
@@ -180,7 +184,6 @@ enum APIRouter:URLRequestConvertible {
         }()
     
         print(try encoding.encode(urlRequest, with: parameters))
-
         return try encoding.encode(urlRequest, with: parameters)
     }
 }

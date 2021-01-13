@@ -122,6 +122,8 @@ internal enum L10n {
   internal static let myFavorites = L10n.tr("Localizable", "myFavorites")
   /// The name must be at least 3 characters
   internal static let nameFieldCountIsSmall = L10n.tr("Localizable", "nameFieldCountIsSmall")
+  /// Please enter your name
+  internal static let nameIsEmpty = L10n.tr("Localizable", "nameIsEmpty")
   /// Your Name
   internal static let nameTextFieldPlaceholder = L10n.tr("Localizable", "nameTextFieldPlaceholder")
   /// New Password
@@ -140,6 +142,8 @@ internal enum L10n {
   internal static let nurseVcLabel = L10n.tr("Localizable", "nurseVcLabel")
   /// Old Password
   internal static let oldPassword = L10n.tr("Localizable", "oldPassword")
+  /// Passwords not match please recheck
+  internal static let passNotMatch = L10n.tr("Localizable", "passNotMatch")
   /// Mobile Number
   internal static let phoneTextFieldPlaceholder = L10n.tr("Localizable", "phoneTextFieldPlaceholder")
   /// Confirm Password Field is Empty, Please Confirm your Password
@@ -234,6 +238,14 @@ internal enum L10n {
   internal static let terms = L10n.tr("Localizable", "terms")
   /// Terms & Conditions
   internal static let termsAndConditions = L10n.tr("Localizable", "TermsAndConditions")
+  /// please enter valid Email address
+  internal static let validEmail = L10n.tr("Localizable", "validEmail")
+  /// please enter valid mobile number
+  internal static let validMobile = L10n.tr("Localizable", "validMobile")
+  /// please enter valid new passsword, that must be at least 6 characters.
+  internal static let validNewPass = L10n.tr("Localizable", "validNewPass")
+  /// please enter Valid passsword, that must be at least 6 characters.
+  internal static let validPass = L10n.tr("Localizable", "validPass")
   /// View on map
   internal static let viewOnMap = L10n.tr("Localizable", "viewOnMap")
   /// Wating Time: 

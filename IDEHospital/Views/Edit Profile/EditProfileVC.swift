@@ -9,11 +9,14 @@ import UIKit
 
 protocol EditProfileVCProtocol: class {
     func setUserData(userData: UserData)
+    func presentError(message: String)
     func showLoader()
     func hideLoader()
 }
 
 class EditProfileVC: UIViewController {
+
+    
     
     //View
     @IBOutlet var editProfileView: EditProfileView!
@@ -22,9 +25,9 @@ class EditProfileVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
         viewModel.getUserData()
         setupViews()
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -33,10 +36,12 @@ class EditProfileVC: UIViewController {
     }
     
     private func setupViews() {
+        editProfileView.delegate = self
         setupBackWithPopup()
         setViewControllerTitle(to: L10n.editProfile)
         setupNavigationBar()
         editProfileView.setupBackground()
+        self.hideKeyboardWhenTappedAround()
     }
    
     // MARK:- Public Methods
@@ -58,6 +63,21 @@ extension EditProfileVC: EditProfileVCProtocol {
     }
     internal func setUserData(userData: UserData){
         editProfileView.setUserrData(userData: userData)
+    }
+    
+    internal func presentError(message: String){
+        presentAlertOnMainThread(message: message, delegate: nil)
+    }
+
+}
+
+extension EditProfileVC: EditProfileDelegate{
+    func cancelPressed() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func savePressed(edittedData: EdditedData) {
+        viewModel.saveUserData(edditedData: edittedData)
     }
 
 }

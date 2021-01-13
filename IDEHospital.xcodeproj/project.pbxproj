@@ -91,6 +91,7 @@
 		864B515025ADF239004403A1 /* EditProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 864B514F25ADF238004403A1 /* EditProfile.storyboard */; };
 		864B515325ADF29D004403A1 /* EditProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864B515225ADF29D004403A1 /* EditProfileVM.swift */; };
 		864B515725AE6049004403A1 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864B515625AE6049004403A1 /* UserData.swift */; };
+		864B516325AF126F004403A1 /* EditedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864B516225AF126F004403A1 /* EditedData.swift */; };
 		869D1FDC259A1CE900067BBC /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869D1FDB259A1CE900067BBC /* SideMenuVC.swift */; };
 		869D1FDF259A22CE00067BBC /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869D1FDE259A22CE00067BBC /* SideMenuView.swift */; };
 		869D1FE5259A236C00067BBC /* SideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869D1FE4259A236C00067BBC /* SideMenuViewModel.swift */; };
@@ -251,6 +252,7 @@
 		864B514F25ADF238004403A1 /* EditProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditProfile.storyboard; sourceTree = "<group>"; };
 		864B515225ADF29D004403A1 /* EditProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVM.swift; sourceTree = "<group>"; };
 		864B515625AE6049004403A1 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		864B516225AF126F004403A1 /* EditedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditedData.swift; sourceTree = "<group>"; };
 		869D1FDB259A1CE900067BBC /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
 		869D1FDE259A22CE00067BBC /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		869D1FE4259A236C00067BBC /* SideMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewModel.swift; sourceTree = "<group>"; };
@@ -793,6 +795,7 @@
 			isa = PBXGroup;
 			children = (
 				864B515625AE6049004403A1 /* UserData.swift */,
+				864B516225AF126F004403A1 /* EditedData.swift */,
 			);
 			path = "User data";
 			sourceTree = "<group>";
@@ -1431,6 +1434,7 @@
 				8632AA20258904A100E4DB8D /* String+trimming.swift in Sources */,
 				8632AA06258901DF00E4DB8D /* HomeViewModel.swift in Sources */,
 				863232CD257D733C00514F5A /* AppDelegate.swift in Sources */,
+				864B516325AF126F004403A1 /* EditedData.swift in Sources */,
 				86241F75259CF0C10063CD57 /* String+ToHTML.swift in Sources */,
 				B2DF04312597D9C800400F8F /* ResetPasswordView.swift in Sources */,
 				862851ED258061740059122F /* UIColor+FromHex.swift in Sources */,

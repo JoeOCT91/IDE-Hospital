@@ -152,7 +152,12 @@ class APIManager {
             completion(response)
         }
     }
-
+    
+    class func edditUserData(eddittedData: EdditedData, completion: @escaping (Result<UserDataResponse, Error>) -> () ) {
+        request(APIRouter.editUserData(eddittedData)) { (response) in
+            completion(response)
+        }
+    }
 }
 
 extension APIManager{

@@ -133,3 +133,10 @@
 "oldPassword" = "Old Password";
 "save" = "Save";
 "cancel" = "Cancel";
+"nameIsEmpty" = "Please enter your name";
+"validEmail" = "please enter valid Email address";
+"validMobile" = "please enter valid mobile number";
+"validPass" = "please enter Valid passsword, that must be at least 6 characters.";
+"validNewPass" = "please enter valid new passsword, that must be at least 6 characters.";
+"passNotMatch" = "Passwords not match please recheck";
+
