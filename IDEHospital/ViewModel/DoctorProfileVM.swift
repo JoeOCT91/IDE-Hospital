@@ -98,11 +98,13 @@ class DoctorProfileVM<T: DoctorProfileVCProtocol>: ViewModelWithPagination<T>, D
             guard let self = self else { return }
             switch result {
             case .success(let appointmentsDates):
-                self.doctorAppointments = appointmentsDates.data
-                self.selectedIndexPath = IndexPath()
-                let date = self.convertStamp(format: "EEEE,d MMMM yyy", timestamp: self.doctorAppointments[self.dayIndex].date)
-                self.view?.setupAppointmentData(date: date)
-                self.view?.reloadCollectionData()
+                if appointmentsDates.success != nil , let data = appointmentsDates.data {
+                    self.doctorAppointments = data
+                    self.selectedIndexPath = IndexPath()
+                    let date = self.convertStamp(format: "EEEE,d MMMM yyy", timestamp: self.doctorAppointments[self.dayIndex].date)
+                    self.view?.setupAppointmentData(date: date)
+                    self.view?.reloadCollectionData()
+                }
             case .failure(let error):
                 print(error)
             }
@@ -181,13 +183,15 @@ class DoctorProfileVM<T: DoctorProfileVCProtocol>: ViewModelWithPagination<T>, D
             guard let self = self else { return }
             switch result {
             case .success(let doctorInformation):
-                self.view?.setupDctorInformationData(doctorInformation: doctorInformation.data)
-                self.doctorName = doctorInformation.data.name
-                if doctorInformation.data.isFavorited {
-                    self.view?.isFavorite(imageName: Asset.redHeart.name)
-                    self.isFavorite = doctorInformation.data.isFavorited
+                if doctorInformation.success != nil, let data = doctorInformation.data {
+                    self.view?.setupDctorInformationData(doctorInformation: data)
+                    self.doctorName = data.name
+                    if data.isFavorited {
+                        self.view?.isFavorite(imageName: Asset.redHeart.name)
+                        self.isFavorite = data.isFavorited
+                    }
+                    self.getDoctorImage(urlString: data.image)
                 }
-                self.getDoctorImage(urlString: doctorInformation.data.image)
             case .failure(let error):
                 print(error)
             }

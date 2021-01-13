@@ -9,9 +9,10 @@ import Foundation
 
 // MARK: - Welcome
 struct MainResponse<Elment: Codable>: Codable {
-    let success: Bool
+    let success: Bool?
     let code: Int
-    let data: Elment
+    let data: Elment?
+    let message: String?
 }
 
 // MARK: - Datum

@@ -147,13 +147,13 @@ class APIManager {
           }
     
     //User data
-    class func getUserData(completion: @escaping (Result<UserDataResponse, Error>) -> () ) {
+    class func getUserData(completion: @escaping (Result<MainResponse<UserData>, Error>) -> () ) {
         request(APIRouter.getUserData) { (response) in
             completion(response)
         }
     }
     
-    class func edditUserData(eddittedData: EdditedData, completion: @escaping (Result<UserDataResponse, Error>) -> () ) {
+    class func edditUserData(eddittedData: EdditedData, completion: @escaping (Result<MainResponse<UserData>, Error>) -> () ) {
         request(APIRouter.editUserData(eddittedData)) { (response) in
             completion(response)
         }

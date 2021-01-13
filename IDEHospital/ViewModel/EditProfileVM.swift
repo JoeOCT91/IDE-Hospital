@@ -28,7 +28,7 @@ class EditProfileVM: EditProfileVMProtocol {
                 switch result {
                 case.success(let data):
                     if data.code == 200 {
-                        self.view?.setUserData(userData: data.userData!)
+                        self.view?.setUserData(userData: data.data!)
                     }
                     if data.code == 401 {
                         self.view?.presentError(message: data.message!)
@@ -85,7 +85,7 @@ class EditProfileVM: EditProfileVMProtocol {
             switch result {
             case .success(let userData):
                 if userData.success != nil {
-                    self.view?.setUserData(userData: userData.userData!)
+                    self.view?.setUserData(userData: userData.data!)
                 }
                 print(userData)
                 self.view?.hideLoader()

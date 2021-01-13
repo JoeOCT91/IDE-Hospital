@@ -7,22 +7,6 @@
 
 import Foundation
 
-class UserDataResponse: Codable {
-    
-    let success: Bool?
-    let userData: UserData?
-    let code: Int
-    let message: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case success
-        case code
-        case userData = "data"
-        case message
-    }
-    
-}
-
 class UserData: Codable {
     let email: String
     let name: String
