@@ -100,7 +100,7 @@ class EditProfileView: UIView {
     }
     
     private func configureUserNameTextField() {
-        let topConstant = UIScreen.main.bounds.height * 0.23
+        let topConstant = UIScreen.main.bounds.height * 0.25
         userNameTextField.setup(leftImage: Asset.nameIcon.image, placeholder: L10n.nameTextFieldPlaceholder)
         NSLayoutConstraint.activate([
             userNameTextField.topAnchor.constraint(equalTo: self.topAnchor, constant: topConstant),
@@ -167,7 +167,9 @@ class EditProfileView: UIView {
             buttonContainer.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: PaddingConstatnt),
             buttonContainer.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -PaddingConstatnt),
             buttonContainer.heightAnchor.constraint(equalToConstant: 25),
-            buttonContainer.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -bottomPadding)
+            buttonContainer.topAnchor.constraint(equalTo: confirmPassTextField.bottomAnchor, constant: bottomPadding)
+
+            //buttonContainer.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -bottomPadding)
         ])
         
         buttonContainer.addSubview(saveButton)
