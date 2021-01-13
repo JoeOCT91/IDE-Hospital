@@ -3,11 +3,11 @@
 //  IDEHospital
 //
 //  Created by Mostafa Saleh on 12/19/20.
-//
+//  Modified Yousef Moahmed
 
-import Foundation
 import UIKit
 @IBDesignable
+
 class IDEAHopitalTextField: UITextField  {
     
     // MARK:- Properties
@@ -23,6 +23,21 @@ class IDEAHopitalTextField: UITextField  {
     
     override open func editingRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: padding)
+    }
+    
+    init() {
+        super.init(frame: .zero)
+        self.textColor = ColorName.white.color
+        self.font = UIFont(font: FontFamily.PTSans.bold, size: 15)
+        self.backgroundColor = .clear
+        self.leftViewMode = .always
+        self.borderStyle = .none
+    }
+
+    
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func awakeFromNib() {

@@ -140,11 +140,18 @@ class APIManager {
            }
        }
     // Book Appintment with doctor (Voucher)
-    class func bookAppoinmentWithDoctorAPI(body:VoucherDataBody ,completion: @escaping (Result<VoucherResponse, Error>)-> ()){
+    class func bookAppoinmentWithDoctorAPI(body:VoucherDataBody ,completion: @escaping (Result<VoucherResponse, Error>)-> () ){
         request(APIRouter.bookAppointment(body)){ (response) in
                   completion(response)
               }
           }
+    
+    //User data
+    class func getUserData(completion: @escaping (Result<UserDataResponse, Error>) -> () ) {
+        request(APIRouter.getUserData) { (response) in
+            completion(response)
+        }
+    }
 
 }
 
@@ -162,7 +169,7 @@ extension APIManager{
             //                print(str)
             }
         }.responseJSON { response in
-            //print(response)
+            print(response)
         } .response { response in
             //print(response.response?.statusCode)
         }

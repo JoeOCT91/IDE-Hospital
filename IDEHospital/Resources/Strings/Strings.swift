@@ -16,6 +16,8 @@ internal enum L10n {
   internal static let anotherPerson = L10n.tr("Localizable", "anotherPerson")
   /// Book
   internal static let book = L10n.tr("Localizable", "book")
+  /// Cancel
+  internal static let cancel = L10n.tr("Localizable", "cancel")
   /// SearchResultTableViewCell
   internal static let cellIdentifire = L10n.tr("Localizable", "cellIdentifire")
   /// Choose City
@@ -36,6 +38,8 @@ internal enum L10n {
   internal static let commentPlaceHolder = L10n.tr("Localizable", "commentPlaceHolder")
   /// Confirm Password
   internal static let confirmPasswordPlaceholder = L10n.tr("Localizable", "confirm PasswordPlaceholder")
+  /// Confirm Password
+  internal static let confirmPassword = L10n.tr("Localizable", "confirmPassword")
   /// Confirm Your Appointment
   internal static let confirmYourAppointment = L10n.tr("Localizable", "confirmYourAppointment")
   /// If you would like further information about how we can help you andyour health it would be great to hear from you.
@@ -58,6 +62,8 @@ internal enum L10n {
   internal static let done = L10n.tr("Localizable", "done")
   /// Do you have a Voucher Code?
   internal static let doYouHaveVoucher = L10n.tr("Localizable", "doYouHaveVoucher")
+  /// Edit Profile
+  internal static let editProfile = L10n.tr("Localizable", "editProfile")
   ///  LE
   internal static let egyptionPound = L10n.tr("Localizable", "egyptionPound")
   /// Your Email
@@ -118,6 +124,8 @@ internal enum L10n {
   internal static let nameFieldCountIsSmall = L10n.tr("Localizable", "nameFieldCountIsSmall")
   /// Your Name
   internal static let nameTextFieldPlaceholder = L10n.tr("Localizable", "nameTextFieldPlaceholder")
+  /// New Password
+  internal static let newPassword = L10n.tr("Localizable", "newPassword")
   /// No
   internal static let no = L10n.tr("Localizable", "no")
   /// Please Leave Your Rating
@@ -130,6 +138,8 @@ internal enum L10n {
   internal static let noVoucher = L10n.tr("Localizable", "noVoucher")
   /// If you would like further information about how we can help you and your health it would be great to hear from you
   internal static let nurseVcLabel = L10n.tr("Localizable", "nurseVcLabel")
+  /// Old Password
+  internal static let oldPassword = L10n.tr("Localizable", "oldPassword")
   /// Mobile Number
   internal static let phoneTextFieldPlaceholder = L10n.tr("Localizable", "phoneTextFieldPlaceholder")
   /// Confirm Password Field is Empty, Please Confirm your Password
@@ -162,6 +172,8 @@ internal enum L10n {
   internal static let rightPasswordFormatDescription = L10n.tr("Localizable", "rightPasswordFormatDescription")
   /// The Entered Number Doesn't Start with 010,011,012 or 015 with Max 11 Numbers at All
   internal static let rightPhoneNumberFormatDescription = L10n.tr("Localizable", "rightPhoneNumberFormatDescription")
+  /// Save
+  internal static let save = L10n.tr("Localizable", "save")
   /// Schedule
   internal static let schedule = L10n.tr("Localizable", "schedule")
   /// Search

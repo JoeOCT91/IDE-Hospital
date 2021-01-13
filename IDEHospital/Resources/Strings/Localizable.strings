@@ -126,3 +126,10 @@
 "successfulBooking" = "Appointment have been Booked Successfully";
 //Rating
 
+//Edit Profile
+"editProfile" = "Edit Profile";
+"confirmPassword" = "Confirm Password";
+"newPassword" = "New Password";
+"oldPassword" = "Old Password";
+"save" = "Save";
+"cancel" = "Cancel";

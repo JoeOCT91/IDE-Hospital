@@ -53,7 +53,8 @@ class SideMenuVC: UIViewController {
 
 extension SideMenuVC: SideMenuVCProtocol {
     func editProfilePressed() {
-        self.presentAlertOnMainThread(delegate: nil)
+        let editProfileVC = EditProfileVC.create()
+        navigationController?.pushViewController(editProfileVC, animated: true)
     }
     
     func favoritesPressed() {

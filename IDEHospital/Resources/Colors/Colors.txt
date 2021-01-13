@@ -1,11 +1,8 @@
 White : #ffffff
 veryLightPink : #cccccc
 darkRoyalBlue : #001867
-<<<<<<< HEAD
 brownishGrey : #707070
 niceBlue : #0f85b9
 warmGrey : #908c8c
 richPurpleTwo : #6f0466
-=======
-richPurpleTwo : #6F0466
->>>>>>> Sprint-4
+richPurple : #6F0466

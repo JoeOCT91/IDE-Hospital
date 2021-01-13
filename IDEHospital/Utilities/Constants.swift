@@ -22,6 +22,7 @@ struct Storyboards {
     static let staticContent = "StaticContent"
     static let doctorProfile = "DoctorProfile"
     static let rating = "Rating"
+    static let editProfile = "EditProfile"
 }
 
 // Cells
@@ -56,6 +57,7 @@ struct ViewControllers {
     static let doctorProfileVC = "DoctorProfileVC"
     static let ratingVC = "RatingVC"
     static let bookWithDoctorVC = "BookWithDoctorVC"
+    static let editProfile = "EditProfileVC"
 }
 
 // Urls
@@ -75,6 +77,7 @@ struct URLs {
     static let about = "about_us"
     static let doctors = "doctors/"
     static let ratingDoctor = "doctors"
+    static let user = "user"
 }
 
 // Header Keys

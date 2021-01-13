@@ -32,13 +32,14 @@ enum APIRouter:URLRequestConvertible {
     case doctorAppointments(_ doctorID: Int)
     case addRating(_ body:RatingBodyData)
     case bookAppointment(_ body:VoucherDataBody)
+    case getUserData
     
     //Mark:- HTTP Methods
     private var method: HTTPMethod {
         switch self {
         case .getCategories, .getFavories, .getCategory, .getAppointments, .getAbout, .searchResultRequest:
             return .get
-        case .termsAndConditions, .doctorReviews, .doctorInformation, .doctorAppointments:
+        case .termsAndConditions, .doctorReviews, .doctorInformation, .doctorAppointments, .getUserData:
             return .get
         case .removeAppointment:
             return .delete
@@ -92,6 +93,8 @@ enum APIRouter:URLRequestConvertible {
             return URLs.doctors + "\(body.doctor_id)/reviews"
         case .bookAppointment:
             return URLs.appoitments
+        case .getUserData:
+            return URLs.user
         default:
             return ""
         }
@@ -132,6 +135,8 @@ enum APIRouter:URLRequestConvertible {
         //Http Headers
         switch self {
         case .getFavories, .getAppointments, .removeFavorite, .removeAppointment,.searchResultRequest(_),.addOrDeleteDoctorFromFavoriteList, .logout, .doctorReviews, .doctorInformation, .addRating,.bookAppointment:
+            urlRequest.setValue(UserDefaultsManager.shared().token, forHTTPHeaderField: HeaderKeys.authorization)
+        case .getUserData:
             urlRequest.setValue(UserDefaultsManager.shared().token, forHTTPHeaderField: HeaderKeys.authorization)
         default:
             break
