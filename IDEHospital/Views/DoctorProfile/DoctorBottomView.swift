@@ -169,7 +169,7 @@ class DoctorBottomView: UIView {
         scrollView.backgroundColor = ColorName.white.color.withAlphaComponent(0.75)
         NSLayoutConstraint.activate([
             scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             scrollView.topAnchor.constraint(equalTo: reviewsButton.bottomAnchor),
             scrollView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
         ])
@@ -236,7 +236,7 @@ class DoctorBottomView: UIView {
             sohowOnMapButton.topAnchor.constraint(equalTo: doctorAddress.bottomAnchor, constant: 6),
             sohowOnMapButton.heightAnchor.constraint(equalToConstant: 16),
             sohowOnMapButton.leadingAnchor.constraint(equalTo: scrollViewContainer.leadingAnchor, constant: 20),
-            sohowOnMapButton.widthAnchor.constraint(equalToConstant: 35)
+            sohowOnMapButton.widthAnchor.constraint(equalToConstant: 60)
         ])
         sohowOnMapButton.addTarget(self, action: #selector(showOnMapPressed), for: .touchUpInside)
     }
