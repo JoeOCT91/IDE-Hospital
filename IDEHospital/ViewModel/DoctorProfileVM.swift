@@ -21,10 +21,19 @@ protocol DoctorProfileVMProtocol: ViewModelWithPaginatioProtocol {
     func prepareForBooking(indexPath: IndexPath)
     func perfromBookingAction(bookingInformation: (Int, String, Int) -> ())
     func checkIfItselected(indexPath: IndexPath, withData: (Bool, ColorName, String) -> ()) -> Bool
+    func checkUserToken(doctorID: Int, doctorName: String, appointmentTime:Int)
 }
 
 class DoctorProfileVM<T: DoctorProfileVCProtocol>: ViewModelWithPagination<T>, DoctorProfileVMProtocol{
-
+    func checkUserToken(doctorID: Int, doctorName: String, appointmentTime:Int) {
+        if UserDefaultsManager.shared().token != nil {
+            self.view?.openVoucherPopUpView(doctorID: doctorID, doctorName: doctorName, appointmentTime: appointmentTime)
+        } else {
+            self.view?.openBookingWithAuthPopUpView(doctorID: doctorID, doctorName: doctorName, appointmentTime: appointmentTime)
+        }
+    }
+    
+    
     //View model proprety is in the parent class
     //view proprety in the parent class
     
@@ -75,11 +84,7 @@ class DoctorProfileVM<T: DoctorProfileVCProtocol>: ViewModelWithPagination<T>, D
     }
     
     internal func perfromBookingAction(bookingInformation: (Int, String, Int) -> ()) {
-        if checkForAuth() {
-            bookingInformation(doctorID, doctorName, appointmentTimestamp)
-        } else {
-            view?.presentError()
-        }
+        bookingInformation(doctorID, doctorName, appointmentTimestamp)
     }
     
     //this function hide favorite icon from the view when the user is not authrized
@@ -114,7 +119,7 @@ class DoctorProfileVM<T: DoctorProfileVCProtocol>: ViewModelWithPagination<T>, D
         dateFormatter.dateFormat = format
         let date = Date(timeIntervalSince1970: Double(timestamp))
         let dateString = dateFormatter.string(from: date)
-
+        
         return dateString
     }
     
@@ -220,7 +225,7 @@ class DoctorProfileVM<T: DoctorProfileVCProtocol>: ViewModelWithPagination<T>, D
             }
         }
     }
-
+    
     internal func getReviewData(index: Int) -> Review {
         return dataList[index] as! Review
     }

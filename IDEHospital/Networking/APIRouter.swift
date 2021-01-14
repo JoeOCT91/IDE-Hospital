@@ -32,6 +32,8 @@ enum APIRouter:URLRequestConvertible {
     case doctorAppointments(_ doctorID: Int)
     case addRating(_ body:RatingBodyData)
     case bookAppointment(_ body:VoucherDataBody)
+    case bookWithRegister(_ body:BookWithRegisterBodyData)
+    case bookWithLogin(_ body:BookWithLoginBodyData)
     
     //Mark:- HTTP Methods
     private var method: HTTPMethod {
@@ -92,6 +94,10 @@ enum APIRouter:URLRequestConvertible {
             return URLs.doctors + "\(body.doctor_id)/reviews"
         case .bookAppointment:
             return URLs.appoitments
+        case .bookWithRegister:
+            return URLs.bookWithRegister
+        case .bookWithLogin:
+            return URLs.bookWithLogin
         default:
             return ""
         }
@@ -156,6 +162,10 @@ enum APIRouter:URLRequestConvertible {
             case .addRating(let body):
                 return encodeToJSON(body)
             case .bookAppointment(let body):
+                return encodeToJSON(body)
+            case .bookWithRegister(let body):
+                return encodeToJSON(body)
+            case .bookWithLogin(let body):
                 return encodeToJSON(body)
             default:
                 return nil

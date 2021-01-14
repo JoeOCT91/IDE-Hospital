@@ -67,7 +67,7 @@ class UnRegisteredBookingVC: UIViewController {
         self.unRegisterdBookingView.changeCloseButtonBacgroundImage(buttonBackGroundImage: Asset.dismiss.image)
     }
     @IBAction func closeButtonPressed(_ sender: Any) {
-        self.dismiss(animated: true)
+        self.presentAlertOnMainThread(id: 0, message: "Are you want to cancel the Appointment!", delegate: self)
     }
     
     @IBAction func registerVoucherCheckBoxButtonPressed(_ sender: Any) {
@@ -91,11 +91,11 @@ class UnRegisteredBookingVC: UIViewController {
     }
     
     @IBAction func signUpAndBookButtonPressed(_ sender: Any) {
-        self.viewModel.bookWithRegisterRequest(name: unRegisterdBookingView.nameTextField.text, email: unRegisterdBookingView.emailTextField.text, password: unRegisterdBookingView.passwordTextField.text, mobile: unRegisterdBookingView.mobileTextField.text, bookForAnother: registerAnotherPatientCheckBoxState, patientName: unRegisterdBookingView.anotherPatientTextField.text, usingVoucher: registerVoucherCheckBoxState, voucherCode: unRegisterdBookingView.voucherTextField.text)
+        self.viewModel.checkRegisterData(name: unRegisterdBookingView.nameTextField.text, email: unRegisterdBookingView.emailTextField.text, password: unRegisterdBookingView.passwordTextField.text, mobile: unRegisterdBookingView.mobileTextField.text, bookForAnother: registerAnotherPatientCheckBoxState, patientName: unRegisterdBookingView.anotherPatientTextField.text, usingVoucher: registerVoucherCheckBoxState, voucherCode: unRegisterdBookingView.voucherTextField.text)
     }
     
     @IBAction func loginAndBookButtonPressed(_ sender: Any) {
-        self.viewModel.bookWithLoginRequest(email: unRegisterdBookingView.loginEmailTextField.text, password: unRegisterdBookingView.loginPasswordTextField.text, bookForAnother: loginAnotherPatientCheckBoxState, patientName: unRegisterdBookingView.loginAnotherPatientTextField.text, usingVoucher: loginVoucherCheckBoxState, voucherCode: unRegisterdBookingView.loginVoucherTextField.text)
+        self.viewModel.checkLoginData(email: unRegisterdBookingView.loginEmailTextField.text, password: unRegisterdBookingView.loginPasswordTextField.text, bookForAnother: loginAnotherPatientCheckBoxState, patientName: unRegisterdBookingView.loginAnotherPatientTextField.text, usingVoucher: loginVoucherCheckBoxState, voucherCode: unRegisterdBookingView.loginVoucherTextField.text)
     }
     
     @IBAction func termsAndConditionsButtonPressed(_ sender: Any) {

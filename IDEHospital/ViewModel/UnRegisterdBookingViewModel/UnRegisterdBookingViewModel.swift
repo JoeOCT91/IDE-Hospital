@@ -12,8 +12,8 @@ protocol UnRegisterdBookingViewModelProtocol {
     func checkRegisterAnotherPatientCheckBox(state:Bool) -> Bool
     func checkLoginVoucherCheckBox(state:Bool) -> Bool
     func checkLoginAnotherPatientCheckBox(state:Bool) -> Bool
-    func bookWithLoginRequest(email: String?, password: String?, bookForAnother: Bool, patientName: String?, usingVoucher: Bool, voucherCode: String?)
-    func bookWithRegisterRequest(name: String?, email: String?, password: String?, mobile: String?, bookForAnother: Bool, patientName: String?, usingVoucher: Bool, voucherCode: String?)
+    func checkLoginData(email: String?, password: String?, bookForAnother: Bool, patientName: String?, usingVoucher: Bool, voucherCode: String?)
+    func checkRegisterData(name: String?, email: String?, password: String?, mobile: String?, bookForAnother: Bool, patientName: String?, usingVoucher: Bool, voucherCode: String?)
 }
 class UnRegisterdBookingViewModel {
     
@@ -31,9 +31,60 @@ class UnRegisterdBookingViewModel {
         self.doctorName = doctorName
         self.appointmentTime = appointmentTime
     }
+    
+    // MARK:- Private Functions
+    private func bookingWithRegisterRequest(body: BookWithRegisterBodyData){
+        self.view?.showLoader()
+        APIManager.bookWithRegisterRequestAPI(body: body){(response) in
+            switch response{
+            case .failure(let error):
+                print(error.localizedDescription)
+                self.view?.presentErrorAlert(title: L10n.sorry, message: error.localizedDescription)
+            case .success(let result):
+                if result.code == 201{
+                    print(result.success)
+                    UserDefaultsManager.shared().token = result.data?.access_token
+                    self.view?.presentSuccessAlert(title: "", message: L10n.successfulBooking)
+                }
+                else if result.code == 422{
+                    if result.errors?.email?[0].count ?? 0 > 0{
+                        self.view?.presentErrorAlert(title: L10n.sorry, message: result.errors?.email?[0] ?? "")
+                    }
+                    else if result.errors?.voucher?[0].count ?? 0 > 0{
+                        self.view?.presentErrorAlert(title: L10n.sorry, message: result.errors?.voucher?[0] ?? "")
+                    }
+                }
+            }
+            self.view?.hideLoader()
+        }
+    }
+    private func bookingWithLoginRequest(body: BookWithLoginBodyData){
+        self.view?.showLoader()
+        APIManager.bookWithLoginRequestAPI(body: body){(response) in
+            switch response{
+            case .failure(let error):
+                print(error.localizedDescription)
+                self.view?.presentErrorAlert(title: L10n.sorry, message: error.localizedDescription)
+            case .success(let result):
+                if result.code == 201{
+                    print(result.success)
+                    UserDefaultsManager.shared().token = result.data?.access_token
+                    self.view?.presentSuccessAlert(title: "", message: L10n.successfulBooking)
+                }
+                else if result.code == 401{
+                    self.view?.presentErrorAlert(title: L10n.sorry, message: result.message ?? "")
+                }
+                else{
+                    self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.noVoucher)
+                    //self.view?.returnBackToVoucherPopUoView()
+                }
+            }
+            self.view?.hideLoader()
+        }
+    }
 }
 extension UnRegisterdBookingViewModel: UnRegisterdBookingViewModelProtocol{
-    func bookWithLoginRequest(email: String?, password: String?, bookForAnother: Bool, patientName: String?, usingVoucher: Bool, voucherCode: String?) {
+    func checkLoginData(email: String?, password: String?, bookForAnother: Bool, patientName: String?, usingVoucher: Bool, voucherCode: String?) {
         
         guard let email = email?.trimmed , !email.isEmpty else {
             self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.pleaseEnterEmail)
@@ -76,10 +127,11 @@ extension UnRegisterdBookingViewModel: UnRegisterdBookingViewModelProtocol{
             self.loginPatientName = nil
         }
         
-        print("Good Login")
+        let body = BookWithLoginBodyData(doctor_id: doctorID, appointment: appointmentTime, patient_name: loginPatientName, book_for_another: bookForAnother, voucher: loginVoucherCode, email: email, password: password)
+        self.bookingWithLoginRequest(body: body)
     }
     
-    func bookWithRegisterRequest(name: String?, email: String?, password: String?, mobile: String?, bookForAnother: Bool, patientName: String?, usingVoucher: Bool, voucherCode: String?) {
+    func checkRegisterData(name: String?, email: String?, password: String?, mobile: String?, bookForAnother: Bool, patientName: String?, usingVoucher: Bool, voucherCode: String?) {
         
         guard !name!.isEmpty else{
             self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.pleaseEnterName)
@@ -139,7 +191,8 @@ extension UnRegisterdBookingViewModel: UnRegisterdBookingViewModelProtocol{
             self.registerPatientName = nil
         }
         
-        print("Good Register")
+        let body = BookWithRegisterBodyData(doctor_id: doctorID, appointment: appointmentTime, patient_name: registerPatientName, book_for_another: bookForAnother, voucher: registerVoucherCode, name: name, email: email, mobile: mobile, password: password)
+        self.bookingWithRegisterRequest(body: body)
     }
     
     func checkRegisterVoucherCheckBox(state:Bool) -> Bool {

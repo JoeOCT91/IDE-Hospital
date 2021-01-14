@@ -76,6 +76,8 @@ struct URLs {
     static let about = "about_us"
     static let doctors = "doctors/"
     static let ratingDoctor = "doctors"
+    static let bookWithRegister = "user_appointments/with_register"
+    static let bookWithLogin = "user_appointments/with_login"
 }
 
 // Header Keys
