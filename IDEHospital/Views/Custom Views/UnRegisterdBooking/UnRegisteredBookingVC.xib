@@ -224,33 +224,37 @@
                                                     </connections>
                                                 </button>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kjG-8b-N82">
-                                                    <rect key="frame" x="98.5" y="418.5" width="129" height="23"/>
+                                                    <rect key="frame" x="96.5" y="418.5" width="133" height="14"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="5Ba-h7-p2g">
-                                                            <rect key="frame" x="0.0" y="0.0" width="28" height="23"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="28" height="14"/>
                                                             <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="12"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Ti-4h-U3D">
-                                                            <rect key="frame" x="28" y="0.0" width="101" height="23"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mVu-0C-4eF" userLabel="Terms &amp; Conditions">
+                                                            <rect key="frame" x="28" y="0.0" width="105" height="14"/>
                                                             <state key="normal">
                                                                 <attributedString key="attributedTitle">
                                                                     <fragment content="Terms &amp; Conditions">
                                                                         <attributes>
                                                                             <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                            <font key="NSFont" size="12" name="PTSans-Bold"/>
-                                                                            <font key="NSOriginalFont" size="12" name="PTSans-Bold"/>
+                                                                            <font key="NSFont" size="12" name="PTSerif-Bold"/>
+                                                                            <font key="NSOriginalFont" size="12" name="PTSerif-Bold"/>
+                                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                             <integer key="NSUnderline" value="1"/>
                                                                         </attributes>
                                                                     </fragment>
                                                                 </attributedString>
                                                             </state>
                                                             <connections>
-                                                                <action selector="termsAndConditionsButtonPressed:" destination="-1" eventType="touchUpInside" id="1m7-F8-HyU"/>
+                                                                <action selector="termsAndConditionsButtonPressed:" destination="-1" eventType="touchUpInside" id="yuP-Md-FSi"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="14" id="jbz-d5-Wfz"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
@@ -438,23 +442,22 @@
                                                     </connections>
                                                 </button>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cId-xs-Eio">
-                                                    <rect key="frame" x="98.5" y="418.5" width="129" height="23"/>
+                                                    <rect key="frame" x="96.5" y="418.5" width="133" height="14"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="Npc-6C-P52">
-                                                            <rect key="frame" x="0.0" y="0.0" width="28" height="23"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="28" height="14"/>
                                                             <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="12"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4hh-Wr-4M3">
-                                                            <rect key="frame" x="28" y="0.0" width="101" height="23"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G7V-hl-aAG" userLabel="LoginTerms &amp; Conditions">
+                                                            <rect key="frame" x="28" y="0.0" width="105" height="14"/>
                                                             <state key="normal">
                                                                 <attributedString key="attributedTitle">
                                                                     <fragment content="Terms &amp; Conditions">
                                                                         <attributes>
                                                                             <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                            <font key="NSFont" size="12" name="PTSans-Bold"/>
-                                                                            <font key="NSOriginalFont" size="12" name="PTSans-Bold"/>
+                                                                            <font key="NSFont" size="12" name="PTSerif-Bold"/>
                                                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                             <integer key="NSUnderline" value="1"/>
                                                                         </attributes>
@@ -462,10 +465,13 @@
                                                                 </attributedString>
                                                             </state>
                                                             <connections>
-                                                                <action selector="termsAndConditionsButtonPressed:" destination="-1" eventType="touchUpInside" id="HGW-K2-NNl"/>
+                                                                <action selector="termsAndConditionsButtonPressed:" destination="-1" eventType="touchUpInside" id="bra-BV-jdc"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="14" id="P6V-1U-ilE"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
@@ -566,8 +572,8 @@
                 <outlet property="loginAnotherPatientTextField" destination="RpL-Im-xla" id="WDj-1i-8Le"/>
                 <outlet property="loginAnotherPatientTopConstraint" destination="diW-4p-1SO" id="fTS-Pe-cwY"/>
                 <outlet property="loginButton" destination="qHr-w5-mZS" id="DpM-TI-chl"/>
-                <outlet property="loginEmailTextField" destination="LGQ-0g-XxG" id="PVQ-eL-JgL"/>
-                <outlet property="loginNameTextField" destination="O95-bv-W9B" id="JT6-O8-bEe"/>
+                <outlet property="loginEmailTextField" destination="O95-bv-W9B" id="XcS-37-GhL"/>
+                <outlet property="loginPasswordTextField" destination="LGQ-0g-XxG" id="ASh-LK-fbz"/>
                 <outlet property="loginPatientLineView" destination="iYt-Tu-w4Y" id="b7T-5z-Nr2"/>
                 <outlet property="loginTermsLabel" destination="Npc-6C-P52" id="nXt-ou-MJh"/>
                 <outlet property="loginView" destination="i8S-ga-fU4" id="agk-N2-aqo"/>

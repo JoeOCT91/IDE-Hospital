@@ -21,6 +21,7 @@ class TermsAndConditionsVC: UIViewController {
         super.viewDidLoad()
         termsAndConditionsView.setup()
         viewModel.getTermsAndConditions()
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         configureNavigationBar()

@@ -44,7 +44,7 @@ class UnRegiserdBookingView: UIView {
     // MARK:- Login View
     @IBOutlet weak var loginView: UIView!
     // TextFields Section
-    @IBOutlet weak var loginNameTextField: IDEAHopitalTextField!
+    @IBOutlet weak var loginPasswordTextField: IDEAHopitalTextField!
     @IBOutlet weak var loginEmailTextField: IDEAHopitalTextField!
     // Voucher Section
     @IBOutlet weak var loginVoucherCheckBox: UIButton!
@@ -101,8 +101,9 @@ class UnRegiserdBookingView: UIView {
         //MARK:- SetUp Login View
         
         // setup Login TextFields
-        self.setUpTextFiled(textFiled: loginNameTextField, textValue: "", placeholder: L10n.nameTextFieldPlaceholder, imageName: Asset.nameIcon.image, numbersPad: false , emailPad: false, isSecured: false)
-        self.setUpTextFiled(textFiled: loginEmailTextField, textValue: "", placeholder: L10n.emailTextFieldPlaceholder, imageName: Asset.emailIcon.image, numbersPad: false , emailPad: true, isSecured: false)
+         self.setUpTextFiled(textFiled: loginEmailTextField, textValue: "", placeholder: L10n.emailTextFieldPlaceholder, imageName: Asset.emailIcon.image, numbersPad: false , emailPad: true, isSecured: false)
+        self.setUpTextFiled(textFiled: loginPasswordTextField, textValue: "", placeholder: L10n.choosePasswordPlaceholder, imageName: Asset.passwordIcon.image, numbersPad: false , emailPad: false, isSecured: true)
+       
         //Setup Login  Voucher Section
         self.setUpButton(button: loginVoucherCheckBox, backgroundImageName: Asset.emptyCheckbox.image)
         self.setUpLabel(label: loginVoucherLabel, labelText: L10n.iHaveVoucherCode, fontName: FontFamily.PTSans.bold, fontSize: 12, fontColor: ColorName.white.color)
@@ -135,71 +136,6 @@ class UnRegiserdBookingView: UIView {
         closeButton.setBackgroundImage(buttonBackGroundImage, for: .normal)
     }
     
-    func checkRegisterVoucherCheckBox(state:Bool) -> Bool {
-        if state{
-            self.voucherCheckBox.setBackgroundImage(Asset.emptyCheckbox.image, for: .normal)
-            self.voucherTextField.alpha = 0
-            self.registerVoucherLineView.alpha = 0
-            self.anotherPatientTopConstraint.constant = -16
-            return false
-        }
-        else{
-            self.voucherCheckBox.setBackgroundImage(Asset.filledCheckbox.image, for: .normal)
-            self.voucherTextField.alpha = 1
-            self.registerVoucherLineView.alpha = 1
-            self.anotherPatientTopConstraint.constant = 16
-            return true
-        }
-    }
-    func checkRegisterAnotherPatientCheckBox(state:Bool) -> Bool {
-        if state{
-            self.anotherPatientCheckBox.setBackgroundImage(Asset.emptyCheckbox.image, for: .normal)
-            self.anotherPatientTextField.alpha = 0
-            self.registerPatientLineView.alpha = 0
-            //self.signUpAndBookButtonTopConstraint.constant = -12.5
-            return false
-        }
-        else{
-            self.anotherPatientCheckBox.setBackgroundImage(Asset.filledCheckbox.image, for: .normal)
-            self.anotherPatientTextField.alpha = 1
-            self.registerPatientLineView.alpha = 1
-            //self.signUpAndBookButtonTopConstraint.constant = 12.5
-            return true
-        }
-    }
-    
-    func checkLoginVoucherCheckBox(state:Bool) -> Bool {
-        if state{
-            self.loginVoucherCheckBox.setBackgroundImage(Asset.emptyCheckbox.image, for: .normal)
-            self.loginVoucherTextField.alpha = 0
-            self.loginVoucherLineView.alpha = 0
-            self.loginAnotherPatientTopConstraint.constant = -16.5
-            return false
-        }
-        else{
-            self.loginVoucherCheckBox.setBackgroundImage(Asset.filledCheckbox.image, for: .normal)
-            self.loginVoucherTextField.alpha = 1
-            self.loginVoucherLineView.alpha = 1
-            self.loginAnotherPatientTopConstraint.constant = 16.5
-            return true
-        }
-    }
-    func checkLoginAnotherPatientCheckBox(state:Bool) -> Bool {
-        if state{
-            self.loginAnotherPatientCheckBox.setBackgroundImage(Asset.emptyCheckbox.image, for: .normal)
-            self.loginAnotherPatientTextField.alpha = 0
-            self.loginPatientLineView.alpha = 0
-            //self.loginAndBookButtonTopConstraint.constant = 42.5
-            return false
-        }
-        else{
-            self.loginAnotherPatientCheckBox.setBackgroundImage(Asset.filledCheckbox.image, for: .normal)
-            self.loginAnotherPatientTextField.alpha = 1
-            self.loginPatientLineView.alpha = 1
-            //self.loginAndBookButtonTopConstraint.constant = 59.5
-            return true
-        }
-    }
 }
 extension UnRegiserdBookingView{
     // MARK Private Functions
