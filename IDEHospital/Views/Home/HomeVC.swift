@@ -57,10 +57,15 @@ class HomeVC: UIViewController {
 extension HomeVC: HomeVCProtocol {
     
     internal func goChooseServicesScreen(celTag:Int) {
-        let tabBarController = SupplierTabBarVC()
-        tabBarController.modalPresentationStyle = .fullScreen
-        tabBarController.categoryID = celTag
-        self.present(tabBarController, animated: true)
+        //        let tabBarController = SupplierTabBarVC()
+        //        tabBarController.modalPresentationStyle = .fullScreen
+        //        tabBarController.categoryID = celTag
+        //        self.present(tabBarController, animated: true)
+        
+        let unRegisterdBooking = UnRegisteredBookingVC.create(doctorID: 1, doctorName: "doctorName", appointmentTime: String("appointmentTime"))
+        unRegisterdBooking.modalPresentationStyle = .overFullScreen
+        unRegisterdBooking.modalTransitionStyle = .crossDissolve
+        present(unRegisterdBooking, animated: true)
     }
     
     internal func goToNurseScreen() {

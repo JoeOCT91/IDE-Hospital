@@ -14,6 +14,7 @@ protocol BookWithDoctorVcProtocol:class {
     func showLoader()
     func hideLoader()
     func goToConfirmationPopView(doctorName:String, appointmentDate:String, appointmentDay:String)
+    func returnBackToVoucherPopUoView()
 }
 protocol BookWithDoctorVCDelegate: class {
     func reloadData()
@@ -24,7 +25,7 @@ class BookWithDoctorVC: UIViewController {
     internal weak var delegate: BookWithDoctorVCDelegate?
     
     @IBOutlet var bookWithDoctorView: BookWithDoctorView!
-    var viewModel:BookWithDoctorViewModelProtocol!
+    private var viewModel:BookWithDoctorViewModelProtocol!
     private var voucherSwitch:Bool = false
     private var anotherPersonSwitch:Bool = false
     override func viewDidLoad() {
@@ -75,6 +76,13 @@ class BookWithDoctorVC: UIViewController {
     
 }
 extension BookWithDoctorVC:BookWithDoctorVcProtocol{
+    func returnBackToVoucherPopUoView() {
+        bookWithDoctorView.popUpView.alpha = 1
+        bookWithDoctorView.hideVoucherPopUpViewButton.alpha = 1
+        bookWithDoctorView.confirmationPopUpViewCenterXConstraint.constant = -500
+        animateView()
+    }
+    
     
     func goToConfirmationPopView(doctorName:String, appointmentDate:String, appointmentDay:String) {
         let attributedDate = bookWithDoctorView.setAttributedMessage(mediumText: L10n.youAreAboutToBook + appointmentDay, boldText: appointmentDate,doctorName: doctorName)

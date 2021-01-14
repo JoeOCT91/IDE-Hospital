@@ -11,7 +11,7 @@ import UIKit
 class IDEAHopitalTextField: UITextField  {
     
     // MARK:- Properties
-    let padding = UIEdgeInsets(top: 0, left: 53, bottom: -10, right: 0)
+    var padding = UIEdgeInsets(top: 0, left: 53, bottom: -10, right: 0)
     
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: padding)
@@ -47,6 +47,9 @@ class IDEAHopitalTextField: UITextField  {
         let leftIcon = UIImageView(image: leftImage)
         self.leftView = leftIcon
     }
+    func setup(placeholder: String, fontSize:CGFloat) {
+         self.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: ColorName.white.color, NSAttributedString.Key.font: FontFamily.PTSans.bold.font(size: fontSize)])
+     }
 }
 
 

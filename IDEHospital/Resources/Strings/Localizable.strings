@@ -71,12 +71,17 @@
 "setNewPassword" = "Set New Password";
 "loginButton" = "Login";
 "signUpButton" = "Sign Up";
+"register" = "Register";
 "setNewPassword" = "Set New Password";
 "instructions" = "By clicking sign up, you agree to our ";
 "terms" = "Terms & Conditions";
 "forgot" = "Forgot Password?";
 "loginFirst" = "You have to Login First to Select your Favorites";
 "loginFirstToAppointment" = "You have to Login First to Book an Appointment";
+"iHaveVoucherCode" = "I Have a Voucher Code";
+"bookForAnotherPatient" = "Book for another person!";
+"signUpAndBook" = "Sign Up & Book";
+"loginAndBook" = "Login & Book";
 //contactUs
 "contactUsMainLabel" = "If you would like further information about how we can help you andyour health it would be great to hear from you.";
 "contactUsSmallLabel" = "For More information call: 19199";

@@ -137,6 +137,10 @@
 		B2BE221A2593AAC1004BA737 /* SearchResultBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BE22192593AAC1004BA737 /* SearchResultBody.swift */; };
 		B2C27E9625A8FB4300457350 /* String+Subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C27E9525A8FB4300457350 /* String+Subscript.swift */; };
 		B2C27E9825A90C8F00457350 /* String+ReplaceCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C27E9725A90C8F00457350 /* String+ReplaceCharacter.swift */; };
+		B2C27E9C25AF712C00457350 /* UnRegisteredBookingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C27E9A25AF712C00457350 /* UnRegisteredBookingVC.swift */; };
+		B2C27E9D25AF712C00457350 /* UnRegisteredBookingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2C27E9B25AF712C00457350 /* UnRegisteredBookingVC.xib */; };
+		B2C27E9F25AF714900457350 /* UnRegisterdBookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C27E9E25AF714900457350 /* UnRegisterdBookingView.swift */; };
+		B2C27EA225AF72A200457350 /* UnRegisterdBookingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C27EA125AF72A200457350 /* UnRegisterdBookingViewModel.swift */; };
 		B2D29546259CD0E20092C3E0 /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D29545259CD0E20092C3E0 /* AboutVC.swift */; };
 		B2D29548259CD0F70092C3E0 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D29547259CD0F70092C3E0 /* AboutView.swift */; };
 		B2D29553259CED3F0092C3E0 /* AboutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D29552259CED3F0092C3E0 /* AboutResponse.swift */; };
@@ -293,6 +297,10 @@
 		B2BE22192593AAC1004BA737 /* SearchResultBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultBody.swift; sourceTree = "<group>"; };
 		B2C27E9525A8FB4300457350 /* String+Subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Subscript.swift"; sourceTree = "<group>"; };
 		B2C27E9725A90C8F00457350 /* String+ReplaceCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ReplaceCharacter.swift"; sourceTree = "<group>"; };
+		B2C27E9A25AF712C00457350 /* UnRegisteredBookingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnRegisteredBookingVC.swift; sourceTree = "<group>"; };
+		B2C27E9B25AF712C00457350 /* UnRegisteredBookingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UnRegisteredBookingVC.xib; sourceTree = "<group>"; };
+		B2C27E9E25AF714900457350 /* UnRegisterdBookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnRegisterdBookingView.swift; sourceTree = "<group>"; };
+		B2C27EA125AF72A200457350 /* UnRegisterdBookingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnRegisterdBookingViewModel.swift; sourceTree = "<group>"; };
 		B2D29545259CD0E20092C3E0 /* AboutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
 		B2D29547259CD0F70092C3E0 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		B2D29552259CED3F0092C3E0 /* AboutResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutResponse.swift; sourceTree = "<group>"; };
@@ -643,6 +651,7 @@
 				869D2001259A70DB00067BBC /* SideMenu */,
 				8628891125A0B0D200D8AE17 /* Auth */,
 				B2D2958225A257180092C3E0 /* BookWithDoctor */,
+				B2C27EA025AF723200457350 /* UnRegisterdBookingViewModel */,
 				B2D2957025A252C00092C3E0 /* Rating */,
 				86215D07258D596C00022D86 /* ViewModelWithPagination.swift */,
 				862FA03125A21F3E0043DEE8 /* DoctorProfileVM.swift */,
@@ -802,6 +811,7 @@
 		B207B4C525894CA2002603EA /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				B2C27E9925AF70E500457350 /* UnRegisterdBooking */,
 				B26141D725A7454F009695A3 /* BookWithDoctorPopUpView */,
 				B260139B25920A45004E95B1 /* SearchResultVcTableView */,
 				B26DB98F258E65D500DDE8B8 /* Custom TextField */,
@@ -995,6 +1005,24 @@
 				B2DF041D25967A6400400F8F /* HeartResponse */,
 			);
 			path = "Search Result";
+			sourceTree = "<group>";
+		};
+		B2C27E9925AF70E500457350 /* UnRegisterdBooking */ = {
+			isa = PBXGroup;
+			children = (
+				B2C27E9A25AF712C00457350 /* UnRegisteredBookingVC.swift */,
+				B2C27E9B25AF712C00457350 /* UnRegisteredBookingVC.xib */,
+				B2C27E9E25AF714900457350 /* UnRegisterdBookingView.swift */,
+			);
+			path = UnRegisterdBooking;
+			sourceTree = "<group>";
+		};
+		B2C27EA025AF723200457350 /* UnRegisterdBookingViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B2C27EA125AF72A200457350 /* UnRegisterdBookingViewModel.swift */,
+			);
+			path = UnRegisterdBookingViewModel;
 			sourceTree = "<group>";
 		};
 		B2D29544259CD0C70092C3E0 /* AboutUs */ = {
@@ -1204,6 +1232,7 @@
 				863232D6257D733D00514F5A /* Assets.xcassets in Resources */,
 				8623B71D25A9FCCA003FE0DF /* DoctorProfile.storyboard in Resources */,
 				8623B71725A9FCCA003FE0DF /* Nurse.storyboard in Resources */,
+				B2C27E9D25AF712C00457350 /* UnRegisteredBookingVC.xib in Resources */,
 				8623B72025A9FCCA003FE0DF /* SideMenu.storyboard in Resources */,
 				B21BDE2825834D4E00430408 /* PT Sans Regular.ttf in Resources */,
 				8623B71F25A9FCCA003FE0DF /* Main.storyboard in Resources */,
@@ -1290,6 +1319,7 @@
 				B21BDE2D2584060900430408 /* UILable+LatterSpacing.swift in Sources */,
 				862A8AD425A3B4100038B898 /* DoctorInformation.swift in Sources */,
 				869D1FF9259A600000067BBC /* Anchor+Constrains.swift in Sources */,
+				B2C27E9F25AF714900457350 /* UnRegisterdBookingView.swift in Sources */,
 				B2DF04332597DA4800400F8F /* ResetPasswordVC.swift in Sources */,
 				B266057F259A711500F1A8BA /* AutError.swift in Sources */,
 				B2DF043D2597E1AD00400F8F /* SignInViewModel.swift in Sources */,
@@ -1313,6 +1343,7 @@
 				B2DF04282597D92700400F8F /* SignUpView.swift in Sources */,
 				86398BC22582B4BE00C284B3 /* ColorsManager.swift in Sources */,
 				B2D2958A25A27FDB0092C3E0 /* RatingBodyData.swift in Sources */,
+				B2C27E9C25AF712C00457350 /* UnRegisteredBookingVC.swift in Sources */,
 				8628D5A8258C075B00CAB803 /* HospitalCellLabel.swift in Sources */,
 				862851C1257FC28D0059122F /* SearchViewModel.swift in Sources */,
 				8632AA23258904D100E4DB8D /* UIView+Loader.swift in Sources */,
@@ -1390,6 +1421,7 @@
 				B2DF04372597DAE300400F8F /* SignInVC.swift in Sources */,
 				B2DF042C2597D96300400F8F /* SignInView.swift in Sources */,
 				8628D5A7258C075B00CAB803 /* DoctorImageView.swift in Sources */,
+				B2C27EA225AF72A200457350 /* UnRegisterdBookingViewModel.swift in Sources */,
 				B2D29548259CD0F70092C3E0 /* AboutView.swift in Sources */,
 				86323302257D83A400514F5A /* ValidatorManager.swift in Sources */,
 				86385A55258CA74F0060C564 /* AppoinmentCell.swift in Sources */,

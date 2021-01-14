@@ -43,14 +43,11 @@ class BookWithDoctorViewModel {
                     self.view?.presentSuccessAlert(title: "", message: L10n.successfulBooking)
                 }
                 else if result.code == 401{
-                    
                     self.view?.presentErrorAlert(title: L10n.sorry, message: result.message ?? "")
-                    
                 }
                 else{
-                    
-                    self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.noVoucher ?? "")
-                    
+                    self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.noVoucher)
+                    self.view?.returnBackToVoucherPopUoView()
                 }
             }
             self.view?.hideLoader()

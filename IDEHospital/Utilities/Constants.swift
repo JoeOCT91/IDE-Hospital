@@ -56,6 +56,7 @@ struct ViewControllers {
     static let doctorProfileVC = "DoctorProfileVC"
     static let ratingVC = "RatingVC"
     static let bookWithDoctorVC = "BookWithDoctorVC"
+    static let unRegisterdBookingVC = "UnRegisteredBookingVC"
 }
 
 // Urls
