@@ -9,7 +9,7 @@ import UIKit
 
 protocol EditProfileDelegate: class {
     func cancelPressed()
-    func savePressed(edittedData: EdditedData)
+    func savePressed(edittedData: EditedData)
 }
 
 class EditProfileView: UIView {
@@ -195,7 +195,7 @@ class EditProfileView: UIView {
     }
     
     @objc private func savePressed(){
-        let edditedData = EdditedData(name: userNameTextField.text,
+        let edditedData = EditedData(name: userNameTextField.text,
                                       email: emailTextField.text,
                                       mobile: phoneNumberTextField.text,
                                       oldPass: oldPassTextField.text,

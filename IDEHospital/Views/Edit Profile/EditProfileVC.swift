@@ -9,7 +9,7 @@ import UIKit
 
 protocol EditProfileVCProtocol: class {
     func setUserData(userData: UserData)
-    func presentError(message: String)
+    func presentError(message: String, alertType: Int)
     func showLoader()
     func hideLoader()
 }
@@ -65,8 +65,8 @@ extension EditProfileVC: EditProfileVCProtocol {
         editProfileView.setUserrData(userData: userData)
     }
     
-    internal func presentError(message: String){
-        presentAlertOnMainThread(message: message, delegate: nil)
+    internal func presentError(message: String, alertType: Int = 1) {
+        presentAlertOnMainThread(message: message, alertTaype: alertType, delegate: nil)
     }
 
 }
@@ -76,7 +76,7 @@ extension EditProfileVC: EditProfileDelegate{
         navigationController?.popViewController(animated: true)
     }
     
-    func savePressed(edittedData: EdditedData) {
+    func savePressed(edittedData: EditedData) {
         viewModel.saveUserData(edditedData: edittedData)
     }
 

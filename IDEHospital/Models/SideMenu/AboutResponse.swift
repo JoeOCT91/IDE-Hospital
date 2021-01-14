@@ -6,11 +6,6 @@
 //
 
 import Foundation
-struct AboutResponse:Codable {
-    let success:Bool?
-    let data:AboutData?
-    let code:Int?
-}
 
 struct AboutData:Codable {
     let about_us:String?

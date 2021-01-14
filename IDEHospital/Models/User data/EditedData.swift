@@ -7,7 +7,7 @@
 
 import Foundation
 
-class EdditedData: Codable {
+class EditedData: Codable {
     
     let code: Int?
     let name: String?

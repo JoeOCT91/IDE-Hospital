@@ -126,6 +126,8 @@ internal enum L10n {
   internal static let nameIsEmpty = L10n.tr("Localizable", "nameIsEmpty")
   /// Your Name
   internal static let nameTextFieldPlaceholder = L10n.tr("Localizable", "nameTextFieldPlaceholder")
+  /// Entered new password is the same as old password, please change it
+  internal static let newIsSame = L10n.tr("Localizable", "newIsSame")
   /// New Password
   internal static let newPassword = L10n.tr("Localizable", "newPassword")
   /// No
@@ -166,6 +168,8 @@ internal enum L10n {
   internal static let pleaseEnterVoucher = L10n.tr("Localizable", "pleaseEnterVoucher")
   /// Please rate your experience with the doctor
   internal static let pleaseRateDoctor = L10n.tr("Localizable", "pleaseRateDoctor")
+  /// Your profile updated successfully
+  internal static let profileUpdated = L10n.tr("Localizable", "profileUpdated")
   /// Rating
   internal static let rating = L10n.tr("Localizable", "rating")
   /// RESET PASSWORD

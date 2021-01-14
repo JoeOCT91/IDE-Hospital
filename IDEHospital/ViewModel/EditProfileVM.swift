@@ -8,7 +8,7 @@
 import Foundation
 
 protocol EditProfileVMProtocol: class {
-    func saveUserData(edditedData: EdditedData)
+    func saveUserData(edditedData: EditedData)
     func getUserData()
 }
 
@@ -20,8 +20,8 @@ class EditProfileVM: EditProfileVMProtocol {
         self.view = view
     }
     
-    internal func saveUserData(edditedData: EdditedData){
-        if validateEntry(edditedData: edditedData) {
+    internal func saveUserData(edditedData: EditedData){
+        if validateEntry(editedData: edditedData) {
             view?.showLoader()
             APIManager.edditUserData(eddittedData: edditedData) { [weak self] (result) in
                 guard let self = self else { return }
@@ -29,9 +29,10 @@ class EditProfileVM: EditProfileVMProtocol {
                 case.success(let data):
                     if data.code == 200 {
                         self.view?.setUserData(userData: data.data!)
+                        self.view?.presentError(message: L10n.profileUpdated, alertType: 2)
                     }
                     if data.code == 401 {
-                        self.view?.presentError(message: data.message!)
+                        self.view?.presentError(message: data.message!, alertType: 2)
                     }
                     self.view?.hideLoader()
                 case .failure(let error):
@@ -42,36 +43,41 @@ class EditProfileVM: EditProfileVMProtocol {
         }
     }
     
-    private func validateEntry(edditedData: EdditedData) -> Bool {
+    private func validateEntry(editedData: EditedData) -> Bool {
         
         let validator = ValidatorManager.shared()
-        if edditedData.name!.isEmpty {
-            view?.presentError(message: L10n.nameIsEmpty)
+        if editedData.name!.isEmpty {
+            view?.presentError(message: L10n.nameIsEmpty, alertType: 1)
             return false
         }
 
-        if !validator.isValidEmail(edditedData.email!) {
-            view?.presentError(message: L10n.validEmail)
+        if !validator.isValidEmail(editedData.email!) {
+            view?.presentError(message: L10n.validEmail, alertType: 1)
             return false
         }
 
-        if !validator.isPhoneNumberValid(phoneNumber: edditedData.mobile!) {
-            view?.presentError(message: L10n.validMobile)
+        if !validator.isPhoneNumberValid(phoneNumber: editedData.mobile!) {
+            view?.presentError(message: L10n.validMobile, alertType: 1)
             return false
         }
 
-        if !validator.isPasswordValid(edditedData.oldPassword!) {
-            view?.presentError(message: L10n.validPass)
+        if !validator.isPasswordValid(editedData.oldPassword!) {
+            view?.presentError(message: L10n.validPass, alertType: 1)
+            return false
+        }
+        
+        if editedData.oldPassword == editedData.password {
+            view?.presentError(message: L10n.newIsSame, alertType: 1)
             return false
         }
 
-        if !validator.isPasswordValid(edditedData.password!) {
-            view?.presentError(message: L10n.validNewPass)
+        if !validator.isPasswordValid(editedData.password!) {
+            view?.presentError(message: L10n.validNewPass, alertType: 1)
             return false
         }
-
-        if edditedData.password! != edditedData.confirmPassword! {
-            view?.presentError(message: L10n.passNotMatch)
+         
+        if editedData.password! != editedData.confirmPassword! {
+            view?.presentError(message: L10n.passNotMatch, alertType: 1)
             return false
         }
         

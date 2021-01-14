@@ -68,7 +68,7 @@ class APIManager {
     }
     
     // Login Request
-    class func sendLoginRequestAPI(body:AuthBodyData , completion:@escaping (Result<LoginResponse,Error>)-> ()){
+    class func sendLoginRequestAPI(body:AuthBodyData , completion:@escaping (Result<MainResponse<User>,Error>)-> ()){
         request(APIRouter.login(body)){ (response) in
             completion(response)
         }
@@ -106,7 +106,7 @@ class APIManager {
         }
     }
     // About Request
-    class func getAboutUS(completion: @escaping (Result<AboutResponse, Error>)-> ()){
+    class func getAboutUS(completion: @escaping (Result<MainResponse<AboutData>, Error>)-> ()){
         request(APIRouter.getAbout){ (response) in
             completion(response)
         }
@@ -153,7 +153,7 @@ class APIManager {
         }
     }
     
-    class func edditUserData(eddittedData: EdditedData, completion: @escaping (Result<MainResponse<UserData>, Error>) -> () ) {
+    class func edditUserData(eddittedData: EditedData, completion: @escaping (Result<MainResponse<UserData>, Error>) -> () ) {
         request(APIRouter.editUserData(eddittedData)) { (response) in
             completion(response)
         }

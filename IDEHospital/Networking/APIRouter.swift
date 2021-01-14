@@ -33,7 +33,7 @@ enum APIRouter:URLRequestConvertible {
     case addRating(_ body:RatingBodyData)
     case bookAppointment(_ body:VoucherDataBody)
     case getUserData
-    case editUserData(_ body: EdditedData)
+    case editUserData(_ body: EditedData)
     
     //Mark:- HTTP Methods
     private var method: HTTPMethod {

@@ -6,8 +6,8 @@
 //
 
 import Foundation
-import Foundation
+
 struct ContactUsResponse:Codable {
-    let success:Bool
-    let code:Int
+    let success: Bool
+    let code: Int
 }
