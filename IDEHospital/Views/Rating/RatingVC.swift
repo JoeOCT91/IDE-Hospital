@@ -46,10 +46,10 @@ class RatingVC: UIViewController {
 }
 extension RatingVC:RatingVcProtocol{
     func presentSuccessAlert(title: String, message: String) {
-        self.presentAlertOnMainThread(message: message, alertTaype: 2, delegate: self)
+        self.presentAlertOnMainThread(message: message, alertType: .withSuccess, delegate: self)
     }
     func presentErrorAlert(title:String,message: String) {
-        self.presentAlertOnMainThread(message: message, alertTaype: 1, delegate: nil)
+        self.presentAlertOnMainThread(message: message, alertType: .withFaliure, delegate: nil)
     }
     func showLoader() {
         self.view.showLoader()
@@ -57,10 +57,11 @@ extension RatingVC:RatingVcProtocol{
     func hideLoader() {
         self.view.hideLoader()
     }
-}
-extension RatingVC:AlertVcDelegate{
-    func okButtonPressed() {
+    override func okButtonPressed() {
         self.dismiss(animated: true)
         self.popCurrentView()
     }
 }
+//extension RatingVC:AlertVcDelegate{
+//
+//}

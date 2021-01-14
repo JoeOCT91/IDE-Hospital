@@ -66,7 +66,7 @@ extension EditProfileVC: EditProfileVCProtocol {
     }
     
     internal func presentError(message: String, alertType: Int = 1) {
-        presentAlertOnMainThread(message: message, alertTaype: alertType, delegate: nil)
+        presentAlertOnMainThread(message: message, alertType: .withFaliure, delegate: nil)
     }
 
 }

@@ -41,11 +41,13 @@ extension RestPasswordViewModel:ResetPasswordViewModelProtocol{
     func resetPasswordRequest(email: String?) {
         
         guard let email = email?.trimmed , !email.isEmpty else {
-            self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.pleaseEnterEmail)
+            self.view?.presentPopupOnMainThread(message: L10n.pleaseEnterEmail, alertType: .withFaliure, delegate: nil)
+            //self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.pleaseEnterEmail)
             return
         }
         guard ValidatorManager.shared().isValidEmail(email) else{
-            self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.invalidEMailFormat)
+            self.view?.presentPopupOnMainThread(message: L10n.invalidEMailFormat, alertType: .withFaliure, delegate: nil)
+            //self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.invalidEMailFormat)
             return
         }
         let body = AuthBodyData(name: "", email: email, mobile: "", password: "")

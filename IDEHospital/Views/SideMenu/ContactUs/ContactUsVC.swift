@@ -46,20 +46,25 @@ class ContactUsVC: UIViewController {
 }
 extension ContactUsVC:ContactUsVCProtocol{
     func presentSuccessAlert(title: String, message: String) {
-        self.presentAlertOnMainThread(message: message, alertTaype: 2, delegate: self)
+        self.presentAlertOnMainThread(message: message, alertType: .withSuccess, delegate: self)
     }
+    
     func presentErrorAlert(title:String,message: String) {
-         self.presentAlertOnMainThread(message: message, alertTaype: 1, delegate: nil)
+        self.presentAlertOnMainThread(message: message, alertType: .withFaliure, delegate: nil)
     }
-      func showLoader() {
-          self.view.showLoader()
-      }
-      func hideLoader() {
-          self.view.hideLoader()
-      }
-}
-extension ContactUsVC:AlertVcDelegate{
-    func okButtonPressed() {
+    
+    func showLoader() {
+        self.view.showLoader()
+    }
+    
+    func hideLoader() {
+        self.view.hideLoader()
+    }
+    
+    override func okButtonPressed() {
         self.view.window?.rootViewController?.dismiss(animated: false)
     }
 }
+//extension ContactUsVC:AlertVcDelegate{
+//
+//}

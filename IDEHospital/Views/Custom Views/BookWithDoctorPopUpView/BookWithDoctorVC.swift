@@ -9,8 +9,9 @@ import UIKit
 protocol BookWithDoctorVcProtocol:class {
     func changeVoucherTextFieldState(constantValue:CGFloat,alpha:CGFloat)
     func changeAnotherPersonTextFieldState(constantValue:CGFloat,alpha:CGFloat)
-    func presentSuccessAlert(title:String, message:String)
-    func presentErrorAlert(title:String,message: String)
+    func presentAlert(message: String, alertType: AlertType)
+//    func presentSuccessAlert(title:String, message:String)
+//    func presentErrorAlert(title:String,message: String)
     func showLoader()
     func hideLoader()
     func goToConfirmationPopView(doctorName:String, appointmentDate:String, appointmentDay:String)
@@ -85,12 +86,14 @@ extension BookWithDoctorVC:BookWithDoctorVcProtocol{
         animateView()
     }
     
-    func presentSuccessAlert(title: String, message: String) {
-        self.presentAlertOnMainThread(message: message, alertTaype: 2, delegate: self)
+//    func presentSuccessAlert(title: String, message: String) {
+//        self.presentAlertOnMainThread(message: message, alertTaype: 2, delegate: self)
+//    }
+    
+    func presentAlert(message: String, alertType: AlertType) {
+        self.presentAlertOnMainThread(message: message, alertType: alertType)
     }
-    func presentErrorAlert(title:String,message: String) {
-        self.presentAlertOnMainThread(message: message, alertTaype: 1, delegate: nil)
-    }
+    
     func showLoader() {
         self.view.showLoader()
     }
@@ -109,13 +112,15 @@ extension BookWithDoctorVC:BookWithDoctorVcProtocol{
         bookWithDoctorView.continueButtonTopYConstraint.constant = constantValue
         animateView()
     }
-}
-extension BookWithDoctorVC:AlertVcDelegate{
-    func okButtonPressed() {
+    
+    override func okButtonPressed() {
      self.dismiss(animated: true)
       self.dismissCurrretVC()
     }
 }
+//extension BookWithDoctorVC:AlertVcDelegate{
+//
+//}
 extension BookWithDoctorVC:ConfirmationAlertDelgate{
     func confirmPressed(id: Int) {
         self.dismiss(animated: true)

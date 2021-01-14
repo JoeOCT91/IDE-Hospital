@@ -51,21 +51,22 @@ class SignUpVC: UIViewController {
 extension SignUpVC:SignUpVCProtocol{
     
     func presentSuccessAlert(title: String, message: String) {
-        
-        self.presentAlertOnMainThread(message: message, alertTaype: 2, delegate: self)
+        self.presentAlertOnMainThread(message: message, alertType: AlertType.withSuccess, delegate: self)
     }
+    
     func presentErrorAlert(title:String,message: String) {
-       self.presentAlertOnMainThread(message: message, alertTaype: 1, delegate: nil)
+        self.presentAlertOnMainThread(message: message)
     }
+    
     func showLoader() {
         self.view.showLoader()
     }
+    
     func hideLoader() {
         self.view.hideLoader()
     }
-}
-extension SignUpVC:AlertVcDelegate{
-    func okButtonPressed() {
+    override func okButtonPressed() {
         self.view.window?.rootViewController?.dismiss(animated: false)
     }
 }
+

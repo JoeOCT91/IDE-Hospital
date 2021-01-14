@@ -80,7 +80,7 @@ extension SideMenuVC: SideMenuVCProtocol {
     }
     
     func sharePressed() {
-       presentAlertOnMainThread(delegate: nil)
+       presentAlertOnMainThread(message: "",delegate: nil)
     }
     
     func termsAndConditionsPressed(){

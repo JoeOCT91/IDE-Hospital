@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol AlertVcDelegate: class {
+@objc protocol AlertVcDelegate: class {
     func okButtonPressed()
 }
 
@@ -103,21 +103,13 @@ class AlertVC: UIViewController {
             actionButton.widthAnchor.constraint(equalToConstant: 55),
             actionButton.heightAnchor.constraint(equalToConstant: 30),
         ])
-        
-        switch alertType {
-        case .withSuccess:
-            actionButton.addTarget(self, action: #selector(successAlert), for: .touchUpInside)
-        default:
-            actionButton.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
-        }
-        
+        actionButton.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
     }
     
-    @objc private func successAlert(){
-        self.alertDelegate?.okButtonPressed()
-        self.dismiss(animated: true)
-    }
     @objc private func dismissAlert(){
-        self.dismiss(animated: true)
+        self.dismiss(animated: true) { [weak self] in
+            guard let self = self else { return }
+            self.alertDelegate?.okButtonPressed()
+        }
     }
 }

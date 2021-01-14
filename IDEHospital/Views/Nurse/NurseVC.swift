@@ -6,9 +6,7 @@
 //
 
 import UIKit
-protocol NurseVCProtocol: class {
-    func presentSuccessAlert(title:String, message:String)
-    func presentErrorAlert(title:String,message: String)
+protocol NurseVCProtocol: PopUPsProtocol {
     func showLoader()
     func hideLoader()
 }
@@ -17,10 +15,15 @@ class NurseVC: UIViewController {
     
     @IBOutlet weak var nurseView: NurseView!
     private var viewModel:NurseViewModelProtocol!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.nurseView.setUp()
         configureNavigationBar()
+    }
+
+    override func okButtonPressed() {
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     // MARK:- Public Methods
@@ -33,32 +36,23 @@ class NurseVC: UIViewController {
     @IBAction func nurseRequestButtonPressed(_ sender: Any) {
         self.viewModel.nurseRequest(name: nurseView.nameTextField.text, email: nurseView.emailTextField.text, phoneNumber: nurseView.phoneNumberTextField.text, details: nurseView.detailsTextView.text)
     }
+    
     //MARK:- Private Functions
     private func configureNavigationBar() {
         self.setupNavigationBar()
         self.setViewControllerTitle(to: L10n.homeNurse, fontColor: .white)
         self.setupSettingButton()
         self.setupBackWithPopup()
-        
     }
-}
-extension NurseVC:NurseVCProtocol{
     
-    func presentSuccessAlert(title: String, message: String) {
-          self.presentAlertOnMainThread(message: message, alertTaype: 2, delegate: self)
-    }
-    func presentErrorAlert(title:String,message: String) {
-        self.presentAlertOnMainThread(message: message, alertTaype: 1, delegate: nil)
-    }
-    func showLoader() {
+}
+extension NurseVC: NurseVCProtocol {
+    
+    internal func showLoader() {
         self.view.showLoader()
     }
-    func hideLoader() {
+    
+    internal func hideLoader() {
         self.view.hideLoader()
-    }
-}
-extension NurseVC:AlertVcDelegate{
-    func okButtonPressed() {
-        self.view.window?.rootViewController?.dismiss(animated: false)
     }
 }

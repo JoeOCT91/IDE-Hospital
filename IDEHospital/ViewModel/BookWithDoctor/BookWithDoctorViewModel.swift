@@ -35,22 +35,20 @@ class BookWithDoctorViewModel {
         APIManager.bookAppoinmentWithDoctorAPI(body: body){(response) in
             switch response{
             case .failure(let error):
-                print(error.localizedDescription)
-                self.view?.presentErrorAlert(title: L10n.sorry, message: error.localizedDescription)
+                //self.view?.presentErrorAlert(title: L10n.sorry, message: error.localizedDescription)
+                self.view?.presentAlert(message: error.localizedDescription, alertType: .withFaliure)
             case .success(let result):
                 if result.code == 202{
-                    print(result.success)
-                    self.view?.presentSuccessAlert(title: "", message: L10n.successfulBooking)
+                    self.view?.presentAlert(message: L10n.successfulBooking,alertType: .withSuccess)
                 }
                 else if result.code == 401{
-                    
-                    self.view?.presentErrorAlert(title: L10n.sorry, message: result.message ?? "")
-                    
+                    self.view?.presentAlert(message: result.message!, alertType: .withFaliure)
+
+                    //self.view?.presentErrorAlert(title: L10n.sorry, message: result.message ?? "")
                 }
                 else{
-                    
-                    self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.noVoucher ?? "")
-                    
+                    self.view?.presentAlert(message: result.message!, alertType: .withFaliure)
+                    //self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.noVoucher ?? "")
                 }
             }
             self.view?.hideLoader()
@@ -115,27 +113,24 @@ extension BookWithDoctorViewModel:BookWithDoctorViewModelProtocol{
             return true
         }
     }
+    
     func setVoucherAndPatiantName(patientName: String?, voucherCode: String?, bookForAnotherSwitch: Bool, voucherSwitch:Bool) {
         guard UserDefaultsManager.shared().token != nil else {
-            self.view?.presentErrorAlert(title: "", message: L10n.loginFirstToAppointment)
+            self.view?.presentAlert(message: L10n.loginFirstToAppointment, alertType: .withFaliure)
             return
         }
+        
         bookForAnotherPatientSwitch = bookForAnotherSwitch
         if voucherSwitch{
             if voucherCode?.count ?? 0 == 0 {
-                self.view?.presentErrorAlert(title: "", message: L10n.pleaseEnterVoucher)
+                self.view?.presentAlert(message: L10n.pleaseEnterVoucher, alertType: .withFaliure)
                 return
-            }
-            else{
-                self.voucherCode = voucherCode
-            }
-        }
-        else{
-            self.voucherCode = nil
-        }
+            } else { self.voucherCode = voucherCode }
+        } else { self.voucherCode = nil }
+        
         if bookForAnotherPatientSwitch{
             if patientName?.count ?? 0 == 0 {
-                self.view?.presentErrorAlert(title: "", message: L10n.pleaseEnterPatient)
+                self.view?.presentAlert(message: L10n.pleaseEnterPatient, alertType: .withFaliure)
                 return
             }
             else{

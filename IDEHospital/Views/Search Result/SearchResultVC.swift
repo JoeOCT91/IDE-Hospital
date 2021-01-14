@@ -69,8 +69,8 @@ extension SearchResultVC:SearchResultVCProtocol{
         texFiled.text = item
     }
     
-    func presentErrorAlert(title:String,message: String) {
-        self.presentAlertOnMainThread(message: message, alertType: 1)
+    func presentErrorAlert(title:String, message: String) {
+        self.presentAlertOnMainThread(message: message, alertType: .withFaliure)
     }
     
     func showLoader() {
