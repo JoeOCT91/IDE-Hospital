@@ -70,7 +70,7 @@ extension SearchResultVC:SearchResultVCProtocol{
     }
     
     func presentErrorAlert(title:String,message: String) {
-        self.presentAlertOnMainThread(message: message, alertTaype: 1, delegate: nil)
+        self.presentAlertOnMainThread(message: message, alertType: 1)
     }
     
     func showLoader() {

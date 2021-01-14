@@ -8,10 +8,10 @@
 import Foundation
 
 // MARK: - Welcome
-struct MainResponse<Elment: Codable>: Codable {
+struct MainResponse<Element: Codable>: Codable {
     let success: Bool?
     let code: Int
-    let data: Elment?
+    let data: Element?
     let message: String?
 }
 

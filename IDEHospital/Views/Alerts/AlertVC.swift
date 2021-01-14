@@ -6,23 +6,33 @@
 //
 
 import UIKit
-protocol AlertVcDelegate {
+
+protocol AlertVcDelegate: class {
     func okButtonPressed()
 }
+
+enum AlertType {
+    case withSuccess
+    case withFaliure
+}
+
 class AlertVC: UIViewController {
     
     private let containerView = UIView()
     private var alertImage = UIImageView(image: Asset.alertError.image)
     private let messageLabel = HospitalCellLabel(textAlignment: .right, fontSize: 15, font: UIFont(font : FontFamily.PTSans.bold, size: 15))
     private let actionButton = HospitalButton(frame: .zero, tittle: "OK", color: ColorName.darkRoyalBlue)
-    private var alertTaype = 1
-     var alertDelegate:AlertVcDelegate?
-    init(message: String = "Default message", alertTaype:Int = 1){
+    private var alertType: AlertType!
+    weak var alertDelegate: AlertVcDelegate?
+    
+    init(message: String = "Default message", alertType:AlertType = .withFaliure) {
+        
         super.init(nibName: nil, bundle: nil)
         messageLabel.text = message
-        self.alertTaype = alertTaype
-        switch alertTaype {
-        case 2:
+        self.alertType = alertType
+        
+        switch alertType {
+        case .withSuccess:
             alertImage = UIImageView(image: Asset.alertConfirmation.image)
         default:
             alertImage = UIImageView(image: Asset.alertError.image)
@@ -35,19 +45,19 @@ class AlertVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configreView()
+        configureView()
         configreContainerView()
         configureAlertImage()
         configureMessageLabel()
         configureActionButton()
     }
     
-    private func configreView(){
+    private func configureView() {
         self.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.75)
         view.addSubview(containerView)
     }
     
-    private func configreContainerView(){
+    private func configreContainerView() {
         containerView.addSubview(alertImage)
         containerView.addSubview(messageLabel)
         containerView.addSubview(actionButton)
@@ -65,6 +75,7 @@ class AlertVC: UIViewController {
             containerView.widthAnchor.constraint(equalToConstant: containerWidth)
         ])
     }
+    
     private func configureAlertImage(){
         alertImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -73,8 +84,8 @@ class AlertVC: UIViewController {
             alertImage.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
         ])
     }
+    
     private func configureMessageLabel(){
-        //messageLabel.text = "This feature not fully developed Yet!"
         messageLabel.textAlignment = .center
         messageLabel.textColor = UIColor(named: ColorName.darkRoyalBlue)
         NSLayoutConstraint.activate([
@@ -83,6 +94,7 @@ class AlertVC: UIViewController {
             messageLabel.bottomAnchor.constraint(equalTo: actionButton.topAnchor, constant: -20)
         ])
     }
+    
     private func configureActionButton(){
         actionButton.titleLabel?.font = actionButton.titleLabel?.font.withSize(15)
         NSLayoutConstraint.activate([
@@ -91,14 +103,16 @@ class AlertVC: UIViewController {
             actionButton.widthAnchor.constraint(equalToConstant: 55),
             actionButton.heightAnchor.constraint(equalToConstant: 30),
         ])
-        switch alertTaype {
-        case 2:
+        
+        switch alertType {
+        case .withSuccess:
             actionButton.addTarget(self, action: #selector(successAlert), for: .touchUpInside)
         default:
             actionButton.addTarget(self, action: #selector(dismissAlert), for: .touchUpInside)
         }
         
     }
+    
     @objc private func successAlert(){
         self.alertDelegate?.okButtonPressed()
         self.dismiss(animated: true)

@@ -24,17 +24,16 @@ extension UIViewController {
         self.navigationController?.popToRootViewController(animated: true)
     }
     
-    func presentAlertOnMainThread(message: String = "Default message", alertTaype:Int = 1,delegate:AlertVcDelegate?){
-        let alertVC = AlertVC(message: message,alertTaype: alertTaype)
-        if alertTaype == 2{
+    func presentAlertOnMainThread(message: String, alertType: AlertType = .withFaliure, delegate: AlertVcDelegate? = nil) {
+        let alertVC = AlertVC(message: message, alertType: alertType)
+//        if alertTaype == 2 {
             alertVC.alertDelegate = delegate
-        }
+//        }
         DispatchQueue.main.async { [self] in
             alertVC.modalPresentationStyle = .overFullScreen
             alertVC.modalTransitionStyle = .crossDissolve
             self.present(alertVC, animated: true)
         }
-        
     }
     
     func presentAlertOnMainThread(id:Int, message: String,delegate:ConfirmationAlertDelgate){

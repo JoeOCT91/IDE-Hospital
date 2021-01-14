@@ -44,12 +44,14 @@ class ResetPasswordVC: UIViewController {
     
 }
 extension ResetPasswordVC:ResetPasswordVCProtocol{
+    
     func presentSuccessAlert(title: String, message: String) {
-        self.presentAlertOnMainThread(message: message, alertTaype: 2, delegate: self)
+        self.presentAlertOnMainThread(message: message, alertType: 2, delegate: self)
     }
     func presentErrorAlert(title:String,message: String) {
-        self.presentAlertOnMainThread(message: message, alertTaype: 1, delegate: nil)
+        self.presentAlertOnMainThread(message: message, alertType: 1)
     }
+    
     func showLoader() {
         self.view.showLoader()
     }

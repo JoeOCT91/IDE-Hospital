@@ -7,7 +7,9 @@
 
 import Foundation
 
-struct ContactUsResponse:Codable {
-    let success: Bool
+struct ContactUsResponse: Codable {
+    
+    let succes: Bool
     let code: Int
 }
+

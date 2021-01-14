@@ -52,15 +52,19 @@ class SignInVC: UIViewController {
     }
 }
 extension SignInVC:SignInVCProtocol{
+    
     func presentSuccessAlert(title: String, message: String) {
-        self.presentAlertOnMainThread(message: message, alertTaype: 2, delegate: self)
+        self.presentAlertOnMainThread(message: message, alertType: 2, delegate: self)
     }
+    
     func presentErrorAlert(title:String,message: String) {
-        self.presentAlertOnMainThread(message: message, alertTaype: 1, delegate: nil)
+        self.presentAlertOnMainThread(message: message, alertType: 1, delegate: nil)
     }
+    
     func showLoader() {
         self.view.showLoader()
     }
+    
     func hideLoader() {
         self.view.hideLoader()
     }
