@@ -16,7 +16,7 @@ extension UIViewController: PopUPsProtocol {
     internal func presentPopupOnMainThread(message: String, alertType: AlertType, delegate: AlertVcDelegate?) {
         
         let alertVC = AlertVC(message: message, alertType: alertType)
-        alertVC.alertDelegate = delegate
+        alertVC.alertDelegate = self
         DispatchQueue.main.async { [self] in
             alertVC.modalPresentationStyle = .overFullScreen
             alertVC.modalTransitionStyle = .crossDissolve

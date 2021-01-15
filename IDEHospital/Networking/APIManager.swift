@@ -100,7 +100,7 @@ class APIManager {
     }
     
     // ContactUs Request
-    class func sendContactUsRequestAPI(body:RequsetBodyData ,completion: @escaping (Result<ContactUsResponse, Error>)-> ()){
+    class func sendContactUsRequestAPI(body:RequsetBodyData ,completion: @escaping (Result<MainResponse<String>, Error>)-> ()){
         request(APIRouter.contacutUsRequest(body)){ (response) in
             completion(response)
         }
