@@ -24,7 +24,7 @@ class BookWithDoctorVC: UIViewController {
     //Book an appointment popup delegate
     internal weak var delegate: BookWithDoctorVCDelegate?
     
-    @IBOutlet var bookWithDoctorView: BookWithDoctorView!
+    @IBOutlet weak var bookWithDoctorView: BookWithDoctorView!
     private var viewModel:BookWithDoctorViewModelProtocol!
     private var voucherSwitch:Bool = false
     private var anotherPersonSwitch:Bool = false

@@ -7,24 +7,20 @@
 
 import Foundation
 protocol UnRegisterdBookingViewModelProtocol {
-    
-    func checkRegisterVoucherCheckBox(state:Bool) -> Bool 
-    func checkRegisterAnotherPatientCheckBox(state:Bool) -> Bool
-    func checkLoginVoucherCheckBox(state:Bool) -> Bool
-    func checkLoginAnotherPatientCheckBox(state:Bool) -> Bool
+    func checkVoucherCheckBoxState(state:Bool) -> Bool 
+    func checkAnotherPatientCheckBoxState(state:Bool) -> Bool
     func checkLoginData(email: String?, password: String?, bookForAnother: Bool, patientName: String?, usingVoucher: Bool, voucherCode: String?)
     func checkRegisterData(name: String?, email: String?, password: String?, mobile: String?, bookForAnother: Bool, patientName: String?, usingVoucher: Bool, voucherCode: String?)
+    func checkWhichPopUpViewPresented(isOnRegisterPopUpView: Bool)
 }
 class UnRegisterdBookingViewModel {
     
-    private var view: UnRegisterdbookingVcProtocol!
+    private weak var view: UnRegisterdbookingVcProtocol!
     private var doctorID:Int!
     private var appointmentTime:String!
     private var doctorName:String!
-    private var registerPatientName:String?
-    private var registerVoucherCode:String?
-    private var loginPatientName:String?
-    private var loginVoucherCode:String?
+    private var currentAnotherPatientName:String?
+    private var currentVoucherCode:String?
     init(view:UnRegisterdbookingVcProtocol, doctorID: Int, doctorName: String, appointmentTime: String) {
         self.view = view
         self.doctorID = doctorID
@@ -76,14 +72,74 @@ class UnRegisterdBookingViewModel {
                 }
                 else{
                     self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.noVoucher)
-                    //self.view?.returnBackToVoucherPopUoView()
                 }
             }
             self.view?.hideLoader()
         }
     }
+    private func checkVoucherCode(isUsingVoucher: Bool, voucherCode: String?) -> Bool{
+        if isUsingVoucher{
+            if voucherCode?.count ?? 0 == 0 {
+                return false
+            }
+            else{
+                self.currentVoucherCode = voucherCode
+            }
+        }
+        else{
+            self.currentVoucherCode = nil
+        }
+        return true
+    }
+    private func checkAnotherPatient(isBookingForAnotherPateint: Bool, anotherPatientName: String?)-> Bool{
+        
+        if isBookingForAnotherPateint{
+            if anotherPatientName?.count ?? 0 == 0 {
+                return false
+            }
+            else{
+                self.currentAnotherPatientName = anotherPatientName
+            }
+        }
+        else{
+            self.currentAnotherPatientName = nil
+        }
+        return true
+    }
 }
+
 extension UnRegisterdBookingViewModel: UnRegisterdBookingViewModelProtocol{
+    func checkWhichPopUpViewPresented(isOnRegisterPopUpView: Bool) {
+        if isOnRegisterPopUpView{
+            self.view.sendRegisterData()
+        }
+        else{
+            self.view.sendLoginData()
+        }
+    }
+    
+    func checkVoucherCheckBoxState(state:Bool) -> Bool {
+        if state{
+            self.view.changeVoucherCheckBoxState(alpha: 0, backgorundImage: Asset.emptyCheckbox.image, constant: -16)
+            return false
+        }
+        else{
+            self.view.changeVoucherCheckBoxState(alpha: 1, backgorundImage: Asset.filledCheckbox.image, constant: 16)
+            return true
+        }
+    }
+    
+    func checkAnotherPatientCheckBoxState(state: Bool) -> Bool {
+        if state{
+            self.view.changeAnotherPatientCheckBoxState(alpha: 0, backgorundImage: Asset.emptyCheckbox.image)
+            return false
+        }
+        else{
+            self.view.changeAnotherPatientCheckBoxState(alpha: 1, backgorundImage: Asset.filledCheckbox.image)
+            return true
+        }
+    }
+    
     func checkLoginData(email: String?, password: String?, bookForAnother: Bool, patientName: String?, usingVoucher: Bool, voucherCode: String?) {
         
         guard let email = email?.trimmed , !email.isEmpty else {
@@ -102,34 +158,20 @@ extension UnRegisterdBookingViewModel: UnRegisterdBookingViewModelProtocol{
             self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.rightPasswordFormatDescription)
             return
         }
-        if usingVoucher{
-            if voucherCode?.count ?? 0 == 0 {
-                self.view?.presentErrorAlert(title: "", message: L10n.pleaseEnterVoucher)
-                return
-            }
-            else{
-                self.loginVoucherCode = voucherCode
-            }
+        
+        guard checkVoucherCode(isUsingVoucher: usingVoucher, voucherCode: voucherCode)else{
+            self.view?.presentErrorAlert(title: "", message: L10n.pleaseEnterVoucher)
+            return
         }
-        else{
-            self.loginVoucherCode = nil
-        }
-        if bookForAnother{
-            if patientName?.count ?? 0 == 0 {
-                self.view?.presentErrorAlert(title: "", message: L10n.pleaseEnterPatient)
-                return
-            }
-            else{
-                self.loginPatientName = patientName
-            }
-        }
-        else{
-            self.loginPatientName = nil
+        guard checkAnotherPatient(isBookingForAnotherPateint: bookForAnother, anotherPatientName: patientName) else{
+            self.view?.presentErrorAlert(title: "", message: L10n.pleaseEnterPatient)
+            return
         }
         
-        let body = BookWithLoginBodyData(doctor_id: doctorID, appointment: appointmentTime, patient_name: loginPatientName, book_for_another: bookForAnother, voucher: loginVoucherCode, email: email, password: password)
+        let body = BookWithLoginBodyData(doctor_id: doctorID, appointment: appointmentTime, patient_name: currentAnotherPatientName, book_for_another: bookForAnother, voucher: currentVoucherCode, email: email, password: password)
         self.bookingWithLoginRequest(body: body)
     }
+    
     
     func checkRegisterData(name: String?, email: String?, password: String?, mobile: String?, bookForAnother: Bool, patientName: String?, usingVoucher: Bool, voucherCode: String?) {
         
@@ -137,7 +179,7 @@ extension UnRegisterdBookingViewModel: UnRegisterdBookingViewModelProtocol{
             self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.pleaseEnterName)
             return
         }
-        guard name!.count > 3 else{
+        guard name!.count >= 3 else{
             self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.nameFieldCountIsSmall)
             return
         }
@@ -166,73 +208,16 @@ extension UnRegisterdBookingViewModel: UnRegisterdBookingViewModelProtocol{
             return
         }
         
-        if usingVoucher{
-            if voucherCode?.count ?? 0 == 0 {
-                self.view?.presentErrorAlert(title: "", message: L10n.pleaseEnterVoucher)
-                return
-            }
-            else{
-                self.registerVoucherCode = voucherCode
-            }
+        guard checkVoucherCode(isUsingVoucher: usingVoucher, voucherCode: voucherCode)else{
+            self.view?.presentErrorAlert(title: "", message: L10n.pleaseEnterVoucher)
+            return
         }
-        else{
-            self.registerVoucherCode = nil
-        }
-        if bookForAnother{
-            if patientName?.count ?? 0 == 0 {
-                self.view?.presentErrorAlert(title: "", message: L10n.pleaseEnterPatient)
-                return
-            }
-            else{
-                self.registerPatientName = patientName
-            }
-        }
-        else{
-            self.registerPatientName = nil
+        guard checkAnotherPatient(isBookingForAnotherPateint: bookForAnother, anotherPatientName: patientName) else{
+            self.view?.presentErrorAlert(title: "", message: L10n.pleaseEnterPatient)
+            return
         }
         
-        let body = BookWithRegisterBodyData(doctor_id: doctorID, appointment: appointmentTime, patient_name: registerPatientName, book_for_another: bookForAnother, voucher: registerVoucherCode, name: name, email: email, mobile: mobile, password: password)
+        let body = BookWithRegisterBodyData(doctor_id: doctorID, appointment: appointmentTime, patient_name: currentAnotherPatientName, book_for_another: bookForAnother, voucher: currentVoucherCode, name: name, email: email, mobile: mobile, password: password)
         self.bookingWithRegisterRequest(body: body)
-    }
-    
-    func checkRegisterVoucherCheckBox(state:Bool) -> Bool {
-        if state{
-            self.view.changeRegisterVoucherCheckBoxState(alpha: 0, backgorundImage: Asset.emptyCheckbox.image, constant: -16)
-            return false
-        }
-        else{
-            self.view.changeRegisterVoucherCheckBoxState(alpha: 1, backgorundImage: Asset.filledCheckbox.image, constant: 16)
-            return true
-        }
-    }
-    func checkRegisterAnotherPatientCheckBox(state:Bool) -> Bool {
-        if state{
-            self.view.changeRegisterAnotherPatientCheckBoxState(alpha: 0, backgorundImage: Asset.emptyCheckbox.image)
-            return false
-        }
-        else{
-            self.view.changeRegisterAnotherPatientCheckBoxState(alpha: 1, backgorundImage: Asset.filledCheckbox.image)
-            return true
-        }
-    }
-    func checkLoginVoucherCheckBox(state:Bool) -> Bool {
-        if state{
-            self.view.changeLoginVoucherCheckBoxState(alpha: 0, backgorundImage: Asset.emptyCheckbox.image, constant: -16.5)
-            return false
-        }
-        else{
-            self.view.changeLoginVoucherCheckBoxState(alpha: 1, backgorundImage: Asset.filledCheckbox.image, constant: 16.5)
-            return true
-        }
-    }
-    func checkLoginAnotherPatientCheckBox(state:Bool) -> Bool {
-        if state{
-            self.view.changeLoginAnotherPatientCheckBoxState(alpha: 0, backgorundImage: Asset.emptyCheckbox.image)
-            return false
-        }
-        else{
-            self.view.changeLoginAnotherPatientCheckBoxState(alpha: 1, backgorundImage: Asset.filledCheckbox.image)
-            return true
-        }
     }
 }

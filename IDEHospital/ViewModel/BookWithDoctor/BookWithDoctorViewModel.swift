@@ -14,7 +14,7 @@ protocol BookWithDoctorViewModelProtocol {
     func getDoctorID() -> Int
 }
 class BookWithDoctorViewModel {
-    private var view:BookWithDoctorVcProtocol?
+    private weak var view:BookWithDoctorVcProtocol?
     private var doctorID:Int!
     private var appointmentTime:String!
     private var doctorName:String!

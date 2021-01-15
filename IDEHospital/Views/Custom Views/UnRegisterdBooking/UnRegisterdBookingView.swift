@@ -17,12 +17,15 @@ class UnRegiserdBookingView: UIView {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var closeButton: UIButton!
     
-    // MARK:- Register View
-    @IBOutlet weak var registerView: UIView!
     // TextFields Section
     @IBOutlet weak var nameTextField: IDEAHopitalTextField!
+    @IBOutlet weak var nameTextFieldLineView: UIView!
+    
     @IBOutlet weak var emailTextField: IDEAHopitalTextField!
+    
     @IBOutlet weak var mobileTextField: IDEAHopitalTextField!
+    
+    @IBOutlet weak var mobileTextFieldLineView: UIView!
     @IBOutlet weak var passwordTextField: IDEAHopitalTextField!
     // Voucher Section
     @IBOutlet weak var voucherCheckBox: UIButton!
@@ -39,34 +42,13 @@ class UnRegiserdBookingView: UIView {
     // Terms And Conditions Section
     @IBOutlet weak var termsLabel: UILabel!
     // Top Constraints For Animation
+    @IBOutlet weak var emailTextFieldTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var passwordTextFieldTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var voucherSectionTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var anotherPatientTopConstraint: NSLayoutConstraint!
     
-    // MARK:- Login View
-    @IBOutlet weak var loginView: UIView!
-    // TextFields Section
-    @IBOutlet weak var loginPasswordTextField: IDEAHopitalTextField!
-    @IBOutlet weak var loginEmailTextField: IDEAHopitalTextField!
-    // Voucher Section
-    @IBOutlet weak var loginVoucherCheckBox: UIButton!
-    @IBOutlet weak var loginVoucherLabel: UILabel!
-    @IBOutlet weak var loginVoucherTextField: IDEAHopitalTextField!
-    
-    @IBOutlet weak var loginVoucherLineView: UIView!
-    
-    // Another Patient Section
-    @IBOutlet weak var loginAnotherPatientCheckBox: UIButton!
-    @IBOutlet weak var loginAnotherPatientLabel: UILabel!
-    @IBOutlet weak var loginAnotherPatientTextField: IDEAHopitalTextField!
-    
-    @IBOutlet weak var loginPatientLineView: UIView!
-    // Login & Book Button
-    @IBOutlet weak var loginAndBookButton: UIButton!
-    // Terms And Conditions Section
-    @IBOutlet weak var loginTermsLabel: UILabel!
-    // Top Constraints For Animation
-    @IBOutlet weak var loginAnotherPatientTopConstraint: NSLayoutConstraint!
-    
     private var padding = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    
     func setUp() {
         self.layoutIfNeeded()
         // SetUp Main View
@@ -98,31 +80,20 @@ class UnRegiserdBookingView: UIView {
         //setup Terms And Conditions Section
         self.setUpLabel(label: termsLabel, labelText: L10n.instructions , fontName: FontFamily.PTSans.regular, fontSize: 10.5, fontColor: .white)
         
-        //MARK:- SetUp Login View
-        
-        // setup Login TextFields
-         self.setUpTextFiled(textFiled: loginEmailTextField, textValue: "", placeholder: L10n.emailTextFieldPlaceholder, imageName: Asset.emailIcon.image, numbersPad: false , emailPad: true, isSecured: false)
-        self.setUpTextFiled(textFiled: loginPasswordTextField, textValue: "", placeholder: L10n.choosePasswordPlaceholder, imageName: Asset.passwordIcon.image, numbersPad: false , emailPad: false, isSecured: true)
-       
-        //Setup Login  Voucher Section
-        self.setUpButton(button: loginVoucherCheckBox, backgroundImageName: Asset.emptyCheckbox.image)
-        self.setUpLabel(label: loginVoucherLabel, labelText: L10n.iHaveVoucherCode, fontName: FontFamily.PTSans.bold, fontSize: 12, fontColor: ColorName.white.color)
-        self.setUpTextFiled(textFiled: loginVoucherTextField, textValue: "", placeholder: L10n.enterCode, padding: padding, fontSize: 12)
-        //Setup Login  Another Patient Section
-        self.setUpButton(button: loginAnotherPatientCheckBox, backgroundImageName: Asset.emptyCheckbox.image)
-        self.setUpLabel(label: loginAnotherPatientLabel, labelText: L10n.bookForAnotherPatient, fontName: FontFamily.PTSans.bold, fontSize: 12, fontColor: ColorName.white.color)
-        self.setUpTextFiled(textFiled: loginAnotherPatientTextField, textValue: "", placeholder: L10n.enterName, padding: padding, fontSize: 12)
-        //SetUp Login & Book Button
-        setUpButton(button: loginAndBookButton, buttonTitle: L10n.loginAndBook, backgroundImageName: Asset.buttonBar.image, FontName: FontFamily.PTSans.bold, fontSize: 20)
-        //setup Terms And Conditions Section
-        self.setUpLabel(label: loginTermsLabel, labelText: L10n.instructions , fontName: FontFamily.PTSans.regular, fontSize: 10.5, fontColor: .white)
     }
-    
-    func changeLoginViewState(alpha: CGFloat){
-        loginView.alpha = alpha
+    func changeNameTextFieldState(alpha: CGFloat){
+        nameTextField.alpha = alpha
+        nameTextFieldLineView.alpha = alpha
     }
-    func changeRegisterViewState(algha: CGFloat){
-        registerView.alpha = algha
+    func changeMobileTextFieldState(alpha: CGFloat){
+        mobileTextField.alpha = alpha
+        mobileTextFieldLineView.alpha = alpha
+    }
+    func changeEmailTextfiledLocation(constant: CGFloat) {
+        emailTextFieldTopConstraint.constant = constant
+    }
+    func changePasswordTextFieldLocation(constant: CGFloat) {
+        passwordTextFieldTopConstraint.constant = constant
     }
     func changeRegisterButtonDesign(buttonBackgroundColor: UIColor, buttonTextColor: UIColor){
         registerButton.backgroundColor = buttonBackgroundColor
@@ -134,6 +105,33 @@ class UnRegiserdBookingView: UIView {
     }
     func changeCloseButtonBacgroundImage(buttonBackGroundImage:UIImage) {
         closeButton.setBackgroundImage(buttonBackGroundImage, for: .normal)
+    }
+    func changeBookingButtonTitle(title: String){
+        signUpAndBookButton.setTitle(title, for: .normal)
+    }
+    func makeRegisterPopViewOnInitalState(){
+        nameTextField.text = ""
+        emailTextField.text = ""
+        mobileTextField.text = ""
+        passwordTextField.text = ""
+        makeCheckBoxesOnInitialSate()
+    }
+    func makeLoginPopViewOnInitalState(){
+        emailTextField.text = ""
+        passwordTextField.text = ""
+        makeCheckBoxesOnInitialSate()
+    }
+    
+    func makeCheckBoxesOnInitialSate(){
+        voucherTextField.text = ""
+        anotherPatientTextField.text = ""
+        voucherCheckBox.setBackgroundImage(Asset.emptyCheckbox.image, for: .normal)
+        anotherPatientCheckBox.setBackgroundImage(Asset.emptyCheckbox.image, for: .normal)
+        voucherTextField.alpha = 0
+        registerVoucherLineView.alpha = 0
+        anotherPatientTopConstraint.constant = -16
+        anotherPatientTextField.alpha = 0
+        registerPatientLineView.alpha = 0
     }
     
 }
