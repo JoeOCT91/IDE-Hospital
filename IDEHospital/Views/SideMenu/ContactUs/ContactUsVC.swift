@@ -65,6 +65,4 @@ extension ContactUsVC:ContactUsVCProtocol{
         self.view.window?.rootViewController?.dismiss(animated: false)
     }
 }
-//extension ContactUsVC:AlertVcDelegate{
-//
-//}
+

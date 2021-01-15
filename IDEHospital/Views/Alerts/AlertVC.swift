@@ -89,16 +89,16 @@ class AlertVC: UIViewController {
         messageLabel.textAlignment = .center
         messageLabel.textColor = UIColor(named: ColorName.darkRoyalBlue)
         NSLayoutConstraint.activate([
-            messageLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 0),
-            messageLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: 0),
-            messageLabel.bottomAnchor.constraint(equalTo: actionButton.topAnchor, constant: -20)
+            messageLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 5),
+            messageLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -5),
+            messageLabel.bottomAnchor.constraint(equalTo: actionButton.topAnchor, constant: -10)
         ])
     }
     
     private func configureActionButton(){
         actionButton.titleLabel?.font = actionButton.titleLabel?.font.withSize(15)
         NSLayoutConstraint.activate([
-            actionButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20),
+            actionButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10),
             actionButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
             actionButton.widthAnchor.constraint(equalToConstant: 55),
             actionButton.heightAnchor.constraint(equalToConstant: 30),

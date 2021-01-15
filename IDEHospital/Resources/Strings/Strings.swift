@@ -142,6 +142,8 @@ internal enum L10n {
   internal static let noVoucher = L10n.tr("Localizable", "noVoucher")
   /// If you would like further information about how we can help you and your health it would be great to hear from you
   internal static let nurseVcLabel = L10n.tr("Localizable", "nurseVcLabel")
+  /// please enter Your old password.
+  internal static let oldPassValid = L10n.tr("Localizable", "oldPassValid")
   /// Old Password
   internal static let oldPassword = L10n.tr("Localizable", "oldPassword")
   /// Passwords not match please recheck
@@ -248,8 +250,6 @@ internal enum L10n {
   internal static let validMobile = L10n.tr("Localizable", "validMobile")
   /// please enter valid new passsword, that must be at least 6 characters.
   internal static let validNewPass = L10n.tr("Localizable", "validNewPass")
-  /// please enter Valid passsword, that must be at least 6 characters.
-  internal static let validPass = L10n.tr("Localizable", "validPass")
   /// View on map
   internal static let viewOnMap = L10n.tr("Localizable", "viewOnMap")
   /// Wating Time: 

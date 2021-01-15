@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 protocol NurseVCProtocol: PopUPsProtocol {
     func showLoader()
     func hideLoader()

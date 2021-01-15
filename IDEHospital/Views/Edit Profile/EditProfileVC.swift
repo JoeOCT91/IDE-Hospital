@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol EditProfileVCProtocol: class {
+protocol EditProfileVCProtocol: PopUPsProtocol {
     func setUserData(userData: UserData)
     func presentError(message: String, alertType: Int)
     func showLoader()

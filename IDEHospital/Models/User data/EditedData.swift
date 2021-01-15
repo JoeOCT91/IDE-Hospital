@@ -13,9 +13,9 @@ class EditedData: Codable {
     let name: String?
     let email: String?
     let mobile: String?
-    let oldPassword: String?
-    let password: String?
-    let confirmPassword: String?
+    var oldPassword: String?
+    var password: String?
+    var confirmPassword: String?
     
     enum CodingKeys: String, CodingKey {
         case code
