@@ -9,15 +9,12 @@ import UIKit
 
 protocol EditProfileVCProtocol: PopUPsProtocol {
     func setUserData(userData: UserData)
-    func presentError(message: String, alertType: Int)
     func showLoader()
     func hideLoader()
 }
 
 class EditProfileVC: UIViewController {
 
-    
-    
     //View
     @IBOutlet var editProfileView: EditProfileView!
     //View model
@@ -27,12 +24,11 @@ class EditProfileVC: UIViewController {
         super.viewDidLoad()
         viewModel.getUserData()
         setupViews()
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+
     }
     
     private func setupViews() {
@@ -61,12 +57,9 @@ extension EditProfileVC: EditProfileVCProtocol {
     func hideLoader() {
         view.hideLoader()
     }
+    
     internal func setUserData(userData: UserData){
         editProfileView.setUserrData(userData: userData)
-    }
-    
-    internal func presentError(message: String, alertType: Int = 1) {
-        presentAlertOnMainThread(message: message, alertType: .withFaliure, delegate: nil)
     }
 
 }
@@ -79,5 +72,4 @@ extension EditProfileVC: EditProfileDelegate{
     func savePressed(edittedData: EditedData) {
         viewModel.saveUserData(edditedData: edittedData)
     }
-
 }
