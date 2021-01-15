@@ -25,9 +25,9 @@ class TermsAndConditionsVM: TermsAndConditionsVMProtocol {
             guard let self = self else { return }
             switch result {
             case .success(let termsAndConditions):
-                let termsAndConditionsStr = termsAndConditions.data.termsAndConditions
-                let termsAndConditionsAtrr = termsAndConditionsStr.htmlToAttributedString!
-                self.view?.setTermsAndCoditions(termsAndCondtions: termsAndConditionsAtrr)
+                let termsAndConditionsStr = termsAndConditions.data?.termsAndConditions
+                let termsAndConditionsAtrr = termsAndConditionsStr?.htmlToAttributedString!
+                self.view?.setTermsAndCoditions(termsAndCondtions: termsAndConditionsAtrr!)
                 self.view?.hideLoader()
             case .failure(let error):
                 print(error)

@@ -93,7 +93,7 @@ class APIManager {
         }
     }
     // Get terms and conditions
-    class func getTermsAndConditions(complation: @escaping (Result<TermsAndCondition, Error>) -> ()) {
+    class func getTermsAndConditions(complation: @escaping (Result<MainResponse<TermsAndConditions>, Error>) -> ()) {
         request(APIRouter.termsAndConditions){ respons in
             complation(respons)
         }

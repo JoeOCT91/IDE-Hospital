@@ -7,15 +7,8 @@
 
 import Foundation
 
-// MARK: - TermsAndCondition
-struct TermsAndCondition: Codable {
-    let success: Bool
-    let data: TermsAndConditionsBody
-    let code: Int
-}
-
 // MARK: - TermsAndConditionsBody
-struct TermsAndConditionsBody: Codable {
+struct TermsAndConditions: Codable {
     
     let termsAndConditions: String
 
