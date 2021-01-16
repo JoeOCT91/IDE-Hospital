@@ -149,3 +149,4 @@
 "newIsSame" = "Entered new password is the same as old password, please change it";
 //Setting
 "setting" = "SETTING";
+"selectCityBeforeRegionFirst" = "You have to select a city first then select it's Region";

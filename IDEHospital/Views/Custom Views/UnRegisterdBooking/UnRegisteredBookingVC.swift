@@ -28,6 +28,7 @@ class UnRegisteredBookingVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.unRegisterdBookingView.setUp()
+        self.hideKeyboardWhenTappedAround()
     }
     
     override func okButtonPressed() {

@@ -198,6 +198,8 @@ internal enum L10n {
   internal static let search = L10n.tr("Localizable", "search")
   /// Search Result
   internal static let searchResult = L10n.tr("Localizable", "searchResult")
+  /// You have to select a city first then select it's Region
+  internal static let selectCityBeforeRegionFirst = L10n.tr("Localizable", "selectCityBeforeRegionFirst")
   /// Send
   internal static let send = L10n.tr("Localizable", "send")
   /// Send Request

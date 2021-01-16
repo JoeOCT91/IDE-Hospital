@@ -21,6 +21,7 @@ class SignUpVC: UIViewController {
         super.viewDidLoad()
         signUpView.setUp()
         configureNavigationBar()
+        self.hideKeyboardWhenTappedAround()
     }
     
     // MARK:- Public Methods

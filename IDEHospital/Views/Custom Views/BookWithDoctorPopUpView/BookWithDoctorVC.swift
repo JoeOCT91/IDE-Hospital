@@ -30,6 +30,7 @@ class BookWithDoctorVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bookWithDoctorView.setUp()
+        self.hideKeyboardWhenTappedAround()
     }
     
     override func okButtonPressed() {

@@ -20,6 +20,7 @@ class ResetPasswordVC: UIViewController {
         super.viewDidLoad()
         resetPasswordView.setUp()
         configureNavigationBar()
+        self.hideKeyboardWhenTappedAround()
     }
     
     // MARK:- Public Methods

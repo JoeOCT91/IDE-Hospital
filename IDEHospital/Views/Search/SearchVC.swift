@@ -5,7 +5,7 @@
 //
 
 import UIKit
-protocol SearchVCProtocol: class {
+protocol SearchVCProtocol: PopUPsProtocol {
     func presentError(title:String,message: String)
     func showLoader()
     func hideLoader()
@@ -23,8 +23,11 @@ class SearchVC: UIViewController {
         super.viewDidLoad()
         self.searchView.setUp()
         self.viewModel.callGetCategoriesAPI()
+        self.hideKeyboardWhenTappedAround()
     }
-    
+    override func okButtonPressed() {
+        self.switchToCityTextField()
+    }
     override func viewWillAppear(_ animated: Bool) {
         configureNavigationBar()
     }

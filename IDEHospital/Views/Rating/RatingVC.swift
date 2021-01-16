@@ -18,6 +18,7 @@ class RatingVC: UIViewController {
         super.viewDidLoad()
         ratingView.setUp()
         configureNavigationBar()
+        self.hideKeyboardWhenTappedAround()
     }
     
     // MARK:- Public Methods

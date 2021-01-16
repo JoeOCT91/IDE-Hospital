@@ -27,6 +27,7 @@ class ContactUsVC: UIViewController {
         setViewControllerTitle(to: L10n.sideMenuContactUs.uppercased())
         setupNavigationBar()
         setupBackWithPopup()
+        self.hideKeyboardWhenTappedAround()
     }
     
     // MARK:- Public Methods

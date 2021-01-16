@@ -39,13 +39,17 @@ class AppointmentsVM<T: AppointmentsVCProtocol>: ViewModelWithPagination<T>, App
     }
     
     func removeEmptyDataPlaceholder(){
-        if !dataList.isEmpty { view?.hideEmptyTablePlaceHolder() }
+        if !dataList.isEmpty {
+            view?.hideEmptyTablePlaceHolder()
+        }
+        else{
+            hasNoDataToPresent()
+        }
     }
     
     func getData(){
         if UserDefaultsManager.shared().token != nil {
             view?.showLoader()
-            hasNoDataToPresent()
             APIManager.getAppointments(page: page) { [weak self] (result) in
                 guard let self = self else { return }
                 switch result {

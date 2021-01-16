@@ -27,13 +27,17 @@ class FavoritesVM<T: FavoritesVCProtocol>: ViewModelWithPagination<T>, Favorites
     }
     
     private  func removeEmptyDataPlaceholder(){
-        if !dataList.isEmpty { view?.hideEmptyTablePlaceHolder() }
+        if !dataList.isEmpty {
+            view?.hideEmptyTablePlaceHolder()
+        }
+        else{
+            self.view?.tableViewIsEmpty(message: L10n.youHaveNoFavorites)
+        }
     }
     
     //Call data from the server
     func getData(){
         if UserDefaultsManager.shared().token != nil {
-            self.view?.tableViewIsEmpty(message: L10n.youHaveNoFavorites)
             self.view?.showLoader()
             APIManager.getFavorites(page: page) { [weak self] (result: Result<BaseResponse<Doctor>, Error>) in
                 guard let self = self else { return }

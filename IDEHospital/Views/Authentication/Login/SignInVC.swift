@@ -20,6 +20,7 @@ class SignInVC: UIViewController {
         super.viewDidLoad()
         signInView.setUp()
         configureNavigationBar()
+        self.hideKeyboardWhenTappedAround()
     }
     // MARK:- Public Methods
     class func create() -> SignInVC {

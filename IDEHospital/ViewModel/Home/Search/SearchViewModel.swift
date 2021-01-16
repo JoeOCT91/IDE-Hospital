@@ -111,9 +111,8 @@ extension SearchViewModel:SearchViewModelProtocol{
     func checkIfCityFieldSelectedFirstOrNot(tag:Int) {
         if (tag == 3) && (regionArr.count == 0) {
             DispatchQueue.main.async {
-                self.view?.presentError(title: L10n.sorry, message: AlertMessages.selectCityBeforeRegionFirst)
+                self.view?.presentPopupOnMainThread(message: L10n.selectCityBeforeRegionFirst, alertType: .withFaliure, delegate: self.view)
             }
-            self.view?.switchToCityTextField()
         }
     }
 }
