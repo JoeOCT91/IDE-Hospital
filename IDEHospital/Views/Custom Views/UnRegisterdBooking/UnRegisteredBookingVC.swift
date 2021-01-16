@@ -62,6 +62,7 @@ class UnRegisteredBookingVC: UIViewController {
     @IBAction func RegisterButtonPressed(_ sender: Any) {
         self.viewModel.decideWhichPopUpViewToOpen(isOnRegisterView: true)
     }
+    
     @IBAction func loginButtonPressed(_ sender: Any) {
         self.viewModel.decideWhichPopUpViewToOpen(isOnRegisterView: false)
     }

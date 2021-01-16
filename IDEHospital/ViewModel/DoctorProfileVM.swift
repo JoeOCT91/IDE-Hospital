@@ -178,7 +178,7 @@ class DoctorProfileVM<T: DoctorProfileVCProtocol>: ViewModelWithPagination<T>, D
                 }
             }
         }  else {
-            view?.presentPopupOnMainThread(message: L10n.loginFirst, alertType: .withFaliure)
+            view?.presentPopupOnMainThread(message: L10n.loginFirst, alertType: .withFaliure, delegate: nil)
         }
     }
     

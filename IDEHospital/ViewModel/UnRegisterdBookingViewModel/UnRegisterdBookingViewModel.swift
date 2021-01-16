@@ -35,18 +35,18 @@ class UnRegisterdBookingViewModel {
             switch response{
             case .failure(let error):
                 print(error.localizedDescription)
-                self.view.presentPopupOnMainThread(message: error.localizedDescription, alertType: .withFaliure)
+                self.view.presentPopupOnMainThread(message: error.localizedDescription, alertType: .withFaliure, delegate: nil)
             case .success(let result):
                 if result.code == 201{
                     UserDefaultsManager.shared().token = result.data?.access_token
-                    self.view.presentPopupOnMainThread(message: L10n.successfulBooking, alertType: .withSuccess)
+                    self.view.presentPopupOnMainThread(message: L10n.successfulBooking, alertType: .withSuccess, delegate: self.view)
                 }
                 else if result.code == 422{
                     if result.errors?.email?[0].count ?? 0 > 0{
-                        self.view?.presentPopupOnMainThread(message: (result.errors!.email?[0])!, alertType: .withFaliure)
+                        self.view?.presentPopupOnMainThread(message: (result.errors!.email?[0])!, alertType: .withFaliure, delegate: nil)
                     }
                     else if result.errors?.voucher?[0].count ?? 0 > 0{
-                        self.view?.presentPopupOnMainThread(message: (result.errors!.voucher?[0])!, alertType: .withFaliure)
+                        self.view?.presentPopupOnMainThread(message: (result.errors!.voucher?[0])!, alertType: .withFaliure, delegate: nil)
                     }
                 }
             }
@@ -59,17 +59,17 @@ class UnRegisterdBookingViewModel {
             switch response{
             case .failure(let error):
                 print(error.localizedDescription)
-                self.view.presentPopupOnMainThread(message: error.localizedDescription, alertType: .withFaliure)
+                self.view.presentPopupOnMainThread(message: error.localizedDescription, alertType: .withFaliure, delegate: nil)
             case .success(let result):
                 if result.code == 201{
                     UserDefaultsManager.shared().token = result.data?.access_token
-                    self.view.presentPopupOnMainThread(message: L10n.successfulBooking, alertType: .withFaliure)
+                    self.view.presentPopupOnMainThread(message: L10n.successfulBooking, alertType: .withSuccess, delegate: self.view)
                 }
                 else if result.code == 401{
-                    self.view.presentPopupOnMainThread(message: result.message!, alertType: .withFaliure)
+                    self.view.presentPopupOnMainThread(message: result.message!, alertType: .withFaliure, delegate: nil)
                 }
                 else{
-                    self.view.presentPopupOnMainThread(message: result.message!, alertType: .withFaliure)
+                    self.view.presentPopupOnMainThread(message: result.message!, alertType: .withFaliure, delegate: nil)
                 }
             }
             self.view?.hideLoader()
@@ -152,50 +152,50 @@ extension UnRegisterdBookingViewModel: UnRegisterdBookingViewModelProtocol{
         
         if isOnRegisterPopUpView{
             guard !name!.isEmpty else{
-                self.view.presentPopupOnMainThread(message: L10n.nameIsEmpty, alertType: .withFaliure)
+                self.view.presentPopupOnMainThread(message: L10n.nameIsEmpty, alertType: .withFaliure, delegate: nil)
                 return
             }
             guard name!.count >= 3 else{
-                self.view.presentPopupOnMainThread(message: L10n.nameFieldCountIsSmall, alertType: .withFaliure)
+                self.view.presentPopupOnMainThread(message: L10n.nameFieldCountIsSmall, alertType: .withFaliure, delegate: nil)
                 return
             }
         }
         
         guard let email = email?.trimmed , !email.isEmpty else {
-            self.view.presentPopupOnMainThread(message: L10n.pleaseEnterEmail, alertType: .withFaliure)
+            self.view.presentPopupOnMainThread(message: L10n.pleaseEnterEmail, alertType: .withFaliure, delegate: nil)
             return
         }
         guard ValidatorManager.shared().isValidEmail(email) else{
-            self.view.presentPopupOnMainThread(message: L10n.invalidEMailFormat, alertType: .withFaliure)
+            self.view.presentPopupOnMainThread(message: L10n.invalidEMailFormat, alertType: .withFaliure, delegate: nil)
             return
         }
         
         if isOnRegisterPopUpView{
             guard !mobile!.isEmpty else {
-                self.view.presentPopupOnMainThread(message: L10n.pleaseEnterPhoneNumber, alertType: .withFaliure)
+                self.view.presentPopupOnMainThread(message: L10n.pleaseEnterPhoneNumber, alertType: .withFaliure, delegate: nil)
                 return
             }
             guard ValidatorManager.shared().isPhoneNumberValid(phoneNumber: mobile!) else{
-                self.view.presentPopupOnMainThread(message: L10n.rightPhoneNumberFormatDescription, alertType: .withFaliure)
+                self.view.presentPopupOnMainThread(message: L10n.rightPhoneNumberFormatDescription, alertType: .withFaliure, delegate: nil)
                 return
             }
         }
         guard !password!.isEmpty else {
-            self.view.presentPopupOnMainThread(message: L10n.pleaseEnterPassword, alertType: .withFaliure)
+            self.view.presentPopupOnMainThread(message: L10n.pleaseEnterPassword, alertType: .withFaliure, delegate: nil)
             return
         }
         guard ValidatorManager.shared().isPasswordValid(password!) else{
-            self.view.presentPopupOnMainThread(message: L10n.rightPasswordFormatDescription, alertType: .withFaliure)
+            self.view.presentPopupOnMainThread(message: L10n.rightPasswordFormatDescription, alertType: .withFaliure, delegate: nil)
             return
         }
         
         guard checkVoucherCode(isUsingVoucher: usingVoucher, voucherCode: voucherCode) else {
-            self.view.presentPopupOnMainThread(message: L10n.pleaseEnterVoucher, alertType: .withFaliure)
+            self.view.presentPopupOnMainThread(message: L10n.pleaseEnterVoucher, alertType: .withFaliure, delegate: nil)
             return
         }
         
         guard checkAnotherPatient(isBookingForAnotherPateint: bookForAnother, anotherPatientName: patientName) else {
-            self.view.presentPopupOnMainThread(message: L10n.pleaseEnterPatient, alertType: .withFaliure)
+            self.view.presentPopupOnMainThread(message: L10n.pleaseEnterPatient, alertType: .withFaliure, delegate: nil)
             return
         }
         

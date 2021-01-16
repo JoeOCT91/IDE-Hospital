@@ -21,7 +21,7 @@ class RatingViewModel {
     // MARK:- Add Doctor Rating
     func callAddDoctorRating(body: RatingBodyData) {
         guard UserDefaultsManager.shared().token != nil else {
-            self.view?.presentPopupOnMainThread(message: L10n.loginFirst, alertType: .withFaliure)
+            self.view?.presentPopupOnMainThread(message: L10n.loginFirst, alertType: .withFaliure, delegate: nil)
             return
         }
         print("view Model DoctorID" + " \(String(describing: doctorID))")
@@ -32,9 +32,9 @@ class RatingViewModel {
                 print(error.localizedDescription)
             case .success(let response):
                 if response.code == 202 {
-                    self.view?.presentPopupOnMainThread(message:  L10n.successRatingAlert, alertType: .withSuccess)
+                    self.view?.presentPopupOnMainThread(message:  L10n.successRatingAlert, alertType: .withSuccess, delegate: self.view)
                 } else {
-                    self.view?.presentPopupOnMainThread(message: response.message!, alertType: .withFaliure)
+                    self.view?.presentPopupOnMainThread(message: response.message!, alertType: .withFaliure, delegate: nil)
                 }
             }
         }
@@ -45,15 +45,15 @@ class RatingViewModel {
 extension RatingViewModel:RatingViewModelProtocol{
     func addDoctorRating(rating: Int?, comment: String?) {
         guard !comment!.isEmpty else{
-            self.view?.presentPopupOnMainThread(message: L10n.pleaseEnterComment, alertType: .withFaliure)
+            self.view?.presentPopupOnMainThread(message: L10n.pleaseEnterComment, alertType: .withFaliure, delegate: nil)
             return
         }
         guard comment!.count > 3 else{
-            self.view?.presentPopupOnMainThread(message: L10n.commentFieldCountIsSmall, alertType: .withFaliure)
+            self.view?.presentPopupOnMainThread(message: L10n.commentFieldCountIsSmall, alertType: .withFaliure, delegate: nil)
             return
         }
         guard rating ?? 0 > 0 else {
-            self.view?.presentPopupOnMainThread(message: L10n.noRatings, alertType: .withFaliure)
+            self.view?.presentPopupOnMainThread(message: L10n.noRatings, alertType: .withFaliure, delegate: nil)
             return
         }
         let body = RatingBodyData(doctor_id: doctorID!, rating: rating, comment: comment)

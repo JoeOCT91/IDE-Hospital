@@ -30,10 +30,10 @@ class EditProfileVM: EditProfileVMProtocol {
                 case.success(let data):
                     if data.code == 200 {
                         self.view?.setUserData(userData: data.data!)
-                        self.view?.presentPopupOnMainThread(message: L10n.profileUpdated, alertType: .withSuccess)
+                        self.view?.presentPopupOnMainThread(message: L10n.profileUpdated, alertType: .withSuccess, delegate: nil)
                     }
                     if data.code == 401 {
-                        self.view?.presentPopupOnMainThread(message: "data.message!", alertType: .withFaliure)
+                        self.view?.presentPopupOnMainThread(message: "data.message!", alertType: .withFaliure, delegate: nil)
                     }
                     self.view?.hideLoader()
                 case .failure(let error):
@@ -48,17 +48,17 @@ class EditProfileVM: EditProfileVMProtocol {
         
         let validator = ValidatorManager.shared()
         if editedData.name!.isEmpty {
-            self.view?.presentPopupOnMainThread(message: L10n.profileUpdated, alertType: .withFaliure)
+            self.view?.presentPopupOnMainThread(message: L10n.profileUpdated, alertType: .withFaliure, delegate: nil)
             return false
         }
 
         if !validator.isValidEmail(editedData.email!) {
-            self.view?.presentPopupOnMainThread(message: L10n.validEmail, alertType: .withFaliure)
+            self.view?.presentPopupOnMainThread(message: L10n.validEmail, alertType: .withFaliure, delegate: nil)
             return false
         }
 
         if !validator.isPhoneNumberValid(phoneNumber: editedData.mobile!) {
-            self.view?.presentPopupOnMainThread(message: L10n.validMobile, alertType: .withFaliure)
+            self.view?.presentPopupOnMainThread(message: L10n.validMobile, alertType: .withFaliure, delegate: nil)
             return false
         }
         
@@ -70,22 +70,22 @@ class EditProfileVM: EditProfileVMProtocol {
         } else {
             
             if !validator.isPasswordValid(editedData.oldPassword!) {
-                self.view?.presentPopupOnMainThread(message: L10n.oldPassValid, alertType: .withFaliure)
+                self.view?.presentPopupOnMainThread(message: L10n.oldPassValid, alertType: .withFaliure, delegate: nil)
                 return false
             }
             
             if editedData.oldPassword == editedData.password {
-                self.view?.presentPopupOnMainThread(message: L10n.newIsSame, alertType: .withFaliure)
+                self.view?.presentPopupOnMainThread(message: L10n.newIsSame, alertType: .withFaliure, delegate: nil)
                 return false
             }
             
             if !validator.isPasswordValid(editedData.password!) {
-                self.view?.presentPopupOnMainThread(message: L10n.validNewPass, alertType: .withFaliure)
+                self.view?.presentPopupOnMainThread(message: L10n.validNewPass, alertType: .withFaliure, delegate: nil)
                 return false
             }
             
             if editedData.password! != editedData.confirmPassword! {
-                self.view?.presentPopupOnMainThread(message: L10n.passNotMatch, alertType: .withFaliure)
+                self.view?.presentPopupOnMainThread(message: L10n.passNotMatch, alertType: .withFaliure, delegate: nil)
                 return false
             }
         }

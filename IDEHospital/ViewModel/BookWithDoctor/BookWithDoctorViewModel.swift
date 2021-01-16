@@ -35,15 +35,15 @@ class BookWithDoctorViewModel {
         APIManager.bookAppoinmentWithDoctorAPI(body: body){(response) in
             switch response{
             case .failure(let error):
-                self.view?.presentPopupOnMainThread(message: error.localizedDescription, alertType: .withFaliure)
+                self.view?.presentPopupOnMainThread(message: error.localizedDescription, alertType: .withFaliure, delegate: nil)
             case .success(let result):
                 if result.code == 202{
-                    self.view?.presentPopupOnMainThread(message: L10n.successfulBooking, alertType: .withSuccess)
+                    self.view?.presentPopupOnMainThread(message: L10n.successfulBooking, alertType: .withSuccess, delegate: self.view)
                 }
                 else if result.code == 401{
-                    self.view?.presentPopupOnMainThread(message: result.message!, alertType: .withFaliure)
+                    self.view?.presentPopupOnMainThread(message: result.message!, alertType: .withFaliure, delegate: nil)
                 } else {
-                    self.view?.presentPopupOnMainThread(message: result.message!, alertType: .withFaliure)
+                    self.view?.presentPopupOnMainThread(message: result.message!, alertType: .withFaliure, delegate: nil)
                 }
             }
             self.view?.hideLoader()
@@ -111,21 +111,21 @@ extension BookWithDoctorViewModel:BookWithDoctorViewModelProtocol{
     
     func setVoucherAndPatiantName(patientName: String?, voucherCode: String?, bookForAnotherSwitch: Bool, voucherSwitch:Bool) {
         guard UserDefaultsManager.shared().token != nil else {
-            self.view?.presentPopupOnMainThread(message: L10n.loginFirstToAppointment, alertType: .withFaliure)
+            self.view?.presentPopupOnMainThread(message: L10n.loginFirstToAppointment, alertType: .withFaliure, delegate: nil)
             return
         }
         
         bookForAnotherPatientSwitch = bookForAnotherSwitch
         if voucherSwitch{
             if voucherCode?.count ?? 0 == 0 {
-                self.view?.presentPopupOnMainThread(message: L10n.pleaseEnterVoucher, alertType: .withFaliure)
+                self.view?.presentPopupOnMainThread(message: L10n.pleaseEnterVoucher, alertType: .withFaliure, delegate: nil)
                 return
             } else { self.voucherCode = voucherCode }
         } else { self.voucherCode = nil }
         
         if bookForAnotherPatientSwitch{
             if patientName?.count ?? 0 == 0 {
-                self.view?.presentPopupOnMainThread(message: L10n.pleaseEnterPatient, alertType: .withFaliure)
+                self.view?.presentPopupOnMainThread(message: L10n.pleaseEnterPatient, alertType: .withFaliure, delegate: nil)
                 return
             }
             else{

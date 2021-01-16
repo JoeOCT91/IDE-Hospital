@@ -57,7 +57,7 @@ extension SearchResultViewModel:SearchResultViewModelProtocol{
     // MARK:- For Change Heart Value
     func callAddOrDeleteDoctorFromFavoriteListAPI(id: Int) {
         guard UserDefaultsManager.shared().token != nil else {
-            self.view?.presentPopupOnMainThread(message: L10n.loginFirst, alertType: .withFaliure)
+            self.view?.presentPopupOnMainThread(message: L10n.loginFirst, alertType: .withFaliure, delegate: nil)
             return
         }
         print("view Model ID" + " \(id)")

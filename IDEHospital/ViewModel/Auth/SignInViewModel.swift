@@ -23,14 +23,14 @@ class SignInViewModel {
         APIManager.sendLoginRequestAPI(body: body){(response) in
             switch response{
             case .failure(let error):
-                self.view?.presentPopupOnMainThread(message: error.localizedDescription, alertType: .withFaliure)
+                self.view?.presentPopupOnMainThread(message: error.localizedDescription, alertType: .withFaliure, delegate: nil)
             case .success(let result):
                 if result.code == 201{
                     UserDefaultsManager.shared().token = result.data?.access_token
-                    self.view?.presentPopupOnMainThread(message: L10n.successLogin, alertType: .withSuccess)
+                    self.view?.presentPopupOnMainThread(message: L10n.successLogin, alertType: .withSuccess, delegate: self.view)
                 }
                 else{
-                    self.view?.presentPopupOnMainThread(message: result.message!, alertType: .withFaliure)
+                    self.view?.presentPopupOnMainThread(message: result.message!, alertType: .withFaliure, delegate: nil)
                 }
             }
             self.view?.hideLoader()
@@ -41,19 +41,19 @@ extension SignInViewModel:SignInViewModelProtocol{
     func loginRequest(email: String?, password: String?) {
         
         guard let email = email?.trimmed , !email.isEmpty else {
-            self.view?.presentPopupOnMainThread(message: L10n.pleaseEnterEmail, alertType: .withFaliure)
+            self.view?.presentPopupOnMainThread(message: L10n.pleaseEnterEmail, alertType: .withFaliure, delegate: nil)
             return
         }
         guard ValidatorManager.shared().isValidEmail(email) else{
-            self.view?.presentPopupOnMainThread(message: L10n.invalidEMailFormat, alertType: .withFaliure)
+            self.view?.presentPopupOnMainThread(message: L10n.invalidEMailFormat, alertType: .withFaliure, delegate: nil)
             return
         }
         guard !password!.isEmpty else {
-            self.view?.presentPopupOnMainThread(message:  L10n.pleaseEnterPassword, alertType: .withFaliure)
+            self.view?.presentPopupOnMainThread(message:  L10n.pleaseEnterPassword, alertType: .withFaliure, delegate: nil)
             return
         }
         guard ValidatorManager.shared().isPasswordValid(password!) else{
-            self.view?.presentPopupOnMainThread(message: L10n.rightPasswordFormatDescription, alertType: .withFaliure)
+            self.view?.presentPopupOnMainThread(message: L10n.rightPasswordFormatDescription, alertType: .withFaliure, delegate: nil)
 
             return
         }
