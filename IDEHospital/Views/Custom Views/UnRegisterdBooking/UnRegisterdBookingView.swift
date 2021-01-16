@@ -16,15 +16,11 @@ class UnRegiserdBookingView: UIView {
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var closeButton: UIButton!
-    
     // TextFields Section
     @IBOutlet weak var nameTextField: IDEAHopitalTextField!
     @IBOutlet weak var nameTextFieldLineView: UIView!
-    
     @IBOutlet weak var emailTextField: IDEAHopitalTextField!
-    
     @IBOutlet weak var mobileTextField: IDEAHopitalTextField!
-    
     @IBOutlet weak var mobileTextFieldLineView: UIView!
     @IBOutlet weak var passwordTextField: IDEAHopitalTextField!
     // Voucher Section
@@ -81,34 +77,67 @@ class UnRegiserdBookingView: UIView {
         self.setUpLabel(label: termsLabel, labelText: L10n.instructions , fontName: FontFamily.PTSans.regular, fontSize: 10.5, fontColor: .white)
         
     }
+    //MARK:- Responsible for Show Register PopUp View
+    func changeToRegisterViewPopUpState(){
+        changeNameTextFieldState(alpha: 1)
+        changeMobileTextFieldState(alpha: 1)
+        changeEmailTextfiledLocation(constant: 25)
+        changePasswordTextFieldLocation(constant: 25)
+        changeRegisterButtonDesign(buttonBackgroundColor: ColorName.white.color, buttonTextColor: ColorName.darkRoyalBlue.color)
+        changeLoginButtonDesign(buttonBackgroundColor: UIColor.clear, buttonTextColor: ColorName.white.color)
+        changeCloseButtonBacgroundImage(buttonBackGroundImage: Asset.whiteCloseButton.image)
+        changeBookingButtonTitle(title: L10n.signUpAndBook)
+        makeRegisterPopViewOnInitalState()
+    }
+    //MARK:- Responsible for Show Login PopUp View
+    func changeToLoginViewPopUpState(){
+        changeNameTextFieldState(alpha: 0)
+        changeMobileTextFieldState(alpha: 0)
+        changeEmailTextfiledLocation(constant: 25)
+        changePasswordTextFieldLocation(constant: -30)
+        changeRegisterButtonDesign(buttonBackgroundColor: UIColor.clear, buttonTextColor: ColorName.white.color)
+        changeLoginButtonDesign(buttonBackgroundColor: ColorName.white.color, buttonTextColor: ColorName.darkRoyalBlue.color)
+        changeCloseButtonBacgroundImage(buttonBackGroundImage: Asset.dismiss.image)
+        changeBookingButtonTitle(title: L10n.loginAndBook)
+        makeLoginPopViewOnInitalState()
+    }
+    //MARK:- To Change Name TextField Alpha After Switching Between Login and Register PopUpViews
     func changeNameTextFieldState(alpha: CGFloat){
         nameTextField.alpha = alpha
         nameTextFieldLineView.alpha = alpha
     }
+    //MARK:- To Change Mobile TextField Alpha After Switching Between Login and Register PopUpViews
     func changeMobileTextFieldState(alpha: CGFloat){
         mobileTextField.alpha = alpha
         mobileTextFieldLineView.alpha = alpha
     }
+    //MARK:- To Change Email Top Value Constraint After Switching Between Login and Register PopUpViews
     func changeEmailTextfiledLocation(constant: CGFloat) {
         emailTextFieldTopConstraint.constant = constant
     }
+    //MARK:- To Change Password Top Value Constraint After Switching Between Login and Register PopUpViews
     func changePasswordTextFieldLocation(constant: CGFloat) {
         passwordTextFieldTopConstraint.constant = constant
     }
+    //MARK:- To Change Register Button Color After Switching Between Login and Register PopUpViews
     func changeRegisterButtonDesign(buttonBackgroundColor: UIColor, buttonTextColor: UIColor){
         registerButton.backgroundColor = buttonBackgroundColor
         registerButton.setTitleColor(buttonTextColor, for: .normal)
     }
+    //MARK:- To Change Login Button Color After Switching Between Login and Register PopUpViews
     func changeLoginButtonDesign(buttonBackgroundColor: UIColor, buttonTextColor: UIColor){
         loginButton.backgroundColor = buttonBackgroundColor
         loginButton.setTitleColor(buttonTextColor, for: .normal)
     }
+    //MARK:- To Change Close Button Color After Switching Between Login and Register PopUpViews
     func changeCloseButtonBacgroundImage(buttonBackGroundImage:UIImage) {
         closeButton.setBackgroundImage(buttonBackGroundImage, for: .normal)
     }
+    //MARK:- To Change Booking Button Title After Switching Between Login and Register PopUpViews
     func changeBookingButtonTitle(title: String){
         signUpAndBookButton.setTitle(title, for: .normal)
     }
+    //MARK:- To Reset All TextFields Text Values After Switching Between Login and Register PopUpViews
     func makeRegisterPopViewOnInitalState(){
         nameTextField.text = ""
         emailTextField.text = ""
@@ -116,12 +145,13 @@ class UnRegiserdBookingView: UIView {
         passwordTextField.text = ""
         makeCheckBoxesOnInitialSate()
     }
+    //MARK:- To Reset All TextFields Text Values After Switching Between Login and Register PopUpViews
     func makeLoginPopViewOnInitalState(){
         emailTextField.text = ""
         passwordTextField.text = ""
         makeCheckBoxesOnInitialSate()
     }
-    
+    //MARK:- To Reset All Check Boxes To it's Inial State After Switching Between Login and Register PopUpViews
     func makeCheckBoxesOnInitialSate(){
         voucherTextField.text = ""
         anotherPatientTextField.text = ""
@@ -136,7 +166,7 @@ class UnRegiserdBookingView: UIView {
     
 }
 extension UnRegiserdBookingView{
-    // MARK Private Functions
+    // MARK:- Private Functions
     private func setUpLabel(label:UILabel, labelText:String, fontName:FontConvertible, fontSize:CGFloat, fontColor:UIColor) {
         label.font = UIFont(font: fontName, size: fontSize)
         label.numberOfLines = 1

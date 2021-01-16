@@ -129,5 +129,6 @@
 "confirmYourAppointment" = "Confirm Your Appointment";
 "youAreAboutToBook" = "You are about to book an appointment on ";
 "successfulBooking" = "Appointment have been Booked Successfully";
+"youWantCancelAppoinment" = "Are you want to cancel the Appointment!";
 //Rating
 

@@ -9,8 +9,7 @@ import Foundation
 protocol UnRegisterdBookingViewModelProtocol {
     func checkVoucherCheckBoxState(state:Bool) -> Bool 
     func checkAnotherPatientCheckBoxState(state:Bool) -> Bool
-    func checkLoginData(email: String?, password: String?, bookForAnother: Bool, patientName: String?, usingVoucher: Bool, voucherCode: String?)
-    func checkRegisterData(name: String?, email: String?, password: String?, mobile: String?, bookForAnother: Bool, patientName: String?, usingVoucher: Bool, voucherCode: String?)
+    func validateBookingData(name: String?, email: String?, password: String?, mobile: String?, bookForAnother: Bool, patientName: String?, usingVoucher: Bool, voucherCode: String?, isOnRegisterPopUpView: Bool)
     func checkWhichPopUpViewPresented(isOnRegisterPopUpView: Bool)
 }
 class UnRegisterdBookingViewModel {
@@ -109,6 +108,7 @@ class UnRegisterdBookingViewModel {
 }
 
 extension UnRegisterdBookingViewModel: UnRegisterdBookingViewModelProtocol{
+    
     func checkWhichPopUpViewPresented(isOnRegisterPopUpView: Bool) {
         if isOnRegisterPopUpView{
             self.view.sendRegisterData()
@@ -140,7 +140,18 @@ extension UnRegisterdBookingViewModel: UnRegisterdBookingViewModelProtocol{
         }
     }
     
-    func checkLoginData(email: String?, password: String?, bookForAnother: Bool, patientName: String?, usingVoucher: Bool, voucherCode: String?) {
+    func validateBookingData(name: String?, email: String?, password: String?, mobile: String?, bookForAnother: Bool, patientName: String?, usingVoucher: Bool, voucherCode: String?, isOnRegisterPopUpView: Bool) {
+        
+        if isOnRegisterPopUpView{
+            guard !name!.isEmpty else{
+                self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.pleaseEnterName)
+                return
+            }
+            guard name!.count >= 3 else{
+                self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.nameFieldCountIsSmall)
+                return
+            }
+        }
         
         guard let email = email?.trimmed , !email.isEmpty else {
             self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.pleaseEnterEmail)
@@ -149,6 +160,17 @@ extension UnRegisterdBookingViewModel: UnRegisterdBookingViewModelProtocol{
         guard ValidatorManager.shared().isValidEmail(email) else{
             self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.invalidEMailFormat)
             return
+        }
+        
+        if isOnRegisterPopUpView{
+            guard !mobile!.isEmpty else {
+                self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.pleaseEnterPhoneNumber)
+                return
+            }
+            guard ValidatorManager.shared().isPhoneNumberValid(phoneNumber: mobile!) else{
+                self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.rightPhoneNumberFormatDescription)
+                return
+            }
         }
         guard !password!.isEmpty else {
             self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.pleaseEnterPassword)
@@ -168,56 +190,13 @@ extension UnRegisterdBookingViewModel: UnRegisterdBookingViewModelProtocol{
             return
         }
         
-        let body = BookWithLoginBodyData(doctor_id: doctorID, appointment: appointmentTime, patient_name: currentAnotherPatientName, book_for_another: bookForAnother, voucher: currentVoucherCode, email: email, password: password)
-        self.bookingWithLoginRequest(body: body)
-    }
-    
-    
-    func checkRegisterData(name: String?, email: String?, password: String?, mobile: String?, bookForAnother: Bool, patientName: String?, usingVoucher: Bool, voucherCode: String?) {
-        
-        guard !name!.isEmpty else{
-            self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.pleaseEnterName)
-            return
+        if isOnRegisterPopUpView{
+            let body = BookWithRegisterBodyData(doctor_id: doctorID, appointment: appointmentTime, patient_name: currentAnotherPatientName, book_for_another: bookForAnother, voucher: currentVoucherCode, name: name, email: email, mobile: mobile, password: password)
+            self.bookingWithRegisterRequest(body: body)
         }
-        guard name!.count >= 3 else{
-            self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.nameFieldCountIsSmall)
-            return
+        else{
+            let body = BookWithLoginBodyData(doctor_id: doctorID, appointment: appointmentTime, patient_name: currentAnotherPatientName, book_for_another: bookForAnother, voucher: currentVoucherCode, email: email, password: password)
+            self.bookingWithLoginRequest(body: body)
         }
-        guard let email = email?.trimmed , !email.isEmpty else {
-            self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.pleaseEnterEmail)
-            return
-        }
-        guard ValidatorManager.shared().isValidEmail(email) else{
-            self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.invalidEMailFormat)
-            return
-        }
-        guard !mobile!.isEmpty else {
-            self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.pleaseEnterPhoneNumber)
-            return
-        }
-        guard ValidatorManager.shared().isPhoneNumberValid(phoneNumber: mobile!) else{
-            self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.rightPhoneNumberFormatDescription)
-            return
-        }
-        guard !password!.isEmpty else {
-            self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.pleaseEnterPassword)
-            return
-        }
-        guard ValidatorManager.shared().isPasswordValid(password!) else{
-            self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.rightPasswordFormatDescription)
-            return
-        }
-        
-        guard checkVoucherCode(isUsingVoucher: usingVoucher, voucherCode: voucherCode)else{
-            self.view?.presentErrorAlert(title: "", message: L10n.pleaseEnterVoucher)
-            return
-        }
-        guard checkAnotherPatient(isBookingForAnotherPateint: bookForAnother, anotherPatientName: patientName) else{
-            self.view?.presentErrorAlert(title: "", message: L10n.pleaseEnterPatient)
-            return
-        }
-        
-        let body = BookWithRegisterBodyData(doctor_id: doctorID, appointment: appointmentTime, patient_name: currentAnotherPatientName, book_for_another: bookForAnother, voucher: currentVoucherCode, name: name, email: email, mobile: mobile, password: password)
-        self.bookingWithRegisterRequest(body: body)
     }
 }

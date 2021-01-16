@@ -40,61 +40,37 @@ class UnRegisteredBookingVC: UIViewController {
         return unRegisterdBookingVc
     }
     // MARK:- Private Methods
+    // MARK:- Responsible for animating the view after changing top value constraint
     private func animateView(){
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
             self.unRegisterdBookingView.layoutIfNeeded()
         }, completion: nil)
     }
-    private func changeToRegisterViewPopUpState(){
-        self.unRegisterdBookingView.changeNameTextFieldState(alpha: 1)
-        self.unRegisterdBookingView.changeMobileTextFieldState(alpha: 1)
-        self.unRegisterdBookingView.changeEmailTextfiledLocation(constant: 25)
-        self.unRegisterdBookingView.changePasswordTextFieldLocation(constant: 25)
-        self.unRegisterdBookingView.changeRegisterButtonDesign(buttonBackgroundColor: ColorName.white.color, buttonTextColor: ColorName.darkRoyalBlue.color)
-        self.unRegisterdBookingView.changeLoginButtonDesign(buttonBackgroundColor: UIColor.clear, buttonTextColor: ColorName.white.color)
-        self.unRegisterdBookingView.changeCloseButtonBacgroundImage(buttonBackGroundImage: Asset.whiteCloseButton.image)
-        self.unRegisterdBookingView.changeBookingButtonTitle(title: L10n.signUpAndBook)
-        self.unRegisterdBookingView.makeRegisterPopViewOnInitalState()
+    // MARK:- To Reset Voucher and Another Patient Bool Values to False after switching between Register and Login PopUpViews
+    private func makeCheckBoxValuesOnInitialState(){
         voucherCheckBoxState = false
         anotherPatientCheckBoxState = false
-        isOnRegisterView = true
-        self.animateView()
-    }
-    private func changeToLoginViewPopUpState(){
-        self.unRegisterdBookingView.changeNameTextFieldState(alpha: 0)
-        self.unRegisterdBookingView.changeMobileTextFieldState(alpha: 0)
-        self.unRegisterdBookingView.changeEmailTextfiledLocation(constant: 25)
-        self.unRegisterdBookingView.changePasswordTextFieldLocation(constant: -30)
-        self.unRegisterdBookingView.changeRegisterButtonDesign(buttonBackgroundColor: UIColor.clear, buttonTextColor: ColorName.white.color)
-        self.unRegisterdBookingView.changeLoginButtonDesign(buttonBackgroundColor: ColorName.white.color, buttonTextColor: ColorName.darkRoyalBlue.color)
-        self.unRegisterdBookingView.changeCloseButtonBacgroundImage(buttonBackGroundImage: Asset.dismiss.image)
-        self.unRegisterdBookingView.changeBookingButtonTitle(title: L10n.loginAndBook)
-        self.unRegisterdBookingView.makeLoginPopViewOnInitalState()
-        voucherCheckBoxState = false
-        anotherPatientCheckBoxState = false
-        isOnRegisterView = false
-        self.animateView()
-    }
-    private func dismissCurrretVC(){
-        delegate?.reloadData()
-        self.dismiss(animated: true)
     }
     
     @IBAction func RegisterButtonPressed(_ sender: Any) {
-        self.changeToRegisterViewPopUpState()
+        self.unRegisterdBookingView.changeToRegisterViewPopUpState()
+        isOnRegisterView = true
+        makeCheckBoxValuesOnInitialState()
+        self.animateView()
     }
     @IBAction func loginButtonPressed(_ sender: Any) {
-        self.changeToLoginViewPopUpState()
+        self.unRegisterdBookingView.changeToLoginViewPopUpState()
+        isOnRegisterView = false
+        makeCheckBoxValuesOnInitialState()
+        self.animateView()
     }
     @IBAction func closeButtonPressed(_ sender: Any) {
-        self.presentAlertOnMainThread(id: 0, message: "Are you want to cancel the Appointment!", delegate: self)
+        self.presentAlertOnMainThread(id: 0, message: L10n.youWantCancelAppoinment, delegate: self)
     }
-    
     @IBAction func voucherCheckBoxButtonPressed(_ sender: Any) {
         voucherCheckBoxState = self.viewModel.checkVoucherCheckBoxState(state: voucherCheckBoxState)
         self.animateView()
     }
-    
     @IBAction func anotherPatientCheckBoxButtonPressed(_ sender: Any) {
         anotherPatientCheckBoxState = self.viewModel.checkAnotherPatientCheckBoxState(state: anotherPatientCheckBoxState)
         self.animateView()
@@ -112,11 +88,12 @@ class UnRegisteredBookingVC: UIViewController {
 }
 extension UnRegisteredBookingVC: UnRegisterdbookingVcProtocol{
     func sendRegisterData() {
-        self.viewModel.checkRegisterData(name: unRegisterdBookingView.nameTextField.text, email: unRegisterdBookingView.emailTextField.text, password: unRegisterdBookingView.passwordTextField.text, mobile: unRegisterdBookingView.mobileTextField.text, bookForAnother: anotherPatientCheckBoxState, patientName: unRegisterdBookingView.anotherPatientTextField.text, usingVoucher: voucherCheckBoxState, voucherCode: unRegisterdBookingView.voucherTextField.text)
+        
+        self.viewModel.validateBookingData(name: unRegisterdBookingView.nameTextField.text, email: unRegisterdBookingView.emailTextField.text, password: unRegisterdBookingView.passwordTextField.text, mobile: unRegisterdBookingView.mobileTextField.text, bookForAnother: anotherPatientCheckBoxState, patientName: unRegisterdBookingView.anotherPatientTextField.text, usingVoucher: voucherCheckBoxState, voucherCode: unRegisterdBookingView.voucherTextField.text, isOnRegisterPopUpView: true)
     }
     
     func sendLoginData() {
-        self.viewModel.checkLoginData(email: unRegisterdBookingView.emailTextField.text, password: unRegisterdBookingView.passwordTextField.text, bookForAnother: anotherPatientCheckBoxState, patientName: unRegisterdBookingView.anotherPatientTextField.text, usingVoucher: voucherCheckBoxState, voucherCode: unRegisterdBookingView.voucherTextField.text)
+        self.viewModel.validateBookingData(name: nil, email: unRegisterdBookingView.emailTextField.text, password: unRegisterdBookingView.passwordTextField.text, mobile: nil, bookForAnother: anotherPatientCheckBoxState, patientName: unRegisterdBookingView.anotherPatientTextField.text, usingVoucher: voucherCheckBoxState, voucherCode: unRegisterdBookingView.voucherTextField.text, isOnRegisterPopUpView: false)
     }
     
     func changeVoucherCheckBoxState(alpha: CGFloat, backgorundImage: UIImage, constant: CGFloat) {
@@ -148,13 +125,17 @@ extension UnRegisteredBookingVC: UnRegisterdbookingVcProtocol{
 }
 extension UnRegisteredBookingVC:AlertVcDelegate{
     func okButtonPressed() {
-        self.dismiss(animated: true)
-        self.dismissCurrretVC()
+        self.dismiss(animated: true){
+            self.delegate?.reloadData()
+            self.dismiss(animated: true)
+        }
     }
 }
 extension UnRegisteredBookingVC:ConfirmationAlertDelgate{
     func confirmPressed(id: Int) {
-        self.dismiss(animated: true)
-        self.dismissCurrretVC()
+        self.dismiss(animated: true){
+            self.delegate?.reloadData()
+            self.dismiss(animated: true)
+        }
     }
 }

@@ -53,7 +53,7 @@ class BookWithDoctorVC: UIViewController {
     }
     
     @IBAction func dismissButtonPressed(_ sender: Any) {
-       self.presentAlertOnMainThread(id: 0, message: "Are you want to cancel the Appointment!", delegate: self)
+        self.presentAlertOnMainThread(id: 0, message: L10n.youWantCancelAppoinment, delegate: self)
     }
     @IBAction func continueButtonPressed(_ sender: Any) {
         viewModel.setVoucherAndPatiantName(patientName: bookWithDoctorView.anotherPersonTextField.text, voucherCode:
@@ -68,10 +68,6 @@ class BookWithDoctorVC: UIViewController {
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
             self.bookWithDoctorView.layoutIfNeeded()
         }, completion: nil)
-    }
-    private func dismissCurrretVC(){
-        delegate?.reloadData()
-        self.dismiss(animated: true)
     }
     
 }
@@ -120,13 +116,17 @@ extension BookWithDoctorVC:BookWithDoctorVcProtocol{
 }
 extension BookWithDoctorVC:AlertVcDelegate{
     func okButtonPressed() {
-     self.dismiss(animated: true)
-      self.dismissCurrretVC()
+        self.dismiss(animated: true){
+            self.delegate?.reloadData()
+            self.dismiss(animated: true)
+        }
     }
 }
 extension BookWithDoctorVC:ConfirmationAlertDelgate{
     func confirmPressed(id: Int) {
-        self.dismiss(animated: true)
-        self.dismissCurrretVC()
+        self.dismiss(animated: true){
+            self.delegate?.reloadData()
+            self.dismiss(animated: true)
+        }
     }
 }

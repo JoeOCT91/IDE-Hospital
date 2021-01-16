@@ -246,6 +246,8 @@ internal enum L10n {
   internal static let youHaveNoFavorites = L10n.tr("Localizable", "youHaveNoFavorites")
   /// Your Message
   internal static let yourMessage = L10n.tr("Localizable", "yourMessage")
+  /// Are you want to cancel the Appointment!
+  internal static let youWantCancelAppoinment = L10n.tr("Localizable", "youWantCancelAppoinment")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces
