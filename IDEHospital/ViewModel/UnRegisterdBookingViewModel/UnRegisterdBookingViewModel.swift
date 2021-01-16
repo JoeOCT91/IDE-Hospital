@@ -11,6 +11,7 @@ protocol UnRegisterdBookingViewModelProtocol {
     func checkAnotherPatientCheckBoxState(state:Bool) -> Bool
     func validateBookingData(name: String?, email: String?, password: String?, mobile: String?, bookForAnother: Bool, patientName: String?, usingVoucher: Bool, voucherCode: String?, isOnRegisterPopUpView: Bool)
     func checkWhichPopUpViewPresented(isOnRegisterPopUpView: Bool)
+    func decideWhichPopUpViewToOpen(isOnRegisterView: Bool)
 }
 class UnRegisterdBookingViewModel {
     
@@ -106,6 +107,15 @@ class UnRegisterdBookingViewModel {
 }
 
 extension UnRegisterdBookingViewModel: UnRegisterdBookingViewModelProtocol{
+    func decideWhichPopUpViewToOpen(isOnRegisterView: Bool) {
+        if isOnRegisterView{
+            self.view.openRegisterPopUpView()
+        }
+        else{
+            self.view.openLoginPopUpView()
+        }
+    }
+    
     
     func checkWhichPopUpViewPresented(isOnRegisterPopUpView: Bool) {
         if isOnRegisterPopUpView{
@@ -142,7 +152,7 @@ extension UnRegisterdBookingViewModel: UnRegisterdBookingViewModelProtocol{
         
         if isOnRegisterPopUpView{
             guard !name!.isEmpty else{
-                self.view.presentPopupOnMainThread(message: L10n.sorry, alertType: .withFaliure)
+                self.view.presentPopupOnMainThread(message: L10n.nameIsEmpty, alertType: .withFaliure)
                 return
             }
             guard name!.count >= 3 else{

@@ -13,6 +13,8 @@ protocol UnRegisterdbookingVcProtocol: PopUPsProtocol {
     func hideLoader()
     func sendRegisterData()
     func sendLoginData()
+    func openRegisterPopUpView()
+    func openLoginPopUpView()
 }
 class UnRegisteredBookingVC: UIViewController {
     
@@ -58,19 +60,13 @@ class UnRegisteredBookingVC: UIViewController {
     }
     
     @IBAction func RegisterButtonPressed(_ sender: Any) {
-        self.unRegisterdBookingView.changeToRegisterViewPopUpState()
-        isOnRegisterView = true
-        makeCheckBoxValuesOnInitialState()
-        self.animateView()
+        self.viewModel.decideWhichPopUpViewToOpen(isOnRegisterView: true)
     }
     @IBAction func loginButtonPressed(_ sender: Any) {
-        self.unRegisterdBookingView.changeToLoginViewPopUpState()
-        isOnRegisterView = false
-        makeCheckBoxValuesOnInitialState()
-        self.animateView()
+        self.viewModel.decideWhichPopUpViewToOpen(isOnRegisterView: false)
     }
     @IBAction func closeButtonPressed(_ sender: Any) {
-        self.presentAlertOnMainThread(id: 0, message: L10n.youWantCancelAppoinment, delegate: self)
+        self.presentAlertOnMainThread(message: L10n.youWantCancelAppoinment, delegate: self)
     }
     @IBAction func voucherCheckBoxButtonPressed(_ sender: Any) {
         voucherCheckBoxState = self.viewModel.checkVoucherCheckBoxState(state: voucherCheckBoxState)
@@ -94,8 +90,21 @@ class UnRegisteredBookingVC: UIViewController {
     }
 }
 extension UnRegisteredBookingVC: UnRegisterdbookingVcProtocol{
+    func openRegisterPopUpView() {
+        self.unRegisterdBookingView.changeToRegisterViewPopUpState()
+        isOnRegisterView = true
+        makeCheckBoxValuesOnInitialState()
+        self.animateView()
+    }
+    
+    func openLoginPopUpView() {
+        self.unRegisterdBookingView.changeToLoginViewPopUpState()
+        isOnRegisterView = false
+        makeCheckBoxValuesOnInitialState()
+        self.animateView()
+    }
+    
     func sendRegisterData() {
-        
         self.viewModel.validateBookingData(name: unRegisterdBookingView.nameTextField.text, email: unRegisterdBookingView.emailTextField.text, password: unRegisterdBookingView.passwordTextField.text, mobile: unRegisterdBookingView.mobileTextField.text, bookForAnother: anotherPatientCheckBoxState, patientName: unRegisterdBookingView.anotherPatientTextField.text, usingVoucher: voucherCheckBoxState, voucherCode: unRegisterdBookingView.voucherTextField.text, isOnRegisterPopUpView: true)
     }
     
@@ -117,7 +126,7 @@ extension UnRegisteredBookingVC: UnRegisterdbookingVcProtocol{
         self.unRegisterdBookingView.registerPatientLineView.alpha = alpha
         self.animateView()
     }
-
+    
     func showLoader() {
         self.view.showLoader()
     }

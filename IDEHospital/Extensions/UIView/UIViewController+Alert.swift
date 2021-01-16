@@ -57,7 +57,7 @@ extension UIViewController: PopUPsProtocol {
 //        }
 //    }
     
-    func presentAlertOnMainThread(id:Int, message: String, delegate:ConfirmationAlertDelgate){
+    func presentAlertOnMainThread(id:Int = 0, message: String, delegate:ConfirmationAlertDelgate){
         let alertVC = ConfirmationAlert(id: id, message: message)
         alertVC.delgate = delegate
         DispatchQueue.main.async { [self] in
