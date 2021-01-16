@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="PT_Sans_Regular.ttf">
+        <array key="PT Sans Regular.ttf">
             <string>PTSans-Regular</string>
         </array>
     </customFonts>
@@ -60,7 +59,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZCU-7d-8Ma">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZCU-7d-8Ma">
                                                 <rect key="frame" x="30" y="418" width="315" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="Jy8-L4-8IK"/>
@@ -79,7 +78,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gyt-n1-mWx">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gyt-n1-mWx">
                                                         <rect key="frame" x="28" y="0.0" width="101" height="14"/>
                                                         <state key="normal">
                                                             <attributedString key="attributedTitle">
@@ -144,14 +143,14 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="DMw-MJ-ZOq"/>
                             </scrollView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="fe4-O9-hRQ"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="hZx-3S-aWl" firstAttribute="bottom" secondItem="fe4-O9-hRQ" secondAttribute="bottom" id="1S4-D3-63B"/>
                             <constraint firstItem="hZx-3S-aWl" firstAttribute="leading" secondItem="fe4-O9-hRQ" secondAttribute="leading" id="SCA-jQ-xWv"/>
                             <constraint firstItem="hZx-3S-aWl" firstAttribute="trailing" secondItem="fe4-O9-hRQ" secondAttribute="trailing" id="edW-dX-mxv"/>
                             <constraint firstItem="hZx-3S-aWl" firstAttribute="top" secondItem="fe4-O9-hRQ" secondAttribute="top" id="nMv-3i-NRg"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="fe4-O9-hRQ"/>
                         <connections>
                             <outlet property="byClickingLabel" destination="wCv-II-UqS" id="g0A-k9-5RF"/>
                             <outlet property="choosePasswordTextfield" destination="JJK-Ya-EeG" id="8tK-gi-lj1"/>
@@ -198,7 +197,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WF4-hk-lpI">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WF4-hk-lpI">
                                                 <rect key="frame" x="30" y="237" width="315" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="KmV-fe-1LQ"/>
@@ -208,7 +207,7 @@
                                                     <action selector="loginButtonPressed:" destination="j7S-ju-f3z" eventType="touchUpInside" id="N0M-7z-TOX"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oaa-CF-Y87">
+                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oaa-CF-Y87">
                                                 <rect key="frame" x="130" y="307" width="115" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="115" id="pQJ-qU-fOR"/>
@@ -225,7 +224,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10E-uT-tVD">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10E-uT-tVD">
                                                 <rect key="frame" x="19" y="435" width="315" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="D9s-xB-IZl"/>
@@ -291,14 +290,14 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="Df5-9F-UWp"/>
                             </scrollView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="pq0-Uv-Ovw"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="pq0-Uv-Ovw" firstAttribute="bottom" secondItem="uia-jy-lf2" secondAttribute="bottom" id="ZJ5-VS-u73"/>
                             <constraint firstItem="pq0-Uv-Ovw" firstAttribute="trailing" secondItem="uia-jy-lf2" secondAttribute="trailing" id="eJM-rO-sxc"/>
                             <constraint firstItem="uia-jy-lf2" firstAttribute="top" secondItem="pq0-Uv-Ovw" secondAttribute="top" id="gFr-Jm-bRB"/>
                             <constraint firstItem="uia-jy-lf2" firstAttribute="leading" secondItem="pq0-Uv-Ovw" secondAttribute="leading" id="gPm-RQ-Y55"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="pq0-Uv-Ovw"/>
                         <connections>
                             <outlet property="dontHaveAccountLabel" destination="lon-bM-Chy" id="8aO-pQ-dnA"/>
                             <outlet property="emailTextField" destination="lth-bi-3CT" id="ORL-sf-d34"/>
@@ -332,7 +331,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POp-Ql-fEu">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POp-Ql-fEu">
                                 <rect key="frame" x="25" y="271" width="315" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="1zY-k5-fQe"/>
@@ -343,8 +342,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="ovE-0U-82X"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="POp-Ql-fEu" firstAttribute="top" secondItem="EBz-1f-ib3" secondAttribute="bottom" constant="47" id="4JM-qV-DwI"/>
                             <constraint firstItem="EBz-1f-ib3" firstAttribute="top" secondItem="ovE-0U-82X" secondAttribute="top" constant="188" id="4mE-pw-eYU"/>
@@ -353,6 +351,7 @@
                             <constraint firstItem="POp-Ql-fEu" firstAttribute="leading" secondItem="ovE-0U-82X" secondAttribute="leading" constant="25" id="E4I-2R-LsW"/>
                             <constraint firstItem="ovE-0U-82X" firstAttribute="trailing" secondItem="EBz-1f-ib3" secondAttribute="trailing" constant="25.5" id="yEY-Xm-IQW"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="ovE-0U-82X"/>
                         <connections>
                             <outlet property="emailTextField" destination="EBz-1f-ib3" id="m7W-fi-F1O"/>
                             <outlet property="setNewPasswordButton" destination="POp-Ql-fEu" id="xkE-jw-2Ss"/>
@@ -367,38 +366,9 @@
             <point key="canvasLocation" x="529" y="68"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="20y-1X-rm6">
-            <size key="intrinsicContentSize" width="32" height="34"/>
-        </designable>
-        <designable name="3xZ-vk-DEd">
-            <size key="intrinsicContentSize" width="32" height="34"/>
-        </designable>
-        <designable name="EBz-1f-ib3">
-            <size key="intrinsicContentSize" width="32" height="34"/>
-        </designable>
-        <designable name="EYX-kx-daO">
-            <size key="intrinsicContentSize" width="32" height="34"/>
-        </designable>
-        <designable name="JJK-Ya-EeG">
-            <size key="intrinsicContentSize" width="32" height="34"/>
-        </designable>
-        <designable name="cHD-FO-n57">
-            <size key="intrinsicContentSize" width="32" height="34"/>
-        </designable>
-        <designable name="lth-bi-3CT">
-            <size key="intrinsicContentSize" width="32" height="34"/>
-        </designable>
-        <designable name="vOZ-c3-Yvk">
-            <size key="intrinsicContentSize" width="32" height="34"/>
-        </designable>
-    </designables>
     <resources>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

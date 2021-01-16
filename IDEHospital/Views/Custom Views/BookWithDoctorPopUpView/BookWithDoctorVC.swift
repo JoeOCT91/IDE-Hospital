@@ -14,6 +14,7 @@ protocol BookWithDoctorVcProtocol:class {
     func showLoader()
     func hideLoader()
     func goToConfirmationPopView(doctorName:String, appointmentDate:String, appointmentDay:String)
+    func returnBackToVoucherPopUoView()
 }
 protocol BookWithDoctorVCDelegate: class {
     func reloadData()
@@ -23,8 +24,8 @@ class BookWithDoctorVC: UIViewController {
     //Book an appointment popup delegate
     internal weak var delegate: BookWithDoctorVCDelegate?
     
-    @IBOutlet var bookWithDoctorView: BookWithDoctorView!
-    var viewModel:BookWithDoctorViewModelProtocol!
+    @IBOutlet weak var bookWithDoctorView: BookWithDoctorView!
+    private var viewModel:BookWithDoctorViewModelProtocol!
     private var voucherSwitch:Bool = false
     private var anotherPersonSwitch:Bool = false
     override func viewDidLoad() {
@@ -52,7 +53,7 @@ class BookWithDoctorVC: UIViewController {
     }
     
     @IBAction func dismissButtonPressed(_ sender: Any) {
-       self.presentAlertOnMainThread(id: 0, message: "Are you want to cancel the Appointment!", delegate: self)
+        self.presentAlertOnMainThread(id: 0, message: L10n.youWantCancelAppoinment, delegate: self)
     }
     @IBAction func continueButtonPressed(_ sender: Any) {
         viewModel.setVoucherAndPatiantName(patientName: bookWithDoctorView.anotherPersonTextField.text, voucherCode:
@@ -68,13 +69,16 @@ class BookWithDoctorVC: UIViewController {
             self.bookWithDoctorView.layoutIfNeeded()
         }, completion: nil)
     }
-    private func dismissCurrretVC(){
-        delegate?.reloadData()
-        self.dismiss(animated: true)
-    }
     
 }
 extension BookWithDoctorVC:BookWithDoctorVcProtocol{
+    func returnBackToVoucherPopUoView() {
+        bookWithDoctorView.popUpView.alpha = 1
+        bookWithDoctorView.hideVoucherPopUpViewButton.alpha = 1
+        bookWithDoctorView.confirmationPopUpViewCenterXConstraint.constant = -500
+        animateView()
+    }
+    
     
     func goToConfirmationPopView(doctorName:String, appointmentDate:String, appointmentDay:String) {
         let attributedDate = bookWithDoctorView.setAttributedMessage(mediumText: L10n.youAreAboutToBook + appointmentDay, boldText: appointmentDate,doctorName: doctorName)
@@ -112,13 +116,17 @@ extension BookWithDoctorVC:BookWithDoctorVcProtocol{
 }
 extension BookWithDoctorVC:AlertVcDelegate{
     func okButtonPressed() {
-     self.dismiss(animated: true)
-      self.dismissCurrretVC()
+        self.dismiss(animated: true){
+            self.delegate?.reloadData()
+            self.dismiss(animated: true)
+        }
     }
 }
 extension BookWithDoctorVC:ConfirmationAlertDelgate{
     func confirmPressed(id: Int) {
-        self.dismiss(animated: true)
-        self.dismissCurrretVC()
+        self.dismiss(animated: true){
+            self.delegate?.reloadData()
+            self.dismiss(animated: true)
+        }
     }
 }

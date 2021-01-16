@@ -24,7 +24,7 @@ class RatingViewModel {
             self.view?.presentErrorAlert(title: "", message: L10n.loginFirst)
             return
         }
-        print("view Model DoctorID" + " \(doctorID)")
+        print("view Model DoctorID" + " \(String(describing: doctorID))")
         self.view?.showLoader()
         APIManager.addDoctorRatingAPI(body: body){(response) in
             switch response{

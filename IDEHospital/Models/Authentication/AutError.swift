@@ -8,4 +8,5 @@
 import Foundation
 struct AuthError:Codable {
     let email: [String]?
+    let voucher: [String]?
 }
