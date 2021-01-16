@@ -37,6 +37,7 @@ class SignUpVC: UIViewController {
     
     @IBAction func termsAndConditionsButtonPressed(_ sender: Any) {
         let termsVC = TermsAndConditionsVC.create()
+        termsVC.setupBackWithPopup()
         self.navigationController?.pushViewController(termsVC, animated: true)
     }
     
@@ -65,6 +66,7 @@ extension SignUpVC:SignUpVCProtocol{
     func hideLoader() {
         self.view.hideLoader()
     }
+    
     override func okButtonPressed() {
         self.view.window?.rootViewController?.dismiss(animated: false)
     }

@@ -65,6 +65,7 @@ class DoctorProfileVC: UIViewController {
 }
 
 extension DoctorProfileVC: DoctorProfileVCProtocol {
+    
     func openVoucherPopUpView(doctorID: Int, doctorName: String, appointmentTime: Int) {
         let bookVC = BookWithDoctorVC.create(doctorID: doctorID, doctorName: doctorName, appointmentTime: String(appointmentTime))
         bookVC.delegate = self
@@ -76,10 +77,10 @@ extension DoctorProfileVC: DoctorProfileVCProtocol {
     func openBookingWithAuthPopUpView(doctorID: Int, doctorName: String, appointmentTime: Int) {
         let unRegisterdBooking = UnRegisteredBookingVC.create(doctorID: doctorID, doctorName: doctorName, appointmentTime: String(appointmentTime))
         unRegisterdBooking.delegate = self
-        let navigationController = UINavigationController(rootViewController: unRegisterdBooking)
-        navigationController.modalPresentationStyle = .overFullScreen
-        navigationController.modalTransitionStyle = .crossDissolve
-        present(navigationController, animated: true)
+        //let navigationController = UINavigationController(rootViewController: unRegisterdBooking)
+        unRegisterdBooking.modalPresentationStyle = .overFullScreen
+        unRegisterdBooking.modalTransitionStyle = .crossDissolve
+        present(unRegisterdBooking, animated: true)
     }
     
     
@@ -131,13 +132,14 @@ extension DoctorProfileVC: DoctorProfileVCProtocol {
     internal func disableBookButton(){
         doctorProfileView.disableBookButton()
     }
+    
     internal func scrollTobegining(){
         doctorProfileView.scrollTobegining()
     }
-    internal func presentError(){
+    
+    internal func presentError() {
         self.presentAlertOnMainThread(message: L10n.loginToBook, delegate: nil)
     }
-    
 }
 //MARK:- Reviews table View
 extension DoctorProfileVC: UITableViewDataSource, UITableViewDelegate {
@@ -229,6 +231,7 @@ extension DoctorProfileVC: doctorProfileViewDelegate {
     }
     
 }
+
 extension DoctorProfileVC: BookWithDoctorVCDelegate {
     func reloadData() {
         disableBookButton()

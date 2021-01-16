@@ -9,8 +9,6 @@ import UIKit
 protocol UnRegisterdbookingVcProtocol: PopUPsProtocol {
     func changeVoucherCheckBoxState(alpha: CGFloat, backgorundImage: UIImage, constant: CGFloat)
     func changeAnotherPatientCheckBoxState(alpha: CGFloat, backgorundImage: UIImage)
-    //func presentSuccessAlert(title:String, message:String)
-    //func presentErrorAlert(title:String,message: String)
     func showLoader()
     func hideLoader()
     func sendRegisterData()
@@ -28,7 +26,11 @@ class UnRegisteredBookingVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.unRegisterdBookingView.setUp()
-        //self.setupNavigationBar(backgroundColor: UIColor.clear)
+    }
+    
+    override func okButtonPressed() {
+        self.delegate?.reloadData()
+        self.dismiss(animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +43,7 @@ class UnRegisteredBookingVC: UIViewController {
         unRegisterdBookingVc.viewModel = UnRegisterdBookingViewModel(view: unRegisterdBookingVc, doctorID: doctorID, doctorName: doctorName, appointmentTime: appointmentTime)
         return unRegisterdBookingVc
     }
+    
     // MARK:- Private Methods
     // Responsible for animating the view after changing top value constraint
     private func animateView(){
@@ -84,8 +87,10 @@ class UnRegisteredBookingVC: UIViewController {
     
     @IBAction func termsAndConditionsButtonPressed(_ sender: Any) {
         let termsAndConditionsVC = TermsAndConditionsVC.create()
-        termsAndConditionsVC.modalPresentationStyle = .fullScreen
-        self.navigationController?.pushViewController(termsAndConditionsVC, animated: true)
+        termsAndConditionsVC.setupBackWithDismiss()
+        let navigation = UINavigationController(rootViewController: termsAndConditionsVC)
+        navigation.modalPresentationStyle = .fullScreen
+        present(navigation, animated: true)
     }
 }
 extension UnRegisteredBookingVC: UnRegisterdbookingVcProtocol{
@@ -112,27 +117,16 @@ extension UnRegisteredBookingVC: UnRegisterdbookingVcProtocol{
         self.unRegisterdBookingView.registerPatientLineView.alpha = alpha
         self.animateView()
     }
-//    func presentSuccessAlert(title: String, message: String) {
-//        self.presentAlertOnMainThread(message: message, alertTaype: 2, delegate: self)
-//    }
-//    func presentErrorAlert(title:String,message: String) {
-//        self.presentAlertOnMainThread(message: message, alertTaype: 1, delegate: nil)
-//    }
+
     func showLoader() {
         self.view.showLoader()
     }
+    
     func hideLoader() {
         self.view.hideLoader()
     }
 }
-//extension UnRegisteredBookingVC: AlertVcDelegate {
-//    func okButtonPressed() {
-//        self.dismiss(animated: true){
-//            self.delegate?.reloadData()
-//            self.dismiss(animated: true)
-//        }
-//    }
-//}
+
 extension UnRegisteredBookingVC: ConfirmationAlertDelgate {
     func confirmPressed(id: Int) {
         self.dismiss(animated: true){

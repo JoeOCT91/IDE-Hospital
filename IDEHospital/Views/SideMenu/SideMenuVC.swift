@@ -85,6 +85,7 @@ extension SideMenuVC: SideMenuVCProtocol {
     
     func termsAndConditionsPressed(){
         let termsAndConditionsVC = TermsAndConditionsVC.create()
+        termsAndConditionsVC.setupBackWithPopup()
         pushToNavigation(VC: termsAndConditionsVC)
     }
     

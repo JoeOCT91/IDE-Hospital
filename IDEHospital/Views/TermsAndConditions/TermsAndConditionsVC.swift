@@ -29,7 +29,6 @@ class TermsAndConditionsVC: UIViewController {
     private func configureNavigationBar() {
         self.setViewControllerTitle(to: L10n.termsAndConditions)
         self.setupNavigationBar()
-        self.setupBackWithPopup()
     }
     
     class func create() -> UIViewController {

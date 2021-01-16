@@ -195,13 +195,12 @@ class DoctorTopView: UIView {
     }
     
     private func configureDoctorBio(){
-        doctorBio.numberOfLines = 5
+        doctorBio.numberOfLines = 4
         NSLayoutConstraint.activate([
             doctorBio.topAnchor.constraint(equalTo: doctorRating.bottomAnchor, constant: 6),
             doctorBio.bottomAnchor.constraint(equalTo: doctorInfo.bottomAnchor, constant: -10),
             doctorBio.leadingAnchor.constraint(equalTo: doctorName.leadingAnchor),
             doctorBio.trailingAnchor.constraint(equalTo: doctorInfo.trailingAnchor, constant: -20),
-            //doctorBio.heightAnchor.constraint(greaterThanOrEqualToConstant: 30)
         ])
     }
     
