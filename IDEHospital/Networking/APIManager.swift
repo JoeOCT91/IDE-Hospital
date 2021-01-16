@@ -132,13 +132,13 @@ class APIManager {
             complation(response)
         }
     }
-
+    
     // Add Rating Request
-       class func addDoctorRatingAPI(body:RatingBodyData ,completion: @escaping (Result<RatingResponse, Error>)-> ()){
+    class func addDoctorRatingAPI(body:RatingBodyData ,completion: @escaping (Result<RatingResponse, Error>)-> ()){
         request(APIRouter.addRating(body)){ (response) in
-               completion(response)
-           }
-       }
+            completion(response)
+        }
+    }
     // Book Appintment with doctor (Voucher)
     class func bookAppoinmentWithDoctorAPI(body:VoucherDataBody ,completion: @escaping (Result<VoucherResponse, Error>)-> () ){
         request(APIRouter.bookAppointment(body)){ (response) in
@@ -153,8 +153,23 @@ class APIManager {
         }
     }
     
+    // MARK:- UnRegisterd Booking
+    // Book With Register
+    class func bookWithRegisterRequestAPI(body:BookWithRegisterBodyData ,completion: @escaping (Result<BookWithRegisterResponse, Error>)-> ()){
+        request(APIRouter.bookWithRegister(body)){ (response) in
+            completion(response)
+        }
+    }
+    
     class func edditUserData(eddittedData: EditedData, completion: @escaping (Result<MainResponse<UserData>, Error>) -> () ) {
         request(APIRouter.editUserData(eddittedData)) { (response) in
+            completion(response)
+        }
+    }
+    
+    // Book With Login
+    class func bookWithLoginRequestAPI(body:BookWithLoginBodyData ,completion: @escaping (Result<BookWithLoginResponse, Error>)-> ()){
+        request(APIRouter.bookWithLogin(body)){ (response) in
             completion(response)
         }
     }
@@ -170,8 +185,8 @@ extension APIManager{
                 completion(.success(value))
             case .failure(let error):
                 completion(.failure(error))
-            //                let str = String(data: response.data!, encoding: .utf8)
-            //                print(str)
+                //                let str = String(data: response.data!, encoding: .utf8)
+                //                print(str)
             }
         }.responseJSON { response in
             print(response)

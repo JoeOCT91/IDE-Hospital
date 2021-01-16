@@ -120,6 +120,7 @@ extension SearchView{
         myMutableStringTitle = NSMutableAttributedString(string:placeholder, attributes: [NSAttributedString.Key.font:UIFont(font: fontName, size: fontSize) ?? 20]) // Font
         myMutableStringTitle.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.black, range:NSRange(location:0,length:placeholder.count))    // Color
         textFiled.attributedPlaceholder = myMutableStringTitle
+        textFiled.backgroundColor = ColorName.white.color.withAlphaComponent(0.75)
     }
     
     private func setUpButton(button:UIButton, buttonTitle:String, backgroundImageName:UIImage) {

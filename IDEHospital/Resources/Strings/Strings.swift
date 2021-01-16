@@ -16,6 +16,8 @@ internal enum L10n {
   internal static let anotherPerson = L10n.tr("Localizable", "anotherPerson")
   /// Book
   internal static let book = L10n.tr("Localizable", "book")
+  /// Book for another person!
+  internal static let bookForAnotherPatient = L10n.tr("Localizable", "bookForAnotherPatient")
   /// Cancel
   internal static let cancel = L10n.tr("Localizable", "cancel")
   /// SearchResultTableViewCell
@@ -98,12 +100,16 @@ internal enum L10n {
   internal static let ideaEgHospitalTheBestChoice = L10n.tr("Localizable", "ideaEgHospitalTheBestChoice")
   /// IDEA EG HOSPITAL
   internal static let ideaHospital = L10n.tr("Localizable", "ideaHospital")
+  /// I Have a Voucher Code
+  internal static let iHaveVoucherCode = L10n.tr("Localizable", "iHaveVoucherCode")
   /// By clicking sign up, you agree to our 
   internal static let instructions = L10n.tr("Localizable", "instructions")
   /// Invalid E-mail Format
   internal static let invalidEMailFormat = L10n.tr("Localizable", "invalidE-mailFormat")
   /// LOGIN
   internal static let login = L10n.tr("Localizable", "login")
+  /// Login & Book
+  internal static let loginAndBook = L10n.tr("Localizable", "loginAndBook")
   /// Login
   internal static let loginButton = L10n.tr("Localizable", "loginButton")
   /// You have to Login First to Select your Favorites
@@ -174,6 +180,8 @@ internal enum L10n {
   internal static let profileUpdated = L10n.tr("Localizable", "profileUpdated")
   /// Rating
   internal static let rating = L10n.tr("Localizable", "rating")
+  /// Register
+  internal static let register = L10n.tr("Localizable", "register")
   /// RESET PASSWORD
   internal static let resetPassword = L10n.tr("Localizable", "resetPassword")
   /// Review
@@ -218,6 +226,8 @@ internal enum L10n {
   internal static let sideMenuTermsConditions = L10n.tr("Localizable", "sideMenuTerms&Conditions")
   /// SIGN UP
   internal static let signUp = L10n.tr("Localizable", "signUp")
+  /// Sign Up & Book
+  internal static let signUpAndBook = L10n.tr("Localizable", "signUpAndBook")
   /// Sign Up
   internal static let signUpButton = L10n.tr("Localizable", "signUpButton")
   /// Sorry
@@ -264,6 +274,8 @@ internal enum L10n {
   internal static let youHaveNoFavorites = L10n.tr("Localizable", "youHaveNoFavorites")
   /// Your Message
   internal static let yourMessage = L10n.tr("Localizable", "yourMessage")
+  /// Are you want to cancel the Appointment!
+  internal static let youWantCancelAppoinment = L10n.tr("Localizable", "youWantCancelAppoinment")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

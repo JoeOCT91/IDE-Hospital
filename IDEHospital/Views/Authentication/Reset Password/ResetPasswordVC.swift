@@ -6,9 +6,9 @@
 //
 
 import UIKit
-protocol ResetPasswordVCProtocol: class, PopUPsProtocol {
-    func presentSuccessAlert(title:String, message:String)
-    func presentErrorAlert(title:String,message: String)
+protocol ResetPasswordVCProtocol: PopUPsProtocol {
+    //func presentSuccessAlert(title:String, message:String)
+    //func presentErrorAlert(title:String,message: String)
     func showLoader()
     func hideLoader()
 }
@@ -44,14 +44,6 @@ class ResetPasswordVC: UIViewController {
     
 }
 extension ResetPasswordVC:ResetPasswordVCProtocol{
-    
-    func presentSuccessAlert(title: String, message: String) {
-        self.presentAlertOnMainThread(message: message, alertType: .withSuccess, delegate: self)
-    }
-    
-    func presentErrorAlert(title:String,message: String) {
-        self.presentAlertOnMainThread(message: message, alertType: .withFaliure)
-    }
     
     func showLoader() {
         self.view.showLoader()

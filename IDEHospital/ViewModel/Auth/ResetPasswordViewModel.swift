@@ -24,30 +24,29 @@ class RestPasswordViewModel {
             switch response{
             case .failure(let error):
                 print(error.localizedDescription)
-                self.view?.presentErrorAlert(title: L10n.sorry, message: error.localizedDescription)
+                self.view?.presentPopupOnMainThread(message: error.localizedDescription, alertType: .withFaliure)
             case .success(let result):
                 if result.code == 202{
-                    self.view?.presentSuccessAlert(title: L10n.successfulRequest, message: L10n.successRequestMessage)
+                    self.view?.presentPopupOnMainThread(message: L10n.successfulRequest, alertType: .withSuccess)
                 }
                 else{
-                    self.view?.presentErrorAlert(title: L10n.sorry, message: result.errors?.email?[0] ?? "")
+                    self.view?.presentPopupOnMainThread(message: (result.errors?.email?[0])!, alertType: .withFaliure)
                 }
             }
             self.view?.hideLoader()
         }
     }
 }
-extension RestPasswordViewModel:ResetPasswordViewModelProtocol{
+extension RestPasswordViewModel: ResetPasswordViewModelProtocol {
     func resetPasswordRequest(email: String?) {
         
         guard let email = email?.trimmed , !email.isEmpty else {
-            self.view?.presentPopupOnMainThread(message: L10n.pleaseEnterEmail, alertType: .withFaliure, delegate: nil)
-            //self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.pleaseEnterEmail)
+            self.view?.presentPopupOnMainThread(message: L10n.pleaseEnterEmail, alertType: .withFaliure)
             return
         }
+        
         guard ValidatorManager.shared().isValidEmail(email) else{
-            self.view?.presentPopupOnMainThread(message: L10n.invalidEMailFormat, alertType: .withFaliure, delegate: nil)
-            //self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.invalidEMailFormat)
+            self.view?.presentPopupOnMainThread(message: L10n.invalidEMailFormat, alertType: .withFaliure)
             return
         }
         let body = AuthBodyData(name: "", email: email, mobile: "", password: "")

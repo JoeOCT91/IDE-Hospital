@@ -19,6 +19,8 @@ protocol DoctorProfileVCProtocol: PaginationVCProtocol {
     func scrollTobegining()
     func disableBookButton()
     func presentError()
+    func openVoucherPopUpView(doctorID: Int, doctorName: String, appointmentTime: Int)
+    func openBookingWithAuthPopUpView(doctorID: Int, doctorName: String, appointmentTime: Int)
 }
 
 
@@ -63,6 +65,23 @@ class DoctorProfileVC: UIViewController {
 }
 
 extension DoctorProfileVC: DoctorProfileVCProtocol {
+    func openVoucherPopUpView(doctorID: Int, doctorName: String, appointmentTime: Int) {
+        let bookVC = BookWithDoctorVC.create(doctorID: doctorID, doctorName: doctorName, appointmentTime: String(appointmentTime))
+        bookVC.delegate = self
+        bookVC.modalPresentationStyle = .overFullScreen
+        bookVC.modalTransitionStyle = .crossDissolve
+        present(bookVC, animated: true)
+    }
+    
+    func openBookingWithAuthPopUpView(doctorID: Int, doctorName: String, appointmentTime: Int) {
+        let unRegisterdBooking = UnRegisteredBookingVC.create(doctorID: doctorID, doctorName: doctorName, appointmentTime: String(appointmentTime))
+        unRegisterdBooking.delegate = self
+        let navigationController = UINavigationController(rootViewController: unRegisterdBooking)
+        navigationController.modalPresentationStyle = .overFullScreen
+        navigationController.modalTransitionStyle = .crossDissolve
+        present(navigationController, animated: true)
+    }
+    
     
     func tableViewIsEmpty(message: String) {
         
@@ -136,7 +155,7 @@ extension DoctorProfileVC: UITableViewDataSource, UITableViewDelegate {
         guard cell is DoctorReviewCell else { return }
         viewModel.scrollObserve(cellCount: indexPath.row)
     }
-
+    
 }
 //MARK:- Appointment collection View
 extension DoctorProfileVC: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -193,11 +212,7 @@ extension DoctorProfileVC: doctorProfileViewDelegate {
     
     internal func bookpressed() {
         viewModel.perfromBookingAction { (doctorID, doctorName, appointmentTime) in
-            let bookVC = BookWithDoctorVC.create(doctorID: doctorID, doctorName: doctorName, appointmentTime: String(appointmentTime))
-            bookVC.delegate = self
-            bookVC.modalPresentationStyle = .overFullScreen
-            bookVC.modalTransitionStyle = .crossDissolve
-            present(bookVC, animated: true)
+            self.viewModel.checkUserToken(doctorID: doctorID, doctorName: doctorName, appointmentTime: appointmentTime)
         }
     }
     
@@ -219,6 +234,5 @@ extension DoctorProfileVC: BookWithDoctorVCDelegate {
         disableBookButton()
         viewModel.getDoctorAppointmentsDate()
     }
-    
-    
 }
+

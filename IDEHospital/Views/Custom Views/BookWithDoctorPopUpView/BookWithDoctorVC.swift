@@ -6,15 +6,14 @@
 //
 
 import UIKit
-protocol BookWithDoctorVcProtocol:class {
+protocol BookWithDoctorVcProtocol: PopUPsProtocol {
     func changeVoucherTextFieldState(constantValue:CGFloat,alpha:CGFloat)
     func changeAnotherPersonTextFieldState(constantValue:CGFloat,alpha:CGFloat)
-    func presentAlert(message: String, alertType: AlertType)
-//    func presentSuccessAlert(title:String, message:String)
-//    func presentErrorAlert(title:String,message: String)
+    //func presentAlert(message: String, alertType: AlertType)
     func showLoader()
     func hideLoader()
     func goToConfirmationPopView(doctorName:String, appointmentDate:String, appointmentDay:String)
+    func returnBackToVoucherPopUoView()
 }
 protocol BookWithDoctorVCDelegate: class {
     func reloadData()
@@ -24,15 +23,16 @@ class BookWithDoctorVC: UIViewController {
     //Book an appointment popup delegate
     internal weak var delegate: BookWithDoctorVCDelegate?
     
-    @IBOutlet var bookWithDoctorView: BookWithDoctorView!
-    var viewModel:BookWithDoctorViewModelProtocol!
+    @IBOutlet weak var bookWithDoctorView: BookWithDoctorView!
+    private var viewModel:BookWithDoctorViewModelProtocol!
     private var voucherSwitch:Bool = false
     private var anotherPersonSwitch:Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         bookWithDoctorView.setUp()
     }
+    
     // MARK:- Public Methods
     class func create(doctorID:Int ,doctorName:String, appointmentTime:String) -> BookWithDoctorVC {
         let bookWithDoctorVC = BookWithDoctorVC(nibName: ViewControllers.bookWithDoctorVC, bundle: nil)
@@ -53,11 +53,11 @@ class BookWithDoctorVC: UIViewController {
     }
     
     @IBAction func dismissButtonPressed(_ sender: Any) {
-       self.presentAlertOnMainThread(id: 0, message: "Are you want to cancel the Appointment!", delegate: self)
+        self.presentAlertOnMainThread(id: 0, message: L10n.youWantCancelAppoinment, delegate: self)
     }
     @IBAction func continueButtonPressed(_ sender: Any) {
         viewModel.setVoucherAndPatiantName(patientName: bookWithDoctorView.anotherPersonTextField.text, voucherCode:
-            bookWithDoctorView.voucherTextField.text, bookForAnotherSwitch: anotherPersonSwitch , voucherSwitch: voucherSwitch)
+                                            bookWithDoctorView.voucherTextField.text, bookForAnotherSwitch: anotherPersonSwitch , voucherSwitch: voucherSwitch)
     }
     
     @IBAction func confirmButtonPressed(_ sender: Any) {
@@ -67,15 +67,18 @@ class BookWithDoctorVC: UIViewController {
     private func animateView(){
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
             self.bookWithDoctorView.layoutIfNeeded()
-        }, completion: nil)
-    }
-    private func dismissCurrretVC(){
-        delegate?.reloadData()
-        self.dismiss(animated: true)
+        })
     }
     
 }
 extension BookWithDoctorVC:BookWithDoctorVcProtocol{
+    func returnBackToVoucherPopUoView() {
+        bookWithDoctorView.popUpView.alpha = 1
+        bookWithDoctorView.hideVoucherPopUpViewButton.alpha = 1
+        bookWithDoctorView.confirmationPopUpViewCenterXConstraint.constant = -500
+        animateView()
+    }
+    
     
     func goToConfirmationPopView(doctorName:String, appointmentDate:String, appointmentDay:String) {
         let attributedDate = bookWithDoctorView.setAttributedMessage(mediumText: L10n.youAreAboutToBook + appointmentDay, boldText: appointmentDate,doctorName: doctorName)
@@ -86,9 +89,9 @@ extension BookWithDoctorVC:BookWithDoctorVcProtocol{
         animateView()
     }
     
-//    func presentSuccessAlert(title: String, message: String) {
-//        self.presentAlertOnMainThread(message: message, alertTaype: 2, delegate: self)
-//    }
+    //    func presentSuccessAlert(title: String, message: String) {
+    //        self.presentAlertOnMainThread(message: message, alertTaype: 2, delegate: self)
+    //    }
     
     func presentAlert(message: String, alertType: AlertType) {
         self.presentAlertOnMainThread(message: message, alertType: alertType)
@@ -113,17 +116,27 @@ extension BookWithDoctorVC:BookWithDoctorVcProtocol{
         animateView()
     }
     
-    override func okButtonPressed() {
-     self.dismiss(animated: true)
-      self.dismissCurrretVC()
-    }
+//    override func okButtonPressed() {
+//        self.dismiss(animated: true)
+//        self.dismissCurrretVC()
+//    }
 }
+
 //extension BookWithDoctorVC:AlertVcDelegate{
-//
+//    func okButtonPressed() {
+//        self.dismiss(animated: true){
+//            self.delegate?.reloadData()
+//            self.dismiss(animated: true)
+//        }
+//    }
 //}
-extension BookWithDoctorVC:ConfirmationAlertDelgate{
+
+extension BookWithDoctorVC: ConfirmationAlertDelgate{
     func confirmPressed(id: Int) {
-        self.dismiss(animated: true)
-        self.dismissCurrretVC()
+        self.dismiss(animated: true){
+            self.delegate?.reloadData()
+            self.dismiss(animated: true)
+        }
     }
 }
+

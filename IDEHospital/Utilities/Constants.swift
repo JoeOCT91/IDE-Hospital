@@ -58,6 +58,7 @@ struct ViewControllers {
     static let ratingVC = "RatingVC"
     static let bookWithDoctorVC = "BookWithDoctorVC"
     static let editProfile = "EditProfileVC"
+    static let unRegisterdBookingVC = "UnRegisteredBookingVC"
 }
 
 // Urls
@@ -78,6 +79,8 @@ struct URLs {
     static let doctors = "doctors/"
     static let ratingDoctor = "doctors"
     static let user = "user"
+    static let bookWithRegister = "user_appointments/with_register"
+    static let bookWithLogin = "user_appointments/with_login"
 }
 
 // Header Keys

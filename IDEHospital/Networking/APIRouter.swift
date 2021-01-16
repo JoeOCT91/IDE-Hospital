@@ -34,6 +34,8 @@ enum APIRouter:URLRequestConvertible {
     case bookAppointment(_ body:VoucherDataBody)
     case getUserData
     case editUserData(_ body: EditedData)
+    case bookWithRegister(_ body:BookWithRegisterBodyData)
+    case bookWithLogin(_ body:BookWithLoginBodyData)
     
     //Mark:- HTTP Methods
     private var method: HTTPMethod {
@@ -98,6 +100,12 @@ enum APIRouter:URLRequestConvertible {
             return URLs.appoitments
         case .getUserData, .editUserData:
             return URLs.user
+        case .bookWithRegister:
+            return URLs.bookWithRegister
+        case .bookWithLogin:
+            return URLs.bookWithLogin
+        default:
+            return ""
         }
     }
     private var query: URLQueryItem? {
@@ -165,6 +173,10 @@ enum APIRouter:URLRequestConvertible {
             case .bookAppointment(let body):
                 return encodeToJSON(body)
             case .editUserData(let body):
+                return encodeToJSON(body)
+            case .bookWithRegister(let body):
+                return encodeToJSON(body)
+            case .bookWithLogin(let body):
                 return encodeToJSON(body)
             default:
                 return nil

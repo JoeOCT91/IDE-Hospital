@@ -6,9 +6,7 @@
 //
 
 import UIKit
-protocol RatingVcProtocol:class {
-    func presentSuccessAlert(title:String, message:String)
-    func presentErrorAlert(title:String,message: String)
+protocol RatingVcProtocol: PopUPsProtocol {
     func showLoader()
     func hideLoader()
 }
@@ -21,12 +19,14 @@ class RatingVC: UIViewController {
         ratingView.setUp()
         configureNavigationBar()
     }
+    
     // MARK:- Public Methods
     class func create(doctorID:Int) -> RatingVC {
         let ratingVC: RatingVC = UIViewController.create(storyboardName: Storyboards.rating, identifier: ViewControllers.ratingVC)
         ratingVC.viewModel = RatingViewModel(view: ratingVC, doctorID: doctorID)
         return ratingVC
     }
+    
     @IBAction func submitReview(_ sender: Any) {
         self.viewModel.addDoctorRating(rating: Int(ratingView.ratingView.rating), comment: ratingView.commentTextField.text)
     }
@@ -39,29 +39,20 @@ class RatingVC: UIViewController {
         self.setupBackWithPopup()
         
     }
-    private func popCurrentView(){
-        //self.dismiss(animated: true)
-        self.navigationController?.popViewController(animated: true)
-    }
+
 }
 extension RatingVC:RatingVcProtocol{
-    func presentSuccessAlert(title: String, message: String) {
-        self.presentAlertOnMainThread(message: message, alertType: .withSuccess, delegate: self)
-    }
-    func presentErrorAlert(title:String,message: String) {
-        self.presentAlertOnMainThread(message: message, alertType: .withFaliure, delegate: nil)
-    }
+
     func showLoader() {
         self.view.showLoader()
     }
+    
     func hideLoader() {
         self.view.hideLoader()
     }
+    
     override func okButtonPressed() {
-        self.dismiss(animated: true)
-        self.popCurrentView()
+        self.navigationController?.popViewController(animated: true)
     }
 }
-//extension RatingVC:AlertVcDelegate{
-//
-//}
+

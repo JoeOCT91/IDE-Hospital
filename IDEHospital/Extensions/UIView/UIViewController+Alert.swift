@@ -8,12 +8,12 @@
 import UIKit
 
 protocol PopUPsProtocol: AlertVcDelegate {
-    func presentPopupOnMainThread(message: String, alertType: AlertType, delegate: AlertVcDelegate?)
+    func presentPopupOnMainThread(message: String, alertType: AlertType)
 }
 
 extension UIViewController: PopUPsProtocol {
 
-    internal func presentPopupOnMainThread(message: String, alertType: AlertType, delegate: AlertVcDelegate?) {
+    internal func presentPopupOnMainThread(message: String, alertType: AlertType) {
         
         let alertVC = AlertVC(message: message, alertType: alertType)
         alertVC.alertDelegate = self
