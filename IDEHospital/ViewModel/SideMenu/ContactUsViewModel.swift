@@ -24,11 +24,12 @@ class ContactUsViewModel{
         APIManager.sendContactUsRequestAPI(body: body){(response) in
             switch response{
             case .failure(let error):
-                self.view?.presentErrorAlert(title: L10n.sorry, message: error.localizedDescription)
+                self.view?.presentPopupOnMainThread(message: error.localizedDescription, alertType: .withFaliure)
                 print(error.localizedDescription)
             case .success(let result):
                 if result.code == 202 {
-                    self.view?.presentSuccessAlert(title: L10n.successfulRequest, message: L10n.successRequestMessage)
+                    self.view?.presentPopupOnMainThread(message: L10n.successfulRequest, alertType: .withSuccess)
+
                 }
             }
             self.view?.hideLoader()
@@ -39,28 +40,31 @@ extension ContactUsViewModel:ContactUsViewModelProtocol{
     
     func contuctUsRequest(name:String?, email:String?, phoneNumber:String?, message:String?){
         guard !name!.isEmpty else{
-
-            self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.pleaseEnterName)
+            self.view?.presentPopupOnMainThread(message: L10n.pleaseEnterName, alertType: .withFaliure)
             return
         }
         guard let email = email?.trimmed , !email.isEmpty else {
-            self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.pleaseEnterEmail)
+            self.view?.presentPopupOnMainThread(message: L10n.pleaseEnterEmail, alertType: .withFaliure)
+
             return
         }
         guard ValidatorManager.shared().isValidEmail(email) else{
-            self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.invalidEMailFormat)
+            self.view?.presentPopupOnMainThread(message: L10n.invalidEMailFormat, alertType: .withFaliure)
+
             return
         }
         guard !phoneNumber!.isEmpty else {
-            self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.pleaseEnterPhoneNumber)
+            self.view?.presentPopupOnMainThread(message: L10n.pleaseEnterPhoneNumber, alertType: .withFaliure)
             return
         }
         guard ValidatorManager.shared().isPhoneNumberValid(phoneNumber: phoneNumber!) else{
-            self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.rightPhoneNumberFormatDescription)
+            self.view?.presentPopupOnMainThread(message: L10n.pleaseEnterDetails, alertType: .withFaliure)
+
             return
         }
         guard !message!.isEmpty, message != L10n.enterMessage else{
-            self.view?.presentErrorAlert(title: L10n.sorry, message: L10n.pleaseEnterDetails)
+            self.view?.presentPopupOnMainThread(message: L10n.pleaseEnterDetails, alertType: .withFaliure)
+
             return
         }
         

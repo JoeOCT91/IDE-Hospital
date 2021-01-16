@@ -7,12 +7,11 @@
 
 import UIKit
 
-protocol SignInVCProtocol:class {
-    func presentSuccessAlert(title:String, message:String)
-    func presentErrorAlert(title:String,message: String)
+protocol SignInVCProtocol: PopUPsProtocol {
     func showLoader()
     func hideLoader()
 }
+
 class SignInVC: UIViewController {
     
     @IBOutlet weak var signInView: SignInView!
@@ -44,6 +43,7 @@ class SignInVC: UIViewController {
         signUpVC.modalPresentationStyle = .fullScreen
         self.navigationController?.pushViewController(signUpVC, animated: true)
     }
+    
     // MARK:- Private Functions
     private func configureNavigationBar() {
         self.setupNavigationBar()
@@ -51,15 +51,8 @@ class SignInVC: UIViewController {
         self.setupBackWithPopup()
     }
 }
+
 extension SignInVC:SignInVCProtocol{
-    
-    func presentSuccessAlert(title: String, message: String) {
-        self.presentAlertOnMainThread(message: message, alertType: .withSuccess, delegate: self)
-    }
-    
-    func presentErrorAlert(title:String,message: String) {
-        self.presentAlertOnMainThread(message: message, alertType: .withFaliure)
-    }
     
     func showLoader() {
         self.view.showLoader()

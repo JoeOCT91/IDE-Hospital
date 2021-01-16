@@ -45,19 +45,19 @@ extension UIViewController: PopUPsProtocol {
         self.navigationController?.popToRootViewController(animated: true)
     }
     
-    func presentAlertOnMainThread(message: String, alertType: AlertType = .withFaliure, delegate: AlertVcDelegate? = nil) {
-        let alertVC = AlertVC(message: message, alertType: alertType)
-//        if alertTaype == 2 {
-            alertVC.alertDelegate = delegate
+//    func presentAlertOnMainThread(message: String, alertType: AlertType = .withFaliure, delegate: AlertVcDelegate? = nil) {
+//        let alertVC = AlertVC(message: message, alertType: alertType)
+////        if alertTaype == 2 {
+//            alertVC.alertDelegate = delegate
+////        }
+//        DispatchQueue.main.async { [self] in
+//            alertVC.modalPresentationStyle = .overFullScreen
+//            alertVC.modalTransitionStyle = .crossDissolve
+//            self.present(alertVC, animated: true)
 //        }
-        DispatchQueue.main.async { [self] in
-            alertVC.modalPresentationStyle = .overFullScreen
-            alertVC.modalTransitionStyle = .crossDissolve
-            self.present(alertVC, animated: true)
-        }
-    }
+//    }
     
-    func presentAlertOnMainThread(id:Int, message: String,delegate:ConfirmationAlertDelgate){
+    func presentAlertOnMainThread(id:Int, message: String, delegate:ConfirmationAlertDelgate){
         let alertVC = ConfirmationAlert(id: id, message: message)
         alertVC.delgate = delegate
         DispatchQueue.main.async { [self] in

@@ -25,15 +25,7 @@ protocol DoctorProfileVMProtocol: ViewModelWithPaginatioProtocol {
 }
 
 class DoctorProfileVM<T: DoctorProfileVCProtocol>: ViewModelWithPagination<T>, DoctorProfileVMProtocol{
-    func checkUserToken(doctorID: Int, doctorName: String, appointmentTime:Int) {
-        if UserDefaultsManager.shared().token != nil {
-            self.view?.openVoucherPopUpView(doctorID: doctorID, doctorName: doctorName, appointmentTime: appointmentTime)
-        } else {
-            self.view?.openBookingWithAuthPopUpView(doctorID: doctorID, doctorName: doctorName, appointmentTime: appointmentTime)
-        }
-    }
-    
-    
+
     //View model proprety is in the parent class
     //view proprety in the parent class
     
@@ -85,6 +77,14 @@ class DoctorProfileVM<T: DoctorProfileVCProtocol>: ViewModelWithPagination<T>, D
     
     internal func perfromBookingAction(bookingInformation: (Int, String, Int) -> ()) {
         bookingInformation(doctorID, doctorName, appointmentTimestamp)
+    }
+    
+    func checkUserToken(doctorID: Int, doctorName: String, appointmentTime:Int) {
+        if checkForAuth() {
+            self.view?.openVoucherPopUpView(doctorID: doctorID, doctorName: doctorName, appointmentTime: appointmentTime)
+        } else {
+            self.view?.openBookingWithAuthPopUpView(doctorID: doctorID, doctorName: doctorName, appointmentTime: appointmentTime)
+        }
     }
     
     //this function hide favorite icon from the view when the user is not authrized
@@ -178,7 +178,7 @@ class DoctorProfileVM<T: DoctorProfileVCProtocol>: ViewModelWithPagination<T>, D
                 }
             }
         }  else {
-            view?.presentError()
+            view?.presentPopupOnMainThread(message: L10n.loginFirst, alertType: .withFaliure)
         }
     }
     

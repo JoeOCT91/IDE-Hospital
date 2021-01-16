@@ -9,7 +9,7 @@ import UIKit
 import CoreLocation
 import MapKit
 
-protocol DoctorProfileVCProtocol: PaginationVCProtocol {
+protocol DoctorProfileVCProtocol: PaginationVCProtocol, PopUPsProtocol {
     func setupAppointmentData(date: String)
     func setupDctorInformationData(doctorInformation: DoctorInformation)
     func setDoctorImage(image: Data)
@@ -18,7 +18,7 @@ protocol DoctorProfileVCProtocol: PaginationVCProtocol {
     func enableBookButton()
     func scrollTobegining()
     func disableBookButton()
-    func presentError()
+    //func presentError()
     func openVoucherPopUpView(doctorID: Int, doctorName: String, appointmentTime: Int)
     func openBookingWithAuthPopUpView(doctorID: Int, doctorName: String, appointmentTime: Int)
 }
@@ -37,16 +37,12 @@ class DoctorProfileVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
-        super.viewWillAppear(true)
         viewModel.getAllData()
         setupBackWithPopup()
         setupNavigationBar()
         setupSettingButton()
     }
-    override func viewDidAppear(_ animated: Bool) {
-        viewModel.getAllData()
-    }
+
     private func viewsSetup(){
         doctorProfileView.delgate = self
         setViewControllerTitle(to: L10n.searchResult)
@@ -77,7 +73,6 @@ extension DoctorProfileVC: DoctorProfileVCProtocol {
     func openBookingWithAuthPopUpView(doctorID: Int, doctorName: String, appointmentTime: Int) {
         let unRegisterdBooking = UnRegisteredBookingVC.create(doctorID: doctorID, doctorName: doctorName, appointmentTime: String(appointmentTime))
         unRegisterdBooking.delegate = self
-        //let navigationController = UINavigationController(rootViewController: unRegisterdBooking)
         unRegisterdBooking.modalPresentationStyle = .overFullScreen
         unRegisterdBooking.modalTransitionStyle = .crossDissolve
         present(unRegisterdBooking, animated: true)
@@ -137,9 +132,6 @@ extension DoctorProfileVC: DoctorProfileVCProtocol {
         doctorProfileView.scrollTobegining()
     }
     
-    internal func presentError() {
-        self.presentAlertOnMainThread(message: L10n.loginToBook, delegate: nil)
-    }
 }
 //MARK:- Reviews table View
 extension DoctorProfileVC: UITableViewDataSource, UITableViewDelegate {

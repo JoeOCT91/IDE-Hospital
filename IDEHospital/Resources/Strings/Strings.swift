@@ -206,6 +206,8 @@ internal enum L10n {
   internal static let serviceSearch = L10n.tr("Localizable", "serviceSearch")
   /// Set New Password
   internal static let setNewPassword = L10n.tr("Localizable", "setNewPassword")
+  /// SETTING
+  internal static let setting = L10n.tr("Localizable", "setting")
   /// About Us
   internal static let sideMenuAboutUs = L10n.tr("Localizable", "sideMenuAboutUs ")
   /// Booked Appointments

@@ -38,7 +38,7 @@ class SideMenuVC: UIViewController {
     
     private func configureNavigationBar(){
         setupNavigationBar(backgroundColor: ColorName.darkRoyalBlue.color)
-        setViewControllerTitle(to: "SETTING")
+        setViewControllerTitle(to: L10n.setting)
         setupBackWithDismiss()
     }
     

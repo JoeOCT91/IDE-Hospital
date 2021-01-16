@@ -6,8 +6,7 @@
 //
 
 import UIKit
-protocol SearchResultVCProtocol: class {
-    func presentErrorAlert(title:String,message: String)
+protocol SearchResultVCProtocol: PopUPsProtocol {
     func showLoader()
     func hideLoader()
     func addSelectedItem(tag:Int, item:String)
@@ -55,24 +54,23 @@ class SearchResultVC: UIViewController {
     }
 }
 extension SearchResultVC:SearchResultVCProtocol{
+    
     // MARK:- to SHow a label when there is no values in Table View
     func showEmptyDataLabel() {
         self.searchResultView.searchResultTableView.setNoDataPlaceholder(L10n.noSearchResult)
     }
+    
     // MARK:- to Reload Table View Values
     func reloadTableViewData() {
         self.searchResultView.searchResultTableView.reloadData()
     }
+    
     // MARK:- to Add Value in Filter Picker
     func addSelectedItem(tag: Int, item: String) {
         let texFiled = self.searchResultView.viewWithTag(tag) as! UITextField
         texFiled.text = item
     }
-    
-    func presentErrorAlert(title:String, message: String) {
-        self.presentAlertOnMainThread(message: message, alertType: .withFaliure)
-    }
-    
+        
     func showLoader() {
         self.view.showLoader()
     }

@@ -6,9 +6,9 @@
 //
 
 import UIKit
-protocol SignUpVCProtocol: class {
-    func presentSuccessAlert(title:String, message:String)
-    func presentErrorAlert(title:String,message: String)
+protocol SignUpVCProtocol: PopUPsProtocol {
+//    func presentSuccessAlert(title:String, message:String)
+//    func presentErrorAlert(title:String,message: String)
     func showLoader()
     func hideLoader()
 }
@@ -49,16 +49,8 @@ class SignUpVC: UIViewController {
     }
     
 }
-extension SignUpVC:SignUpVCProtocol{
-    
-    func presentSuccessAlert(title: String, message: String) {
-        self.presentAlertOnMainThread(message: message, alertType: AlertType.withSuccess, delegate: self)
-    }
-    
-    func presentErrorAlert(title:String,message: String) {
-        self.presentAlertOnMainThread(message: message)
-    }
-    
+extension SignUpVC: SignUpVCProtocol{
+
     func showLoader() {
         self.view.showLoader()
     }

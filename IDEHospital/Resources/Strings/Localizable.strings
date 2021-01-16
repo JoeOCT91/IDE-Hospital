@@ -147,3 +147,5 @@
 "passNotMatch" = "Passwords not match please recheck";
 "profileUpdated" = "Your profile updated successfully";
 "newIsSame" = "Entered new password is the same as old password, please change it";
+//Setting
+"setting" = "SETTING";

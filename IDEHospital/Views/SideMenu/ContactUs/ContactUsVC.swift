@@ -6,9 +6,7 @@
 //
 
 import UIKit
-protocol ContactUsVCProtocol: class {
-    func presentSuccessAlert(title:String, message:String)
-       func presentErrorAlert(title:String,message: String)
+protocol ContactUsVCProtocol: PopUPsProtocol {
        func showLoader()
        func hideLoader()
 }
@@ -44,15 +42,8 @@ class ContactUsVC: UIViewController {
     
 
 }
-extension ContactUsVC:ContactUsVCProtocol{
-    func presentSuccessAlert(title: String, message: String) {
-        self.presentAlertOnMainThread(message: message, alertType: .withSuccess, delegate: self)
-    }
-    
-    func presentErrorAlert(title:String,message: String) {
-        self.presentAlertOnMainThread(message: message, alertType: .withFaliure, delegate: nil)
-    }
-    
+extension ContactUsVC: ContactUsVCProtocol{
+
     func showLoader() {
         self.view.showLoader()
     }
