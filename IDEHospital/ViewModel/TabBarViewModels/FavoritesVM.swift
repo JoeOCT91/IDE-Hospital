@@ -29,10 +29,11 @@ class FavoritesVM<T: FavoritesVCProtocol>: ViewModelWithPagination<T>, Favorites
     private  func removeEmptyDataPlaceholder(){
         if !dataList.isEmpty { view?.hideEmptyTablePlaceHolder() }
     }
-
+    
     //Call data from the server
     func getData(){
         if UserDefaultsManager.shared().token != nil {
+            self.view?.tableViewIsEmpty(message: L10n.youHaveNoFavorites)
             self.view?.showLoader()
             APIManager.getFavorites(page: page) { [weak self] (result: Result<BaseResponse<Doctor>, Error>) in
                 guard let self = self else { return }
@@ -42,6 +43,7 @@ class FavoritesVM<T: FavoritesVCProtocol>: ViewModelWithPagination<T>, Favorites
                     self.isHasMorePages(pagesCount: favorites.data.totalPages)
                     self.page += 1
                     self.view?.hideLoader()
+                    self.removeEmptyDataPlaceholder()
                     self.view?.reloadTableview()
                 case .failure(let error):
                     self.view?.hideLoader()
