@@ -80,7 +80,10 @@ extension SideMenuVC: SideMenuVCProtocol {
     }
     
     func sharePressed() {
-       presentAlertOnMainThread(message: "",delegate: nil)
+        let name = URL(string: "https://itunes.apple.com/us/app/myapp/idxxxxxxxx?ls=1&mt=8")
+        let objectsToShare = [name]
+        let activityVC = UIActivityViewController(activityItems: objectsToShare as [Any], applicationActivities: nil)
+        self.present(activityVC, animated: true)
     }
     
     func termsAndConditionsPressed(){
