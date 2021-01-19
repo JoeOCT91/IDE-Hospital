@@ -386,8 +386,8 @@
 		861D576E258C28BC00EFED1D /* Appointments */ = {
 			isa = PBXGroup;
 			children = (
-				861D576F258C28DA00EFED1D /* AppointmentsView.swift */,
 				861D5774258C290300EFED1D /* AppointmentsVC.swift */,
+				861D576F258C28DA00EFED1D /* AppointmentsView.swift */,
 			);
 			path = Appointments;
 			sourceTree = "<group>";
@@ -638,7 +638,6 @@
 		863232E6257D73DF00514F5A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-
 				864B515525AE6025004403A1 /* User data */,
 				B2C6D20125B0E47A00037C0C /* UnRegisterBooking */,
 				862A8ACA25A396CF0038B898 /* Doctor Profle */,
